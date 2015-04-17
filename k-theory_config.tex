@@ -37,7 +37,7 @@
 \usepackage{mathtools}
 \usepackage{amsthm}
 \usepackage{amssymb}
-%\usepackage{dsfont}		    %for \mathds{letter} to create e.g. symbol Q
+\usepackage{dsfont}
 % \usepackage{stmaryrd}		%for math symbols like lightning bold
 % \usepackage{MnSymbol}
 
@@ -49,7 +49,7 @@
 %% index/bibliography
 \usepackage{makeidx}		%index with \makeindex in head (creates *.idx file)
 \makeindex
-\usepackage[backend=biber,style=alphabetic]{biblatex}	%use \printbibliography
+\usepackage[date=iso8601,backend=biber,style=alphabetic]{biblatex}	%use \printbibliography
 \bibliography{k-theory.bib}
 
 %% (nicer)tables
@@ -91,7 +91,9 @@
 \DeclareMathOperator{\Ker}{ker}
 \DeclareMathOperator{\bigcupdot}{\dot\bigcup}
 \DeclareMathOperator{\cupdot}{\dot\cup}
-
+\DeclareMathOperator{\F}{\mathds{F}}
+\DeclareMathOperator{\KF}{K_\ast\F}
+\DeclareMathOperator{\KnF}{K_n\F}
 \DeclarePairedDelimiter{\scp}{\langle}{\rangle}         % scalar product
 \newcommand{\nn}[1][\,\bullet\,]{\left\| #1 \right\|}	% norm
 
@@ -106,7 +108,6 @@
 \newcommand{\Q}{\mathds{Q}}
 \newcommand{\N}{\mathds{N}}
 \newcommand{\Z}{\mathds{Z}}
-\newcommand{\F}{\mathds{F}}
 \newcommand{\p}{\mathcal{P}}
 \newcommand{\pot}{\p(\Omega)}
 \newcommand{\K}{\mathcal{K}}
