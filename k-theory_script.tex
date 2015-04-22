@@ -22,8 +22,69 @@
 %------------
 
 \section{Wiederholung Milnor K-Theory}
+
+\begin{Bem}[Gruppentensorprodukt]
+  Für zwei Gruppen $G$, $H$ ist das 
+  \emph{Gruppentensorprodukt} $G\otimes H$ 
+  ähnlich dem Tensorprodukt zwischen Moduln definiert
+  über den Gruppenhomomorphismus
+  \begin{align*}
+    \tau\colon G\times H&\rightarrow G\otimes H\\
+    \intertext{mit der Eigenschaft}
+    \tau(g+g',h) &= \tau(g,h)+\tau(g',h)\\
+    \tau(g,h+h') &= \tau(g,h)+\tau(g,h')
+  \end{align*}
+und die universelle Eigenschaft, dass
+\begin{center}
+\begin{tikzcd}
+  G\times H 
+  \arrow[twoheadrightarrow]{r}{\tau} 
+  \arrow[swap]{rd}{\phi}
+  & G\otimes H 
+  \arrow[dashed]{d}{\exists! \widehat{\phi}}
+  \\
+  &G'
+\end{tikzcd}
+\end{center}
+für eine beliebige Gruppe $G'$ und einen Gruppenhomomorphismus $\phi$
+kommutiert.
+Sie $G\otimes H$ kann explizit angeben werden als der Quotient
+$(G\times H) / \mathcal{I}$ mit dem Ideal 
+\begin{align*}
+  \mathcal{I}\coloneqq \left(
+    \left\{(g+g',h)-(g,h)-(g',h), (g,h+h')-(g,h)-(g,h')
+    \mid g,g'\in G, h,h'\in H \right\}
+  \right)
+\end{align*}
+\end{Bem}
+
 \subsection{Der Ring $\KF$}
-\begin{Def}[$\KF$] \end{Def}
+Im Folgenden sei $\F$ ein Körper und $\Fx=\F\setminus \{0\}$ seine
+multiplikative Gruppe.
+
+\begin{Def}[$\KF$]
+Für einen Körper $\F$ definiert man
+\begin{enumerate}[i)]
+\item $\K_0\F\coloneqq \Z$
+\item $\K_1\F$ ist die multiplikative Gruppe $\Fx$ additiv geschrieben
+  vermöge des Gruppenhomomorphismus 
+  \begin{align*}
+    l\colon \Fx&\to K_1\F\\
+    l(ab)&=l(a)+l(b)
+  \end{align*}
+\item $\KnF, n\geq 2,$ ist der Quotient 
+  \begin{gather*}
+    {\K_1\F}^{\otimes n}/\A=\K_1\F\otimes\dotsb\otimes\K_1\F/\A
+  \end{gather*}
+  mit des $n$-fachen Gruppentensorprodukt von $\K_1\F$ über dem Ideal 
+  \begin{gather*}
+  \A=\left\{ l(a_1)\otimes\dotsb\otimes l(a_n)\in
+    {\K_1\F}^{\otimes n}
+    \mid
+    \exists 1\leq i\leq n \colon a_i+a_{i+1}=1 \right\}
+\end{gather*}
+\end{enumerate}
+\end{Def}
 
 %------------
 

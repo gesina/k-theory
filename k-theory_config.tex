@@ -52,6 +52,9 @@
 \usepackage[date=iso8601,backend=biber,style=alphabetic]{biblatex}	%use \printbibliography
 \bibliography{k-theory.bib}
 
+% commutative diagrams
+\usepackage{tikz-cd}
+
 %% (nicer)tables
 \usepackage{booktabs}
 %% hyperlinks
@@ -77,23 +80,15 @@
 \newtheorem{Fol}[Def]{Folgerung}
 
 % math operators
-\DeclareMathOperator{\D}{D}
-\DeclareMathOperator{\dd}{d}
 \DeclareMathOperator{\Rang}{rang}
 \DeclareMathOperator{\Sign}{sign}
-\DeclareMathOperator{\Eps}{eps}
-\DeclareMathOperator{\Tol}{tol}
-\DeclareMathOperator{\Cond}{cond}
-\DeclareMathOperator{\Givens}{givens}
-\DeclareMathOperator{\Supp}{supp}
-\DeclareMathOperator{\Span}{span}
 \DeclareMathOperator{\Const}{const}
 \DeclareMathOperator{\Ker}{ker}
-\DeclareMathOperator{\bigcupdot}{\dot\bigcup}
-\DeclareMathOperator{\cupdot}{\dot\cup}
 \DeclareMathOperator{\F}{\mathds{F}}
 \DeclareMathOperator{\KF}{K_\ast\F}
 \DeclareMathOperator{\KnF}{K_n\F}
+\DeclareMathOperator{\Fx}{\F^\times}
+\DeclareMathOperator{\K}{K}
 \DeclarePairedDelimiter{\scp}{\langle}{\rangle}         % scalar product
 \newcommand{\nn}[1][\,\bullet\,]{\left\| #1 \right\|}	% norm
 
@@ -110,7 +105,6 @@
 \newcommand{\Z}{\mathds{Z}}
 \newcommand{\p}{\mathcal{P}}
 \newcommand{\pot}{\p(\Omega)}
-\newcommand{\K}{\mathcal{K}}
 \newcommand{\A}{\mathcal{A}}
 \newcommand{\B}{\mathcal{B}}
 \newcommand{\E}{\mathcal{E}}
