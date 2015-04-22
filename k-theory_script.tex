@@ -80,27 +80,55 @@ multiplikative Gruppe.
       l(ab)&=l(a)+l(b)
     \end{align*}
   \item $\KnF, n\geq 2,$ ist der Quotient 
-    ${(\K_1\F)}^{\otimes n}/\A$
+    ${(\K_1\F)}^{\otimes n}/\A_n$
     des $n$-fachen Gruppentensorprodukts von $\K_1\F$ über dem Ideal 
     \begin{gather*}
-      \A=\left\{ l(a_1)\otimes\dotsb\otimes l(a_n)
+      \A_n=\left\{ l(a_1)\otimes\dotsb\otimes l(a_n)
         \in {(\K_1\F)}^{\otimes n}
         \mid
-        \exists 1\leq i < n \colon a_i+a_{i+1}=1, a_i\in\Fx \right\}
+        \exists 1\leq i < n \colon a_{i+1}=1-a_i, a_i\in\Fx \right\}
     \end{gather*}
-  \item $\KF\coloneqq \bigoplus_{n\in\N_0}\KnF$ und ist mit der
-    induzierten Addition auf $\KnF$ und dem Tensorprodukt als
-    Multiplikation ein graduierter Ring.
+  \item $\KF\coloneqq \bigoplus_{n\in\N_0}\KnF$
   \end{enumerate}
 \end{Def}
 
+
+\begin{Bem}
+  Mit der induzierten Addition und dem Tensorprodukt ist
+  \begin{align*}
+    \K &\coloneqq
+    \Z\oplus\bigoplus_{n\in\N_0}{(\K_1\F)}^{\otimes n}\\
+    &\,= \Z\oplus\K_1\F
+    \oplus(\K_1\F\otimes\K_1\F)
+    \oplus(\K_1\F\otimes\K_1\F\otimes\K_1\F)
+    \oplus\dotsb
+  \end{align*}
+  eine Algebra und
+  $\KF$ kann als Quotient geschrieben werden:
+  \begin{gather*}
+    \KF = \K / \left(l(a)\otimes l(1-a)\mid a\in\Fx\right)
+  \end{gather*}
+\end{Bem}
 % ------------
 
 \section{Diskrete Bewertungsringe und das zahme Symbol}
 \cite[][Lemma 2.1]{milnor}
 
 \subsection{Wiederholung Bewertungen}
-\begin{Def}[Bewertungsabbildung]\end{Def}
+\begin{Def}[Bewertungsabbildung]
+Eine Bewertung auf einem Körper $\F$ ist eine Abbildung
+\begin{gather*}
+  v:\Fx\to \Gamma
+\end{gather*}
+von $\Fx$ in eine total geordnete, abelsche Gruppe $(\Gamma, +,\geq)$,
+welche für $a,b\in\Fx$ die Eigenschaften erfüllt
+\begin{enumerate}[i)]
+\item $v(ab)=v(a)+v(b)$
+\item $v(a+b)\geq \min\{v(a),v(b)\}$
+\end{enumerate}
+Sie heißt diskret, falls $\Gamma=\Z$.
+\end{Def}
+
 \begin{Def}[Diskret bewertete Körper]\end{Def}
 
 \subsection{Das klassische Zahme Symbol}
