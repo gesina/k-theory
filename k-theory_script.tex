@@ -24,17 +24,28 @@
 \section{Wiederholung Milnor K-Theory}
 
 \begin{Bem}[Gruppentensorprodukt]
+  Eine Gruppe $G$ wird mit der Skalarmultiplikation
+  \begin{align*}
+    \Z \times G &\to G,\\
+    (n,g)&\mapsto \underbrace{g+\dotsb+g}_{\scriptsize\text{$n$-mal}}
+  \end{align*}
+  zu einem $\Z$-Modul.
   Für zwei Gruppen $G$, $H$ ist das 
-  \emph{Gruppentensorprodukt} $G\otimes H$ 
-  ähnlich dem Tensorprodukt zwischen Moduln definiert
-  über den Gruppenhomomorphismus
+  Gruppentensorprodukt $G\otimes H$
+  definiert als das Tensorprodukt der als $\Z$-Moduln
+  aufgefassten Gruppen $G$ und $H$.
+
+  Zu diesem existiert nach Definition eine 
+  entsprechende bilineare Abbildung
   \begin{align*}
     \tau\colon G\times H&\rightarrow G\otimes H\\
     \intertext{mit der Eigenschaft}
     \tau(g+g',h) &= \tau(g,h)+\tau(g',h)\\
-    \tau(g,h+h') &= \tau(g,h)+\tau(g,h')
+    \tau(g,h+h') &= \tau(g,h)+\tau(g,h')\\
+    \tau(n\cdot g, h) &= n\cdot \tau(g,h)= \tau(g,n\cdot h)\quad
+                        \forall n \in\Z
   \end{align*}
-  und die universelle Eigenschaft, dass
+  und es erfüllt die universelle Eigenschaft, dass
   \begin{center}
     \begin{tikzcd}
       G\times H 
@@ -48,7 +59,8 @@
   \end{center}
   für eine beliebige Gruppe $G'$ und einen Gruppenhomomorphismus $\phi$
   kommutiert.
-  Sie $G\otimes H$ kann explizit angeben werden als der Quotient
+
+  $G\otimes H$ kann explizit angeben werden als der Quotient
   $(G\times H) / \mathcal{I}$ mit dem Ideal 
   \begin{align*}
     \mathcal{I}\coloneqq \big(
@@ -69,22 +81,22 @@
 Im Folgenden sei $\F$ ein Körper und $\Fx=\F\setminus \{0\}$ seine
 multiplikative Gruppe.
 
-\begin{Def}[$\KF$]
+\begin{Def}[$\KF$]\label{defkf}
   Für einen Körper $\F$ definiert man
   \begin{enumerate}[i)]
-  \item $\K_0\F\coloneqq \Z$
-  \item $\K_1\F$ ist die multiplikative Gruppe $\Fx$ additiv geschrieben
+  \item $\K_0(\F)\coloneqq \Z$
+  \item $\K_1(\F)$ ist die multiplikative Gruppe $\Fx$ additiv geschrieben
     vermöge des Gruppenhomomorphismus 
     \begin{align*}
-      l\colon \Fx&\to K_1\F\\
+      l\colon \Fx&\to \K_1(\F)\\
       l(ab)&=l(a)+l(b)
     \end{align*}
   \item $\KnF, n\geq 2,$ ist der Quotient 
-    ${(\K_1\F)}^{\otimes n}/\A_n$
-    des $n$-fachen Gruppentensorprodukts von $\K_1\F$ über dem Ideal 
+    ${(\K_1(\F))}^{\otimes n}/\calA_n$
+    des $n$-fachen Gruppentensorprodukts von $\K_1(\F)$ über dem Ideal 
     \begin{gather*}
-      \A_n=\left\{ l(a_1)\otimes\dotsb\otimes l(a_n)
-        \in {(\K_1\F)}^{\otimes n}
+      \calA_n=\left\{ l(a_1)\otimes\dotsb\otimes l(a_n)
+        \in {(\K_1(\F))}^{\otimes n}
         \mid
         \exists 1\leq i < n \colon a_{i+1}=1-a_i, a_i\in\Fx \right\}
     \end{gather*}
@@ -94,21 +106,49 @@ multiplikative Gruppe.
 
 
 \begin{Bem}
-  Mit der induzierten Addition und dem Tensorprodukt ist
+  Mit der induzierten Addition und dem Tensorprodukt als
+  Multiplikation wird die direkte Summe aus $\Z$-Moduln
   \begin{align*}
-    \K &\coloneqq
-    \Z\oplus\bigoplus_{n\in\N_0}{(\K_1\F)}^{\otimes n}\\
-    &\,= \Z\oplus\K_1\F
-    \oplus(\K_1\F\otimes\K_1\F)
-    \oplus(\K_1\F\otimes\K_1\F\otimes\K_1\F)
+    \calK &\coloneqq
+    \Z\oplus\bigoplus_{n\in\N_0}{\Big(\K_1(\F)\Big)}^{\otimes n}\\
+    &\,= \Z\oplus\K_1(\F)
+      \oplus\Big(\K_1(\F)\otimes\K_1(\F)\Big)
+    \oplus\Big(\K_1(\F)\otimes\K_1\F\otimes\K_1(\F)\Big)
     \oplus\dotsb
   \end{align*}
-  eine Algebra und
+  zu einer $\Z$-Algebra, 
+  ohne Skalarmultiplikation zu einem kommutativen Ring und
   $\KF$ kann als Quotient geschrieben werden:
   \begin{gather*}
-    \KF = \K / \left(l(a)\otimes l(1-a)\mid a\in\Fx\right)
+    \KF = \calK / \left(l(a)\otimes l(1-a)\mid a\in\Fx\right)
   \end{gather*}
 \end{Bem}
+
+\begin{Bem}
+  Die Definitionen in \ref{defkf} können analog auch auf 
+  einem kommutativen, unitalen Ring $A$ angewendet werden,
+  wobei $\Fx$ der Einheitengruppe entspricht.
+\end{Bem}
+
+\begin{Not}
+  Im Folgenden wird ein Element $a\in\Fx$ mit seinem Bild
+  $l(a)\in\K_1(\F)$ identifiziert 
+  und die Addition \enquote{$\p$} in $\KF$
+  entspricht der Multiplikation \enquote{$\cdot$} in $\F$.
+  Für Elemente $a_1,a_2,\dotsc,a_n\in\Fx$ schreiben wir
+  \begin{align*}
+    \{ a_1,a_2,\dotsc,a_n\}
+    &\coloneqq l(a_1)\otimes l(a_2)\otimes \dotsb \otimes l(a_n) &\in\KF \\
+    \intertext{wobei aus den obigen Definitionen folgt}
+    \{ a_1 \cdot a_2 \}
+    &=  l(a_1)\p l(a_2)  &\in\KF \\
+    \{ a_1 \} \otimes \{ a_2 \}
+    &= \{ a_1,a_2 \} = l(a_1)\otimes l(a_2) &\in\KF \\
+    \{ a_1\cdot a_2 \} \otimes \{ a_3 \}
+    &= \{ a_1,a_3 \} \p \{a_1, a_2\} 
+      =  \big(l(a_1)\p l(a_2)\big) \otimes l(a_3) &\in\KF
+  \end{align*}
+\end{Not}
 % ------------
 
 \section{Diskrete Bewertungsringe und das zahme Symbol}
@@ -142,7 +182,7 @@ Sie heißt diskret, falls $\Gamma=\Z$.
 
 \section{Die spaltende exakte Milnor-Folge}
 \cite[][Theorem 2.3]{milnor}
-
+$+ \p$
 % BACKMATTER
 % ------------------------------------------------------------------
 % \backmatter

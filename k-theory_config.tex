@@ -38,6 +38,7 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{dsfont}
+\usepackage{mathabx}         % extra plus: \boxplus
 % \usepackage{stmaryrd}		%for math symbols like lightning bold
 % \usepackage{MnSymbol}
 
@@ -69,6 +70,7 @@
 \theoremstyle{definition}
 \newtheorem{Def}{Definition}[section]
 \newtheorem{Bsp}[Def]{Beispiel}
+\newtheorem{Not}[Def]{Notation}
 % \theoremstyle{remark}
 \newtheorem{Bem}[Def]{Bemerkung}
 \newtheorem{Wdh}[Def]{Wiederholung}
@@ -79,41 +81,30 @@
 \newtheorem{Kor}[Def]{Korollar}
 \newtheorem{Fol}[Def]{Folgerung}
 
-% math operators
-\DeclareMathOperator{\Rang}{rang}
-\DeclareMathOperator{\Sign}{sign}
+% math operators/symbols
 \DeclareMathOperator{\Const}{const}
 \DeclareMathOperator{\Ker}{ker}
+
+\DeclareMathOperator{\N}{\mathds{N}}
+\DeclareMathOperator{\Z}{\mathds{Z}}
+\DeclareMathOperator{\Q}{\mathds{Q}}
+\DeclareMathOperator{\R}{\mathds{R}}
+\DeclareMathOperator{\C}{\mathds{C}}
 \DeclareMathOperator{\F}{\mathds{F}}
-\DeclareMathOperator{\KF}{K_\ast\F}
-\DeclareMathOperator{\KnF}{K_n\F}
-\DeclareMathOperator{\Fx}{\F^\times}
+
 \DeclareMathOperator{\K}{K}
+\DeclareMathOperator{\KF}{\K_\ast(\F)}
+\DeclareMathOperator{\KnF}{\K_n(\F)}
+\DeclareMathOperator{\Fx}{\F^\times}
+
+\usepackage{MnSymbol}
+\DeclareMathOperator{\p}{\diamondplus}%{\bigplus}%{\boldsymbol +}}
+
+\DeclareMathOperator{\calA}{\mathcal{A}}
+\DeclareMathOperator{\calK}{\mathcal{K}}
+
 \DeclarePairedDelimiter{\scp}{\langle}{\rangle}         % scalar product
 \newcommand{\nn}[1][\,\bullet\,]{\left\| #1 \right\|}	% norm
-
-% NEW COMMANDS
-% ---------------------------------------------------------------
-% symbols
-\newcommand{\C}{\mathds{C}}
-\newcommand{\R}{\mathds{R}}
-\newcommand{\Ren}{\mathds{R}^{n}}
-\newcommand{\Renn}{\mathds{R}^{n\times n}}
-\newcommand{\Renm}{\mathds{R}^{n\times m}}
-\newcommand{\Q}{\mathds{Q}}
-\newcommand{\N}{\mathds{N}}
-\newcommand{\Z}{\mathds{Z}}
-\newcommand{\p}{\mathcal{P}}
-\newcommand{\pot}{\p(\Omega)}
-\newcommand{\A}{\mathcal{A}}
-\newcommand{\B}{\mathcal{B}}
-\newcommand{\E}{\mathcal{E}}
-\newcommand{\X}{\mathcal{X}}
-
-
-% missing images
-\newcommand{\imagemissing}[1]{%
-\par MISSING IMAGE\\#1 \par}	
 
 
 % STYLE SETTINGS
