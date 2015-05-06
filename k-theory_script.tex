@@ -3,21 +3,10 @@
 % DEFINITIONS etc.
 \input{k-theory_config}
 
-% \includeonly{chapters/numerik_chap4}
-
 
 \begin{document}
-
-% FRONTMATTER
-% ------------------------------------------------------------------
-% \frontmatter
 \maketitle
 \tableofcontents
-
-
-% CONTENT
-% ------------------------------------------------------------------
-% \mainmatter		% part for content
 
 % ------------
 
@@ -89,7 +78,7 @@ multiplikative Gruppe.
     vermöge des Gruppenhomomorphismus 
     \begin{align*}
       l\colon \Fx&\to \K_1(\F)\\
-      l(ab)&=l(a)+l(b)
+      l(ab)&=l(a)\p l(b)
     \end{align*}
   \item $\KnF, n\geq 2,$ ist der Quotient 
     ${(\K_1(\F))}^{\otimes n}/\calA_n$
@@ -105,7 +94,7 @@ multiplikative Gruppe.
 \end{Def}
 
 
-\begin{Bem}
+\begin{Bem}\label{identitaetkf}
   Mit der induzierten Addition und dem Tensorprodukt als
   Multiplikation wird die direkte Summe aus $\Z$-Moduln
   \begin{align*}
@@ -117,11 +106,32 @@ multiplikative Gruppe.
     \oplus\dotsb
   \end{align*}
   zu einer $\Z$-Algebra, 
-  ohne Skalarmultiplikation zu einem kommutativen Ring und
-  $\KF$ kann als Quotient geschrieben werden:
+  ohne Skalarmultiplikation zu einem kommutativen Ring.
+  Dieser ist graduiert, d.h. er ist die Summe abelscher Gruppen, 
+  der ${\K_1(\F)}^{\otimes n}$, mit einer Multiplikation, hier
+  \enquote{$\otimes$}, so dass gilt
+  \begin{gather*}
+    \forall i,j\in \N\colon 
+    \left( {\K_1(\F)}^{\otimes i} \right) \otimes
+    \left( {\K_1(\F)}^{\otimes j} \right)
+    \subset \left( {\K_1(\F)}^{\otimes ij} \right)
+  \end{gather*}
+  Die ${\KoF}^{\otimes n}$ können durch Einbettung als additive Untergruppen aufgefasst
+  werden, weshalb wir ein Element
+  $l(a_1)\otimes\dotsb\otimes l(a_n)\in {\KoF}^{\otimes n}$
+  mit seiner Einbettung in $\calK$ 
+  $\left(0,0,\dotsc,0,\left(l(a_1)\otimes\dotsb\otimes
+      l(a_n)\right),0,\dotsc\right)\in\KF$
+  identifizieren werden.
+  $\KF$ kann damit als Quotient geschrieben werden:
   \begin{gather*}
     \KF = \calK / \left(l(a)\otimes l(1-a)\mid a\in\Fx\right)
   \end{gather*}
+  Analog 
+  Diese Identität rührt daher, dass das Herausteilen 
+  der $(l(a)\otimes l(1-a))$-Elemente sowohl zuerst in den einzelnen
+  Untermoduln stattfinden kann, was die $\KnF$ ergibt, 
+  oder nach der Summenbildung.
 \end{Bem}
 
 \begin{Bem}
@@ -131,24 +141,104 @@ multiplikative Gruppe.
 \end{Bem}
 
 \begin{Not}
-  Im Folgenden wird ein Element $a\in\Fx$ mit seinem Bild
-  $l(a)\in\K_1(\F)$ identifiziert 
-  und die Addition \enquote{$\p$} in $\KF$
-  entspricht der Multiplikation \enquote{$\cdot$} in $\F$.
-  Für Elemente $a_1,a_2,\dotsc,a_n\in\Fx$ schreiben wir
+  Der Einfachheit halber wird im Folgenden
+  ein Element $a\in\Fx$ mit seinem Bild
+  $l(a)\in\K_1(\F)$ identifiziert, wobei wie oben 
+  die Addition \enquote{$\p$} in $\KF$
+  der Multiplikation \enquote{$\cdot$} in $\F$ entspricht.
+  Für Elemente $a_1,a_2,\dotsc,a_n\in\Fx$ wird
+  ein Produkt $l(a_1)\otimes\dotsb \otimes l(a_n)\in{\KoF}^{\otimes n}$ 
+  mit seiner Äquivalenzklasse in $\KnF$ 
+  bzw. dessen Einbettung in $\KF$ identifiziert
+  und wir schreiben
   \begin{align*}
     \{ a_1,a_2,\dotsc,a_n\}
     &\coloneqq l(a_1)\otimes l(a_2)\otimes \dotsb \otimes l(a_n) &\in\KF \\
     \intertext{wobei aus den obigen Definitionen folgt}
     \{ a_1 \cdot a_2 \}
-    &=  l(a_1)\p l(a_2)  &\in\KF \\
+    &=  \{a_1\}\p \{a_2\} = l(a_1)\p l(a_2)  &\in\KF \\
     \{ a_1 \} \otimes \{ a_2 \}
     &= \{ a_1,a_2 \} = l(a_1)\otimes l(a_2) &\in\KF \\
     \{ a_1\cdot a_2 \} \otimes \{ a_3 \}
     &= \{ a_1,a_3 \} \p \{a_1, a_2\} 
-      =  \big(l(a_1)\p l(a_2)\big) \otimes l(a_3) &\in\KF
+      =  \big(l(a_1)\p l(a_2)\big) \otimes l(a_3) &\in\KF\\
+    \{ a_1, a_2\} 
+    &= \m\{a_1^{-1},a_2\} = \m\{a_1,a_2^{-1}\} 
+      = \{a_1^{-1},a_2^{-1}\} &\in\KF                                                    
   \end{align*}
 \end{Not}
+
+Aus der zusätzlichen Forderung an den Ring $\KF$, 
+dass $\{a,1-a\}\equiv 0$ sein soll, ergeben sich neben Nullteilern 
+einige weitere interessante Eigenschaften.
+
+\begin{Lem}\label{identitaetminus}
+  Für ein $a \in\Fx$ gilt in $\KF$
+  \begin{gather*}
+    \{a,-a\}=0
+  \end{gather*}
+  \begin{proof}
+    Für den Fall $a=1$ ist $a$ das Nullelement von $\KoF$ und damit ist 
+    $\{a,-a\}=l(1)\otimes l(-1) = 0\otimes l(-1) = 0$.
+    Falls $a\neq 1$ gilt, kann $-a$ geschrieben werden als
+    $-a=\frac{1-a}{1-a^{-1}}$ und es gilt
+      \begin{align*}
+        \{a,-a\} &= \{a,(1-a)\cdot (1-a^{-1})^{-1}\}\\
+                 &= \{a,(1-a)\}\m\{a,(1-a^{-1})\} \\
+                 &= \underbrace{\{a,(1-a)\}}_{=0}
+                   \p\underbrace{\{a^{-1},(1-a^{-1})\}}_{=0} 
+                   =0
+      \end{align*}
+  \end{proof}
+\end{Lem}
+
+\begin{Lem}\label{identitaetmal}
+  Für $\chi\in\K_m(\F)$, $\zeta\in\K_n(\F)$ gilt
+  \begin{gather*}
+    \chi\zeta=(-1)^{mn}\zeta\chi
+  \end{gather*}
+  Insbesondere ergibt sich für $a,b\in \Fx$
+  \begin{gather*}
+    \{a,b\}= \m\{b,a\}
+  \end{gather*}
+  \begin{proof}
+    Da alle Elemente in $\KnF$ mit $n>1$ durch Multiplikation aus
+    $\KoF$ hervorgehen, genügt es, die Eigenschaft für
+    $\chi,\zeta\in\KoF$ zu überprüfen. Dann folgt es wegen
+    Assoziativität induktiv für zwei beliebige Elemente aus $\KF$.
+    Seien also $\chi=\{a\},\zeta=b\in\Fx$, dann gilt mit \ref{identitaetminus}
+    \begin{align*}
+      \{a,b\}\p \{b,a\} 
+      &= (\overbrace{\{a,-a\}}^{0} \p \{a,b\} )
+        \p (\{b,a\} \p \overbrace{\{b,-b\}}^{0} ) \\
+      &= \{ a,-ab \} \p \{b, -ab\}\\
+      &= \{ ab, -ab\} \overset{\ref{identitaetminus}}{=} 0
+    \end{align*}
+  \end{proof}
+\end{Lem}
+
+\begin{Lem}\label{identitaetquadrat}
+  Für jedes $a\in \Fx$ gilt die Identität
+  \begin{gather}
+    \{a\}^2 = \{a\}\{-1\} = \{-1\}\{a\}
+  \end{gather}
+  \begin{proof}
+    Der Beweis erfolgt wieder durch einfache Rechnung mit
+    \ref{identitaetminus}:
+    \begin{gather*}
+      \{a\}^2 = \{a,(-1)\cdot (-a)\} 
+      = \{a,-1\}\p\underbrace{\{a,-a\}}_{0} = \{a,-1\}
+    \end{gather*}
+    Mit $(-1)=(-1)^{-1}$ und \ref{identitaetmal} ist
+    \begin{gather*}
+      \{a\}^2 = \{a,-1\}= \m\{a,(-1)^{-1}\} = \{(-1)^{-1},a\} = \{-1,a\}
+    \end{gather*}
+    was die Kommutativität zeigt.
+  \end{proof}
+\end{Lem}
+
+
+
 % ------------
 
 \section{Diskrete Bewertungsringe und das zahme Symbol}
@@ -158,10 +248,10 @@ multiplikative Gruppe.
 \begin{Def}[Bewertungsabbildung]
 Eine Bewertung auf einem Körper $\F$ ist eine Abbildung
 \begin{gather*}
-  v:\Fx\to \Gamma
+  v\colon\Fx\to \Gamma
 \end{gather*}
 von $\Fx$ in eine total geordnete, abelsche Gruppe $(\Gamma, +,\geq)$,
-welche für $a,b\in\Fx$ die Eigenschaften erfüllt
+welche für $a,b\in\Fx$ folgende Eigenschaften erfüllt
 \begin{enumerate}[i)]
 \item $v(ab)=v(a)+v(b)$
 \item $v(a+b)\geq \min\{v(a),v(b)\}$
@@ -182,10 +272,10 @@ Sie heißt diskret, falls $\Gamma=\Z$.
 
 \section{Die spaltende exakte Milnor-Folge}
 \cite[][Theorem 2.3]{milnor}
-$+ \p$
-% BACKMATTER
+
+
 % ------------------------------------------------------------------
-% \backmatter
+
 \printindex
 % \listoffigures		
 % \listoftables
