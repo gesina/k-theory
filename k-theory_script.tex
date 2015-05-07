@@ -168,9 +168,11 @@ multiplikative Gruppe.
   \end{align*}
 \end{Not}
 
+\subsection{Identitäten auf $\KF$}
+
 Aus der zusätzlichen Forderung an den Ring $\KF$, 
 dass $\{a,1-a\}\equiv 0$ sein soll, ergeben sich neben Nullteilern 
-einige weitere interessante Eigenschaften.
+einige weitere interessante Eigenschaften der Elemente.
 
 \begin{Lem}\label{identitaetminus}
   Für ein $a \in\Fx$ gilt in $\KF$
@@ -237,6 +239,8 @@ einige weitere interessante Eigenschaften.
 \end{Lem}
 
 
+\section{$\K_2$ eines endlichen Körpers verschwindet}
+
 \begin{Lem}
   Für einen endlichen Körper $\F$ verschwindet $\KnF$ für $n\geq 2$.
   \begin{proof}
@@ -246,11 +250,11 @@ einige weitere interessante Eigenschaften.
 
     Ist $q=2$, muss $\F$ wie aus der Algebra bekannt ein
     Zerfällungskörper $k$-ten Grades von $\F_2$ mit entsprechend
-    $2^k$ Elementen bzw. $2^k-1$ Elementen in $\Fx$ sein.
+    $q^k=2^k$ Elementen bzw. $2^k-1$ Elementen in $\Fx$ sein.
     Nach dem kleinen Fermatschen Satz für die multiplikative Gruppe
-    $\Fx$ gilt damit $\forall a\in\Fx\colon a^{2^k-1}=1$, 
+    $\Fx$ mit $\Ord(\Fx)=2^k-1$ gilt damit $\forall a\in\Fx\colon a^{2^k-1}=1$, 
     d.h. $\forall a\in\Fx\colon a^{2^k} = a$.
-    Mit einem Erzeuger $a_0$ von $\Fx$ und zwei Elementen $a=a_0^j,
+    Mit einem Erzeuger $a_0$ von $\Fx$ und zwei beliebigen Elementen $a=a_0^j,
     b=a_0^i$ ist dann
     \begin{gather*}
       \{a,b\}=\{a_0^i, a_0^j\} = ij\{a_0,a_0\}
@@ -258,8 +262,70 @@ einige weitere interessante Eigenschaften.
       ij\{a_0,-a_0\} 
       \overset{\ref{identitaetminus}}{=} 0
     \end{gather*}
+
+    Falls $q>2$ kann genutzt werden, dass $\Char(\K_2\F)\leq 2$, 
+    d.h. $2\{a,b\}=0\;\forall a,b\in\Fx$,
+    denn für einen Erzeuger $a_0\in\Fx$ und
+    Elemente $a=a_0^i,b=a_0^j\in \Fx$ ist
+    \begin{gather*}
+      \{a,b\} = \{a_0^i,a_0^j\} = ij\{a_0,a_0\} 
+      \overset{\ref{identitaetmal}}{=} \m ij\{a_0,a_0\}
+      = \m \{a_0^i,a_0^j\} = \m\{a,b\} 
+    \end{gather*}
+    Damit verschwinden bereits alle Elemente der Form 
+    $\{a^2,b\}=2\{a,b\}=\{a,b^2\}$. Es bleibt demnach zu zeigen, dass
+    auch $\{a,b\}$ mit Nichtquadraten $a,b\in\Fx$
+    (d.h. $\not\exists a',b'\in\Fx\colon (a')^2=a,(b')^2=b$)
+    verschwinden.
+    Hierfür reicht es aus, $\{a,b\}$ mit fixen Nichtquadraten
+    $a,b\in\Fx$ zu betrachten, die wir mit $b=1-a$ wählen.
+    Denn das Produkt zweier Nichtquadrate ist wieder ein Quadrat,
+    wie wir gleich sehen werden, weshalb gilt
+    \begin{gather*}
+      \{c,d\}=\{(ca^{-1})a,(db^{-1})b\}=\{g^2a,h^2b\}
+      =\{a,b\}\p\{g^2,h^2\}\p\{g^2,b\}\p\{a,h^2\}
+      =\{a,b\}
+    \end{gather*}
+    für $c,d\in\Fx$ weitere Nichtquadrate, $g^2=ca^{-1},h^2=db^{-1}\in\Fx$
+    Quadrate (beachte: $a^{-1},b^{-1}$ Nichtquadrate).
+    Um zu zeigen, dass solche $a,b\in\Fx$ existieren mit
+    $b=1-a$, betrachte den Gruppenhomomorphismus
+    \begin{align*}
+      \phi\colon\Fx&\to \Fx
+      &x\mapsto x^2
+    \end{align*}
+    Es ist offensichtlich $\Ker(\phi)=\{1,-1\}$ (einzige Lösungen von
+    $x^2=1$), also ist nach dem Homomorphiesatz mit $\phi$ surjektiv
+    $\im(\phi)\cong \Fx/\{1,-1\}$. Damit ist die Anzahl der Quadrate
+    in $\Fx$ gleich der Ordnung von $\Fx/\{1,-1\}$, die nach dem Satz
+    von Lagrange
+    $\frac{\Ord(\Fx)}{\Ord(\{1,-1\})}=\frac{1}{2}\Ord(\Fx)$
+    beträgt, d.h. die
+    Hälfte aller Elemente sind Nichtquadrate bzw. Quadrate.
+    Dass das Produkt zweier Nichtquadrate ein Quadrat ist, 
+    folgt daraus, dass  die Menge der Quadrate als Bild eines surjektiven
+    Homomorphismus eine Untergruppe ist und $\Ord(\Fx/\{x^2\mid
+    x\in\Fx\})=2$ (wieder mit Lagrange). Also ist das Produkt zweier
+    Nichtquadrate im Quotienten Null, d.h. ein Quadrat.
+
+    Wende ich nun auf $\Fx\setminus\{1\}$ die Bijektion
+    \begin{align*}
+      \Fx\setminus\{-1\}&\to \Fx\setminus\{-1\}
+      &x\mapsto 1-x
+    \end{align*}
+    an, muss wegen der Überzahl der Nichtquadrate um 1 wenigstens ein
+    $a$ davon auf ein Nichtquadrat $1-a=b$ abgebildet werden, was die Existenz
+    von $a,b\in\Fx$ wie oben zeigt.
+    Für $\{a,b\}$ gilt nun:
+    \begin{gather*}
+      \{a,b\}=\{a,1-a\} \overset{\text{Def}}{=} 0
+    \end{gather*}
+    Damit sind alle Elemente in $\K_2\F$ bereits Null und $\K_2\F$
+    bzw. alle $\K_n\F,n\geq 2,$ verschwinden für einen endlichen
+    Körper $\F$.
   \end{proof}
 \end{Lem}
+
 
 
 % ------------
