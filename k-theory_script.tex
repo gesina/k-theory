@@ -229,14 +229,37 @@ einige weitere interessante Eigenschaften.
       \{a\}^2 = \{a,(-1)\cdot (-a)\} 
       = \{a,-1\}\p\underbrace{\{a,-a\}}_{0} = \{a,-1\}
     \end{gather*}
-    Mit $(-1)=(-1)^{-1}$ und \ref{identitaetmal} ist
+    Mit $(-1)=(-1)^{-1}$ und \ref{identitaetmal} folgt die Kommutativität
     \begin{gather*}
       \{a\}^2 = \{a,-1\}= \m\{a,(-1)^{-1}\} = \{(-1)^{-1},a\} = \{-1,a\}
     \end{gather*}
-    was die Kommutativität zeigt.
   \end{proof}
 \end{Lem}
 
+
+\begin{Lem}
+  Für einen endlichen Körper $\F$ verschwindet $\KnF$ für $n\geq 2$.
+  \begin{proof}
+    Nachdem alle $\KnF$ für $n>2$ aus $\K_2\F$ durch Multiplikation
+    hervorgehen, behandeln wir nur den Fall $n=2$.
+    Betrachte nun die Charakteristik $q=\Char(\F)$ von $\F$.
+
+    Ist $q=2$, muss $\F$ wie aus der Algebra bekannt ein
+    Zerfällungskörper $k$-ten Grades von $\F_2$ mit entsprechend
+    $2^k$ Elementen bzw. $2^k-1$ Elementen in $\Fx$ sein.
+    Nach dem kleinen Fermatschen Satz für die multiplikative Gruppe
+    $\Fx$ gilt damit $\forall a\in\Fx\colon a^{2^k-1}=1$, 
+    d.h. $\forall a\in\Fx\colon a^{2^k} = a$.
+    Mit einem Erzeuger $a_0$ von $\Fx$ und zwei Elementen $a=a_0^j,
+    b=a_0^i$ ist dann
+    \begin{gather*}
+      \{a,b\}=\{a_0^i, a_0^j\} = ij\{a_0,a_0\}
+      = -ij\{a_0,a_0^{2^k}\} = ij\{a_0, (-a_0)^{2^k}\} =
+      ij\{a_0,-a_0\} 
+      \overset{\ref{identitaetminus}}{=} 0
+    \end{gather*}
+  \end{proof}
+\end{Lem}
 
 
 % ------------
@@ -260,9 +283,6 @@ Sie heißt diskret, falls $\Gamma=\Z$.
 \end{Def}
 
 \begin{Def}[Diskret bewertete Körper]\end{Def}
-
-\subsection{Das klassische Zahme Symbol}
-\begin{Def}[klassisches Zahmes Symbol]\end{Def}
 
 \subsection{Das Zahme Symbol in der K-Theorie}
 \begin{Satz}[Existenz und Eindeutigkeit eines \enquote{Zahmes
