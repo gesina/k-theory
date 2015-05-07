@@ -84,24 +84,27 @@
 % math operators/symbols
 \DeclareMathOperator{\Const}{const}
 \DeclareMathOperator{\Ker}{ker}
+\DeclareMathOperator{\Char}{char}
 
-\DeclareMathOperator{\N}{\mathds{N}}
-\DeclareMathOperator{\Z}{\mathds{Z}}
-\DeclareMathOperator{\Q}{\mathds{Q}}
-\DeclareMathOperator{\R}{\mathds{R}}
-\DeclareMathOperator{\C}{\mathds{C}}
-\DeclareMathOperator{\F}{\mathds{F}}
+\newcommand{\N}{\mathds{N}}
+\newcommand{\Z}{\mathds{Z}}
+\newcommand{\Q}{\mathds{Q}}
+\newcommand{\R}{\mathds{R}}
+\newcommand{\C}{\mathds{C}}
+\newcommand{\F}{\mathds{F}}
 
 \DeclareMathOperator{\K}{K}
-\DeclareMathOperator{\KF}{\K_\ast(\F)}
-\DeclareMathOperator{\KnF}{\K_n(\F)}
-\DeclareMathOperator{\Fx}{\F^\times}
+\newcommand{\KF}{\K_\ast(\F)}
+\newcommand{\KnF}{\K_n(\F)}
+\newcommand{\KoF}{\K_1(\F)}
+\newcommand{\Fx}{\F^\times}
 
 \usepackage{MnSymbol}
-\DeclareMathOperator{\p}{\diamondplus}%{\bigplus}%{\boldsymbol +}}
+\newcommand{\p}{\diamondplus}%{\bigplus}%{\boldsymbol +}}
+\newcommand{\m}{\boldsymbol -}
 
-\DeclareMathOperator{\calA}{\mathcal{A}}
-\DeclareMathOperator{\calK}{\mathcal{K}}
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\calK}{\mathcal{K}}
 
 \DeclarePairedDelimiter{\scp}{\langle}{\rangle}         % scalar product
 \newcommand{\nn}[1][\,\bullet\,]{\left\| #1 \right\|}	% norm
