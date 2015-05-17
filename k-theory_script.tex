@@ -372,9 +372,27 @@ welche für $a,b\in\Fx$ folgende Eigenschaften erfüllt
 Sie heißt diskret, falls $\Gamma=\Z$.
 \end{Def}
 
-\begin{Def}[Diskret bewertete Körper]\end{Def}
+\begin{Wdh}[Diskret bewertete Körper]
+  Ein diskret bewerteter Körper ist ein Körper $\F$ mit einer
+  Bewertungsabbildung $\nu\colon \F\to \Z$.
+  Die Menge $R\coloneqq\left\{x\in \F\mid \nu(x)\geq 1\right\}$ bildet einen
+  lokalen Ring mit maximalem Ideal
+  $\frakm_\nu\coloneqq\left\{x\in\F\mid\nu(x)>1\right\}$,
+  Einheitengruppe $R^\times\coloneqq\left\{x\in\F\mid\nu(x)=1\right\}$
+  und den Eigenschaften $\Quot(R)=\F$ sowie 
+  $x\in R$ oder $x^{-1}\in R$ für alle $x\in\F$.
+  Ein Ring mit diesen Eigenschaften wird Bewertungsring genannt.
+  Der Körper $R/\frakm$ zum lokalen Ring $R$ wird Restklassenkörper
+  von $R$ genannt.
+\end{Wdh}
 
 \subsection{Das Zahme Symbol in der $K$-Theorie}
+Im Folgenden sei $\F$ ein diskret bewerteter Körper mit
+Bewertungsabbildung $\nu\colon \F\to\Z$ und
+$\overline{\F}$ der Restklassenkörper $R/\frakm$ seines
+zugehörigen Bewertungsringes $R=\left\{x\in\F\mid\nu(x)\geq1\right\}$
+über dessen Maximalideal $\frakm_\nu=\left\{x\in\F\mid\nu(x)>1\right\}$.
+
 \begin{Satz}[Existenz und Eindeutigkeit eines \enquote{Zahmes
     Symbol}-Homomorphismus]\end{Satz}
 
