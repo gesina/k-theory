@@ -13,7 +13,7 @@
 \section{Wiederholung Milnor K-Theory}
 
 \begin{Bem}[Gruppentensorprodukt]
-  Eine Gruppe $G$ wird mit der Skalarmultiplikation
+  Eine abelsche Gruppe $G$ wird mit der Skalarmultiplikation
   \begin{align*}
     \Z \times G &\to G,\\
     (n,g)&\mapsto \underbrace{g+\dotsb+g}_{\scriptsize\text{$n$-mal}}
@@ -28,7 +28,7 @@
   entsprechende bilineare Abbildung
   \begin{align*}
     \tau\colon G\times H&\rightarrow G\otimes H\\
-    \intertext{mit der Eigenschaft}
+    \intertext{mit der Eigenschaft (für $g,g'\in G$, $h,h'\in H$)}
     \tau(g+g',h) &= \tau(g,h)+\tau(g',h)\\
     \tau(g,h+h') &= \tau(g,h)+\tau(g,h')\\
     \tau(n\cdot g, h) &= n\cdot \tau(g,h)= \tau(g,n\cdot h)\quad
@@ -46,7 +46,7 @@
       &G'
     \end{tikzcd}
   \end{center}
-  für eine beliebige Gruppe $G'$ und einen Gruppenhomomorphismus $\phi$
+  für eine beliebige Gruppe $G'$ und einen eindeutigen Gruppenhomomorphismus $\phi$
   kommutiert.
 
   $G\otimes H$ kann explizit angeben werden als der Quotient
@@ -74,7 +74,8 @@ multiplikative Gruppe.
   Für einen Körper $\F$ definiert man
   \begin{enumerate}[i)]
   \item $\K_0(\F)\coloneqq \Z$
-  \item $\K_1(\F)$ ist die multiplikative Gruppe $\Fx$ additiv geschrieben
+  \item $\K_1(\F)$ ist die multiplikative Gruppe $\Fx$ 
+    additiv geschrieben mit Addition $\p$
     vermöge des Gruppenhomomorphismus 
     \begin{align*}
       l\colon \Fx&\to \K_1(\F)\\
@@ -86,8 +87,8 @@ multiplikative Gruppe.
     \begin{gather*}
       \calA_n=\left\{ l(a_1)\otimes\dotsb\otimes l(a_n)
         \in {(\K_1(\F))}^{\otimes n}
-        \mid
-        \exists 1\leq i < n \colon a_{i+1}=1-a_i, a_i\in\Fx \right\}
+        \mid  a_i\in\Fx,
+        \exists 1\leq i < n \colon a_{i+1}=1-a_i \right\}
     \end{gather*}
   \item $\KF\coloneqq \bigoplus_{n\in\N_0}\KnF$
   \end{enumerate}
@@ -116,28 +117,30 @@ multiplikative Gruppe.
     \left( {\K_1(\F)}^{\otimes j} \right)
     \subset \left( {\K_1(\F)}^{\otimes ij} \right)
   \end{gather*}
-  Die ${\KoF}^{\otimes n}$ können durch Einbettung als additive Untergruppen aufgefasst
+  Die ${\KoF}^{\otimes n}$ können durch Einbettung als additive 
+  Untergruppen von $\calK$ aufgefasst
   werden, weshalb wir ein Element
   $l(a_1)\otimes\dotsb\otimes l(a_n)\in {\KoF}^{\otimes n}$
-  mit seiner Einbettung in $\calK$ 
+  vorerst mit seiner Einbettung
   $\left(0,0,\dotsc,0,\left(l(a_1)\otimes\dotsb\otimes
-      l(a_n)\right),0,\dotsc\right)\in\KF$
-  identifizieren werden.
+      l(a_n)\right),0,\dotsc\right)\in\calK$
+  identifizieren.
   $\KF$ kann damit als Quotient geschrieben werden:
   \begin{gather*}
     \KF = \calK / \left(l(a)\otimes l(1-a)\mid a\in\Fx\right)
   \end{gather*}
-  Analog 
   Diese Identität rührt daher, dass das Herausteilen 
   der $(l(a)\otimes l(1-a))$-Elemente sowohl zuerst in den einzelnen
-  Untermoduln stattfinden kann, was die $\KnF$ ergibt, 
-  oder nach der Summenbildung.
+  Untermoduln stattfinden kann, was die $\KnF$ als Quotienten der
+  $\KoF^{\otimes n}$ ergibt, 
+  oder nach der Summenbildung, wie hier.
 \end{Bem}
 
 \begin{Bem}
-  Die Definitionen in \ref{defkf} können analog auch auf 
+  Die Definitionen in \ref{defkf} und die Äquivalenz in 
+  \ref{identitaetkf} können analog auch auf 
   einem kommutativen, unitalen Ring $A$ angewendet werden,
-  wobei $\Fx$ der Einheitengruppe entspricht.
+  wobei $\Fx$ der Einheitengruppe entspricht. Siehe \cite{kerzdipl,kerz}.
 \end{Bem}
 
 \begin{Not}
@@ -153,18 +156,19 @@ multiplikative Gruppe.
   und wir schreiben
   \begin{align*}
     \{ a_1,a_2,\dotsc,a_n\}
-    &\coloneqq l(a_1)\otimes l(a_2)\otimes \dotsb \otimes l(a_n) &\in\KF \\
+    &\coloneqq \overline{l(a_1)\otimes l(a_2)\otimes \dotsb \otimes l(a_n)} &\in\KF 
     \intertext{wobei aus den obigen Definitionen folgt}
+    \{1\}&=0 &\in\KF\\
     \{ a_1 \cdot a_2 \}
-    &=  \{a_1\}\p \{a_2\} = l(a_1)\p l(a_2)  &\in\KF \\
+    &=  \{a_1\}\p \{a_2\} = \overline{l(a_1)} \p \overline{l(a_2)}  &\in\KF \\
     \{ a_1 \} \otimes \{ a_2 \}
-    &= \{ a_1,a_2 \} = l(a_1)\otimes l(a_2) &\in\KF \\
+    &= \{ a_1,a_2 \} = \overline{l(a_1)\otimes l(a_2)} &\in\KF \\
     \{ a_1\cdot a_2 \} \otimes \{ a_3 \}
     &= \{ a_1,a_3 \} \p \{a_1, a_2\} 
-      =  \big(l(a_1)\p l(a_2)\big) \otimes l(a_3) &\in\KF\\
+      = \overline{\big(l(a_1)\p l(a_2)\big) \otimes l(a_3)} &\in\KF\\
     \{ a_1, a_2\} 
     &= \m\{a_1^{-1},a_2\} = \m\{a_1,a_2^{-1}\} 
-      = \{a_1^{-1},a_2^{-1}\} &\in\KF                                                    
+      = \{a_1^{-1},a_2^{-1}\} &\in\KF                               
   \end{align*}
 \end{Not}
 
@@ -186,6 +190,7 @@ einige weitere interessante Eigenschaften der Elemente.
     $-a=\frac{1-a}{1-a^{-1}}$ und es gilt
       \begin{align*}
         \{a,-a\} &= \{a,(1-a)\cdot (1-a^{-1})^{-1}\}\\
+                 &= \{a,(1-a)\}\p\{a,(1-a^{-1})^{-1}\} \\
                  &= \{a,(1-a)\}\m\{a,(1-a^{-1})\} \\
                  &= \underbrace{\{a,(1-a)\}}_{=0}
                    \p\underbrace{\{a^{-1},(1-a^{-1})\}}_{=0} 
@@ -250,7 +255,8 @@ einige weitere interessante Eigenschaften der Elemente.
 
     Ist $q=2$, muss $\F$ wie aus der Algebra bekannt ein
     Zerfällungskörper $k$-ten Grades von $\F_2$ mit entsprechend
-    $q^k=2^k$ Elementen bzw. $2^k-1$ Elementen in $\Fx$ sein.
+    $q^k=2^k$ Elementen bzw. $2^k-1$ Elementen in $\Fx$ sein und $\Fx$
+    ist zyklische Gruppe.
     Nach dem kleinen Fermatschen Satz für die multiplikative Gruppe
     $\Fx$ mit $\Ord(\Fx)=2^k-1$ gilt damit $\forall a\in\Fx\colon a^{2^k-1}=1$, 
     d.h. $\forall a\in\Fx\colon a^{2^k} = a$.
@@ -277,51 +283,69 @@ einige weitere interessante Eigenschaften der Elemente.
     auch $\{a,b\}$ mit Nichtquadraten $a,b\in\Fx$
     (d.h. $\not\exists a',b'\in\Fx\colon (a')^2=a,(b')^2=b$)
     verschwinden.
-    Hierfür reicht es aus, $\{a,b\}$ mit fixen Nichtquadraten
+    Hierfür reicht es – wie wir gleich sehen werden – aus,
+    $\{a,b\}$ mit fixen Nichtquadraten
     $a,b\in\Fx$ zu betrachten, die wir mit $b=1-a$ wählen.
-    Denn das Produkt zweier Nichtquadrate ist wieder ein Quadrat,
-    wie wir gleich sehen werden, weshalb gilt
+    
+    Betrachte vorerst den Gruppenhomomorphismus
+    \begin{gather*}
+      \phi\colon\Fx \to \Fx
+      \qquad x\mapsto x^2
+    \end{gather*}
+    Es ist offensichtlich $\Ker(\phi)=\{1,-1\}$ (einzige Lösungen von
+    $x^2=1$), also ist nach dem Homomorphiesatz wegen $\phi$ surjektiv
+    $\im(\phi)\cong \Fx/\{1,-1\}$. Damit ist die Anzahl der Quadrate
+    in $\Fx$ gleich der Ordnung von $\Fx/\{1,-1\}$, die nach dem Satz
+    von Lagrange
+    $\frac{\Ord(\Fx)}{\Ord(\{1,-1\})}=\frac{1}{2}\Ord(\Fx)$
+    beträgt, d.h. die Hälfte aller Elemente sind Nichtquadrate
+    bzw. Quadrate. Beachte hierbei, dass $-1\neq 1$ wegen $\Char(\F)>2$.
+
+    Jetzt brauchen wir noch, dass das Produkt zweier Nichtquadrate ein
+    Quadrat ist. Das folgt daraus, dass  die Menge 
+    $\{x^2\mid x\in\Fx\}$ der Quadrate 
+    als Bild eines surjektiven Homomorphismus eine Untergruppe ist und 
+    \begin{gather*}
+      \Ord(\Fx/\{x^2\mid x\in\Fx\})
+      =\frac{\Ord(\Fx)}{\Ord(\{x^2\mid x\in\Fx\})}
+      =\frac{\Ord(\Fx)}{\frac{1}{2}\Ord(\Fx)}=2
+      \quad\text{(wieder mit Lagrange).}
+    \end{gather*} 
+    Also ist $\Fx/\{x^2\mid x\in\Fx\}\cong \Z/2\Z$ und das Produkt 
+    zweier Nichtquadrate wird im Quotienten
+    $\Fx/\{x^2\mid x\in\Fx\}$ Null, weshalb es ein Quadrat in $\Fx$
+    sein muss.
+
+    Damit können wir nun zeigen, dass fixe Nichtquadrate $a,b\in\Fx$
+    ausreichen, denn es gilt für weitere Nichtquadrate $c,d\in\Fx$
     \begin{gather*}
       \{c,d\}=\{(ca^{-1})a,(db^{-1})b\}=\{g^2a,h^2b\}
       =\{a,b\}\p\{g^2,h^2\}\p\{g^2,b\}\p\{a,h^2\}
       =\{a,b\}
     \end{gather*}
-    für $c,d\in\Fx$ weitere Nichtquadrate, $g^2=ca^{-1},h^2=db^{-1}\in\Fx$
-    Quadrate (beachte: $a^{-1},b^{-1}$ Nichtquadrate).
-    Um zu zeigen, dass solche $a,b\in\Fx$ existieren mit
-    $b=1-a$, betrachte den Gruppenhomomorphismus
-    \begin{align*}
-      \phi\colon\Fx&\to \Fx
-      &x\mapsto x^2
-    \end{align*}
-    Es ist offensichtlich $\Ker(\phi)=\{1,-1\}$ (einzige Lösungen von
-    $x^2=1$), also ist nach dem Homomorphiesatz mit $\phi$ surjektiv
-    $\im(\phi)\cong \Fx/\{1,-1\}$. Damit ist die Anzahl der Quadrate
-    in $\Fx$ gleich der Ordnung von $\Fx/\{1,-1\}$, die nach dem Satz
-    von Lagrange
-    $\frac{\Ord(\Fx)}{\Ord(\{1,-1\})}=\frac{1}{2}\Ord(\Fx)$
-    beträgt, d.h. die
-    Hälfte aller Elemente sind Nichtquadrate bzw. Quadrate.
-    Dass das Produkt zweier Nichtquadrate ein Quadrat ist, 
-    folgt daraus, dass  die Menge der Quadrate als Bild eines surjektiven
-    Homomorphismus eine Untergruppe ist und $\Ord(\Fx/\{x^2\mid
-    x\in\Fx\})=2$ (wieder mit Lagrange). Also ist das Produkt zweier
-    Nichtquadrate im Quotienten Null, d.h. ein Quadrat.
+    wobei $ca^{-1}=g^2,db^{-1}=h^2$ für bestimmte $g,h\in\Fx$
+    wegen $a^{-1},b^{-1}$ Nichtquadrate.
 
-    Wende ich nun auf $\Fx\setminus\{1\}$ die Bijektion
+    Um zu zeigen, dass Nichtquadrate $a,b$ mit der gewünschten
+    Eigenschaft $b=a-1$ existieren, wende auf $\Fx\setminus\{1\}$ 
+    folgende Bijektion an
     \begin{align*}
-      \Fx\setminus\{-1\}&\to \Fx\setminus\{-1\}
+      \Fx\setminus\{1\}&\to \Fx\setminus\{1\}
       &x\mapsto 1-x
     \end{align*}
-    an, muss wegen der Überzahl der Nichtquadrate um 1 wenigstens ein
-    $a$ davon auf ein Nichtquadrat $1-a=b$ abgebildet werden, was die Existenz
+    Wegen der Überzahl der Nichtquadrate um 1 muss gemäß simpler
+    Kombinatorik wenigstens ein Nichtquadrat $a$  auf ein Nichtquadrat
+    $1-a=b$ abgebildet werden, was die Existenz
     von $a,b\in\Fx$ wie oben zeigt.
-    Für $\{a,b\}$ gilt nun:
+
+    Für beliebige Nichtquadrate $c,d\in\Fx$ gilt nun:
     \begin{gather*}
-      \{a,b\}=\{a,1-a\} \overset{\text{Def}}{=} 0
+      \{c,d\}=\{a,b\}=\{a,1-a\} \overset{\text{Def}}{=} 0
     \end{gather*}
-    Damit sind alle Elemente in $\K_2\F$ bereits Null und $\K_2\F$
-    bzw. alle $\K_n\F,n\geq 2,$ verschwinden für einen endlichen
+    Damit sind alle Elemente $\{a,b\}\in\Fx$, sowohl mit $a,b$
+    Nichtquadrate als auch mit einem oder beiden ein Quadrat, 
+    in $\K_2\F$ bereits Null und $\K_2\F$
+    bzw. damit alle $\K_n\F,n\geq 2,$ verschwinden für einen endlichen
     Körper $\F$.
   \end{proof}
 \end{Lem}
@@ -350,7 +374,7 @@ Sie heißt diskret, falls $\Gamma=\Z$.
 
 \begin{Def}[Diskret bewertete Körper]\end{Def}
 
-\subsection{Das Zahme Symbol in der K-Theorie}
+\subsection{Das Zahme Symbol in der $K$-Theorie}
 \begin{Satz}[Existenz und Eindeutigkeit eines \enquote{Zahmes
     Symbol}-Homomorphismus]\end{Satz}
 
