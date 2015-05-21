@@ -72,7 +72,7 @@ multiplikative Gruppe.
 
 \begin{Def}[$\KF$]\label{defkf}
   Für einen Körper $\F$ definiert man
-  \begin{enumerate}[i)]
+  \begin{enumerate}[a)]
   \item $\K_0(\F)\coloneqq \Z$
   \item $\K_1(\F)$ ist die multiplikative Gruppe $\Fx$ 
     additiv geschrieben mit Addition $\p$
@@ -361,37 +361,57 @@ einige weitere interessante Eigenschaften der Elemente.
 \begin{Def}[Bewertungsabbildung]
 Eine Bewertung auf einem Körper $\F$ ist eine Abbildung
 \begin{gather*}
-  v\colon\Fx\to \Gamma
+  v\colon\F\to \Gamma\cup \{\infty\}
 \end{gather*}
-von $\Fx$ in eine total geordnete, abelsche Gruppe $(\Gamma, +,\geq)$,
-welche für $a,b\in\Fx$ folgende Eigenschaften erfüllt
+wobei $(\Gamma, +,\geq)$ eine total geordnete, abelsche Gruppe ist
+und $v$ für $a,b\in\F$ folgende Eigenschaften erfüllt
 \begin{enumerate}[i)]
+\item $v(a)=\infty \Longleftrightarrow a=0$
 \item $v(ab)=v(a)+v(b)$
 \item $v(a+b)\geq \min\{v(a),v(b)\}$
 \end{enumerate}
-Sie heißt diskret, falls $\Gamma=\Z$.
+Sie heißt diskret, falls $\Gamma=\Z$ und $v$ surjektiv
+(d.h. insbesondere $v^{-1}(1)\neq \varnothing$).
 \end{Def}
 
+\begin{Wdh}[Bewertungsring]
+  Ein Integritätsring $R$ mit Quotientenkörper $\Quot(R)=\F$ heißt
+  Bewertungsring, falls $\forall x\in\F\colon x\in\R$ oder $x^{-1}\in\R$.
+\end{Wdh}
+
+
 \begin{Wdh}[Diskret bewertete Körper]
-  Ein diskret bewerteter Körper ist ein Körper $\F$ mit einer
-  Bewertungsabbildung $\nu\colon \F\to \Z$.
-  Die Menge $R\coloneqq\left\{x\in \F\mid \nu(x)\geq 1\right\}$ bildet einen
-  lokalen Ring mit maximalem Ideal
-  $\frakm_\nu\coloneqq\left\{x\in\F\mid\nu(x)>1\right\}$,
-  Einheitengruppe $R^\times\coloneqq\left\{x\in\F\mid\nu(x)=1\right\}$
-  und den Eigenschaften $\Quot(R)=\F$ sowie 
-  $x\in R$ oder $x^{-1}\in R$ für alle $x\in\F$.
-  Ein Ring mit diesen Eigenschaften wird Bewertungsring genannt.
-  Der Körper $R/\frakm$ zum lokalen Ring $R$ wird Restklassenkörper
-  von $R$ genannt.
+  Ein diskret bewerteter Körper ist ein Körper $\F$ mit einer diskreten
+  Bewertungsabbildung $ v\colon \F\to \Z$.
+  Die Menge $R\coloneqq\left\{x\in \F\mid  v(x)\geq 1\right\}$ bildet
+  einen Bewertungsring mit den Eigenschaften
+  % einen Integritätsring (tatsächlich sogar Hauptidealring) mit den Eigenschaften
+  \begin{enumerate}[i)]
+  % \item $\forall x\in\F\colon x\in\R$ oder $x^{-1}\in\R$
+  \item $\Quot(R)=\F$
+  \item Die Einheitengruppe ist $R^\times\coloneqq\left\{x\in\F\mid v(x)=1\right\}$
+  \item $R$ ist lokal mit maximalem Ideal
+    $\frakm_v\coloneqq\left\{x\in\F\mid v(x)>1\right\}$
+  \item Die Primelemente von $R$ sind genau die Elemente $\pi\in\R$ mit $v(\pi)=1$.
+  \end{enumerate}
+  %
+  % lokalen Ring mit maximalem Ideal
+  % $\frakm_v\coloneqq\left\{x\in\F\mid v(x)>1\right\}$,
+  % Einheitengruppe $R^\times\coloneqq\left\{x\in\F\mid v(x)=1\right\}$
+  % und den Eigenschaften $\Quot(R)=\F$ sowie 
+  % $x\in R$ oder $x^{-1}\in R$ für alle $x\in\F$.
+  %Ein Ring mit diesen Eigenschaften wird Bewertungsring genannt.
+  Der Körper $R/\frakm_v$ zum lokalen Ring $R$ heißt Restklassenkörper
+  von $R$.
 \end{Wdh}
 
 \subsection{Das Zahme Symbol in der $K$-Theorie}
 Im Folgenden sei $\F$ ein diskret bewerteter Körper mit
-Bewertungsabbildung $\nu\colon \F\to\Z$ und
+Bewertungsabbildung $ v\colon \F\to\Z$ und
 $\overline{\F}$ der Restklassenkörper $R/\frakm$ seines
-zugehörigen Bewertungsringes $R=\left\{x\in\F\mid\nu(x)\geq1\right\}$
-über dessen Maximalideal $\frakm_\nu=\left\{x\in\F\mid\nu(x)>1\right\}$.
+zugehörigen Bewertungsringes $R=\left\{x\in\F\mid v(x)\geq1\right\}$
+über dessen Maximalideal $\frakm_v=\left\{x\in\F\mid v(x)>1\right\}$.
+Außerdem bezeichnen wir die Einheitengruppe von $R$ mit 
 
 \begin{Satz}[Existenz und Eindeutigkeit eines \enquote{Zahmes
     Symbol}-Homomorphismus]\end{Satz}
