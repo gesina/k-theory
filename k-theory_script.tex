@@ -358,60 +358,282 @@ einige weitere interessante Eigenschaften der Elemente.
 \cite[][Lemma 2.1]{milnor}
 
 \subsection{Wiederholung Bewertungen}
-\begin{Def}[Bewertungsabbildung]
-Eine Bewertung auf einem Körper $\F$ ist eine Abbildung
-\begin{gather*}
-  v\colon\F\to \Gamma\cup \{\infty\}
-\end{gather*}
-wobei $(\Gamma, +,\geq)$ eine total geordnete, abelsche Gruppe ist
-und $v$ für $a,b\in\F$ folgende Eigenschaften erfüllt
-\begin{enumerate}[i)]
-\item $v(a)=\infty \Longleftrightarrow a=0$
-\item $v(ab)=v(a)+v(b)$
-\item $v(a+b)\geq \min\{v(a),v(b)\}$
-\end{enumerate}
-Sie heißt diskret, falls $\Gamma=\Z$ und $v$ surjektiv
-(d.h. insbesondere $v^{-1}(1)\neq \varnothing$).
+% \begin{Def}[Bewertungsabbildung]
+% Eine Bewertung auf einem Körper $\F$ ist eine Abbildung
+% \begin{gather*}
+%   v\colon\F\to \Gamma\cup \{\infty\}
+% \end{gather*}
+% wobei $(\Gamma, +,\geq)$ eine total geordnete, abelsche Gruppe ist
+% und $v$ für $a,b\in\F$ folgende Eigenschaften erfüllt
+% \begin{enumerate}[(1)]
+% \item $v(a)=\infty \Longleftrightarrow a=0$
+% \item $v(ab)=v(a)+v(b)$~~(d.h. $v|_{\Fx}$ ist Gruppenhomomorphismus)
+% \item $v(a+b)\geq \min\{v(a),v(b)\}$
+% \end{enumerate}
+% Sie heißt diskret, falls $\Gamma=\Z$ und $v$ surjektiv
+% (d.h. insbesondere $v^{-1}(1)\neq \varnothing$).
+% \end{Def}
+
+% \begin{Bsp}
+%   Ein bekanntes Beispiel, das auch bereits in der Algebra eingeführt
+%   wurde, ist die sog. $p$-adische Bewertung $v_p$ auf $\Q$ zu einem
+%   Primelement $p\in\Z$. Sie ist für $\frac{a}{b}\in\Q, a,b\in\Z$
+%   gegeben als die Differenz der Primpotenzen von $p$ in den
+%   Primfaktorzerlegungen von $a$ und $b$.
+%   Also wäre z.B. $v_3(\frac{15}{9}=v_3(\frac{3^1\cdot 5^1}{3^2})=1-2=-1$.
+% \end{Bsp}
+
+\begin{Def}[Bewertungsring]\label{defbewertungsring}
+  Ein Integritätsring $R$ mit Quotientenkörper $\Quot(R)=\F$ heißt
+  Bewertungsring, falls $\forall x\in\F\colon x\in\R$ oder
+  $x^{-1}\in\R$.
+  Wir sagen auch $R$ ist Bewertungsring zum Körper $\F$.
 \end{Def}
 
-\begin{Wdh}[Bewertungsring]
-  Ein Integritätsring $R$ mit Quotientenkörper $\Quot(R)=\F$ heißt
-  Bewertungsring, falls $\forall x\in\F\colon x\in\R$ oder $x^{-1}\in\R$.
-\end{Wdh}
-
-
-\begin{Wdh}[Diskret bewertete Körper]
-  Ein diskret bewerteter Körper ist ein Körper $\F$ mit einer diskreten
-  Bewertungsabbildung $ v\colon \F\to \Z$.
-  Die Menge $R\coloneqq\left\{x\in \F\mid  v(x)\geq 1\right\}$ bildet
-  einen Bewertungsring mit den Eigenschaften
-  % einen Integritätsring (tatsächlich sogar Hauptidealring) mit den Eigenschaften
+\begin{Lem}[Eigenschaften Bewertungsringe]\label{eigbewertungsring}
+  Sei $R$ Bewertungsring zum Körper $\F$, dann gilt
   \begin{enumerate}[i)]
-  % \item $\forall x\in\F\colon x\in\R$ oder $x^{-1}\in\R$
-  \item $\Quot(R)=\F$
-  \item Die Einheitengruppe ist $R^\times\coloneqq\left\{x\in\F\mid v(x)=1\right\}$
-  \item $R$ ist lokal mit maximalem Ideal
-    $\frakm_v\coloneqq\left\{x\in\F\mid v(x)>1\right\}$
-  \item Die Primelemente von $R$ sind genau die Elemente $\pi\in\R$ mit $v(\pi)=1$.
+  \item Die Ideale von $R$ sind total geordnet bzgl. 
+    \enquote{$\subset$} und $R$ ist lokal.
+  \item Es gibt eine zu $R$ bzw. $\F$ zugehörige Abbildung
+    $v\colon\F\to\Gamma\cup\{\infty\}$ in die total geordnete, abelsche Gruppe
+    $\Gamma\coloneqq \Fx/R^\times$ vereinigt mit ihrem Supremum $\infty$, wobei $v$ erfüllt
+    \begin{enumerate}[(1)]
+    \item $v(a)=\infty \Longleftrightarrow a=0$
+    \item $v(ab)=v(a)+v(b)$~~(d.h. $v|_{\Fx}$ ist Gruppenhomomorphismus)
+    \item $v(a+b)\geq \min\{v(a),v(b)\}$
+    \end{enumerate}
+    Eine solche Abbildung, die i)-iii) erfüllt,
+    wird Bewertungsabbildung genannt.
+    $R$ heißt auch Bewertungsring zur Bewertung $v$.
+  \item $v$ ist bis auf Verknüpfung mit ordnungserhaltenden 
+    Gruppenisomorphismen auf $\Gamma$ eindeutig.
+    Ein entsprechendes $v$ ist über $v|_{R}$ bereits eindeutig 
+    bestimmt.
   \end{enumerate}
-  %
-  % lokalen Ring mit maximalem Ideal
-  % $\frakm_v\coloneqq\left\{x\in\F\mid v(x)>1\right\}$,
-  % Einheitengruppe $R^\times\coloneqq\left\{x\in\F\mid v(x)=1\right\}$
-  % und den Eigenschaften $\Quot(R)=\F$ sowie 
-  % $x\in R$ oder $x^{-1}\in R$ für alle $x\in\F$.
-  %Ein Ring mit diesen Eigenschaften wird Bewertungsring genannt.
-  Der Körper $R/\frakm_v$ zum lokalen Ring $R$ heißt Restklassenkörper
-  von $R$.
-\end{Wdh}
+
+  \begin{proof}
+    \begin{enumerate}[i)]
+    \item Wir zeigen, dass für zwei Ideale $I\neq J\subset R$ bereits
+      eines das andere enthalten muss. Es gebe also OBdA ein $x\in I$
+      mit $x\not\in J$. Für ein $y\in J$ ist $\frac{x}{y}\not\in\R$,
+      da sonst $y\cdot \frac{x}{y}=x\in J$ gelten würde.
+      Weil $R$ Bewertungsring ist, muss aber
+      $(\frac{x}{y})^{-1}=\frac{y}{x}\in R$ gelten und $y=x\cdot
+      \frac{y}{x}\in I$. Damit muss $J\subsetneq I$ sein und die
+      Ideale total geordnet bzgl. \enquote{$\subset$}.
+      Weil es nur ein maximales Element bzgl. einer totalen Ordnung
+      gibt, kann $R$ nur ein maximales Ideal haben und ist somit
+      lokal.
+    \item Für die Konstruktion einer solchen Bewertungsabbildung
+      benötigen wir die totale Ordnung auf der entsprechenden Gruppe $\Gamma$.
+      Es ist
+      \begin{gather*}
+        \Gamma \coloneqq \left\{ xR \mid x\in \Fx \right\}\cong\Fx/R^{\times}
+      \end{gather*}
+      mit der Verknüpfung $xR\cdot yR=(xy)R$ (später additiv
+      geschrieben) eine Gruppe. Die umgekehrte Ordnungsrelation
+      auf $\Gamma$
+      \begin{gather*}
+        xR\leq yR \Longleftrightarrow xR \supset yR
+      \end{gather*}
+      ist wegen i) total, denn die Ordnung der Ideale ist bereits total.
+      Definieren wir nun $v$ über
+      \begin{align*}
+        \forall x\in \Fx\colon\;v(x)&\coloneqq xR\in\Gamma
+        &v(0)&\coloneqq \infty
+      \end{align*}
+      ist $v$ eine Bewertungsabbildung. 
+    \item Dass ein entsprechendes $v$ aus ii) bereits eindeutig
+      durch $v|_{R}$ definiert ist, folgt leicht aus
+      \begin{gather*}
+        v(x)+v(x^{-1}) = v(x\cdot x^{-1}) = v(1) = R  =
+        \text{Nullelement in }\Gamma.
+        \Longrightarrow v(x^{-1})=-v(x)
+      \end{gather*}
+      und $x\in R$ oder $x^{-1}\in R$ für alle $x\in K$ wegen $R$
+      Bewertungsring.
+      Die Eindeutigkeit von $v$ bis auf Isomorphie folgt aus der
+      Konstruktion.
+    \end{enumerate}
+  \end{proof}
+\end{Lem}
+
+
+Tatsächlich ist ein Integritätsring genau dann
+ein Bewertungsring nach Definition \ref{defbewertungsring},
+wenn man eine Bewertungsabbildung $v$ zu $R$ findet,
+ wie wir jetzt sehen werden.
+
+\begin{Lem}\label{bewertungsringausbewertung}
+  Sei $\Fx$ ein Körper mit einer Bewertungsabbildung
+  $v\colon\F\to\Gamma\cup\{\infty\}$ in eine total geordnete, abelsche Gruppe
+  $\Gamma$. Dann gilt:
+  \begin{enumerate}[i)]
+  \item   Die Menge $R\coloneqq\left\{x\in \F\mid  v(x)\geq 0\right\}$ bildet
+    einen Bewertungsring zu $\F$ (d.h. $\Quot(R)=\F$).
+  \item Die Einheitengruppe von $R$ ist 
+    $R^\times\coloneqq\left\{x\in\F\mid v(x)=0\right\}$
+  \item Das maximale Ideal von $R$ ist
+    $\frakm_v\coloneqq\left\{x\in\F\mid v(x)>1\right\}$
+  \end{enumerate}
+
+  \begin{proof}
+    \begin{enumerate}[i)]
+    \item $R$ ist mit unter Multiplikation und Addition abgeschlossen, da für
+      $x,y\in R$, d.h. $v(x),v(y)\geq 0$, 
+      gilt $v(xy)=v(x)+v(y)\geq 0$ und 
+      $v(x+y)\geq \min\{v(x),v(y)\}\geq 0$, also $xy, x+y\in R$.
+      Es ist auch $1\in R$ wegen $v(1)=0\geq 0$.
+      $R$ wird somit  zum Unterring von $\F$ und ist als solcher integer.
+      Außerdem ist für ein $x\in \F$ entweder $v(x)<0$
+      und damit $v(x^{-1})=-v(x)>0$ also $x^{-1}\in R$ oder es ist
+      bereits $v(x)\geq 0$, d.h. $x\in R$.
+      Wir erhalten, dass $R$ nach Definition \ref{defbewertungsring}
+      ein Bewertungsring ist.
+    \item Für eine Einheit $x\in R$ muss gelten, dass $x\in R$,
+      d.h. $v(x)\geq 0$, und $x^{-1}\in R$, d.h. $v(x^{-1})=-v(x)\geq 0$. 
+      $x$ erfüllt also $v(x)\leq 0 \geq v(x)$, woraus bereits $v(x)=0$
+      folgt.
+      Umgekehrt genauso, denn für $x\in R$ mit $v(x)=0$ ist auch
+      $x^{-1}\in R$, da $v(x^{-1})=-v(x)=0\geq 0$.
+    \item $\frakm_v$ ist nach denselben Argumenten wie in i)
+      multiplikativ (bzgl. ganz $R$) und additiv (bzgl. sich selbst)
+      abgeschlossen und liegt in $R$, ist demnach ein Ideal.
+      Jedes echte Ideal darf keine Einheit enthalten, was nach ii) bedeutet,
+      das alle Ideale nur Elemente in $\frakm_v$ enthalten
+      können. $\frakm_v$ ist also maximal.
+    \end{enumerate}
+  \end{proof}
+\end{Lem}
+
+\begin{Kor}
+  Ein Integritätsring $R$ ist genau dann ein Bewertungsring, wenn es
+  eine auf $R$ definierte Bewertungsabbildung $v$ mit $v(x)\geq
+  0\;\forall x\in R$ gibt.
+  \begin{proof}
+    \begin{itemize}
+    \item[\enquote{$\Rightarrow$}] Eine entsprechende Abbildung
+      existiert nach \ref{eigbewertungsring}.
+    \item[\enquote{$\Leftarrow$}] Nach \ref{eigbewertungsring}ii)
+      kann ich $v$ eindeutig auf den gesamten Quotientenkörper von
+      $R$ fortsetzen, wobei dann offensichtlich $R=\{x\in\F\mid
+      v(x)\geq 0\}$ gilt. Wende ich \ref{bewertungsringausbewertung}
+      auf $\F$ mit $v$ an, erhalte ich, dass $R$ Bewertungsring ist.
+    \end{itemize}
+  \end{proof}
+\end{Kor}
+
+\begin{Bsp}
+  Ein Beispiel eines Bewertungsringes ist $\Z_{(p)}$ mit der $p$-adischen
+  Bewertung $v_p$ zu einem Primelement $p$, 
+  wie sie in der Algebra eingeführt wurde: 
+  $v_p$ liefert zu einem 
+  $a=u\cdot p^{n}\cdot p_1^{n_1}\cdot p_2^{n_2}\dotsm\in\Z $ 
+  den Exponenten $n$ von $p$ in der zu $a$ gehörigen Primfaktorzerlegung,
+  was $\Z_{(p)}$ zu einem Bewertungsring macht.
+\end{Bsp}
+
+Mithilfe der $K$-Theorie können einige schöne Aussagen zu einer
+speziellen Form bewerteter Körper getroffen werden, den diskret
+bewerteten Körpern. Allerdings benötigen wir hierzu noch die wichtige
+Eigenschaft, dass Elemente solcher Körper sich als Produkte aus einem speziellen
+Primelement und Einheiten ihres Bewertungsrings darstellen lassen.
+
+\begin{Def}
+  Eine Bewertungsabbildung $v\colon\F\to\Gamma\cup\{\infty\}$
+  auf einem Körper $\F$ heißt diskret, falls $\Gamma=\Z$ gewählt
+  werden kann und $v$ surjektiv ist (insbes. $v^{-1}(1)\neq \varnothing$).
+  Ein Bewertungsring heißt diskret, falls die zugehörige Bewertung
+  diskret ist.
+\end{Def}
+
+\begin{Lem}\label{bewertungsringhir}
+  Für einen Bewertungsring $R$ sind äquivalent
+  \begin{enumerate}[i)]
+  \item $R$ ist diskret
+  \item $R$ ist Hauptidealring
+  \end{enumerate}
+  \begin{proof}
+    Sei $R$ ein Bewertungsring zum Körper $\F$ mit Bewertung $v$.
+    \begin{itemize}
+    \item[i)$\Rightarrow$ii)] Sei $R$ diskret.
+      Jetzt nutzen wir die Surjektivität (auch 
+      Normiertheit genannt) von $v$ und wählen ein Element $\pi\in R$
+      mit $v(\pi)=1$. Da $\Gamma=\Z$ ist und $\Z$ von 1 erzeugt wird,
+      gilt für ein beliebiges Element $x\in R$, dass 
+      $v(x)=k=k\cdot 1=1+1+\dotsb$. Damit ist 
+      $v(\frac{x}{\pi^k})=v(x)-v(\pi^k)= k-k\cdot 1=0$, d.h. $x$ und 
+      $\pi^k$ unterscheiden sich bloß um eine Einheit $u\in R$, s.d.
+      $x=\pi^k \cdot u$.
+      Nachdem alle Ideale nun allein Elemente der Form $\pi^k\cdot u$
+      mit Einheit $u\in R$ enthalten, ist jedes Ideal $R\neq I\neq 0$ 
+      erzeugt vom Element $\pi^k$ mit 
+      $k=\min\{k\in\Z_{>0}\mid \exists x=\pi^k\cdot u\in I, u\in R^\times\}$
+      der kleinste Exponent, der unter Elementen in $I$ auftritt.
+      Es folgt, dass alle Ideale von einem Element erzeugt sind und
+      $R$ ist Hauptidealring.
+    \item[ii)$\Rightarrow$i)] Im Hauptidealring $R$ schreibe das 
+      Maximalideal $\frakm=(\pi)$. Dann kann eine Bewertung
+      konstruiert werden, die zu $x\in R$ den maximalen Exponenten $k$ liefert, 
+      für den $a\in (\pi^k)$ gilt.
+      Die Wohldefiniertheit folgt daraus, dass
+      $\bigcap_{k=1}^{\infty}\pi^k=0$ ist in einem Hauptidealring.
+    \end{itemize}
+  \end{proof}
+\end{Lem}
+
+
+\begin{Bem}
+  Ein diskreter Bewertungsring ist nach \ref{bewertungsringhir}
+  lokaler Hauptidealring mit seinem Maximalideal als einzigem 
+  Primideal (in Hauptidealringen sind alle Primideale maximal),
+  welches von der Form $\frakm_v=(\pi)$ für ein Primelement $\pi$ ist.
+  Die Primelemente in $R$ sind folglich genau die $p\in R$ mit $v(p)=1$, 
+  genau die mit $\pi$ assoziierten Elemente.
+  Wie im Beweis von \ref{bewertungsringhir} kann jedes Element $0\neq x\in R$
+  in der Form $x=\pi^k\cdot u$, $k\in\N_0$, $u\in R^\times$ geschrieben werden.
+  Erweitert man $v$ auf den Quotientenkörper, erhält man
+  \begin{gather*}
+    \forall 0\neq x\in \F\colon\;
+    \exists k\in\Z, u\in R^\times\colon\; x=\pi^k\cdot u
+  \end{gather*}
+\end{Bem}
+
+
+% \begin{Wdh}[Diskret bewertete Körper]
+%   Ein diskret bewerteter Körper ist ein Körper $\F$ mit einer diskreten
+%   Bewertungsabbildung $ v\colon \F\to \Z$.
+%   Die Menge $R\coloneqq\left\{x\in \F\mid  v(x)\geq 1\right\}$ bildet
+%   einen Bewertungsring mit den Eigenschaften
+%   % einen Integritätsring (tatsächlich sogar Hauptidealring) mit den Eigenschaften
+%   \begin{enumerate}[i)]
+%   % \item $\forall x\in\F\colon x\in\R$ oder $x^{-1}\in\R$
+%   \item $\Quot(R)=\F$
+%   \item Die Einheitengruppe ist $R^\times\coloneqq\left\{x\in\F\mid v(x)=0\right\}$
+%   \item $R$ ist lokal mit maximalem Ideal
+%     $\frakm_v\coloneqq\left\{x\in\F\mid v(x)>1\right\}$
+%   \item Die Primelemente von $R$ sind genau die Elemente $\pi\in\R$ mit $v(\pi)=1$.
+%   \end{enumerate}
+%   %
+%   % lokalen Ring mit maximalem Ideal
+%   % $\frakm_v\coloneqq\left\{x\in\F\mid v(x)>1\right\}$,
+%   % Einheitengruppe $R^\times\coloneqq\left\{x\in\F\mid v(x)=1\right\}$
+%   % und den Eigenschaften $\Quot(R)=\F$ sowie 
+%   % $x\in R$ oder $x^{-1}\in R$ für alle $x\in\F$.
+%   %Ein Ring mit diesen Eigenschaften wird Bewertungsring genannt.
+%   Der Körper $R/\frakm_v$ zum lokalen Ring $R$ heißt Restklassenkörper
+%   von $R$.
+% \end{Wdh}
 
 \subsection{Das Zahme Symbol in der $K$-Theorie}
 Im Folgenden sei $\F$ ein diskret bewerteter Körper mit
 Bewertungsabbildung $ v\colon \F\to\Z$ und
-$\overline{\F}$ der Restklassenkörper $R/\frakm$ seines
-zugehörigen Bewertungsringes $R=\left\{x\in\F\mid v(x)\geq1\right\}$
-über dessen Maximalideal $\frakm_v=\left\{x\in\F\mid v(x)>1\right\}$.
-Außerdem bezeichnen wir die Einheitengruppe von $R$ mit 
+$\overline{\F}$ der Restklassenkörper $R/\frakm_v$ 
+des zugehörigen Bewertungsrings $R=\left\{x\in\F\mid v(x)\geq0\right\}$
+über dessen Maximalideal $\frakm_v=\left\{x\in\F\mid v(x)>0\right\}=(\pi)$.
+Wir bezeichnen die Einheitengruppe $R^\times$ von $R$ mit 
+$U=\{x\in R\mid v(x)=0\}$.
 
 \begin{Satz}[Existenz und Eindeutigkeit eines \enquote{Zahmes
     Symbol}-Homomorphismus]\end{Satz}
