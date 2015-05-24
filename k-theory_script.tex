@@ -636,7 +636,41 @@ Wir bezeichnen die Einheitengruppe $R^\times$ von $R$ mit
 $U=\{x\in R\mid v(x)=0\}$.
 
 \begin{Satz}[Existenz und Eindeutigkeit eines \enquote{Zahmes
-    Symbol}-Homomorphismus]\end{Satz}
+    Symbol}-Homomorphismus]
+Es gibt einen eindeutigen Homomorphismus 
+$\partial_v\colon \KnF\to \K_{n-1}(\bF)$ (weiterhin als
+$\partial$ abgekürzt), der für alle Primelemente $\pi\in R$ und 
+Einheiten $u_1,\dotsc, u_n\in R$ erfüllt
+\begin{gather*}
+  \partial(\{\pi,u_1,\dotsc,u_n\})=\{\ov u_1, \dotsc, \ov u_n\}
+\end{gather*}
+\end{Satz}
+
+
+\begin{Bem}
+  \begin{enumerate}[a)]
+  \item   $\partial$ muss surjektiv sein, da $\ov\F^\times\subset \Fx$
+    Untergruppe ist.
+  \item   Mit der Relation $u_1=\frac{\pi u_1}{\pi}$ 
+    für eine Einheit $u_1\in R^\times$
+    wird für bel. $u_1,\dotsc, u_n\in R^\times$
+    \begin{align*}
+      \partial(\{u_1,\dotsc,u_n\})
+      &= \partial(\{\pi u_1\cdot \pi^{-1},u_2\dotsc,u_n\})\\
+      &= \partial(\{\pi u_1,u_2\dotsc,u_n\})\m 
+        \partial(\{\pi,u_2\dotsc,u_n\})\\
+      &\overset{\mathllap{\text{Def. }\partial}}{
+        \underset{\mathllap{\pi,\pi u\text{ prim}}}{=}}
+        \{\ov u_2,\dotsc, \ov u_n\} \m \{\ov u_2,\dotsc, \ov u_n\}
+        = 0
+    \end{align*}
+  \item Für $n=1$ erfüllt $\partial=v\colon \F\to \Z\cup\{\infty\}$ die Bedingung.
+    Denn hier ist sie äquivalent dazu, dass ein Primelement 
+    $\pi\in R\subset \Fx$ auf die (einzige) Einheit 1 
+    geschickt wird und eine Einheit $u\in R\subset \Fx$ auf 0,
+    was eine diskrete Bewertung tut, wie wir gesehen haben.
+  \end{enumerate}
+\end{Bem}
 
 % ------------
 
