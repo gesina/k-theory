@@ -640,16 +640,13 @@ Primelement und Einheiten ihres Bewertungsrings darstellen lassen.
 
 \section{Das Zahme Symbol in der $K$-Theorie}
 Im Folgenden sei $\F$ ein diskret bewerteter Körper mit
-Bewertungsabbildung $ v\colon \F\to\Z$ und
+Bewertungsabbildung $v\colon \F\to\Z\cup\{\infty\}$ und
 $\overline{\F}$ der Restklassenkörper $R/\frakm_v$ 
 des zugehörigen Bewertungsrings $R=\left\{x\in\F\mid v(x)\geq0\right\}$
 über dessen Maximalideal $\frakm_v=\left\{x\in\F\mid v(x)>0\right\}=(\pi)$.
-Wir bezeichnen die Einheitengruppe $R^\times$ von $R$ mit 
-$U=\{x\in R\mid v(x)=0\}$.
 
-\begin{Satz}[Existenz und Eindeutigkeit eines \enquote{Zahmes
-    Symbol}-Homomorphismus]\label{zahmessymbolhom}
-  Zum diskret bewerteten Körper $(\F,v)$ gibt es für alle $n\geq 1$
+\begin{Satz}\label{zahmessymbolhom}
+  Zu einem diskret bewerteten Körper $(\F,v)$ gibt es für alle $n\geq 1$
   einen eindeutigen Gruppenhomomorphismus 
   $\partial\colon \KnF\to \K_{n-1}(\bF)$,
   der für alle Primelemente $\pi\in R$ und 
@@ -734,7 +731,7 @@ $U=\{x\in R\mid v(x)=0\}$.
   gefragt, der genau die Einheiten auf $0$ schickt und Primelemente nicht.
   Diese Eigenschaft liefert mit der Erweiterung $\partial(0)=\infty$
   genau eine $\Z$-wertige Bewertung auf $\F$ mit Bewertungsring
-  $R=\pi U$. Diese muss nach \ref{bemzahmessymbolhom} surjektiv sein
+  $R$. Diese muss nach \ref{bemzahmessymbolhom} surjektiv sein
   und wird so zur diskreten Bewertung.
   Damit ist sie bereits eindeutig durch ihren Bewertungsring bestimmt 
   nach \ref{darstellungdbk}.
@@ -885,6 +882,27 @@ $U=\{x\in R\mid v(x)=0\}$.
   Daraus folgt bereits
   $\partial(\{\pi,u_1,\dotsc,u_n\})=\{\ov u_1,\dotsc,\ov u_n\}$.  
 \end{proof}
+
+\begin{Kor}
+  Zu einem Bewertungskörper $(\F,v)$ gibt es zu einem fixen
+  Primelement $\pi\in R$ einen eindeutigen Ringhomomorphismus 
+  $\gamma\colon\KF\to\KbF$ der für alle Einheiten $u\in R^\times$, 
+  $k\in\Z$ erfüllt
+  \begin{gather*}
+    \gamma(\{\pi^ku\})=\{\ov u\}
+  \end{gather*}
+
+  \begin{proof}
+    Die Existenz folgt aus dem Existenzbeweis von
+    \ref{zahmessymbolhom}, da das dort definierte $\gamma$ die
+    Forderung erfüllt.
+    Demnach ist Wohldefiniertheit und
+    Ringhomomorphismuseigenschaft gegeben.
+    Die Eindeutigkeit liefert wie in \ref{zahmessymbolhom}
+    die eindeutige Darstellung von Elementen in $\KoF=\Fx$ 
+    als Produkt aus $\pi$ und Einheit.
+  \end{proof}
+\end{Kor}
 
 
 % ------------
