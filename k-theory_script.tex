@@ -10,7 +10,7 @@
 
 % ------------
 
-\section{Wiederholung Milnor K-Theory}
+\section{Milnor K-Theorie}
 
 \begin{Bem}[Gruppentensorprodukt]
   Eine abelsche Gruppe $G$ wird mit der Skalarmultiplikation
@@ -100,14 +100,15 @@ multiplikative Gruppe.
   Multiplikation wird die direkte Summe aus $\Z$-Moduln
   \begin{align*}
     \calK &\coloneqq
-    \Z\oplus\bigoplus_{n\in\N_0}{\Big(\K_1(\F)\Big)}^{\otimes n}\\
-    &\,= \Z\oplus\K_1(\F)
-      \oplus\Big(\K_1(\F)\otimes\K_1(\F)\Big)
-    \oplus\Big(\K_1(\F)\otimes\K_1\F\otimes\K_1(\F)\Big)
-    \oplus\dotsb
+            \Z\oplus\bigoplus_{n\in\N_0}{\Big(\K_1(\F)\Big)}^{\otimes n}\\
+          &\,= \Z\oplus\K_1(\F)
+            \oplus\Big(\K_1(\F)\otimes\K_1(\F)\Big)
+            \oplus\Big(\K_1(\F)\otimes\K_1\F\otimes\K_1(\F)\Big)
+            \oplus\dotsb
   \end{align*}
   zu einer $\Z$-Algebra, 
-  ohne Skalarmultiplikation zu einem kommutativen Ring.
+  ohne Skalarmultiplikation zu einem kommutativen Ring mit Einselement
+  $1\in\Z$.
   Dieser ist graduiert, d.h. er ist die Summe abelscher Gruppen, 
   der ${\K_1(\F)}^{\otimes n}$, mit einer Multiplikation, hier
   \enquote{$\otimes$}, so dass gilt
@@ -157,8 +158,8 @@ multiplikative Gruppe.
   \begin{align*}
     \{ a_1,a_2,\dotsc,a_n\}
     &\coloneqq \overline{l(a_1)\otimes l(a_2)\otimes \dotsb \otimes l(a_n)} &\in\KF 
-    \intertext{wobei aus den obigen Definitionen folgt}
-    \{1\}&=0 &\in\KF\\
+                                                                              \intertext{wobei aus den obigen Definitionen folgt}
+                                                                              \{1\}&=0 &\in\KF\\
     \{ a_1 \cdot a_2 \}
     &=  \{a_1\}\p \{a_2\} = \overline{l(a_1)} \p \overline{l(a_2)}  &\in\KF \\
     \{ a_1 \} \otimes \{ a_2 \}
@@ -173,7 +174,6 @@ multiplikative Gruppe.
 \end{Not}
 
 \subsection{Identitäten auf $\KF$}
-
 Aus der zusätzlichen Forderung an den Ring $\KF$, 
 dass $\{a,1-a\}\equiv 0$ sein soll, ergeben sich neben Nullteilern 
 einige weitere interessante Eigenschaften der Elemente.
@@ -188,14 +188,14 @@ einige weitere interessante Eigenschaften der Elemente.
     $\{a,-a\}=l(1)\otimes l(-1) = 0\otimes l(-1) = 0$.
     Falls $a\neq 1$ gilt, kann $-a$ geschrieben werden als
     $-a=\frac{1-a}{1-a^{-1}}$ und es gilt
-      \begin{align*}
-        \{a,-a\} &= \{a,(1-a)\cdot (1-a^{-1})^{-1}\}\\
-                 &= \{a,(1-a)\}\p\{a,(1-a^{-1})^{-1}\} \\
-                 &= \{a,(1-a)\}\m\{a,(1-a^{-1})\} \\
-                 &= \underbrace{\{a,(1-a)\}}_{=0}
-                   \p\underbrace{\{a^{-1},(1-a^{-1})\}}_{=0} 
-                   =0
-      \end{align*}
+    \begin{align*}
+      \{a,-a\} &= \{a,(1-a)\cdot (1-a^{-1})^{-1}\}\\
+               &= \{a,(1-a)\}\p\{a,(1-a^{-1})^{-1}\} \\
+               &= \{a,(1-a)\}\m\{a,(1-a^{-1})\} \\
+               &= \underbrace{\{a,(1-a)\}}_{=0}
+                 \p\underbrace{\{a^{-1},(1-a^{-1})\}}_{=0} 
+                 =0
+    \end{align*}
   \end{proof}
 \end{Lem}
 
@@ -244,7 +244,7 @@ einige weitere interessante Eigenschaften der Elemente.
 \end{Lem}
 
 
-\section{$\K_2$ eines endlichen Körpers verschwindet}
+\subsection{$\K_2$ eines endlichen Körpers verschwindet}
 
 \begin{Lem}
   Für einen endlichen Körper $\F$ verschwindet $\KnF$ für $n\geq 2$.
@@ -354,24 +354,23 @@ einige weitere interessante Eigenschaften der Elemente.
 
 % ------------
 
-\section{Diskrete Bewertungsringe und das zahme Symbol}
-\cite[][Lemma 2.1]{milnor}
+\section{Grundlagen aus der Bewertungstheorie}
 
-\subsection{Wiederholung Bewertungen}
+\subsection{Bewertungsringe und Bewertungen}
 % \begin{Def}[Bewertungsabbildung]
-% Eine Bewertung auf einem Körper $\F$ ist eine Abbildung
-% \begin{gather*}
-%   v\colon\F\to \Gamma\cup \{\infty\}
-% \end{gather*}
-% wobei $(\Gamma, +,\geq)$ eine total geordnete, abelsche Gruppe ist
-% und $v$ für $a,b\in\F$ folgende Eigenschaften erfüllt
-% \begin{enumerate}[(1)]
-% \item $v(a)=\infty \Longleftrightarrow a=0$
-% \item $v(ab)=v(a)+v(b)$~~(d.h. $v|_{\Fx}$ ist Gruppenhomomorphismus)
-% \item $v(a+b)\geq \min\{v(a),v(b)\}$
-% \end{enumerate}
-% Sie heißt diskret, falls $\Gamma=\Z$ und $v$ surjektiv
-% (d.h. insbesondere $v^{-1}(1)\neq \varnothing$).
+%   Eine Bewertung auf einem Körper $\F$ ist eine Abbildung
+%   \begin{gather*}
+%     v\colon\F\to \Gamma\cup \{\infty\}
+%   \end{gather*}
+%   wobei $(\Gamma, +,\geq)$ eine total geordnete, abelsche Gruppe ist
+%   und $v$ für $a,b\in\F$ folgende Eigenschaften erfüllt
+%   \begin{enumerate}[(1)]
+%   \item $v(a)=\infty \Longleftrightarrow a=0$
+%   \item $v(ab)=v(a)+v(b)$~~(d.h. $v|_{\Fx}$ ist Gruppenhomomorphismus)
+%   \item $v(a+b)\geq \min\{v(a),v(b)\}$
+%   \end{enumerate}
+%   Sie heißt diskret, falls $\Gamma=\Z$ und $v$ surjektiv
+%   (d.h. insbesondere $v^{-1}(1)\neq \varnothing$).
 % \end{Def}
 
 % \begin{Bsp}
@@ -463,7 +462,7 @@ einige weitere interessante Eigenschaften der Elemente.
 Tatsächlich ist ein Integritätsring genau dann
 ein Bewertungsring nach Definition \ref{defbewertungsring},
 wenn man eine Bewertungsabbildung $v$ zu $R$ findet,
- wie wir jetzt sehen werden.
+wie wir jetzt sehen werden.
 
 \begin{Lem}\label{bewertungsringausbewertung}
   Sei $\Fx$ ein Körper mit einer Bewertungsabbildung
@@ -534,6 +533,7 @@ wenn man eine Bewertungsabbildung $v$ zu $R$ findet,
   was $\Z_{(p)}$ zu einem Bewertungsring macht.
 \end{Bsp}
 
+\subsection{Diskrete Bewertungen}
 Mithilfe der $K$-Theorie können einige schöne Aussagen zu einer
 speziellen Form bewerteter Körper getroffen werden, den diskret
 bewerteten Körpern. Allerdings benötigen wir hierzu noch die wichtige
@@ -584,20 +584,32 @@ Primelement und Einheiten ihres Bewertungsrings darstellen lassen.
 \end{Lem}
 
 
-\begin{Bem}
-  Ein diskreter Bewertungsring ist nach \ref{bewertungsringhir}
-  lokaler Hauptidealring mit seinem Maximalideal als einzigem 
-  Primideal (in Hauptidealringen sind alle Primideale maximal),
-  welches von der Form $\frakm_v=(\pi)$ für ein Primelement $\pi$ ist.
-  Die Primelemente in $R$ sind folglich genau die $p\in R$ mit $v(p)=1$, 
-  genau die mit $\pi$ assoziierten Elemente.
-  Wie im Beweis von \ref{bewertungsringhir} kann jedes Element $0\neq x\in R$
-  in der Form $x=\pi^k\cdot u$, $k\in\N_0$, $u\in R^\times$ geschrieben werden.
-  Erweitert man $v$ auf den Quotientenkörper, erhält man
-  \begin{gather*}
-    \forall 0\neq x\in \F\colon\;
-    \exists k\in\Z, u\in R^\times\colon\; x=\pi^k\cdot u
-  \end{gather*}
+\begin{Bem}\label{darstellungdbk}
+  \begin{enumerate}[a)]
+  \item Ein diskreter Bewertungsring ist nach \ref{bewertungsringhir}
+    lokaler Hauptidealring mit seinem Maximalideal als einzigem 
+    Primideal (in Hauptidealringen sind alle Primideale maximal),
+    welches von der Form $\frakm_v=(\pi)$ für ein Primelement $\pi$ ist.
+    Die Primelemente in $R$ sind folglich genau die $p\in R$ mit $v(p)=1$, 
+    genau die mit $\pi$ assoziierten Elemente.
+    Wie im Beweis von \ref{bewertungsringhir} kann jedes Element $0\neq x\in R$
+    in der Form $x=\pi^k\cdot u$, $k\in\N_0$, $u\in R^\times$ 
+    geschrieben werden.
+    Erweitert man $v$ auf den Quotientenkörper, erhält man
+    \begin{gather*}
+      \forall 0\neq x\in \F\colon\;
+      \exists k\in\Z, u\in R^\times\colon\; x=\pi^k\cdot u
+    \end{gather*}
+  \item Die Bewertung $v\colon R\to\Z\cup\{\infty\}$ zu einem diskreten
+    Bewertungsring ist aufgrund der Normierung eindeutig.
+    Es gibt also zu einem Körper $\F$ einen Isomorphismus
+    \begin{gather*}
+      \{v\colon \F\to\Z\cup\{\infty\} 
+      \mid \text{$v$ diskrete Bewertung}\}
+      \cong 
+      \{R\subset \F\mid \text{$R$ diskreter Bewertungsring auf $\F$}\}
+    \end{gather*}
+  \end{enumerate}
 \end{Bem}
 
 
@@ -606,27 +618,27 @@ Primelement und Einheiten ihres Bewertungsrings darstellen lassen.
 %   Bewertungsabbildung $ v\colon \F\to \Z$.
 %   Die Menge $R\coloneqq\left\{x\in \F\mid  v(x)\geq 1\right\}$ bildet
 %   einen Bewertungsring mit den Eigenschaften
-%   % einen Integritätsring (tatsächlich sogar Hauptidealring) mit den Eigenschaften
+%   %   einen Integritätsring (tatsächlich sogar Hauptidealring) mit den Eigenschaften
 %   \begin{enumerate}[i)]
-%   % \item $\forall x\in\F\colon x\in\R$ oder $x^{-1}\in\R$
+%   %   \item $\forall x\in\F\colon x\in\R$ oder $x^{-1}\in\R$
 %   \item $\Quot(R)=\F$
 %   \item Die Einheitengruppe ist $R^\times\coloneqq\left\{x\in\F\mid v(x)=0\right\}$
 %   \item $R$ ist lokal mit maximalem Ideal
 %     $\frakm_v\coloneqq\left\{x\in\F\mid v(x)>1\right\}$
 %   \item Die Primelemente von $R$ sind genau die Elemente $\pi\in\R$ mit $v(\pi)=1$.
 %   \end{enumerate}
-%   %
-%   % lokalen Ring mit maximalem Ideal
-%   % $\frakm_v\coloneqq\left\{x\in\F\mid v(x)>1\right\}$,
-%   % Einheitengruppe $R^\times\coloneqq\left\{x\in\F\mid v(x)=1\right\}$
-%   % und den Eigenschaften $\Quot(R)=\F$ sowie 
-%   % $x\in R$ oder $x^{-1}\in R$ für alle $x\in\F$.
-%   %Ein Ring mit diesen Eigenschaften wird Bewertungsring genannt.
+%   %   
+%   %   lokalen Ring mit maximalem Ideal
+%   %   $\frakm_v\coloneqq\left\{x\in\F\mid v(x)>1\right\}$,
+%   %   Einheitengruppe $R^\times\coloneqq\left\{x\in\F\mid v(x)=1\right\}$
+%   %   und den Eigenschaften $\Quot(R)=\F$ sowie 
+%   %   $x\in R$ oder $x^{-1}\in R$ für alle $x\in\F$.
+%   %   Ein Ring mit diesen Eigenschaften wird Bewertungsring genannt.
 %   Der Körper $R/\frakm_v$ zum lokalen Ring $R$ heißt Restklassenkörper
 %   von $R$.
 % \end{Wdh}
 
-\subsection{Das Zahme Symbol in der $K$-Theorie}
+\section{Das Zahme Symbol in der $K$-Theorie}
 Im Folgenden sei $\F$ ein diskret bewerteter Körper mit
 Bewertungsabbildung $ v\colon \F\to\Z$ und
 $\overline{\F}$ der Restklassenkörper $R/\frakm_v$ 
@@ -636,18 +648,19 @@ Wir bezeichnen die Einheitengruppe $R^\times$ von $R$ mit
 $U=\{x\in R\mid v(x)=0\}$.
 
 \begin{Satz}[Existenz und Eindeutigkeit eines \enquote{Zahmes
-    Symbol}-Homomorphismus]
-Es gibt einen eindeutigen Homomorphismus 
-$\partial_v\colon \KnF\to \K_{n-1}(\bF)$ (weiterhin als
-$\partial$ abgekürzt), der für alle Primelemente $\pi\in R$ und 
-Einheiten $u_1,\dotsc, u_n\in R$ erfüllt
-\begin{gather*}
-  \partial(\{\pi,u_1,\dotsc,u_n\})=\{\ov u_1, \dotsc, \ov u_n\}
-\end{gather*}
+    Symbol}-Homomorphismus]\label{zahmessymbolhom}
+  Zum diskret bewerteten Körper $(\F,v)$ gibt es für alle $n\geq 1$
+  einen eindeutigen Gruppenhomomorphismus 
+  $\partial\colon \KnF\to \K_{n-1}(\bF)$,
+  der für alle Primelemente $\pi\in R$ und 
+  Einheiten $u_1,\dotsc, u_n\in R$ erfüllt
+  \begin{gather*}
+    \partial(\{\pi,u_1,\dotsc,u_n\})=\{\ov u_1, \dotsc, \ov u_n\}
+  \end{gather*}
 \end{Satz}
 
 
-\begin{Bem}
+\begin{Bem}\label{bemzahmessymbolhom}
   \begin{enumerate}[a)]
   \item   $\partial$ muss surjektiv sein, da $\ov\F^\times\subset \Fx$
     Untergruppe ist.
@@ -671,6 +684,208 @@ Einheiten $u_1,\dotsc, u_n\in R$ erfüllt
     was eine diskrete Bewertung tut, wie wir gesehen haben.
   \end{enumerate}
 \end{Bem}
+
+\begin{proof}[Eindeutigkeit zu \ref{zahmessymbolhom}]
+  Um die Eindeutigkeit zu zeigen, benötigen wir die Erkenntnis aus der
+  Bewertungstheorie, dass für ein fix gewähltes Primelement $\pi\in
+  R\subset \F$ jedes Element $x\in\Fx$ 
+  dargestellt werden kann als $x=\pi^k\cdot u$ mit einem $k\in\Z,
+  u\in R^\times$, siehe \ref{darstellungdbk}.
+  Dies kann auf $\KnF$ übertragen werden in dem Sinne, dass 
+  $\KnF$ von Elementen der Form 
+  $\overline{l(\pi)^kl(u_{k+1})\dotsm l(u_n)}
+  =\{\pi,\dotsc, \pi, u_{k+1},\dotsc,u_n\}
+  =\{\pi\}^k\otimes\{u_{k+1},\dotsc,u_n\}\in\KnF$ mit $\pi$ prim und
+  $u_i$ Einheit in $R$ erzeugt ist, wie wir jetzt zeigen.
+  Wähle also ein fixes Primelement $\pi\in\R\subset\Fx$.
+  und sei $\xi\coloneqq\{a_1,\dotsc, a_n\}\in\KnF\subset\KF$ mit
+  $a_1,\dotsc,a_n\in\Fx$. Dann gibt es Darstellungen
+  $a_n=\pi^{k_n}\cdot u_n$ mit $k_n\in\Z,u_n\in R^\times$ wie
+  oben. $\xi$ lässt sich nun schrittweise additiv schreiben
+  \begin{align*}
+    \xi&=\{a_1,\dotsc,a_n\}=\{\pi^{k_1}u_1, \dotsc, \pi^{k_n}u_n\}\\
+       &=\{\pi u_1, \dotsc, \pi^{k_n}u_n\}
+         \p\{\pi^{k_1-1}u_1, \dotsc, \pi^{k_n}u_n\}\\
+       &=\dotsb
+         =k_1\cdot \{\pi u_1,\pi^{k_2}u_2, \dotsc, \pi^{k_n}u_n\}\\
+       &=\dotsb 
+         =k_1\dotsm k_n\{\pi u_1, \dotsc, \pi u_n\}
+  \end{align*}
+  Das Element $\{\pi u_1, \dotsc, \pi u_n\}$ lässt sich auch wieder
+  auseinanderziehen als
+  \begin{align*}
+    \{\pi u_1, \dotsc, \pi u_n\} 
+    &= \{\pi,\pi u_2,\dotsc,\pi u_n\}\p\{u_1,\pi u_2,\dotsc,\pi u_n\}\\
+    &= \{\pi,\pi,\pi u_3,\dotsc,\pi u_n\}
+      \p\{u_1,\pi,\pi u_3,\dotsc,\pi u_n\}\\
+    &\p\{\pi,u_2,\pi u_3,\dotsc,\pi u_n\}
+      \p\{u_1,u_2,\pi u_3,\dotsc,\pi u_n\}\\
+    &=\dotsb=\sum_{\mathclap{(i_1,\dotsc,i_n)\in\{0,1\}^n}}
+      \{\pi^{i_1}u_1^{1-i_1},\dotsc,\pi^{i_n}u_n^{1-i_n}\}\\
+  \end{align*}
+  Wegen \ref{identitaetmal} können in einem der Summenglieder nur mit
+  Vorzeichenwechsel die $\pi$ im Produkt nach vorne geschoben werden,
+  sodass $\xi$ zu einer Summe aus oben beschriebenen Elementen wird.
+  Nachdem $\partial$ ein Homomorphismus ist, genügt es, $\partial$ auf
+  Elementen der Form $\{\pi\}^k\otimes\{u_{k+1},\dotsc,u_{n}\}$ zu
+  betrachten.
+
+  Für $n=1$ ist nach einem Homomorphismus $\partial\colon \Fx\to\Z$
+  gefragt, der genau die Einheiten auf $0$ schickt und Primelemente nicht.
+  Diese Eigenschaft liefert mit der Erweiterung $\partial(0)=\infty$
+  genau eine $\Z$-wertige Bewertung auf $\F$ mit Bewertungsring
+  $R=\pi U$. Diese muss nach \ref{bemzahmessymbolhom} surjektiv sein
+  und wird so zur diskreten Bewertung.
+  Damit ist sie bereits eindeutig durch ihren Bewertungsring bestimmt 
+  nach \ref{darstellungdbk}.
+
+  Für $n>1$ wandelt man zuerst den Ausdruck $\{\pi\}^k$ durch
+  sukzessives Anwenden von \ref{identitaetquadrat} um in
+  \begin{gather*}
+    \{\pi\}^k
+    \overset{\ref{identitaetquadrat}}{=} \{\pi\}^{k-1}\{-1\}
+    \overset{\ref{identitaetquadrat}}{=} \{\pi\}^{k-2}\{-1\}^2
+    =\dotsb=\{\pi\}\otimes\{-1\}^{k-1}
+  \end{gather*}
+  Hiermit gilt für jeden Erzeuger
+  $\{\pi\}^k\otimes\{u_1,\dotsc,u_n\}\in\KnF$ von $\KnF$
+  \begin{align*}
+    \partial\left(\{\pi\}^k\otimes\{u_1,\dotsc,u_n\}\right)
+    &= \partial\left(
+      \{\pi\}\otimes\{-1\}^{k-1}\otimes\{u_1,\dotsc,u_n\}
+      \right)\\
+    &\overset{\mathllap{\text{Def. $\partial$}}}{=}
+    \{\ov {-1}\}^{k-1}\otimes\{\ov u_1,\dotsc,\ov u_n\}
+  \end{align*}
+  Also ist $\partial$ bereits auf jedem Erzeuger von $\KnF$ eindeutig
+  bestimmt, was die Eindeutigkeit auf ganz $\KnF$ liefert.
+\end{proof}
+
+\begin{proof}[Existenz]
+  Wir werden $\partial$ explizit konstruieren.
+  Von der Idee her möchten wir gerne – wieder zu unserem fix gewählten
+  Primelement $\pi\in R$ – ein Element $\{\pi^ku\}\in\KoF, u\in R^\times,$
+  in seinen \enquote{$\pi$-Anteil} und seinen 
+  \enquote{Einheitsanteil} zerlegen. 
+  Dann können wir die Gruppenisomorphie
+  $\K_1(\bF)\cong\bF^\times=(R/\frakm_v)^\times\cong R^\times$
+  ausnutzen und den \enquote{Einheitsanteil} als Element aus $\K_1(\bF)$
+  schreiben. Durch geschickte Umformung liefert uns dies dann den
+  gesuchten Ringhomomorphismus, wie wir gleich sehen werden.
+  % Anschaulich zerlegt $\psi$ ein Element $\{\pi^ku\in\}\KoF\cong\Fx$ in 
+  % seinen $\pi$- und seinen Einheitsanteil. Da die Gruppenisomorphie
+  % $\K_1(\bF)\cong\bF^\times\cong (R/\frakm_v)^\times\cong R^\times$
+  % herrscht, kann ich meinen 
+  
+  Um unseren \enquote{$\pi$-Anteil} sauber darstellen zu können,
+  adjungieren wir an $\KbF$ ein Element $\xi$, das wir über
+  folgende Bedingungen definieren:
+  \begin{enumerate}[(1)]
+  \item $\xi\cdot \alpha=(-1)\alpha\xi$ für alle $\alpha\in\KbF$
+  \item $\xi^2=\xi\{\ov{-1}\}$
+  \end{enumerate}
+  Damit erhalten wir einen erweiterten Ring $\KbF[\xi]$, der als
+  $\KbF$-Modul die Basis $\{ \xi, 1\in\Z\}$ hat (also frei ist über
+  $\KbF$). $\xi$ entspricht anschaulich einer Erweiterung um $\pi$.
+
+  Als nächstes zeigen wir, dass die Zuweisung ($u\in R^\times$)
+  \begin{gather*}
+    \psi\colon\{\pi^ku\}\mapsto i\xi \p \{\ov u\}
+    =\begin{pmatrix} i\\\{\ov u\} \end{pmatrix}
+    \qquad \psi(1\in\Z)=1\in\Z=\begin{pmatrix}0\\1\in\Z\end{pmatrix}
+  \end{gather*}
+  sich eindeutig zu einem Ringhomomorphismus
+  $\psi\colon\KF\to\KbF[\xi]$ fortsetzen lässt.
+  $\psi$ ist die gewünschte Zerlegung mit $\psi(\{\pi\})=\xi$ 
+  und $\psi(\{u\})=\{\ov u\}\in\K_1\bF$ für
+  eine Einheit $u\in R^\times$.
+  
+  Setze als ersten Schritt die Fortsetzung von $\psi$ auf ganz $\KF$
+  ($\{a_1,\dotsc,a_n\}\in\KF$)
+  \begin{gather*}
+    \psi(\{a_1,\dotsc,a_n\})
+    \coloneqq \left\{\psi(\{a_1\})\right\}\otimes\dotsb
+      \otimes \left\{\psi(\{a_n\})\right\}
+  \end{gather*}
+  Damit ist die Homomorphismuseigenschaft
+  $\psi(\{x\}\otimes\{y\})=\psi(\{x\})\otimes\psi(\{y\})$
+  bereits gegeben.
+
+  Die Wohldefiniertheit ist klar, da sich wie in \ref{darstellungdbk}
+  jedes Element aus $\Fx$ als $\pi^k u$ darstellen lässt und
+  $\KF$ das Erzeugnis aus Produkten und Summen von $\{x\}, x\in\Fx$
+  ist. Somit ist $\psi$ für jedes Element eindeutig bestimmt.
+
+  Betrachte Elemente $x,y\in\Fx, x=\pi^iu, y=\pi^jv$ mit Einheiten
+  $u,v\in\R^\times$. 
+  Dann gilt $x\cdot y=\pi^iu\cdot\pi^jv=\pi^{i+j}(uv)$  und
+  \begin{align*}
+    \psi(\{x\}\p\{y\})
+    &=\psi(\{x\cdot y\})=\psi(\{\pi^{i+j}(uv)\})
+      =\begin{pmatrix}(i+j)\\\{\ov{uv}\}\end{pmatrix}\\
+    &=\begin{pmatrix}(i+j)\\\{\ov u \}\p \{\ov v\}\end{pmatrix}
+    = \begin{pmatrix}i\\\{\ov u\}\end{pmatrix}
+    \p\begin{pmatrix}j\\\{\ov v\}\end{pmatrix}
+    =\psi(\{\pi^iu\})\p \psi(\{\pi^jv\})\\
+    &= \psi(\{x\})\p\psi(\{y\})
+  \end{align*}
+  Beachte hierbei, dass für eine Einheit $u\in R^\times$ das Urbild
+  der Projektion $\ov u\in\bF=R/\frakm_v$ eindeutig gleich $u$ ist,
+  da die multiplikativen Gruppen $\bF$ und $R^\times$ isomorph sind.
+
+  Jetzt haben wir einen Ringhomomorphismus von $\KF$ nach $\KbF[\xi]$.
+  Diesen wollen wir nun durch Umformung ein wenig umformulieren
+  ($a_i=\pi^{k_i}u_i\in\Fx$):
+  \begin{gather*}
+    \psi(\{a_1,\dotsc,a_n\})
+    =\bigotimes_{1\leq i\leq n}(k_i\xi\p\{\ov u_i\})
+    \overset{\text{Ausmult.}}{=}
+    \{\ov u_1,\dotsc,\ov u_n\}\p \chi
+  \end{gather*}
+  wobei $\chi\in\KnbF[\xi]$ eine Summe aus Produkten von $\xi$ und den
+  $\{\ov u_i\}$ ist.
+  Wie beim  Beweis der Eindeutigkeit lassen sich die Glieder 
+  von $\chi$ mithilfe von \ref{identitaetmal}
+  (und der Forderung an $\xi$) umformen, so dass sie alle die Form
+  $\pm\xi^k\{v_{k+1},\dotsc,v_n\}$ haben mit $v_i=\ov u_j$ für ein 
+  $j\in\{1,\dotsc,n\}$ und $0\leq k\leq n$.
+  Mit der Forderung $\xi^2=\xi\otimes\{\ov {-1}\}$ kann ich wieder 
+  wie im Eindeutigkeitsbeweis
+  alle Ausdrücke mit $k\neq 0$ in die Form
+  $\xi\otimes\{\ov{-1}\}^{k-1}\{v_{k+1},\dotsc,v_n\}$ bringen.
+  Also haben alle Summenglieder von $\chi$ die Form
+  $\xi\otimes\{v_1,\dotsc, v_n\}$ mit $v_i\in\bF$ und ich kann
+  schreiben
+  \begin{gather*}
+    \psi(\{\pi^{k_1}u_1,\dotsc,\pi^{k_n}u_n\}) 
+    = \{\ov u_1,\dotsc,\ov u_n\}\p \xi\chi'
+  \end{gather*}
+  wobei $\chi'\in\KnbF$ die Summe der Faktoren $\{v_1,\dotsc,v_n\}$
+  von oben ist.
+  Ich kann also schreiben mit $\gamma(\{a_1,\dotsc,a_n\})=\{\ov
+  u_1,\dotsc,\ov u_n\}$
+  und $\partial(\{a_1,\dotsc,a_n\})=\chi'$ wie oben
+  \begin{gather*}
+    \psi(\alpha) = \gamma(\alpha)\p \xi\partial(\alpha)
+    \quad \forall\alpha\in\KnF
+  \end{gather*}
+  woraus schon folgt, dass $\gamma,\delta\colon\KnF\to\KnbF$ 
+  Ringhomomorphismen sind.
+  Dieses $\partial$ erfüllt tatsächlich die Anforderungen von oben,
+  denn für $\alpha=\{\pi,u_1,\dotsc, u_n\}$ ist
+  \begin{align*}
+    \psi(\alpha)
+    &=\psi(\pi)\otimes\psi(u_1)\otimes\dotsb\otimes\psi(u_n)\\
+    &=\xi\otimes\{\ov u_1\}\otimes\dotsb\{\ov u_n\}\\
+    &=\xi\otimes\{\ov u_1,\dotsc,\ov u_n\}\\
+    &=(0\otimes\{\ov u_1,\dotsc,\ov u_n\})
+      \p\xi\{\ov u_1,\dotsc,\ov u_n\}\\
+    &=\gamma(\alpha) \p \xi\partial(\alpha)
+  \end{align*}
+  Daraus folgt bereits
+  $\partial(\{\pi,u_1,\dotsc,u_n\})=\{\ov u_1,\dotsc,\ov u_n\}$.  
+\end{proof}
+
 
 % ------------
 
