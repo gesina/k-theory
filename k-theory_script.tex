@@ -526,7 +526,7 @@ wie wir jetzt sehen werden.
 \begin{Bsp}
   Ein Beispiel eines Bewertungsringes ist $\Z_{(p)}$ mit der $p$-adischen
   Bewertung $v_p$ zu einem Primelement $p$, 
-  wie sie in der Algebra eingeführt wurde: 
+  wie sie in der Algebra eingeführt wurde.
   $v_p$ liefert zu einem 
   $a=u\cdot p^{n}\cdot p_1^{n_1}\cdot p_2^{n_2}\dotsm\in\Z $ 
   den Exponenten $n$ von $p$ in der zu $a$ gehörigen Primfaktorzerlegung,
@@ -611,6 +611,19 @@ Primelement und Einheiten ihres Bewertungsrings darstellen lassen.
     \end{gather*}
   \end{enumerate}
 \end{Bem}
+
+\begin{Bsp}\label{p-adischebewertung}
+  Für einen Integritätsring $R$ ist zu einem fix gewählten 
+  Primelement $\pi\in R$ ist
+  die Lokalisierung $R_\pi$ ein Bewertungsring, denn jedes Element
+  $a\in R$ lässt sich dann darstellen als $a=\pi^i\cdot \frac{p}{q}\in
+  R_\pi$ und die Abbildung
+  \begin{gather*}
+    v\left(\pi^i\cdot \frac{p}{q}\right)\coloneqq i
+  \end{gather*}
+  definiert eine Bewertung auf $R_\pi$.
+  Der Restklassenkörper ist dann $R_\pi/\pi R_\pi$.
+\end{Bsp}
 
 
 % \begin{Wdh}[Diskret bewertete Körper]
@@ -904,11 +917,23 @@ des zugehörigen Bewertungsrings $R=\left\{x\in\F\mid v(x)\geq0\right\}$
   \end{proof}
 \end{Kor}
 
-
 % ------------
 
 \section{Die spaltende exakte Milnor-Folge}
-\cite[][Theorem 2.3]{milnor}
+
+Wir werden jetzt mit den Erkenntnissen über $\KnF$ eines diskret bewerteten
+Körpers $\KnFt$ des zugehörigen Funktionenkörpers in einer Variable
+untersuchen. Wie wir in Beispiel \ref{p-adischebewertung} gesehen
+haben, kann auf dem euklidischen Ring $\F[t]_(\pi)$ eine $p$-adische
+Bewertung zu einem fixen Primelement $\pi$ definiert werden.
+Der Restklassenkörper $\F[t]_(\pi)/(\pi)\F[t]_(\pi)$ ist isomorph zu
+$\F[t]/(\pi)$.
+Beachte, dass es nach \ref{zahmessymbolhom} eine Surjektion
+\begin{gather*}
+  \partial_\pi\colon \KnFt\to \K_{n-1}(\F[t]/(\pi))
+\end{gather*}
+gibt.
+
 
 
 % ------------------------------------------------------------------
