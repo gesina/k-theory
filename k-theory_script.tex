@@ -157,9 +157,11 @@ multiplikative Gruppe.
   und wir schreiben
   \begin{align*}
     \{ a_1,a_2,\dotsc,a_n\}
-    &\coloneqq \overline{l(a_1)\otimes l(a_2)\otimes \dotsb \otimes l(a_n)} &\in\KF 
-                                                                              \intertext{wobei aus den obigen Definitionen folgt}
-                                                                              \{1\}&=0 &\in\KF\\
+    &\coloneqq \overline{l(a_1)\otimes l(a_2)\otimes \dotsb \otimes
+      l(a_n)} 
+    &\in\KF\\ 
+    \intertext{wobei aus den obigen Definitionen folgt}
+    \{1\}&=0 &\in\KF\\
     \{ a_1 \cdot a_2 \}
     &=  \{a_1\}\p \{a_2\} = \overline{l(a_1)} \p \overline{l(a_2)}  &\in\KF \\
     \{ a_1 \} \otimes \{ a_2 \}
@@ -238,7 +240,8 @@ einige weitere interessante Eigenschaften der Elemente.
     \end{gather*}
     Mit $(-1)=(-1)^{-1}$ und \ref{identitaetmal} folgt die Kommutativität
     \begin{gather*}
-      \{a\}^2 = \{a,-1\}= \m\{a,(-1)^{-1}\} = \{(-1)^{-1},a\} = \{-1,a\}
+      \{a\}^2 = \{a,-1\}= \m\{a,(-1)^{-1}\} 
+      \overset{\ref{identitaetmal}}{=} \{(-1)^{-1},a\} = \{-1,a\}
     \end{gather*}
   \end{proof}
 \end{Lem}
@@ -285,7 +288,8 @@ einige weitere interessante Eigenschaften der Elemente.
     verschwinden.
     Hierfür reicht es – wie wir gleich sehen werden – aus,
     $\{a,b\}$ mit fixen Nichtquadraten
-    $a,b\in\Fx$ zu betrachten, die wir mit $b=1-a$ wählen.
+    $a,b\in\Fx$ zu betrachten, die wir mit $b=1-a$ wählen, so dass gilt
+    $\{a,b\}=\{a,1-a\}\overset{\text{Def.}}{=}0$.
     
     Betrachte vorerst den Gruppenhomomorphismus
     \begin{gather*}
@@ -338,7 +342,11 @@ einige weitere interessante Eigenschaften der Elemente.
     $1-a=b$ abgebildet werden, was die Existenz
     von $a,b\in\Fx$ wie oben zeigt.
 
-    Für beliebige Nichtquadrate $c,d\in\Fx$ gilt nun:
+    Nachdem wir uns jetzt erarbeitet haben, dass es Nichtquadrate
+    $a,b$ mit der gewünschten Eigenschaft gibt und wir jede
+    Kombination aus anderen Nichtquadraten $\{c,d\}\in\K_2\F$ 
+    auf $\{a,b\}$ zurückführen können,
+    gilt nun für beliebige Nichtquadrate $c,d\in\Fx$:
     \begin{gather*}
       \{c,d\}=\{a,b\}=\{a,1-a\} \overset{\text{Def}}{=} 0
     \end{gather*}
