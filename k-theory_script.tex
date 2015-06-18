@@ -831,9 +831,17 @@ in folgender Weise auf $\KnF$ übertragen:
   \item $\xi\cdot \alpha=(-1)\alpha\xi$ für alle $\alpha\in\KbF$
   \item $\xi^2=\xi\{\ov{-1}\}$
   \end{enumerate}
-  Damit erhalten wir einen erweiterten Ring $\KbF[\xi]$, der als
-  $\KbF$-Modul die Basis $\{ \xi, 1\in\Z\}$ hat (also frei ist über
-  $\KbF$). $\xi$ entspricht anschaulich einer Erweiterung um das bei
+  Ein solches Element kann immer konstruiert werden, indem man eine
+  beliebige Ringerweiterung $\KbF[x]$ vom Grad 2 vornimmt und den
+  Quotienten durch das Ideal $(x^2-x\{\ov{-1}\})$ bildet. Dadurch
+  erhält man wieder eine Körpererweiterung $\KbF[\xi]$ vom Grad 2,
+  wobei $\xi$ die Projektion von $x$ ist.
+  
+  Insgesamt erhalten wir einen erweiterten Ring $\KbF[\xi]$, der als
+  $\KbF$-Modul die Basis $\{ \xi, 1\in\Z\}$ hat, also frei ist über
+  $\KbF$ und die Form $\bigoplus_{n\in\N}L_n$ hat
+  mit $L_n\coloneqq (\KnbF\oplus\xi\K_{n-1}\bF), n>0$, $L_0\coloneqq\Z$.
+  $\xi$ entspricht anschaulich einer Erweiterung um das bei
   der Quotientenbildung verloren gegangene $\pi$.
 
   Als nächstes zeigen wir, dass die Zuweisung ($u\in R^\times$)
@@ -859,7 +867,8 @@ in folgender Weise auf $\KnF$ übertragen:
   Die Wohldefiniertheit ist klar, da sich wie in \ref{darstellungdbk}
   jedes Element aus $\Fx$ als $\pi^k u$ darstellen lässt und
   $\KF$ das Erzeugnis aus Produkten und Summen von $\{x\}, x\in\Fx$
-  ist. Somit ist $\Psi$ für jedes Element eindeutig bestimmt.
+  ist. Somit ist $\Psi$ für jedes Element $\{x_1,\dotsc,x_n\}\in\KF$ 
+  eindeutig bestimmt.
 
   Die Homomorphismuseigenschaft
   $\Psi(\{x\}\otimes\{y\})=\Psi(\{x\})\otimes\Psi(\{y\})$
@@ -889,7 +898,7 @@ in folgender Weise auf $\KnF$ übertragen:
   Beachte hierbei, dass für eine Einheit $u\in R^\times$ das Urbild
   der Projektion $\ov u\in\bF=R/\frakm_v$ eindeutig gleich $u$ ist,
   da die multiplikativen Gruppen $\bF$ und $R^\times$ isomorph sind.
-  Mit $\Psi(1)=1$ ist $\Psi$ also Ringhomomorphismus $\KF$ nach $\KbF[\xi]$.
+  Mit $\Psi(1)=1$ ist $\Psi$ also Ringhomomorphismus $\KF\to\KbF[\xi]$.
 
 %  Jetzt haben wir einen Ringhomomorphismus von $\KF$ nach $\KbF[\xi]$.
   Diesen wollen wir nun durch Umformung ein wenig umformulieren
@@ -990,6 +999,44 @@ Beachte, dass es nach \ref{zahmessymbolhom} eine Surjektion
   \partial_\pi\colon \KnFt\to \K_{n-1}(\F[t]/(\pi))
 \end{gather*}
 gibt.
+
+Mithilfe des Zahmen Symbols und der Spezialisierungsabbildung kann
+eine Zerlegung von $\KnF(t)$ bestimmt werden.
+
+\begin{Satz}[Milnor]\label{milnorfolge}
+  Für $P\coloneqq \{\pi\in \F[t]\mid \pi\text{ prim, normiert }\}$
+  gibt für alle $n\in\N$ es eine spaltende exakte Sequenz
+  % \begin{center}
+  %   \begin{tikzcd}
+  %     0 \ar[r] & \KnF \ar[r] & \K_n(\F(t)) \ar[r] 
+  %     & \bigoplus_{\pi\in P}K_{n-1}(\F[t]/(\pi)) \ar[r] & 0
+  %   \end{tikzcd}
+  % \end{center}
+  \begin{gather*}
+        0 \longrightarrow \KnF 
+        \longrightarrow \K_n(\F(t))
+        \longrightarrow \bigoplus_{\pi\in P}K_{n-1}(\F[t]/(\pi))
+        \longrightarrow 0
+  \end{gather*}
+  Spaltend bedeutet, dass 
+  $\K_n(\F(t))\cong\KnF\oplus\bigoplus_{\pi\in P}K_{n-1}(\F[t]/(\pi))$.
+\end{Satz}
+
+\begin{Bem}
+  Für den Fall $n=1$ liefert \ref{milnorfolge}
+  \begin{gather*}
+    \F(t)^\times
+    \cong \Fx
+    \oplus\bigoplus_{\pi\in P}
+      \K_{n-1}(\F[t]/(\pi))
+    \end{gather*}
+    ist die anschauliche Interpretation, dass es die Zerlegung eines
+    Polynoms in seine irreduziblen Faktoren ist.
+\end{Bem}
+\begin{proof}[Beweis zu \ref{milnorfolge}]
+  
+\end{proof}
+
 
 
 
