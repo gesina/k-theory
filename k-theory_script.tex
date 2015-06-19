@@ -1002,25 +1002,29 @@ Beachte, dass es nach \ref{zahmessymbolhom} eine Surjektion
 gibt.
 
 Vorerst noch ein Begriff, den wir später verwenden werden.
-\begin{Def}[spaltende exakte Sequenz]
+\begin{Def}[spaltende exakte Sequenz]\label{spaltendeexaktesequenz}
   Eine exakte Sequenz von Moduln
   \begin{center}
    \begin{tikzcd}
-     0 \arrow[r] & M'\ar[r]&M\ar[r]&M''\ar[r]&0
+     0 \arrow{r} & M'\arrow{r}{f} &M \arrow{r}{g} &M''\ar{r}&0
    \end{tikzcd}
  \end{center}
  heißt spaltend, falls es einen Isomorphismus $M'\oplus M''\cong M$
-  gibt, so dass
-  \begin{center}
-    \begin{tikzcd}
-      0\ar[r]&M'\ar[r]\ar[d,equal]&M\ar[r]\disoarrow &M''\ar[r]\ar[d,equal]&0\\
-      0\ar[r]&M'\ar[r]&M'\oplus M''\ar[r]&M''\ar[r]&0
-    \end{tikzcd}
-  \end{center}
-  d.h. die exakten Sequenzen sind isomorph.
-  Diese Bedingung ist erfüllt, falls $g\colon M\to M'$ ein Schnitt (auch
-  Koretraktion) ist, d.h. falls $g$ einen rechtsinversen Homomorphismus
-  $f$ besitzt, so dass $g\circ f=id_{M''}$.
+ gibt, so dass
+ \begin{center}
+   \begin{tikzcd}
+     0\ar[r]&M'\ar[r]\ar[d,equal]&M\ar[r]\disoarrow &M''\ar[r]\ar[d,equal]&0\\
+     0\ar[r]&M'\ar[r]&M'\oplus M''\ar[r]&M''\ar[r]&0
+   \end{tikzcd}
+ \end{center}
+ d.h. die exakten Sequenzen sind isomorph.
+ Diese Bedingung ist erfüllt, falls $g$ eine
+ Koretraktion (auch Schnitt) ist, 
+ d.h. falls $g$ einen rechtsinversen Homomorphismus
+ $g'$ besitzt, so dass $g\circ g'=id_{M''}$.
+ Genauso ist sie erfüllt, falls umgekehrt $f$ eine Retraktion ist,
+ d.h. falls $f$ einen linksinversen Homomorphismus 
+ $f'$ besitzt, so dass $f\circ f'=id_{M}$.
 \end{Def}
 
 Mithilfe des Zahmen Symbols und der Spezialisierungsabbildung kann
@@ -1029,19 +1033,19 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
 \begin{Satz}[Milnor]\label{milnorfolge}
   Für $P\coloneqq \{\pi\in \F[t]\mid \pi\text{ prim, normiert }\}$
   gibt für alle $n\in\N$ es eine spaltende exakte Sequenz
-  % \begin{center}
-  %   \begin{tikzcd}
-  %     0 \ar[r] & \KnF \ar[r] & \K_n(\Ft ) \ar[r] 
-  %     & \bigoplus_{\pi\in P}K_{n-1}(\F[t]/(\pi)) \ar[r] & 0
-  %   \end{tikzcd}
-  % \end{center}
-  \begin{gather*}
-        0 \longrightarrow \KnF 
-        \longrightarrow \K_n(\Ft )
-        \longrightarrow \bigoplus_{\pi\in P}K_{n-1}(\F[t]/(\pi))
-        \longrightarrow 0
-  \end{gather*}
-  Das bedeutet, dass 
+  \begin{center}
+    \begin{tikzcd}
+      0 \ar[r] & \KnF \ar[r] & \K_n(\Ft ) \ar[r] 
+      & \displaystyle\bigoplus_{\pi\in P}K_{n-1}(\F[t]/(\pi)) \ar[r] & 0
+    \end{tikzcd}
+  \end{center}
+  % \begin{gather*}
+  %       0 \longrightarrow \KnF 
+  %       \longrightarrow \K_n(\Ft )
+  %       \longrightarrow \bigoplus_{\pi\in P}K_{n-1}(\F[t]/(\pi))
+  %       \longrightarrow 0
+  % \end{gather*}
+ Das bedeutet, dass 
   $\K_n(\Ft )\cong\KnF\oplus\bigoplus_{\pi\in P}K_{n-1}(\F[t]/(\pi))$.
 \end{Satz}
 
@@ -1066,14 +1070,14 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     \subset\KnFt
   \end{gather*}
   also die Erzeugnisse aller $\{f_1,\dotsc,f_n\}\in\KnFt$ mit
-  $\deg(f_i)\leq d$. Für ein Element $\{f_1,\dotsc,f_n\}\in L_d$ 
-  sind die $f_i$ also nur von irreduziblen (d.h. primen) Polynomen mit
-  Grad kleiner oder gleich $d$ erzeugt.
-  Die $L_d$ ergeben offensichtlich eine Filtrierung
+  $\deg(f_i)\leq d$. Diese Definition ergibt, dass für ein 
+  Element $\{f_1,\dotsc,f_n\}\in L_d$ die $f_i$ nur von 
+  irreduziblen (d.h. primen) Polynomen mit
+  Grad kleiner oder gleich $d$ erzeugt sind.
+  Die $L_d$ bilden offensichtlich eine Filtrierung
   \begin{gather*}
     L_0\subset L_1\subset L_2\subset \dotsb
   \end{gather*}
-
   Mit der kanonischen Einbettung von $L_0$ in $L_d$ und der Projektion
   von $L_d$ auf $L_d/L_0$ erhalten wir für
   beliebige $d\in\N$ die spaltende exakte Sequenz
@@ -1082,25 +1086,29 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     0\ar[r] &L_0\ar[r] &L_d\ar[r] &L_d/L_0 \ar[r] &0
   \end{tikzcd}
   \end{center}
-  Wir werden nacheinander feststellen, dass 
-  \begin{gather*}
-    L_0\cong \KnF \qquad\text{und}\qquad
-    L_d/L_0\cong \bigoplus_{k=1}^d L_k/L_{k-1}
-  \end{gather*}
-  Mit $P_d\coloneqq \{
-  \pi\in \F[t]\mid \pi\text{ prim, normiert, }\deg(\pi)=d
-  \}$
-  lässt sich die Isomorphie zeigen 
-  $L_d/L_{d-1}\cong \bigoplus_{\pi\in P_d} \K_{n-1}(\F[t]/(\pi))$,
-  womit wir haben
-  \begin{gather*}
+  Wir werden nacheinander zeigen, dass gilt
+  \begin{align}
+    L_0&\cong \KnF\hookrightarrow \KnFt  \label{1}\\
+    \intertext{
+    und mit $P_d\coloneqq \left\{
+    \pi\in \F[t]\mid \pi\text{ prim, normiert, }\deg(\pi)=d
+    \right\}$
+    }
+    L_d/L_{d-1}&\cong \bigoplus_{\pi\in P_d} \K_{n-1}(\F[t]/(\pi))\label{2}
+  \end{align}
+  Mithilfe der Isomorphie
+  \begin{gather} \label{3}
+    L_d/L_0\cong \bigoplus_{k=1}^d L_k/L_{k-1} \,,
+  \end{gather}
+  welche aus dem Homomorphiesatz folgt, haben wir insgesamt
+  \begin{align}\label{4}
     L_d/L_0
     \cong \bigoplus_{k=1}^d L_k/L_{k-1}
     \cong \bigoplus_{k=1}^d\bigoplus_{\pi\in P_k} \K_{n-1}(\F[t]/(\pi))
     = \bigoplus_{\substack{k\leq d\\\pi\in P_k}}
     \K_{n-1}(\F[t]/(\pi))
-  \end{gather*}
-  Zusammengesetzt haben wir dann für jedes $d\in\N_1$ die Sequenz
+  \end{align}
+  Zusammengesetzt ergibt das für jedes $d\in\N_1$ die Sequenz
   \begin{center}
   \begin{tikzcd}
     0\ar[r] &L_0\ar[r]\disoarrow &L_d\ar[r] &L_d/L_0 \ar[r]\disoarrow &0\\
@@ -1112,8 +1120,48 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     &0
   \end{tikzcd}
   \end{center}
-  \cite[siehe][III. §6.2, Prop. 3]{bourbaki}
-    
+  Mit den kanonischen Inklusionen $\iota_{ik}\colon L_i\to L_k$ 
+  bzw. $\ov{\iota}_{ik}\colon L_i/L_0\to L_k/L_0$ werden
+  sowohl $(L_d)_{d\in\N_1}$ als auch $(L_d/L_0)_{d\in\N_1}$
+  zu direkten Systemen.
+  Der direkte Limes erhält auf Moduln also insbesondere Ringen exakte
+  Sequenzen 
+  \cite[siehe][III. §6.2, Prop. 3]{bourbaki},
+  weshalb folgende Sequenzen wieder exakt und isomorph sind
+  \begin{center}
+  \begin{tikzcd}
+    0\ar[r] 
+    &\displaystyle \varprojlim_{d\in\N_1} L_0=L_0\ar[r] \disoarrow
+    &\displaystyle \varprojlim_{d\in\N_1} L_d\ar[r] \ar[equal]{d}
+    &\displaystyle \varprojlim_{d\in\N_1} (L_d/L_0) \ar[r]\disoarrow
+    &0\\
+    0\ar[r] 
+    &\displaystyle \varprojlim_{d\in\N_1} \KnF=\KnF  \ar[r] 
+    &\displaystyle \varprojlim_{d\in\N_1} L_d\ar[r]
+    &\displaystyle \varprojlim_{d\in\N_1}
+    ( \bigoplus_{\mathrlap{k\leq d, \pi\in P_k}}
+      \K_{n-1}(\F[t]/(\pi)) 
+    ) \ar[r]
+    &0
+  \end{tikzcd}
+  \end{center}
+  Mit
+  $\displaystyle\varprojlim_{d\in\N_1}L_d=\bigcup_{d\in\N_1}L_d=\KnFt$ 
+  und
+  $\displaystyle\varprojlim_{d\in\N_1}(\bigoplus_{\mathrlap{k\leq d, \pi\in P_k}}
+  \K_{n-1}(\F[t]/(\pi)))
+  =\bigoplus_{\pi\in P}
+  \K_{n-1}(\F[t]/(\pi)))$
+  folgt dann die exakte Sequenz aus \ref{milnorfolge}.
+  Dass diese spaltend ist, werden wir nach
+  \ref{spaltendeexaktesequenz} damit zeigen, dass
+  die kanonische injektive Einbettung $L_0\cong\KnF\to\KnFt$ 
+  eine Retraktion ist.
+
+  Es bleibt also einmal zu zeigen, dass \ref{1} gilt und die Einbettung eine
+  Retraktion ist, und zum anderen, dass \ref{2} gilt, woraus mit \ref{3} dann wie
+  oben \ref{4} folgt.
+  
   % Zuerst betrachte den Fall $d=0$.
   % Für ein Primelement $\pi\KnFt$ mit $\deg(\pi)=1$
   % (d.h. $\pi=t-\alpha$ mit $\alpha\in\F$)
