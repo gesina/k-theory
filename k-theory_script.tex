@@ -1162,16 +1162,50 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
   Retraktion ist, und zum anderen, dass \ref{2} gilt, woraus mit \ref{3} dann wie
   oben \ref{4} folgt.
   
-  % Zuerst betrachte den Fall $d=0$.
-  % Für ein Primelement $\pi\KnFt$ mit $\deg(\pi)=1$
-  % (d.h. $\pi=t-\alpha$ mit $\alpha\in\F$)
-  % gilt $\F[t]/(\pi)=\F[t]/(t-\alpha)\cong \F$, 
-  % also $\K_n(\F[t]/(\pi))\cong\KnF$.
-  % Mithilfe der Spezialisierung $\psi_\pi$ zu $\pi$ 
-  % und \ref{bemzahmessymbolhom} erhalten wir die Surjektion
-  % \begin{gather*}
-  %   \KnFt\to \K_n(\F[t]/(\pi))\cong\KnF
-  % \end{gather*}
+  \begin{Lem}[\ref{1}]
+    Es gilt $L_0\cong \KnF\overset{\iota}{\hookrightarrow} \KnFt$
+    und $\iota$ ist Retraktion.
+    \begin{proof}
+      Die Isomorphie $L_0\cong\KnF$ folgt bereits aus der Definition
+      von $L_0$:
+      \begin{align*}
+        L_0
+        &=\left\{\{f_1,\dotsc,f_n\}\in\KnFt \mid \deg(f_i)\leq 0\right\}\\
+        &=\left\{\{f_1,\dotsc,f_n\}\in\KnFt \mid \deg(f_i)= 0\right\}\\
+        &=\left\{\{f_1,\dotsc,f_n\}\in\KnFt \mid \deg(f_i)= 0\right\}\\
+        &=\left\{\{f_1,\dotsc,f_n\}\in\KnFt \mid f_i\in\F\right\}\\
+        &=\KnF
+      \end{align*}
+      Genauso ist die Form der Einbettung kanonisch gegeben
+      durch die Einbettung von $L_0$ in $\KnFt$, d.h. 
+      $\KnF\overset{\iota}{\hookrightarrow}\KnFt$ mit $\im(\iota)=L_0$.
+      Um zu zeigen, dass die Einbettung eine Retraktion ist,
+      benutzen wir unsere Spezialisierungsabbildung aus 
+      \ref{zahmessymbolhom}.
+      
+      Für ein Primelement $\pi\KnFt$ mit $\deg(\pi)=1$
+      (d.h. $\pi=t-\alpha$ mit $\alpha\in\F$)
+      gilt $(\F[t]/(\pi))^\times=(\F[t]/(t-\alpha))^\times\cong \Fx$, 
+      also $\K_n(\F[t]/(\pi))\cong\KnF$.
+      Wähle der Einfachheit halber z.B. $\alpha=0$, also $\pi=t$.
+      Für ein Element $\{f_1,\dotsc, f_n\}\in L_0=\im(\iota)$ ist,
+      nachdem alle $f_i$ Einheiten bzgl. der $t$-adischen Bewertung sind,
+      \begin{align*}
+        \psi_t(\{f_1,\dotsc,f_n\})
+        &=\{\ov{\psi_t(f_1)},\dotsc, \ov{\psi_t(f_n)}\}\\
+        &\overset{\mathllap{\text{$f_i$ Einheiten; 
+          \ref{relationdualzahmessymbol}}}}{=}
+          \{\ov f_1,\dotsc, \ov f_n\}
+      \end{align*}
+      Wenden wir die Gruppenisomorphie $(\F[t]/(t))^\times\cong\Fx,
+      \ov f\overset{\phi}{\mapsto} f$ an, erhalten wir
+      $(\phi\circ\psi_t)\circ \iota(\{f_1,\dotsc,f_n\}\in\KnF)
+      =\{f_1,\dotsc,f_n\}\in\KnF$,
+      also $(\phi\circ\psi_t)\circ \iota=\id_{\KnF}$, was zeigt, dass
+      $\iota$ Retraktion ist.
+    \end{proof}
+  \end{Lem}
+  
 \end{proof}
 
 
