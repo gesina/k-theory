@@ -740,11 +740,11 @@ in folgender Weise auf $\KnF$ übertragen:
 \begin{Satz}\label{zahmessymbolhom}
   Zu einem diskret bewerteten Körper $(\F,v)$ mit Bewertungsring $R$
   gibt es für alle $n\geq 1$ einen eindeutigen Gruppenhomomorphismus 
-  $\partial\colon \KnF\to \K_{n-1}(\bF)$,
+  $\partial_v\colon \KnF\to \K_{n-1}(\bF)$,
   der für alle Primelemente $\pi\in R$ und 
-  Einheiten $u_1,\dotsc, u_n\in R$ erfüllt
+  Einheiten $u_1,\dotsc, u_n\in \Rx$ erfüllt
   \begin{gather}\label{relationzahmessymbol}
-    \partial(\{\pi,u_1,\dotsc,u_n\})=\{\ov u_1, \dotsc, \ov u_n\}
+    \partial_v(\{\pi,u_1,\dotsc,u_n\})=\{\ov u_1, \dotsc, \ov u_n\}
   \end{gather}
   Weiterhin gibt es für jedes fix gewählte Primelement $\pi\in R$
   einen eindeutigen Ringhomomorphismus $\psi_\pi\colon\KF\to\KbF$, 
@@ -752,48 +752,49 @@ in folgender Weise auf $\KnF$ übertragen:
   \begin{gather}\label{relationdualzahmessymbol}
     \psi_\pi(\{\pi^ku\})=\{\ov u\}
   \end{gather}
-  $\partial$ heißt Zahmes Symbol oder Restklassenabbildung und $\psi_\pi$
-  wird Spezialisierungsabbildung (zu $\pi$) genannt.
+  $\partial_v$ heißt Zahmes Symbol oder Restklassenabbildung und $\psi_\pi$
+  wird Spezialisierungsabbildung (zum Primelement $\pi$ bzgl. der
+  Bewertung $v$) genannt.
 \end{Satz}
 
 
 \begin{Bem}\label{bemzahmessymbolhom}
-  Die Forderungen \ref{relationzahmessymbol} liefern
-  bereits einige Eigenschaften:
+  Die Forderungen \ref{relationzahmessymbol} und
+  \ref{relationdualzahmessymbol} liefern bereits einige Eigenschaften:
   \begin{enumerate}[a)]
   \item Das Zahme Symbol muss surjektiv sein, da für einen lokalen Ring
     $R$ – wie der Bewertungsring in unserem Fall – die Gruppenisomorphie 
     $R/\frakm_v\cong \Rx$ gilt. Damit finden sich für alle 
-    $v_1,\dotsc,v_n\in \bF^\times= R/\frakm_v\cong \Rx$
-    eindeutige $u_1,\dotsc, u_n\in\\Rx\subset\Fx$, 
+    $v_1,\dotsc,v_n\in \bFx = R/\frakm_v\cong \Rx$
+    eindeutige $u_1,\dotsc, u_n\in\Rx\subset\Fx$, 
     so dass $\ov u_i=v_i$, 
     und für beliebiges Primelement $\pi\in R$ gilt
-    $\partial(\{\pi,u_1,\dotsc, u_n\})=\{v_1,\dotsc, v_n\}$.
+    $\partial_v(\{\pi,u_1,\dotsc, u_n\})=\{v_1,\dotsc, v_n\}$.
     Gleiches gilt entsprechend für die Spezialisierungsabbildung.
   \item   Mit der Relation $u_1=\frac{\pi u_1}{\pi}$
     für eine Einheit $u_1\in \Rx$
     gilt für bel. $u_1,\dotsc, u_n\in \Rx, n\in\N$
     \begin{align*}
-      \partial(\{u_1,\dotsc,u_n\})
-      &= \partial(\{\pi u_1\cdot \pi^{-1},u_2,\dotsc,u_n\})\\
-      &= \partial(\{\pi u_1,u_2,\dotsc,u_n\})\m 
-        \partial(\{\pi,u_2,\dotsc,u_n\})\\
-      &\overset{\mathllap{\text{Def. }\partial}}{
+      \partial_v(\{u_1,\dotsc,u_n\})
+      &= \partial_v(\{\pi u_1\cdot \pi^{-1},u_2,\dotsc,u_n\})\\
+      &= \partial_v(\{\pi u_1,u_2,\dotsc,u_n\})\m 
+        \partial_v(\{\pi,u_2,\dotsc,u_n\})\\
+      &\overset{\mathllap{\text{Def. }\partial_v}}{
         \underset{\mathllap{\pi,\pi u\text{ prim}}}{=}}
         \{\ov u_2,\dotsc, \ov u_n\} \m \{\ov u_2,\dotsc, \ov u_n\}
         = 0
     \end{align*}
-  \item Für $n=1$ erfüllt $\partial=v\colon \F\to \Z\cup\{\infty\}$ 
+  \item Für $n=1$ erfüllt $\partial_v=v|_{\Fx}\colon \Fx\to \Z$ 
     die Bedingung \ref{relationzahmessymbol}.
     Denn hier ist sie äquivalent dazu, dass ein Primelement 
-    $\pi\in R\subset \Fx$ auf die (einzige) Einheit 1 
-    geschickt wird und eine Einheit $u\in R\subset \Fx$ auf 0,
+    $\pi\in R\subset \Fx$ auf die (einzige) Einheit $1\in\Z=\K_0(\bF)$ 
+    geschickt wird und eine Einheit $u\in R\subset \Fx$ auf $0\in\Z$,
     was für eine diskrete Bewertung der Fall ist, wie wir gesehen haben.
   \end{enumerate}
 \end{Bem}
 
 \begin{proof}[Eindeutigkeit zu \ref{zahmessymbolhom}]
-  Nachdem $\partial$ ein Homomorphismus ist, genügt es, $\partial$ auf
+  Nachdem $\partial_v$ ein Homomorphismus ist, genügt es, $\partial_v$ auf
   den Erzeugern von $\KnF$ zu betrachten, also nach \ref{darstellungknf} den
   Elementen der Form $\{\pi\}\otimes\{u_{2},\dotsc,u_{n}\}$ für
   Einheiten $u\in \Rx$ und $\pi$ prim.
@@ -807,21 +808,22 @@ in folgender Weise auf $\KnF$ übertragen:
 \end{proof}
 
 \begin{proof}[Existenz zu \ref{zahmessymbolhom}]
-  Wir werden $\partial$ und $\psi$ explizit konstruieren.
+  Wir werden $\partial_v$ und $\psi_\pi$ explizit konstruieren.
   Von der Idee her soll 
   – wieder zu unserem fix gewählten Primelement $\pi\in R$ – 
   ein Element $\{\pi^ku\}\in\KoF, u\in \Rx,$
   in seinen \enquote{$\pi$-Anteil} und seinen 
   \enquote{Einheitsanteil} zerlegt werden. 
   Dann können wir die Gruppenisomorphie
-  $\K_1(\bF)\cong\bF^\times=(R/\frakm_v)^\times\cong \Rx$
+  $\K_1(\bF)\cong\bFx=(R/\frakm_v)^\times\cong \Rx$
   ausnutzen und den \enquote{Einheitsanteil} als Element aus 
-  $\K_1(\bF)\cong \bF^\times$
-  schreiben. Durch geschickte Umformung liefert dies dann die
+  $\K_1(\bF)\cong \bFx$
+  schreiben. Durch Erweiterung auf $\KnF$ und 
+  geschickte Umformung liefert dies dann die
   gesuchten Homomorphismen, wie wir gleich sehen werden.
   % Anschaulich zerlegt $\psi$ ein Element $\{\pi^ku\in\}\KoF\cong\Fx$ in 
   % seinen $\pi$- und seinen Einheitsanteil. Da die Gruppenisomorphie
-  % $\K_1(\bF)\cong\bF^\times\cong (R/\frakm_v)^\times\cong \Rx$
+  % $\K_1(\bF)\cong\bFx\cong (R/\frakm_v)^\times\cong \Rx$
   % herrscht, kann ich meinen 
   
   Um unseren \enquote{$\pi$-Anteil} sauber darstellen zu können,
@@ -835,12 +837,18 @@ in folgender Weise auf $\KnF$ übertragen:
   beliebige Ringerweiterung $\KbF[x]$ vom Grad 2 vornimmt und den
   Quotienten durch das Ideal $(x^2-x\{\ov{-1}\})$ bildet. Dadurch
   erhält man wieder eine Körpererweiterung $\KbF[\xi]$ vom Grad 2,
-  wobei $\xi$ die Projektion von $x$ ist.
+  wobei $\xi$ die Projektion von $x$ ist und beide Bedingungen von
+  oben erfüllt.
   
   Insgesamt erhalten wir einen erweiterten Ring $\KbF[\xi]$, der als
   $\KbF$-Modul die Basis $\{ \xi, 1\in\Z\}$ hat, also frei ist über
-  $\KbF$ und die Form $\bigoplus_{n\in\N}L_n$ hat
-  mit $L_n\coloneqq (\KnbF\oplus\xi\K_{n-1}\bF), n>0$, $L_0\coloneqq\Z$.
+  $\KbF$ und folgende Form hat
+  \begin{align*}
+    \KbF[\xi]&=\bigoplus_{n\in\N}L_n
+    &&\text{mit } 
+       L_n\coloneqq (\KnbF\oplus\xi\K_{n-1}\bF), n>0,
+       \text{ und }L_0\coloneqq\Z
+  \end{align*}
   $\xi$ entspricht anschaulich einer Erweiterung um das bei
   der Quotientenbildung verloren gegangene $\pi$.
 
@@ -920,7 +928,7 @@ in folgender Weise auf $\KnF$ übertragen:
   % alle Ausdrücke mit $k\neq 0$ in die Form
   % $\xi\otimes\{\ov{-1}\}^{k-1}\{v_{k+1},\dotsc,v_n\}$ bringen.
   % Also haben alle Summenglieder von $\chi$ die Form
-  $\xi\otimes\{v_2,\dotsc, v_n\}\in\KbF$ mit $v_i\in\bF^\times$
+  $\xi\otimes\{v_2,\dotsc, v_n\}\in\KbF$ mit $v_i\in\bFx$
   haben,
   und man kann schreiben
   \begin{gather*}
@@ -932,15 +940,15 @@ in folgender Weise auf $\KnF$ übertragen:
   Wenden wir die kanonischen Projektionen auf den Vektorraum 
   $\KbF[\xi]$ an, erhalten wir $\Psi$ in den Komponenten
   $\psi_\pi(\{a_1,\dotsc,a_n\})\coloneqq \{\ov u_1,\dotsc,\ov u_n\}$
-  und $\partial(\{a_1,\dotsc,a_n\})\coloneqq \chi'\in\K_{n-1}(\bF)$ wie oben:
+  und $\partial_v(\{a_1,\dotsc,a_n\})\coloneqq \chi'\in\K_{n-1}(\bF)$ wie oben:
   \begin{gather*}
-    \Psi(\alpha) = \psi_\pi(\alpha)\p \xi\partial(\alpha)
+    \Psi(\alpha) = \psi_\pi(\alpha)\p \xi\partial_v(\alpha)
     \quad \forall\alpha\in\KnF
   \end{gather*}
   woraus schon folgt, 
-  dass $\delta\colon\KnF\to\K_{n-1}(\bF)$ Gruppenhomomorphismus 
+  dass $\partial_v\colon\KnF\to\K_{n-1}(\bF)$ Gruppenhomomorphismus 
   und $\psi_\pi\colon\KnF\to\KnbF$ sogar Ringhomomorphismus ist.
-  Dieses $\partial$ erfüllt tatsächlich die Anforderungen aus 
+  Dieses $\partial_v$ erfüllt tatsächlich die Anforderungen aus 
   \ref{zahmessymbolhom}, denn für $\alpha=\{\pi,u_1,\dotsc, u_n\}$ ist
   \begin{align*}
     \Psi(\alpha)
@@ -949,14 +957,14 @@ in folgender Weise auf $\KnF$ übertragen:
     &=\xi\otimes\{\ov u_1,\dotsc,\ov u_n\}\\
     &=(0\otimes\{\ov u_1,\dotsc,\ov u_n\})
       \p\xi\{\ov u_1,\dotsc,\ov u_n\}\\
-    &=\psi_\pi(\alpha) \p \xi\partial(\alpha)
+    &=\psi_\pi(\alpha) \p \xi\partial_v(\alpha)
   \end{align*}
   Daraus folgt bereits
-  $\partial(\{\pi,u_1,\dotsc,u_n\})=\{\ov u_1,\dotsc,\ov u_n\}$.  
+  $\partial_v(\{\pi,u_1,\dotsc,u_n\})=\{\ov u_1,\dotsc,\ov u_n\}$.  
   Und $\psi_\pi$ erfüllt \ref{relationdualzahmessymbol}, denn 
   die Definition von oben liefert für $n=1$ und fix gewähltes
   Primelement $\pi$ zu $a=\pi^ku\in\Fx, u\in\Rx$ genau
-  $\psi_\pi(\{a\})=\psi_\pi(\{\pi^ku\})\coloneqq\ov \{u\}$.
+  $\psi_\pi(\{a\})=\psi_\pi(\{\pi^ku\})\coloneqq\{\ov u\}$.
   Damit ist die Existenz des Zahmen Symbols und die der
   Spezialisierungsabbildung gezeigt.
 \end{proof}
@@ -985,19 +993,20 @@ in folgender Weise auf $\KnF$ übertragen:
 
 \section{Die spaltende exakte Milnor-Folge}
 
-Wir werden jetzt mit den Erkenntnissen über $\KnF$ eines diskret bewerteten
-Körpers $\KnFt$ des zugehörigen Funktionenkörpers in einer Variable
-untersuchen. Wie wir in Beispiel \ref{p-adischebewertung} gesehen
-haben, kann für ein fixes Primelement $\pi$ auf der Lokalisierung 
+Mit den Erkenntnissen über $\KnF$ eines diskret bewerteten 
+Körpers $(\F,v)$ werden wir jetzt den Funktionenkörper $\KnFt$ 
+in einer Variable eines beliebigen Körpers $\F$ untersuchen. 
+Wie wir in Beispiel \ref{p-adischebewertung} gesehen haben, 
+kann für ein fixes Primelement $\pi$ auf der Lokalisierung 
 $\F[t]_{(\pi)}$ des euklidischen Rings $\F[t]$ eine $\pi$-adische
-Bewertung  definiert werden. $\F[t]_{(\pi)}$ ist ein
+Bewertung $v_\pi$ definiert werden. $\F[t]_{(\pi)}$ ist damit ein
 Bewertungsring zum Funktionenkörper $\Ft $.
 Der Restklassenkörper $\F[t]_{(\pi)}/(\pi)\F[t]_{(\pi)}$ ist wegen
 Verträglichkeit von Lokalisierung und Quotientenbildung isomorph zu
 $\F[t]/(\pi)$.
 Beachte, dass es nach \ref{zahmessymbolhom} eine Surjektion
 \begin{gather*}
-  \partial_\pi\colon \KnFt\to \K_{n-1}(\F[t]/(\pi))
+  \partial_{v_\pi}\colon \KnFt\twoheadrightarrow \K_{n-1}(\F[t]/(\pi))
 \end{gather*}
 gibt.
 
@@ -1017,7 +1026,7 @@ Vorerst noch ein Begriff, den wir später verwenden werden.
      0\ar[r]&M'\ar[r]&M'\oplus M''\ar[r]&M''\ar[r]&0
    \end{tikzcd}
  \end{center}
- d.h. die exakten Sequenzen sind isomorph.
+ d.h. so dass die exakten Sequenzen isomorph sind.
  Diese Bedingung ist erfüllt, falls $g$ eine
  Koretraktion (auch Schnitt) ist, 
  d.h. falls $g$ einen rechtsinversen Homomorphismus
@@ -1031,8 +1040,8 @@ Mithilfe des Zahmen Symbols und der Spezialisierungsabbildung kann
 eine Zerlegung von $\KnF(t)$ bestimmt werden.
 
 \begin{Satz}[Milnor]\label{milnorfolge}
-  Für $P\coloneqq \{\pi\in \F[t]\mid \pi\text{ prim, normiert }\}$
-  gibt für alle $n\in\N$ es eine spaltende exakte Sequenz
+  Sei $P\coloneqq \{\pi\in \F[t]\mid \pi\text{ prim, normiert }\}$.
+  Dann gibt für alle $n\in\N$ es eine spaltende exakte Sequenz
   \begin{center}
     \begin{tikzcd}
       0 \ar[r] & \KnF \ar[r] & \K_n(\Ft ) \ar[r] 
@@ -1045,7 +1054,7 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
   %       \longrightarrow \bigoplus_{\pi\in P}K_{n-1}(\F[t]/(\pi))
   %       \longrightarrow 0
   % \end{gather*}
- Das bedeutet, dass 
+ Das bedeutet
   $\K_n(\Ft )\cong\KnF\oplus\bigoplus_{\pi\in P}K_{n-1}(\F[t]/(\pi))$.
 \end{Satz}
 
@@ -1054,10 +1063,9 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
   \begin{gather*}
     \Ft^\times
     \cong \Fx
-    \oplus\bigoplus_{\pi\in P}
-      \K_{n-1}(\F[t]/(\pi))
+    \oplus\bigoplus_{\pi\in P}\Z
     \end{gather*}
-    Dies ist anschauliche die Zerlegung eines
+    Dies ist anschaulich die Zerlegung eines
     Polynoms in seine irreduziblen Faktoren.
 \end{Bem}
 \begin{proof}[Beweis zu \ref{milnorfolge}]
@@ -1096,11 +1104,11 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     }
     L_d/L_{d-1}&\cong \bigoplus_{\pi\in P_d} \K_{n-1}(\F[t]/(\pi))\label{2}
   \end{align}
-  Mithilfe der Isomorphie
+  Danach haben wir mithilfe der Isomorphie
   \begin{gather} \label{3}
     L_d/L_0\cong \bigoplus_{k=1}^d L_k/L_{k-1} \,,
   \end{gather}
-  welche aus dem Homomorphiesatz folgt, haben wir insgesamt
+  welche aus dem Homomorphiesatz folgt, insgesamt
   \begin{align}\label{4}
     L_d/L_0
     \cong \bigoplus_{k=1}^d L_k/L_{k-1}
@@ -1121,10 +1129,10 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
   \end{tikzcd}
   \end{center}
   Mit den kanonischen Inklusionen $\iota_{ik}\colon L_i\to L_k$ 
-  bzw. $\ov{\iota}_{ik}\colon L_i/L_0\to L_k/L_0$ werden
+  bzw. $\ov{\iota}_{ik}\colon L_i/L_0\to L_k/L_0$ ($k\geq i$) werden
   sowohl $(L_d)_{d\in\N_1}$ als auch $(L_d/L_0)_{d\in\N_1}$
   zu direkten Systemen.
-  Der direkte Limes erhält auf Moduln also insbesondere Ringen exakte
+  Der direkte Limes erhält auf Moduln und insbesondere Ringen exakte
   Sequenzen 
   \cite[siehe][III. §6.2, Prop. 3]{bourbaki},
   weshalb folgende Sequenzen wieder exakt und isomorph sind
@@ -1145,13 +1153,17 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     &0
   \end{tikzcd}
   \end{center}
-  Mit
-  $\displaystyle\varprojlim_{d\in\N_1}L_d=\bigcup_{d\in\N_1}L_d=\KnFt$ 
-  und
-  $\displaystyle\varprojlim_{d\in\N_1}(\bigoplus_{\mathrlap{k\leq d, \pi\in P_k}}
-  \K_{n-1}(\F[t]/(\pi)))
-  =\bigoplus_{\pi\in P}
-  \K_{n-1}(\F[t]/(\pi)))$
+  Mit den Vereinigungen als Kolimeswerte
+  \begin{align*}
+    \varprojlim_{d\in\N_1}L_d
+    &=\bigcup_{d\in\N_1}L_d=\KnFt
+    &&\text{ und } 
+    &\varprojlim_{d\in\N_1}
+      (\bigoplus_{\mathrlap{k\leq d, \pi\in P_k}}
+      \K_{n-1}(\F[t]/(\pi)))
+    &=\bigoplus_{\pi\in P}
+      \K_{n-1}(\F[t]/(\pi)))
+  \end{align*}
   folgt dann die exakte Sequenz aus \ref{milnorfolge}.
   Dass diese spaltend ist, werden wir nach
   \ref{spaltendeexaktesequenz} damit zeigen, dass
@@ -1176,9 +1188,9 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
         &=\left\{\{f_1,\dotsc,f_n\}\in\KnFt \mid f_i\in\F\right\}\\
         &=\KnF
       \end{align*}
-      Genauso ist die Form der Einbettung kanonisch gegeben
-      durch die Einbettung von $L_0$ in $\KnFt$, d.h. 
-      $\KnF\overset{\iota}{\hookrightarrow}\KnFt$ mit $\im(\iota)=L_0$.
+      Demnach ist die Form der Einbettung von $\KnF$ in $\KnFt$
+      kanonisch gegeben durch die Einbettung von $L_0$ in $\KnFt$, 
+      d.h. $\KnF\overset{\iota}{\hookrightarrow}\KnFt$ mit $\im(\iota)=L_0$.
       Um zu zeigen, dass die Einbettung eine Retraktion ist,
       benutzen wir unsere Spezialisierungsabbildung aus 
       \ref{zahmessymbolhom}.
@@ -1198,7 +1210,7 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
           \{\ov f_1,\dotsc, \ov f_n\}
       \end{align*}
       Wenden wir die Gruppenisomorphie $(\F[t]/(t))^\times\cong\Fx,
-      \ov f\overset{\phi}{\mapsto} f$ an, erhalten wir
+      \ov f\overset{\phi}{\mapsto} f\in\Fx$ an, erhalten wir
       $(\phi\circ\psi_t)\circ \iota(\{f_1,\dotsc,f_n\}\in\KnF)
       =\{f_1,\dotsc,f_n\}\in\KnF$,
       also $(\phi\circ\psi_t)\circ \iota=\id_{\KnF}$, was zeigt, dass
@@ -1207,8 +1219,11 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
   \end{Lem}
   
   \begin{Lem}[\ref{2}]
-    Mit der Definition ($\partial_\pi$ ist das Zahme Symbol bzgl. der
-    $\pi$-adischen Bewertung)
+    Es sei $\partial_\pi\coloneqq \partial_{v_\pi}\colon
+    \KnFt\twoheadrightarrow\K_{n-1}(\F[t]/(\pi))$
+    das Zahme Symbol bzgl. der $\pi$-adischen Bewertung $v_\pi$ auf
+    $\KnFt$ für $n\in\N_1$.
+    Mit der Definition
     \begin{align*}
       \partial_d\colon \KnFt
       &\twoheadrightarrow \bigoplus_{\pi\in
@@ -1222,7 +1237,7 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     von $\partial_d$ auf $L_d/L_{d-1}$
     \begin{align*}
       \ov{\partial}_d\colon \KnFt
-      &\to \bigoplus_{\pi\in
+      &\overset{\thicksim}{\rightarrow} \bigoplus_{\pi\in
         P_d}\K_{n-1}(\Ft/(\pi))\\
       \{f_1,\dotsc,f_n\}
       &\mapsto\left(
