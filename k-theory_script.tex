@@ -1073,7 +1073,8 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
   Essentiell für unser Vorgehen sind die Untergruppen
   \begin{gather*}
     L_d\coloneqq \left(
-      \{f_1,\dotsc,f_n\}\in\KnFt \mid \deg(f_i)\leq d
+      \{f_1,\dotsc,f_n\}\in\KnFt 
+      \mid f_i\in\F[t],\deg(f_i)\leq d
       \right)
     \subset\KnFt
   \end{gather*}
@@ -1220,9 +1221,68 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
   
   Für den Beweis von Aussage \ref{2} benötigen wir noch eine genauere
   Kenntnis der Struktur von $L_d/L_{d-1}$.
-  Tatsächlich kann man für ein fix gewähltes Primelement $\pi\in P_d$
-  jedes Element $\ov\{f_1,\dotsc,f_n\}}\in L_d/L_{d-1}$ als Summe von
-Elementen der Form 
+  Tatsächlich kann man jedes Element 
+  $\ov{\{f_1,\dotsc,f_n\}}\in L_d/L_{d-1}$ als Summe
+  mit Gliedern der Form  $\ov{\{\pi,g_2,\dotsc,g_n\}}\in L_d/L_{d-1}$
+  darstellen, wobei $\pi\in P_d$, $g_i\in\F[t]$ 
+  und $\deg(g_i)<d$ ist für alle $2\leq i\leq n$.
+  
+  Nachdem $L_d$ von Elementen $\{f_1,\dotsc,f_n\}\in\KnFt$ mit
+  $f_i\in R$ und $\deg(f_i)\leq d$ erzeugt ist, 
+  betrachten wir solch ein Element.
+  Es seien alle Elemente mit $\deg(f_i)=d$ auf den vorderen Stellen 
+  (sonst ordne um mit Vorzeichenwechsel nach \ref{identitaetmal}).
+  Falls es mehr als ein Element mit $\deg(f_i)=d$ gibt, betrachte
+  die Beziehung $f_1=a f_2 + g$ für ein $a\in\Fx$ und $g\in\F[t]$.
+  Falls $g=0$ ist, kann mithilfe von \ref{identitaetquadrat}
+  umgeformt werden zu $\{f_1,-1,\dotsc,f_n\}$.
+  Ansonsten gilt
+  \begin{align*}
+    f_2+af_2=g 
+    &\Rightarrow f_1/g+af_2/g=1\\
+    &\Rightarrow 0=\{f_1/g,af_2/g\}=(\{f_1\}\m\{g\})(\{a\}\p\{f_2\}\m\{g\})\\
+    &\Rightarrow \{f_1,f_2\}=\m\{f_1,a\}\p\{f_1,g\}\m\{f_2,g\}\p\{g,g\}
+  \end{align*}
+  Also ist 
+  \begin{align*}
+    \{f_1,f_2,\dotsc,f_n\} 
+    &=\m \{f_1,a,\dotsc,f_n\}
+      \p \{f_1,g,\dotsc,f_n\}
+      \m \{f_2,g,\dotsc,f_n\}
+      \p \{g,g,\dotsc,f_n\}\\
+    \intertext{oder}
+    \{f_1,f_2,\dotsc,f_n\} 
+    &=\{f_1,-1,\dotsc,f_n\}
+  \end{align*}
+  Jeder Summand enthält ein Polynom weniger vom Grad $d$.
+  Dies kann induktiv fortgeführt werden und wir erhalten,
+  dass jedes Element $\{f_1,\dotsc,f_n\}\in L_d$ mit $\deg(f_i)\leq d$
+  entweder erzeugt ist von Elementen $\{g_1,\dotsc, g_n\}\in L_d$ mit
+  $\deg(g_i)<d$ für $2\leq i\leq n$ und $\deg(g_1)=d$,
+  oder keines der $f_i$ hat $\deg(f_i)=d$.
+  
+  Es ist nun zu unterscheiden, ob $g_1\in\F[t]$ irreduzibel ist oder
+  nicht. Falls $g_1$ reduzibel ist, also $g_1=g_1'g_1''$ mit
+  $g_1',g_1''\in\F[t]$ und $\deg(g_1'),\deg(g_1'')<d$,
+  zerfällt $\{g_1,\dotsc,g_n\}$ in 
+  $\{g_1,\dotsc,g_n\}=\{g_1',\dotsc,g_n\}\p\{g_1'',\dotsc,g_n\}$.
+  Falls $g_1$ irreduzibel ist mit $g_1=a\pi, a\in\F, \pi\in P_d$, 
+  ist $\{g_1,\dotsc,g_n\}=\{\pi,\dotsc,g_n\}\p\{a,\dotsc,g_n\}$,
+  wobei ersteres die gesuchte Form hat und in letzterem wieder kein
+  Polynom Grad $d$.
+
+  $L_d$ besteht also tatsächlich genau aus Erzeugnissen von
+  $\{\pi,g_2,\dotsc,g_n\}$ und $\{g_1,\dotsc,g_n\}$
+  mit $\pi\in P_d$ und $g_i\in\F[t], \deg(g_i)<d$.
+
+  Bei der Quotientenbildung $L_d/L_{d-1}$ werden alle Elemente aus
+  $L_d$ auf $0$ geschickt, also alle Erzeugnisse von
+  $\{g_1,\dotsc,g_n\}\in\KnFt$ mit $g_i\in\F[t], \deg(g_i)<d$.
+  Es gibt also eine eindeutige Einbettung von $L_d/L_{d-1}$ in
+  $\KnFt$, die die Restklassen $\ov{\{\pi,g_2,\dotsc,g_n\}}, \pi\in
+  P_d$ auf das eindeutige Element 
+  $\{\pi,g_2,\dotsc,g_n\}\in L_d\setminus L_{d-1}$
+  im Urbild schickt.
 
   \begin{Lem}[\ref{2}]
     Es sei $\partial_\pi\coloneqq \partial_{v_\pi}\colon
@@ -1254,71 +1314,79 @@ Elementen der Form
   \end{Lem}
   \begin{proof}
     \paragraph{Wohldefiniertheit}
-    Vorerst machen wir uns die Struktur der Elemente von $L_d/L_0$
-    klar. Ein Element $\{f_1,\dotsc,f_n\}\in L_d$ ist die Summe von
-    Elementen $\{f_1',\dotsc,f_n'\}\in L_d$ mit $\deg(f_i')\leq d$, also
-    $f_i=g_{i,1}^{r_{i,1}}\dotsm g_{i,k}^{r_{i,k}}, 
-    k\in\N, r_{i,j}\in\Z\setminus \{0\},$ ist das Produkt von 
-    Irreduziblen $g_{i,j}\in\F[t]$ mit $\deg(g_{i,j})\leq d$.
-    Wegen Linearität des Tensorprodukts kann also jedes Element in
-    $L_d$ geschrieben werden als Summe von Elementen der Form
-    $\pm\{g_1,\dotsc, g_n\}$ mit $g_i\in R$ irreduzibel und
-    $\deg(g_i)\leq d$. Durch Umordnung mit eventuell Vorzeichenwechsel
-    können wir annehmen, dass $g_1$ höchsten Grad hat.
-    Genauso in $L_{d-1}$.
-    Bei der Quotientenbildung werden alle Elemente auf $0$
-    geschickt, die in $L_{d-1}$ liegen, also bei denen $\deg(g_1)<d$.
-    Wir können also jedes der erzeugenden Elemente $\ov{\{g_1,\dotsc,g_n\}}$ 
-    mit irreduziblen $g_i\in R$ in $L_d/L_{d-1}$ mit einem
-    eindeutigen Element $\{g_1,\dotsc,g_n\}\in L_d\setminus L_{d-1}$
-    identifizieren, bei dem $\deg(g_1)=d$.
+    % Vorerst machen wir uns die Struktur der Elemente von $L_d/L_0$
+    % klar. Ein Element $\{f_1,\dotsc,f_n\}\in L_d$ ist die Summe von
+    % Elementen $\{f_1',\dotsc,f_n'\}\in L_d$ mit $\deg(f_i')\leq d$, also
+    % $f_i=g_{i,1}^{r_{i,1}}\dotsm g_{i,k}^{r_{i,k}}, 
+    % k\in\N, r_{i,j}\in\Z\setminus \{0\},$ ist das Produkt von 
+    % Irreduziblen $g_{i,j}\in\F[t]$ mit $\deg(g_{i,j})\leq d$.
+    % Wegen Linearität des Tensorprodukts kann also jedes Element in
+    % $L_d$ geschrieben werden als Summe von Elementen der Form
+    % $\pm\{g_1,\dotsc, g_n\}$ mit $g_i\in R$ irreduzibel und
+    % $\deg(g_i)\leq d$. Durch Umordnung mit eventuell Vorzeichenwechsel
+    % können wir annehmen, dass $g_1$ höchsten Grad hat.
+    % Genauso in $L_{d-1}$.
+    % Bei der Quotientenbildung werden alle Elemente auf $0$
+    % geschickt, die in $L_{d-1}$ liegen, also bei denen $\deg(g_1)<d$.
+    % Wir können also jedes der erzeugenden Elemente $\ov{\{g_1,\dotsc,g_n\}}$ 
+    % mit irreduziblen $g_i\in R$ in $L_d/L_{d-1}$ mit einem
+    % eindeutigen Element $\{g_1,\dotsc,g_n\}\in L_d\setminus L_{d-1}$
+    % identifizieren, bei dem $\deg(g_1)=d$.
 
-    Man kann ein Element $\{f_1,\dotsc,f_n\}$ sogar in eine Summe
-    aus Elementen der Form $\{f_1',dotsc,f_n'\}$ mit $\deg(f_1')=d$,
-    $\deg(f_i)<d$ für $i>1$.
-    Wie oben seien alle Elemente $f_i\in R$ mit $\deg(f_i)=d$ auf den
-    vorderen Stellen (ansonsten invertiere und ordne um mit
-    Vorzeichenwechsel).
-    Falls es mehr als ein Element mit $\deg(f_i)=d$ gibt, betrachte
-    $f_1=a f_2 + g$ für ein $a\in\Fx$ und $g\in\F[t]$.
-    Falls $g=0$ ist, kann mithilfe von \ref{identitaetquadrat}
-    umgeformt werden.
-    Ansonsten gilt
-    \begin{align*}
-      f_2+af_2=g 
-      &\Rightarrow f_1/g+af_2/g=1\\
-      &\Rightarrow 0=\{f_1/g,
-        af_2/g\}=(\{f_1\}\m\{g\})(\{a\}\p\{f_2\}\m\{g\})\\
-      &\Rightarrow \{f_1,f_2\}=\m\{f_1,a\}\p\{f_1,g\}\m\{f_2,g\}
-    \end{align*}
-    Dies kann induktiv fortgeführt werden und wir erhalten die
-    gewünschte Summe.
+    % Man kann ein Element $\{f_1,\dotsc,f_n\}$ sogar in eine Summe
+    % aus Elementen der Form $\{f_1',dotsc,f_n'\}$ mit $\deg(f_1')=d$,
+    % $\deg(f_i)<d$ für $i>1$.
+    % Wie oben seien alle Elemente $f_i\in R$ mit $\deg(f_i)=d$ auf den
+    % vorderen Stellen (ansonsten invertiere und ordne um mit
+    % Vorzeichenwechsel).
+    % Falls es mehr als ein Element mit $\deg(f_i)=d$ gibt, betrachte
+    % $f_1=a f_2 + g$ für ein $a\in\Fx$ und $g\in\F[t]$.
+    % Falls $g=0$ ist, kann mithilfe von \ref{identitaetquadrat}
+    % umgeformt werden.
+    % Ansonsten gilt
+    % \begin{align*}
+    %   f_2+af_2=g 
+    %   &\Rightarrow f_1/g+af_2/g=1\\
+    %   &\Rightarrow 0=\{f_1/g,
+    %     af_2/g\}=(\{f_1\}\m\{g\})(\{a\}\p\{f_2\}\m\{g\})\\
+    %   &\Rightarrow \{f_1,f_2\}=\m\{f_1,a\}\p\{f_1,g\}\m\{f_2,g\}
+    % \end{align*}
+    % Dies kann induktiv fortgeführt werden und wir erhalten die
+    % gewünschte Summe.
+    % Somit kann $L_d/L_{d-1}$ durch entsprechende Einbettung in $\KnFt$
+    % als die Untergruppe erzeugt von allen $\{g_1,\dotsc,g_n\}$ mit
+    % $g_i\in R$ irreduzibel, $\deg(g_i)< d$ für $i>1$ und $\deg(g_1)=d$
+    % identifizieren, womit wir im Folgenden arbeiten werden.
+    Die Wohldefiniertheit folgt aus der oben konstruierten Einbettung
+    von $L_d/L_{d-1}$ in $\KnFt$. Denn eine Restklasse der Form
+    $\ov{\{\pi,g_2,\dotsc,g_n\}}\in L_d/L_{d-1},\pi\in P_d,\deg(g_i)<d$ 
+    kann eindeutig mit $\{\pi,g_2,\dotsc,g_n\}\in L_d\setminus
+    L_{d-1}$ identifiziert
+    werden und $\partial_d(\{\pi,g_2,\dotsc,g_n\}\in\KnFt$ ist
+    eindeutig. Nachdem alle Restklassen eine solche Form haben,
+    ist $\ov{\partial}_d$ wohldefiniert.
 
-    Somit kann $L_d/L_{d-1}$ durch entsprechende Einbettung in $\KnFt$
-    als die Untergruppe erzeugt von allen $\{g_1,\dotsc,g_n\}$ mit
-    $g_i\in R$ irreduzibel, $\deg(g_i)< d$ für $i>1$ und $\deg(g_1)=d$
-    identifizieren, womit wir im Folgenden arbeiten werden.
-
-    \paragraph{Surjektivität}
-    Die Surjektivität folgt aus der Definition der $\partial_{\pi}$
-    für $\pi\in P_d$.
-    Denn für ein Element $\{\ov u_1,\dotsc,\ov u_n\}\in\K_{n-1}(\Ftpi)$
-    findet sich mit $u_i\in F[t]$ Lifts der $\ov u_i\in
-    \Ftpi$ wegen $\deg(\pi)=d$ ein Element
-    $\{\pi,u_1,\dotsc,u_n\}\in L_d\setminus L_{d-1}$,
-    für das nach der Identifikation von oben gilt
-    $0\neq \{\pi,u_1,\dotsc,u_n\}\in L_d/L_{d-1}\subset\KnFt$.
-    Es gilt 
-    \begin{gather*}
-      \ov\partial_{\pi}\left( \ov{\{\pi,u_1,\dotsc,u_n\}} \right)=
-      \partial_{\pi}(\{\pi,u_1,\dotsc,u_n\})=
-      \{\ov u_1,\dotsc,\ov u_n\}
-    \end{gather*}
-    Also sind die $\ov \partial_\pi$ surjektiv und somit $\ov\partial_d$.
-  
-    
+    % \paragraph{Surjektivität}
+    % Die Surjektivität folgt aus der Definition der $\partial_{\pi}$
+    % für $\pi\in P_d$.
+    % Denn für ein Element $\{\ov u_1,\dotsc,\ov u_n\}\in\K_{n-1}(\Ftpi)$
+    % findet sich mit $u_i\in F[t]$ Lifts der $\ov u_i\in
+    % \Ftpi$ wegen $\deg(\pi)=d$ ein Element
+    % $\{\pi,u_1,\dotsc,u_n\}\in L_d\setminus L_{d-1}$,
+    % für das nach der Identifikation von oben gilt
+    % $0\neq \{\pi,u_1,\dotsc,u_n\}\in L_d/L_{d-1}\subset\KnFt$.
+    % Es gilt 
+    % \begin{gather*}
+    %   \ov\partial_{\pi}\left( \ov{\{\pi,u_1,\dotsc,u_n\}} \right)=
+    %   \partial_{\pi}(\{\pi,u_1,\dotsc,u_n\})=
+    %   \{\ov u_1,\dotsc,\ov u_n\}
+    % \end{gather*}
+    % Also sind die $\ov \partial_\pi$ surjektiv und somit $\ov\partial_d$.
+     
     \paragraph{Injektivität}
-    Wir konstruieren eine Umkehrabbildungen zu den $\ov\partial_\pi$.
+    Wir konstruieren inverse Homomorphismen zu den $\ov\partial_\pi$
+    und zeigen anschließend, dass der zusammengesetzte Homomorphismus
+    surjektiv ist.
     Dazu nutzen wir, dass man für ein Element $\ov g\in\Ftpi$ einen
     eindeutigen Lift $g\in\F[t]$ findet mit $\deg(g)<d$.
     
@@ -1334,13 +1402,9 @@ Elementen der Form
     Homomorphismus ist mit $\mathcal{A}_n\subset \ker(H_\pi)$ (siehe
     \ref{defkf} für die Definition von $\mathcal{A}_n$).
     Dann gibt es nach der universellen Eigenschaft des Tensorprodukts
-    und nach dem Homomorphiesatz eine eindeutige Abbildung 
+    und nach dem Homomorphiesatz einen eindeutigen Homomorphismus 
     $h_\pi\colon\K_{n-1}(\Ftpi)\to\KnFt$,
-    welche 
-    %verknüpft mit der Projektion auf $L_d/L_{d-1}$ 
-    eine Umkehrabbildung
-    % $h_\pi\colon \K_{n-1}(\Ftpi)\to L_d/L_0$ 
-    zu $\ov\partial_\pi$ ist.
+    welcher eine Umkehrabbildung zu $\ov\partial_\pi$ ist.
     
 
     Wähle also ein beliebiges Element 
@@ -1445,9 +1509,54 @@ Elementen der Form
     % Da sich alle Elemente in $L_d/L_{d-1}$ wie oben beschrieben als
     % Summe solcher Elemente wie $\{\pi,g_2,\dotsc,g_n\}$ darstellen lassen
     
+    % Es bleibt zu zeigen, dass unser konstruiertes $h_\pi$ tatsächlich
+    % ein Inverses zu $\ov\partial_\pi$ darstellt.
+    % Sei $\ov{\{\pi,g_2,\dotsc,g_n\}}\in L_d/L_{d-1}$ eine Restklasse
+    % von $L_d/L_{d-1}$. Dann gilt wie bei Wohldefiniertheit beschrieben
+    % \begin{gather*}
+    %   h_\pi\circ \ov\partial_\pi(\ov{\{\pi,g_2,\dotsc,g_n\}})
+    %   =h (\partial_d(\{\pi,g_2,\dotsc,g_n\}))
+    %   =h (\{\pi,g_2,\dotsc,g_n\})
+    %   =\ov{\{\pi,g_2,\dotsc,g_n\}}
+    % \end{gather*}
+    % und für $\ov{0}\in L_d/L_{d-1}$ ist es trivial.
+    % Also ist die Verknüpfung $h_\pi\circ\ov\partial_\pi$ die Identität
+    % für alle $\pi\in P_d$. Andersherum ist offensichtlich 
 
+    Es gilt nun offensichtlich, dass $\ov\partial_\pi\circ h_{\pi'}$
+    die Identität ist, falls $\pi=\pi'$, und $0$, falls $\pi\neq\pi'$
+    für alle $\pi,\pi'\in P_d$,
+    denn für $\pi=\pi'$
+    \begin{align*}
+      \ov\partial_\pi\circ h_{\pi}(\{\ov g_1,\dotsc,\ov g_n\})
+      &= \ov\partial_\pi(\ov{\{\pi, g_1,\dotsc, g_n\}})\\
+      &= \{\ov g_1,\dotsc,\ov g_n\}\\
+      \intertext{und für $\pi\neq \pi'$}
+      \ov\partial_\pi\circ h_{\pi'}(\{\ov g_1,\dotsc,\ov g_n\})
+      &= \ov\partial_\pi(\ov{\{\pi', g_1,\dotsc, g_n\}})\\
+      &\overset{\mathllap{\text{$\pi'$ Einheit in $F[t]_{(\pi)}$}}{=}
+      \{\ov g_1,\dotsc,\ov g_n\}\\
+    \end{align*}
+    Die $h_\pi$ induzieren also komponentenweise einen zu
+    $\ov\partial_d$ rechtsinversen Homomorphismus
+    $h_d\colon \bigoplus_{\pi\in P_d}\K_{n-1}(\Ftpi)$.
+    Dieser ist surjektiv, denn wie oben gezeigt haben die Restklassen
+    die Form $\ov{\{\pi,g_2,\dotsc,g_n\}}\in L_d/L_{d-1}, \pi\in
+    P_d,\deg(g_i)<d$ und zu einer solchen ist $\{\ov g_1,\dotsc,\ov
+    g_n\}$ ein Urbild unter $h_\pi$.
+    Als surjektiver Homomorphismus mit surjektivem
+    rechtsinversen Homomorphismus ist $\partial_d$ ein Isomorphismus.
   \end{proof}
 
+  Wir haben nun die Isomorphie $L_d/L_{d-1}\cong \bigoplus_{\pi\in
+    P_d}\K_{n-1}(\Ftpi)$ aus \ref{2} gezeigt.
+  \ref{3} folgt einfach aus den Isomorphiesätzen, denn für alle
+  $d\in\N_1$ gibt es die kurze spaltende exakte Sequenz
+  \begin{center}
+    \begin{tikzcd}
+      L_d/L_{d-1}\arrow{r}
+    \end{tikzcd}
+  \end{center}
   
   Es ist Satz \ref{zahmessymbolhom} gezeigt.
 \end{proof}
