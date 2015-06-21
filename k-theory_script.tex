@@ -1006,7 +1006,7 @@ Verträglichkeit von Lokalisierung und Quotientenbildung isomorph zu
 $\F[t]/(\pi)$.
 Beachte, dass es nach \ref{zahmessymbolhom} eine Surjektion
 \begin{gather*}
-  \partial_{v_\pi}\colon \KnFt\twoheadrightarrow \K_{n-1}(\F[t]/(\pi))
+  \partial_{v_\pi}\colon \KnFt\twoheadrightarrow \K_{n-1}(\Ftpi)
 \end{gather*}
 gibt.
 
@@ -1102,19 +1102,19 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     \pi\in \F[t]\mid \pi\text{ prim, normiert, }\deg(\pi)=d
     \right\}$
     }
-    L_d/L_{d-1}&\cong \bigoplus_{\pi\in P_d} \K_{n-1}(\F[t]/(\pi))\label{2}
+    L_d/L_{d-1}&\cong \bigoplus_{\pi\in P_d} \K_{n-1}(\Ftpi)\label{2}
   \end{align}
   Danach haben wir mithilfe der Isomorphie
   \begin{gather} \label{3}
     L_d/L_0\cong \bigoplus_{k=1}^d L_k/L_{k-1} \,,
   \end{gather}
-  welche aus dem Homomorphiesatz folgt, insgesamt
+  welche aus den Isomorphiesätzen folgt, insgesamt
   \begin{align}\label{4}
     L_d/L_0
     \cong \bigoplus_{k=1}^d L_k/L_{k-1}
-    \cong \bigoplus_{k=1}^d\bigoplus_{\pi\in P_k} \K_{n-1}(\F[t]/(\pi))
+    \cong \bigoplus_{k=1}^d\bigoplus_{\pi\in P_k} \K_{n-1}(\Ftpi)
     = \bigoplus_{\substack{k\leq d\\\pi\in P_k}}
-    \K_{n-1}(\F[t]/(\pi))
+    \K_{n-1}(\Ftpi)
   \end{align}
   Zusammengesetzt ergibt das für jedes $d\in\N_1$ die Sequenz
   \begin{center}
@@ -1123,7 +1123,7 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     0\ar[r] &\KnF \ar[r] &L_d\ar[r]\ar[u,equal] 
     &{\displaystyle
       \bigoplus_{\substack{k\leq d\\\pi\in P_k}}
-      \K_{n-1}(\F[t]/(\pi))
+      \K_{n-1}(\Ftpi)
     } \ar[r]
     &0
   \end{tikzcd}
@@ -1148,7 +1148,7 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     &\displaystyle \varprojlim_{d\in\N_1} L_d\ar[r]
     &\displaystyle \varprojlim_{d\in\N_1}
     ( \bigoplus_{\mathrlap{k\leq d, \pi\in P_k}}
-      \K_{n-1}(\F[t]/(\pi)) 
+      \K_{n-1}(\Ftpi) 
     ) \ar[r]
     &0
   \end{tikzcd}
@@ -1160,9 +1160,9 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     &&\text{ und } 
     &\varprojlim_{d\in\N_1}
       (\bigoplus_{\mathrlap{k\leq d, \pi\in P_k}}
-      \K_{n-1}(\F[t]/(\pi)))
+      \K_{n-1}(\Ftpi))
     &=\bigoplus_{\pi\in P}
-      \K_{n-1}(\F[t]/(\pi)))
+      \K_{n-1}(\Ftpi))
   \end{align*}
   folgt dann die exakte Sequenz aus \ref{milnorfolge}.
   Dass diese spaltend ist, werden wir nach
@@ -1197,8 +1197,8 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
       
       Für ein Primelement $\pi\KnFt$ mit $\deg(\pi)=1$
       (d.h. $\pi=t-\alpha$ mit $\alpha\in\F$)
-      gilt $(\F[t]/(\pi))^\times=(\F[t]/(t-\alpha))^\times\cong \Fx$, 
-      also $\K_n(\F[t]/(\pi))\cong\KnF$.
+      gilt $(\Ftpi)^\times=(\F[t]/(t-\alpha))^\times\cong \Fx$, 
+      also $\KnFtpi\cong\KnF$.
       Wähle der Einfachheit halber z.B. $\alpha=0$, also $\pi=t$.
       Für ein Element $\{f_1,\dotsc, f_n\}\in L_0=\im(\iota)$ ist,
       nachdem alle $f_i$ Einheiten bzgl. der $t$-adischen Bewertung sind,
@@ -1218,16 +1218,22 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     \end{proof}
   \end{Lem}
   
+  Für den Beweis von Aussage \ref{2} benötigen wir noch eine genauere
+  Kenntnis der Struktur von $L_d/L_{d-1}$.
+  Tatsächlich kann man für ein fix gewähltes Primelement $\pi\in P_d$
+  jedes Element $\ov\{f_1,\dotsc,f_n\}}\in L_d/L_{d-1}$ als Summe von
+Elementen der Form 
+
   \begin{Lem}[\ref{2}]
     Es sei $\partial_\pi\coloneqq \partial_{v_\pi}\colon
-    \KnFt\twoheadrightarrow\K_{n-1}(\F[t]/(\pi))$
+    \KnFt\twoheadrightarrow\K_{n-1}(\Ftpi)$
     das Zahme Symbol bzgl. der $\pi$-adischen Bewertung $v_\pi$ auf
     $\KnFt$ für $n\in\N_1$.
     Mit der Definition
     \begin{align*}
       \partial_d\colon \KnFt
       &\twoheadrightarrow \bigoplus_{\pi\in
-        P_d}\K_{n-1}(\Ft/(\pi))\\
+        P_d}\K_{n-1}(\Ftpi)\\
       \{f_1,\dotsc,f_n\}
       &\mapsto\left(
         \partial_\pi(\{f_1,\dotsc,f_n\})
@@ -1236,17 +1242,214 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     wird die Einschränkung und Restriktion $\ov{\partial}_d$ 
     von $\partial_d$ auf $L_d/L_{d-1}$
     \begin{align*}
-      \ov{\partial}_d\colon \KnFt
+      \ov{\partial}_d\colon L_d/L_{d-1}
       &\overset{\thicksim}{\rightarrow} \bigoplus_{\pi\in
-        P_d}\K_{n-1}(\Ft/(\pi))\\
-      \{f_1,\dotsc,f_n\}
+        P_d}\K_{n-1}(\Ftpi)\\
+      \ov{\{f_1,\dotsc,f_n\}}
       &\mapsto\left(
         \partial_\pi(\{f_1,\dotsc,f_n\})
         \right)_{\pi\in P_d}
     \end{align*}
-    zum Isomorphismus.
+    zum wohldefinierten Isomorphismus.
   \end{Lem}
+  \begin{proof}
+    \paragraph{Wohldefiniertheit}
+    Vorerst machen wir uns die Struktur der Elemente von $L_d/L_0$
+    klar. Ein Element $\{f_1,\dotsc,f_n\}\in L_d$ ist die Summe von
+    Elementen $\{f_1',\dotsc,f_n'\}\in L_d$ mit $\deg(f_i')\leq d$, also
+    $f_i=g_{i,1}^{r_{i,1}}\dotsm g_{i,k}^{r_{i,k}}, 
+    k\in\N, r_{i,j}\in\Z\setminus \{0\},$ ist das Produkt von 
+    Irreduziblen $g_{i,j}\in\F[t]$ mit $\deg(g_{i,j})\leq d$.
+    Wegen Linearität des Tensorprodukts kann also jedes Element in
+    $L_d$ geschrieben werden als Summe von Elementen der Form
+    $\pm\{g_1,\dotsc, g_n\}$ mit $g_i\in R$ irreduzibel und
+    $\deg(g_i)\leq d$. Durch Umordnung mit eventuell Vorzeichenwechsel
+    können wir annehmen, dass $g_1$ höchsten Grad hat.
+    Genauso in $L_{d-1}$.
+    Bei der Quotientenbildung werden alle Elemente auf $0$
+    geschickt, die in $L_{d-1}$ liegen, also bei denen $\deg(g_1)<d$.
+    Wir können also jedes der erzeugenden Elemente $\ov{\{g_1,\dotsc,g_n\}}$ 
+    mit irreduziblen $g_i\in R$ in $L_d/L_{d-1}$ mit einem
+    eindeutigen Element $\{g_1,\dotsc,g_n\}\in L_d\setminus L_{d-1}$
+    identifizieren, bei dem $\deg(g_1)=d$.
+
+    Man kann ein Element $\{f_1,\dotsc,f_n\}$ sogar in eine Summe
+    aus Elementen der Form $\{f_1',dotsc,f_n'\}$ mit $\deg(f_1')=d$,
+    $\deg(f_i)<d$ für $i>1$.
+    Wie oben seien alle Elemente $f_i\in R$ mit $\deg(f_i)=d$ auf den
+    vorderen Stellen (ansonsten invertiere und ordne um mit
+    Vorzeichenwechsel).
+    Falls es mehr als ein Element mit $\deg(f_i)=d$ gibt, betrachte
+    $f_1=a f_2 + g$ für ein $a\in\Fx$ und $g\in\F[t]$.
+    Falls $g=0$ ist, kann mithilfe von \ref{identitaetquadrat}
+    umgeformt werden.
+    Ansonsten gilt
+    \begin{align*}
+      f_2+af_2=g 
+      &\Rightarrow f_1/g+af_2/g=1\\
+      &\Rightarrow 0=\{f_1/g,
+        af_2/g\}=(\{f_1\}\m\{g\})(\{a\}\p\{f_2\}\m\{g\})\\
+      &\Rightarrow \{f_1,f_2\}=\m\{f_1,a\}\p\{f_1,g\}\m\{f_2,g\}
+    \end{align*}
+    Dies kann induktiv fortgeführt werden und wir erhalten die
+    gewünschte Summe.
+
+    Somit kann $L_d/L_{d-1}$ durch entsprechende Einbettung in $\KnFt$
+    als die Untergruppe erzeugt von allen $\{g_1,\dotsc,g_n\}$ mit
+    $g_i\in R$ irreduzibel, $\deg(g_i)< d$ für $i>1$ und $\deg(g_1)=d$
+    identifizieren, womit wir im Folgenden arbeiten werden.
+
+    \paragraph{Surjektivität}
+    Die Surjektivität folgt aus der Definition der $\partial_{\pi}$
+    für $\pi\in P_d$.
+    Denn für ein Element $\{\ov u_1,\dotsc,\ov u_n\}\in\K_{n-1}(\Ftpi)$
+    findet sich mit $u_i\in F[t]$ Lifts der $\ov u_i\in
+    \Ftpi$ wegen $\deg(\pi)=d$ ein Element
+    $\{\pi,u_1,\dotsc,u_n\}\in L_d\setminus L_{d-1}$,
+    für das nach der Identifikation von oben gilt
+    $0\neq \{\pi,u_1,\dotsc,u_n\}\in L_d/L_{d-1}\subset\KnFt$.
+    Es gilt 
+    \begin{gather*}
+      \ov\partial_{\pi}\left( \ov{\{\pi,u_1,\dotsc,u_n\}} \right)=
+      \partial_{\pi}(\{\pi,u_1,\dotsc,u_n\})=
+      \{\ov u_1,\dotsc,\ov u_n\}
+    \end{gather*}
+    Also sind die $\ov \partial_\pi$ surjektiv und somit $\ov\partial_d$.
   
+    
+    \paragraph{Injektivität}
+    Wir konstruieren eine Umkehrabbildungen zu den $\ov\partial_\pi$.
+    Dazu nutzen wir, dass man für ein Element $\ov g\in\Ftpi$ einen
+    eindeutigen Lift $g\in\F[t]$ findet mit $\deg(g)<d$.
+    
+    Betrachte zunächst die Zuweisung
+    \begin{align*}
+      H_\pi\colon\prod_{k=1}^n \K_1(\Ftpi) 
+      &\to L_d/L_{d-1}\\
+      \left( l(\ov g_2),\dotsc, l(\ov g_n) \right)
+      &\mapsto \ov{\{\pi,g_2,\dotsc,g_n\}}
+    \end{align*}
+    wobei die $g_i$ die eindeutigen Lifts der $\ov g_i$ sind mit $\deg(g_i)<d$.
+    Wir zeigen im Folgenden, dass $H_\pi$ ein $(n-1)$-linearer
+    Homomorphismus ist mit $\mathcal{A}_n\subset \ker(H_\pi)$ (siehe
+    \ref{defkf} für die Definition von $\mathcal{A}_n$).
+    Dann gibt es nach der universellen Eigenschaft des Tensorprodukts
+    und nach dem Homomorphiesatz eine eindeutige Abbildung 
+    $h_\pi\colon\K_{n-1}(\Ftpi)\to\KnFt$,
+    welche 
+    %verknüpft mit der Projektion auf $L_d/L_{d-1}$ 
+    eine Umkehrabbildung
+    % $h_\pi\colon \K_{n-1}(\Ftpi)\to L_d/L_0$ 
+    zu $\ov\partial_\pi$ ist.
+    
+
+    Wähle also ein beliebiges Element 
+    $\left(l(\ov g_2),\dotsc,l(\ov g_n)\right)\in\prod_{k=1}^n\K_1(\Ftpi)$.
+    Sei \OE{} $i=2$ und $\ov g_i=\ov g_2=\ov g_2'\ov g_2''\in(\Ftpi)^\times$.
+    d.h. 
+    \begin{gather*}
+      (l(\ov g_2),\dotsc, l(\ov g_n))
+      =(l(\ov g_2'),\dotsc, l(\ov g_n))\p(l(\ov g_2''),\dotsc,l(\ov g_n))
+    \end{gather*}
+    Es gilt für die eindeutigen Lifts
+    $g_2,g_2',g_2''\in\F[t]\setminus\{0\}$ mit Grad kleiner $d$, dass 
+    \begin{gather*}
+      g_2=\pi g + g_2'g_2''
+      \qquad\text{für ein }g\in\F[t]\text{ mit }\deg(g)<d
+    \end{gather*}
+    Wir betrachten den Fall $g\neq 0$ ($g=0$ analog)
+    und erhalten
+    \begin{align*}
+      g_2=\pi g + g_2'g_2''
+      &\Rightarrow
+        1 = \pi g/g_2 + g_2'g_2''/g_2\\
+      &\overset{\mathllap{\text{Def. $\KnFt$}}}{\Rightarrow}
+        0 = \{\pi g/g_2\}\{g_2'g_2''/g_2\} \in\K_2(\Ft)\\
+      &\Rightarrow 
+        0= \left( \{\pi\}\p \{g\}\m \{g_2\} \right)
+        \left( \{g_2'\}\p \{g_2''\}\m \{g_2\}\right)\\
+      &\Rightarrow
+      0=\{\pi,g_2'\}\p\{\pi,g_2''\}\m \{\pi,g_2\}
+      \p\{g,g_2'\}\p\{g,g_2''\}\p\{g,g_2\}\\
+      &\Rightarrow
+        \{\pi,g_2\}=\{\pi,g_2'\}\p\{\pi,g_2''\}
+        \p\{g,g_2'\}\p\{g,g_2''\}\p\{g,g_2\}    
+    \end{align*}
+    Also
+    \begin{multline*}
+      h_\pi\left(
+        \left( l(\ov g_2'),\dotsc,l(\ov g_n)\right)
+        \p \left( l(\ov g_2''),\dotsc,l(\ov g_n) \right)
+      \right)
+      =h_\pi\left( \left( l(\ov g_2),\dotsc,l(\ov g_n) \right)
+      \right)\\
+      \begin{aligned}
+      &=\ov{\{\pi,g_2,\dotsc,g_n\}}\\
+      &=\ov{\{\pi,g_2',\dotsc,g_n\}} \p \ov{\{\pi,g_2'',\dotsc,g_n\}}\\
+      &\phantom{=~}\p \ov{\{g,g_2',\dotsc,g_n\}}
+      \p \ov{\{g,g_2'',\dotsc,g_n\}} 
+      \p \ov{\{g,g_2,\dotsc,g_n\}}\\
+      &\overset{\mathllap{\deg(g),\deg(g_i)<d}}{=}
+      \ov{\{\pi,g_2',\dotsc,g_n\}} \p \ov{\{\pi,g_2'',\dotsc,g_n\}}\\
+      &=h_\pi\left(\left(l(\ov g_2'),\dotsc,l(\ov g_n)\right)\right)
+      \p h_\pi\left(\left(l(\ov g_2''),\dotsc,l(\ov g_n)\right)\right)
+      \end{aligned}
+  \end{multline*}
+  was, nachdem $2\leq i\leq n$ beliebig gewählt war, $h_\pi$ zu
+    einem $(n-1)$-$\Z$-linearen Homomorphismus macht.
+
+    % Wohldefiniertheit auf dem Quotienten $\K_{n-1}(\Ft)$
+    % erhält man aus der Eindeutigkeit der Lifts und
+    % daraus, dass $h_\pi$ ein Element 
+    Aus der universellen Eigenschaft des Tensorprodukts erhalten wir
+    einen Homomorphismus
+    \begin{align*}
+      H_\pi'\colon\bigotimes_{k=1}^{n-1}\K_1(\Ftpi)
+      &\to\KnFt\\
+      l(\ov g_2)\otimes\dotsb\otimes l(\ov g_n)
+      &\mapsto \ov{\{\pi,g_2,\dotsc,g_n\}}
+    \end{align*}
+    
+    Sei $l(\ov g_2)\otimes\dotsb\otimes l(\ov g_n)\in\mathcal{A}_n$,
+    d.h. $g_i+g_{i+1}=1$ für ein $2\leq i\leq n$.
+    \OE{} sei $\ov g_2 + \ov g_3=1$, 
+    also $g_2 + g_3 +\pi g=1$ bzw. mit der Wahl
+    $\deg(g_2+g_3)<d$ dann $g_2+g_3=1$. Dann gilt
+    \begin{gather*}
+      H'_\pi\left(\left(l(\ov g_2),\dotsb,l(\ov g_n)\right)\right)
+      = \ov{\{\pi,g_2,g_3, \dotsc,g_n\}}
+      \overset{\text{Def. $\KnFt$}}{\underset{g_2+g_3=1}{=}} 0
+    \end{gather*}
+    Somit liegt $\mathcal{A}_n$ im Kern von $H_\pi'$, weshalb laut
+    Homomorphiesatz eine eindeutige Abbildung
+    \begin{align*}
+      h_\pi\colon 
+      \left(\bigotimes_{k=1}^{n-1}\K_1(\Ftpi)\right)/\mathcal{A}_n
+      \eqqcolon \K_{n-1}(\Ftpi)&\to L_d/L_{d-1}\\
+      \{\ov g_2,\dotsc,\ov g_n\}&\mapsto \ov{\{\pi,g_2,\dotsc,g_n\}}
+    \end{align*}
+    existiert, welche in Verknüpfung mit der Projektion mit 
+    $H_\pi'$ kommutiert und dessen Eigenschaften erhält.
+    
+    % Projiziert man das Bild von $\ov H_\pi$ auf $L_d/L_{d-1}$,
+    % erhält man einen Homomorphismus 
+    % $\ov h_\pi=\pr_{L_d/L_{d-1}}\circ \ov H_\pi$, für den gilt
+    % mit $\{\pi,g_2,\dotsc,g_n\}\in L_d/L_{d-1}\subset\KnFt$,
+    % $\deg(g_i)<d$:
+    % \begin{align*}
+    %   \ov h_\pi\circ \ov \partial(\{\pi,g_2,\dotsc,g_n\})
+    %   &=\ov h_\pi (\{\ov g_2,\dotsc,\ov g_n\})\\
+    %   &= \{\pi,g_2,\dotsc,g_n\}\\
+    %   &= \id_{L_d/L_{d-1}}\{\pi,g_2,\dotsc,g_n\}
+    % \end{align*}
+    % Da sich alle Elemente in $L_d/L_{d-1}$ wie oben beschrieben als
+    % Summe solcher Elemente wie $\{\pi,g_2,\dotsc,g_n\}$ darstellen lassen
+    
+
+  \end{proof}
+
+  
+  Es ist Satz \ref{zahmessymbolhom} gezeigt.
 \end{proof}
 
 
