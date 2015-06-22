@@ -90,10 +90,12 @@ multiplikative Gruppe.
         l(a_1)\otimes\dotsb\otimes l(a_n)
         \in {(\K_1(\F))}^{\otimes n}
         \mid  %a_i\in\Fx,
-        \exists 1\leq i < n \colon a_{i+1}=1-a_i 
+        \exists 1\leq i < n : a_{i+1}=1-a_i 
       \right)
     \end{gather*}
-    Die  $\KF\coloneqq \bigoplus_{n\in\N_0}\KnF$
+    Die Relation $a_i+a_{i+1}=1$, die $\mathcal{A}_n$ definiert,
+    wird auch Steinbergrelation genannt.
+  \item $\KF\coloneqq \bigoplus_{n\in\N_0}\KnF$
   \end{enumerate}
 \end{Def}
 
@@ -103,13 +105,13 @@ multiplikative Gruppe.
   Multiplikation wird die direkte Summe aus $\Z$-Moduln
   \begin{align*}
     \calK &\coloneqq
-            %\Z\oplus
+    % \Z\oplus
             \bigoplus_{n\in\N_0}{\Big(\K_1(\F)\Big)}^{\otimes n}%\\
-          %&\,
-            = \Z\oplus\K_1(\F)
-            \oplus\Big(\K_1(\F)\otimes\K_1(\F)\Big)
-            \oplus\Big(\K_1(\F)\otimes\K_1(\F)\otimes\K_1(\F)\Big)
-            \oplus\dotsb
+            % &\,
+                = \Z\oplus\K_1(\F)
+                \oplus\Big(\K_1(\F)\otimes\K_1(\F)\Big)
+                \oplus\Big(\K_1(\F)\otimes\K_1(\F)\otimes\K_1(\F)\Big)
+                \oplus\dotsb
   \end{align*}
   zu einer $\Z$-Algebra, 
   ohne Skalarmultiplikation zu einem kommutativen Ring mit Einselement
@@ -129,7 +131,7 @@ multiplikative Gruppe.
   $l(a_1)\otimes\dotsb\otimes l(a_n)\in {\KoF}^{\otimes n}$
   vorerst mit seiner Einbettung
   $\left(
-    %0,0,\dotsc,0,
+    % 0,0,\dotsc,0,
     \left(l(a_1)\otimes\dotsb\otimes l(a_n)\right),
     0,\dotsc
   \right)\in\calK$
@@ -245,7 +247,7 @@ einige weitere interessante Eigenschaften der Elemente.
     \begin{gather*}
       \{a\}^2 = \{a,(-1)\cdot (-a)\} 
       = \{a,-1\}\p\underbrace{\{a,-a\}}_{0} = \{a,-1\}
-   \end{gather*}
+    \end{gather*}
     Mit $(-1)=(-1)^{-1}$ und \ref{identitaetmal} folgt die Kommutativität
     \begin{gather*}
       \{a\}^2 = \{a,-1\}= \m\{a,(-1)^{-1}\} 
@@ -619,7 +621,7 @@ Primelement und Einheiten ihres Bewertungsrings darstellen lassen.
     Erweitert man $v$ auf den Quotientenkörper, erhält man
     \begin{gather*}
       \forall x\in \Fx\colon\;
-      %\exists k\in\Z, u\in \Rx\colon\; 
+      % \exists k\in\Z, u\in \Rx\colon\; 
       x=\pi^k\cdot u
       \qquad k\in\Z, u\in \Rx
     \end{gather*}
@@ -694,44 +696,44 @@ in folgender Weise auf $\KnF$ übertragen:
   und $\{u_{1},\dotsc,u_n\}\in\KnF$ mit $\pi$ prim und
   $u_i\in \Rx$.
   $\pi$ kann fix gewählt werden.
-\begin{proof}
-  Wähle ein fixes Primelement $\pi\in\R\subset\Fx$
-  und sei $\xi\coloneqq\{a_1,\dotsc, a_n\}\in\KnF\subset\KF$ mit
-  $a_1,\dotsc,a_n\in\Fx$. Dann gibt es Darstellungen
-  $a_n=\pi^{k_n}\cdot u_n$ mit $k_n\in\Z,u_n\in \Rx$ wie
-  oben. $\xi$ lässt sich schrittweise additiv schreiben mithilfe
-  von
-  \begin{align*}
-    \xi=\{a_1,\dotsc,a_n\}
-    &=\{\pi^{k_1}u_1, a_2, \dotsc, a_n\}\\
-    &=\{\pi^{k_1}, a_2, \dotsc, a_n\}
-      \p\{u_1, a_2 \dotsc, a_n\}\\
-    &=k_1\cdot \{\pi,a_2, \dotsc, a_n\}
-      \p\{u_1, a_2 \dotsc, a_n\}
-  \end{align*}
-  Induktiv wird $\xi$ zu einer Summe aus Produkten der Länge $n$ von
-  $\{\pi\}$ und $\{u_i\}$.
-  Wegen \ref{identitaetmal} können in jedem Summenglied durch
-  Vorzeichenwechsel die $\{\pi\}$ im Produkt nach vorne geschoben werden
-  und $\xi$ wird zu einer Summe aus Elementen der Form
-  $\{\pi\}^k\otimes\{v_{2},\dotsc,v_n\}\in\KnF$ 
-  ($k\in\Z$, $v_i=u_j$ für ein $1\leq j\leq n$).
-  Für $k>1$ wandelt sich der Ausdruck $\{\pi\}^k$ durch
-  sukzessives Anwenden von \ref{identitaetquadrat} um in
-  \begin{gather*}
-    \{\pi\}^k
-    \overset{\ref{identitaetquadrat}}{=} \{\pi\}^{k-1}\{-1\}
-    \overset{\ref{identitaetquadrat}}{=} \{\pi\}^{k-2}\{-1\}^2
-    =\dotsb=\{\pi\}\otimes\{-1\}^{k-1} \in\K_{k}(\F)
-  \end{gather*}
-  Unsere Summenglieder haben also die Form $\{u_1,\dotsc, u_n\}$ oder
-  $\{\pi\}\otimes\{-1\}^{k-1}\otimes\{v_{k+1},\dotsc,v_n\}\in\KnF$
-  ($k\geq 1$ und wie oben $v_i=u_j$ für ein $1\leq j\leq n$).
-  Nachdem die $v_i$ und $(-1)$ Einheiten in $R$ sind,
-  ist die Behauptung gezeigt.
-  Dass $\pi$ fix gewählt werden kann, folgt aus der Assoziiertheit
-  aller Primelemente in $R$.
-\end{proof}
+  \begin{proof}
+    Wähle ein fixes Primelement $\pi\in\R\subset\Fx$
+    und sei $\xi\coloneqq\{a_1,\dotsc, a_n\}\in\KnF\subset\KF$ mit
+    $a_1,\dotsc,a_n\in\Fx$. Dann gibt es Darstellungen
+    $a_n=\pi^{k_n}\cdot u_n$ mit $k_n\in\Z,u_n\in \Rx$ wie
+    oben. $\xi$ lässt sich schrittweise additiv schreiben mithilfe
+    von
+    \begin{align*}
+      \xi=\{a_1,\dotsc,a_n\}
+      &=\{\pi^{k_1}u_1, a_2, \dotsc, a_n\}\\
+      &=\{\pi^{k_1}, a_2, \dotsc, a_n\}
+        \p\{u_1, a_2 \dotsc, a_n\}\\
+      &=k_1\cdot \{\pi,a_2, \dotsc, a_n\}
+        \p\{u_1, a_2 \dotsc, a_n\}
+    \end{align*}
+    Induktiv wird $\xi$ zu einer Summe aus Produkten der Länge $n$ von
+    $\{\pi\}$ und $\{u_i\}$.
+    Wegen \ref{identitaetmal} können in jedem Summenglied durch
+    Vorzeichenwechsel die $\{\pi\}$ im Produkt nach vorne geschoben werden
+    und $\xi$ wird zu einer Summe aus Elementen der Form
+    $\{\pi\}^k\otimes\{v_{2},\dotsc,v_n\}\in\KnF$ 
+    ($k\in\Z$, $v_i=u_j$ für ein $1\leq j\leq n$).
+    Für $k>1$ wandelt sich der Ausdruck $\{\pi\}^k$ durch
+    sukzessives Anwenden von \ref{identitaetquadrat} um in
+    \begin{gather*}
+      \{\pi\}^k
+      \overset{\ref{identitaetquadrat}}{=} \{\pi\}^{k-1}\{-1\}
+      \overset{\ref{identitaetquadrat}}{=} \{\pi\}^{k-2}\{-1\}^2
+      =\dotsb=\{\pi\}\otimes\{-1\}^{k-1} \in\K_{k}(\F)
+    \end{gather*}
+    Unsere Summenglieder haben also die Form $\{u_1,\dotsc, u_n\}$ oder
+    $\{\pi\}\otimes\{-1\}^{k-1}\otimes\{v_{k+1},\dotsc,v_n\}\in\KnF$
+    ($k\geq 1$ und wie oben $v_i=u_j$ für ein $1\leq j\leq n$).
+    Nachdem die $v_i$ und $(-1)$ Einheiten in $R$ sind,
+    ist die Behauptung gezeigt.
+    Dass $\pi$ fix gewählt werden kann, folgt aus der Assoziiertheit
+    aller Primelemente in $R$.
+  \end{proof}
 \end{Lem}
 
 % Mit $\pi$ sei ab jetzt stets ein fix gewähltes Primelement aus dem
@@ -869,7 +871,7 @@ in folgender Weise auf $\KnF$ übertragen:
   \begin{gather*}
     \Psi(\{a_1,\dotsc,a_n\})
     \coloneqq \left\{\Psi(\{a_1\})\right\}\otimes\dotsb
-      \otimes \left\{\Psi(\{a_n\})\right\}
+    \otimes \left\{\Psi(\{a_n\})\right\}
   \end{gather*}
 
   Die Wohldefiniertheit ist klar, da sich wie in \ref{darstellungdbk}
@@ -883,13 +885,13 @@ in folgender Weise auf $\KnF$ übertragen:
   ist aus der Definition bereits gegeben.
   % Für $x=\{\pi^k u\}$, $y=\{\pi^l v\}$, $u,v\in \Rx$ gilt
   % \begin{align*}
-  %   \Psi(x\p y)=\Psi(\{\pi^k u\}\p\{\pi^l v\})
-  %   &= \Psi(\{\pi^{k+l} uv\})\\
-  %   &= (k+l)\xi \p \{\ov {uv}\} \\
-  %   &= (k\xi \p \{\ov u\}) \p (l\xi \p \{\ov v\}) \\
-  %   &= \Psi(\{\pi^k u\})\p \Psi(\{\pi^l v\})=\Psi(x) \p \Psi(y)
-  % \end{align*}
-  % Mit $\Psi(1)=1$ ist $\Psi$ daher Ringhomomorphismus.
+      %       \Psi(x\p y)=\Psi(\{\pi^k u\}\p\{\pi^l v\})
+      %       &= \Psi(\{\pi^{k+l} uv\})\\
+      %               &= (k+l)\xi \p \{\ov {uv}\} \\
+      %               &= (k\xi \p \{\ov u\}) \p (l\xi \p \{\ov v\}) \\
+      %               &= \Psi(\{\pi^k u\})\p \Psi(\{\pi^l v\})=\Psi(x) \p \Psi(y)
+                        %     \end{align*}
+                        %                         Mit $\Psi(1)=1$ ist $\Psi$ daher Ringhomomorphismus.
   Betrachte Elemente $x,y\in\Fx, x=\pi^iu, y=\pi^jv$ mit Einheiten
   $u,v\in\\Rx$. 
   Dann gilt $x\cdot y=\pi^iu\cdot\pi^jv=\pi^{i+j}(uv)$  und
@@ -908,7 +910,7 @@ in folgender Weise auf $\KnF$ übertragen:
   da die multiplikativen Gruppen $\bF$ und $\Rx$ isomorph sind.
   Mit $\Psi(1)=1$ ist $\Psi$ also Ringhomomorphismus $\KF\to\KbF[\xi]$.
 
-%  Jetzt haben wir einen Ringhomomorphismus von $\KF$ nach $\KbF[\xi]$.
+  % Jetzt haben wir einen Ringhomomorphismus von $\KF$ nach $\KbF[\xi]$.
   Diesen wollen wir nun durch Umformung ein wenig umformulieren
   ($a_i=\pi^{k_i}u_i\in\Fx$):
   \begin{gather*}
@@ -921,13 +923,13 @@ in folgender Weise auf $\KnF$ übertragen:
   von $\xi$ und den $\{\ov u_i\}$ ist.
   Mithilfe der Forderungen an $\xi$  lassen sich die Summenglieder 
   wie in \ref{darstellungknf} umformen, so dass sie alle die Form
-  % $\pm\xi^k\{v_{k+1},\dotsc,v_n\}$ haben mit $v_i=\ov u_j$ für ein
-  % $1\leq j\leq n$ und $0\leq k\leq n$.
-  % Mit der Forderung $\xi^2=\xi\otimes\{\ov {-1}\}$ kann ich wieder 
-  % wie im Eindeutigkeitsbeweis
-  % alle Ausdrücke mit $k\neq 0$ in die Form
-  % $\xi\otimes\{\ov{-1}\}^{k-1}\{v_{k+1},\dotsc,v_n\}$ bringen.
-  % Also haben alle Summenglieder von $\chi$ die Form
+      %       $\pm\xi^k\{v_{k+1},\dotsc,v_n\}$ haben mit $v_i=\ov u_j$ für ein
+      %       $1\leq j\leq n$ und $0\leq k\leq n$.
+      %       Mit der Forderung $\xi^2=\xi\otimes\{\ov {-1}\}$ kann ich wieder 
+      %       wie im Eindeutigkeitsbeweis
+      %       alle Ausdrücke mit $k\neq 0$ in die Form
+      %       $\xi\otimes\{\ov{-1}\}^{k-1}\{v_{k+1},\dotsc,v_n\}$ bringen.
+      %       Also haben alle Summenglieder von $\chi$ die Form
   $\xi\otimes\{v_2,\dotsc, v_n\}\in\KbF$ mit $v_i\in\bFx$
   haben,
   und man kann schreiben
@@ -1012,28 +1014,30 @@ gibt.
 
 Vorerst noch ein Begriff, den wir später verwenden werden.
 \begin{Def}[spaltende exakte Sequenz]\label{spaltendeexaktesequenz}
-  Eine exakte Sequenz von Moduln
+  Eine exakte Sequenz von Moduln oder abelschen Gruppen
   \begin{center}
-   \begin{tikzcd}
-     0 \arrow{r} & M'\arrow{r}{f} &M \arrow{r}{g} &M''\ar{r}&0
-   \end{tikzcd}
- \end{center}
- heißt spaltend, falls es einen Isomorphismus $M'\oplus M''\cong M$
- gibt, so dass
- \begin{center}
-   \begin{tikzcd}
-     0\ar[r]&M'\ar[r]\ar[d,equal]&M\ar[r]\disoarrow &M''\ar[r]\ar[d,equal]&0\\
-     0\ar[r]&M'\ar[r]&M'\oplus M''\ar[r]&M''\ar[r]&0
-   \end{tikzcd}
- \end{center}
- d.h. so dass die exakten Sequenzen isomorph sind.
- Diese Bedingung ist erfüllt, falls $g$ eine
- Koretraktion (auch Schnitt) ist, 
- d.h. falls $g$ einen rechtsinversen Homomorphismus
- $g'$ besitzt, so dass $g\circ g'=id_{M''}$.
- Genauso ist sie erfüllt, falls umgekehrt $f$ eine Retraktion ist,
- d.h. falls $f$ einen linksinversen Homomorphismus 
- $f'$ besitzt, so dass $f\circ f'=id_{M}$.
+    \begin{tikzcd}
+      0 \arrow{r} & M'\arrow{r}{f} &M \arrow{r}{g} &M''\ar{r}&0
+    \end{tikzcd}
+  \end{center}
+  heißt spaltend, falls es einen Isomorphismus $M'\oplus M''\cong M$
+  gibt, so dass
+  \begin{center}
+    \begin{tikzcd}
+      0\ar[r]&M'\ar[r]\ar[d,equal]&M\ar[r]\disoarrow &M''\ar[r]\ar[d,equal]&0\\
+      0\ar[r]&M'\ar[r]&M'\oplus M''\ar[r]&M''\ar[r]&0
+    \end{tikzcd}
+  \end{center}
+  d.h. so dass die exakten Sequenzen isomorph sind.
+  Diese Bedingung ist erfüllt, falls $g$ eine
+  Koretraktion (auch Schnitt) ist, 
+  d.h. falls $g$ einen rechtsinversen Homomorphismus
+  $g'$ besitzt, so dass $g\circ g'=id_{M''}$.
+  Genauso ist sie erfüllt, falls umgekehrt $f$ eine Retraktion ist,
+  d.h. falls $f$ einen linksinversen Homomorphismus 
+  $f'$ besitzt, so dass $f\circ f'=id_{M}$.
+  %!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! REFERENZ: In abelschen
+  %Kategorien folgt aus Koretraktion bereits Retraktion und anders herum
 \end{Def}
 
 Mithilfe des Zahmen Symbols und der Spezialisierungsabbildung kann
@@ -1041,20 +1045,22 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
 
 \begin{Satz}[Milnor]\label{milnorfolge}
   Sei $P\coloneqq \{\pi\in \F[t]\mid \pi\text{ prim, normiert }\}$.
-  Dann gibt für alle $n\in\N$ es eine spaltende exakte Sequenz
+  Dann gibt es für alle $n\in\N$ eine spaltende exakte Sequenz
   \begin{center}
     \begin{tikzcd}
       0 \ar[r] & \KnF \ar[r] & \K_n(\Ft ) \ar[r] 
       & \displaystyle\bigoplus_{\pi\in P}K_{n-1}(\F[t]/(\pi)) \ar[r] & 0
     \end{tikzcd}
   \end{center}
+  % ===== 
   % \begin{gather*}
-  %       0 \longrightarrow \KnF 
-  %       \longrightarrow \K_n(\Ft )
-  %       \longrightarrow \bigoplus_{\pi\in P}K_{n-1}(\F[t]/(\pi))
-  %       \longrightarrow 0
+  %   0 \longrightarrow \KnF 
+  %   \longrightarrow \K_n(\Ft )
+  %   \longrightarrow \bigoplus_{\pi\in P}K_{n-1}(\F[t]/(\pi))
+  %   \longrightarrow 0
   % \end{gather*}
- Das bedeutet
+  % ===== 
+  Das bedeutet
   $\K_n(\Ft )\cong\KnF\oplus\bigoplus_{\pi\in P}K_{n-1}(\F[t]/(\pi))$.
 \end{Satz}
 
@@ -1064,9 +1070,9 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     \Ft^\times
     \cong \Fx
     \oplus\bigoplus_{\pi\in P}\Z
-    \end{gather*}
-    Dies ist anschaulich die Zerlegung eines
-    Polynoms in seine irreduziblen Faktoren.
+  \end{gather*}
+  Dies ist anschaulich die Zerlegung eines
+  Polynoms in seine irreduziblen Faktoren.
 \end{Bem}
 \begin{proof}[Beweis zu \ref{milnorfolge}]
   Wir wollen die Gültigkeit für $n\in\N_1$ zeigen.
@@ -1075,11 +1081,12 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     L_d\coloneqq \left(
       \{f_1,\dotsc,f_n\}\in\KnFt 
       \mid f_i\in\F[t],\deg(f_i)\leq d
-      \right)
+    \right)
     \subset\KnFt
   \end{gather*}
   also die Erzeugnisse aller $\{f_1,\dotsc,f_n\}\in\KnFt$ mit
-  $\deg(f_i)\leq d$. Diese Definition ergibt, dass für ein 
+  $\deg(f_i)\leq d$. 
+  Diese Definition ergibt, dass für ein 
   Element $\{f_1,\dotsc,f_n\}\in L_d$ die $f_i$ nur von 
   irreduziblen (d.h. primen) Polynomen mit
   Grad kleiner oder gleich $d$ erzeugt sind.
@@ -1091,9 +1098,9 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
   von $L_d$ auf $L_d/L_0$ erhalten wir für
   beliebige $d\in\N$ die spaltende exakte Sequenz
   \begin{center}
-  \begin{tikzcd}
-    0\ar[r] &L_0\ar[r] &L_d\ar[r] &L_d/L_0 \ar[r] &0
-  \end{tikzcd}
+    \begin{tikzcd}
+      0\ar[r] &L_0\ar[r] &L_d\ar[r] &L_d/L_0 \ar[r] &0
+    \end{tikzcd}
   \end{center}
   Wir werden nacheinander zeigen, dass gilt
   \begin{align}
@@ -1105,11 +1112,12 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     }
     L_d/L_{d-1}&\cong \bigoplus_{\pi\in P_d} \K_{n-1}(\Ftpi)\label{2}
   \end{align}
-  Danach haben wir mithilfe der Isomorphie
+  Danach haben wir, mithilfe der Isomorphie
   \begin{gather} \label{3}
     L_d/L_0\cong \bigoplus_{k=1}^d L_k/L_{k-1} \,,
   \end{gather}
   welche aus den Isomorphiesätzen folgt, insgesamt
+  aus \ref{2} und \ref{3}
   \begin{align}\label{4}
     L_d/L_0
     \cong \bigoplus_{k=1}^d L_k/L_{k-1}
@@ -1119,15 +1127,15 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
   \end{align}
   Zusammengesetzt ergibt das für jedes $d\in\N_1$ die Sequenz
   \begin{center}
-  \begin{tikzcd}
-    0\ar[r] &L_0\ar[r]\disoarrow &L_d\ar[r] &L_d/L_0 \ar[r]\disoarrow &0\\
-    0\ar[r] &\KnF \ar[r] &L_d\ar[r]\ar[u,equal] 
-    &{\displaystyle
-      \bigoplus_{\substack{k\leq d\\\pi\in P_k}}
-      \K_{n-1}(\Ftpi)
-    } \ar[r]
-    &0
-  \end{tikzcd}
+    \begin{tikzcd}
+      0\ar[r] &L_0\ar[r]\disoarrow &L_d\ar[r] &L_d/L_0 \ar[r]\disoarrow &0\\
+      0\ar[r] &\KnF \ar[r] &L_d\ar[r]\ar[u,equal] 
+      &{\displaystyle
+        \bigoplus_{\substack{k\leq d\\\pi\in P_k}}
+        \K_{n-1}(\Ftpi)
+      } \ar[r]
+      &0
+    \end{tikzcd}
   \end{center}
   Mit den kanonischen Inklusionen $\iota_{ik}\colon L_i\to L_k$ 
   bzw. $\ov{\iota}_{ik}\colon L_i/L_0\to L_k/L_0$ ($k\geq i$) werden
@@ -1138,21 +1146,21 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
   \cite[siehe][III. §6.2, Prop. 3]{bourbaki},
   weshalb folgende Sequenzen wieder exakt und isomorph sind
   \begin{center}
-  \begin{tikzcd}
-    0\ar[r] 
-    &\displaystyle \varprojlim_{d\in\N_1} L_0=L_0\ar[r] \disoarrow
-    &\displaystyle \varprojlim_{d\in\N_1} L_d\ar[r] \ar[equal]{d}
-    &\displaystyle \varprojlim_{d\in\N_1} (L_d/L_0) \ar[r]\disoarrow
-    &0\\
-    0\ar[r] 
-    &\displaystyle \varprojlim_{d\in\N_1} \KnF=\KnF  \ar[r] 
-    &\displaystyle \varprojlim_{d\in\N_1} L_d\ar[r]
-    &\displaystyle \varprojlim_{d\in\N_1}
-    ( \bigoplus_{\mathrlap{k\leq d, \pi\in P_k}}
+    \begin{tikzcd}
+      0\ar[r] 
+      &\displaystyle \varprojlim_{d\in\N_1} L_0=L_0\ar[r] \disoarrow
+      &\displaystyle \varprojlim_{d\in\N_1} L_d\ar[r] \ar[equal]{d}
+      &\displaystyle \varprojlim_{d\in\N_1} (L_d/L_0) \ar[r]\disoarrow
+      &0\\
+      0\ar[r] 
+      &\displaystyle \varprojlim_{d\in\N_1} \KnF=\KnF  \ar[r] 
+      &\displaystyle \varprojlim_{d\in\N_1} L_d\ar[r]
+      &\displaystyle \varprojlim_{d\in\N_1}
+      ( \bigoplus_{\mathrlap{k\leq d, \pi\in P_k}}
       \K_{n-1}(\Ftpi) 
-    ) \ar[r]
-    &0
-  \end{tikzcd}
+      ) \ar[r]
+      &0
+    \end{tikzcd}
   \end{center}
   Mit den Vereinigungen als Kolimeswerte
   \begin{align*}
@@ -1171,11 +1179,11 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
   die kanonische injektive Einbettung $L_0\cong\KnF\to\KnFt$ 
   eine Retraktion ist.
 
-  Es bleibt also einmal zu zeigen, dass \ref{1} gilt und die Einbettung eine
+  Es bleibt also zum einen zu zeigen, dass \ref{1} gilt und die Einbettung eine
   Retraktion ist, und zum anderen, dass \ref{2} gilt, woraus mit \ref{3} dann wie
   oben \ref{4} folgt.
   
-  \begin{Lem}[\ref{1}]
+  \begin{Lem}[Aussage \ref{1}]
     Es gilt $L_0\cong \KnF\overset{\iota}{\hookrightarrow} \KnFt$
     und $\iota$ ist Retraktion.
     \begin{proof}
@@ -1183,10 +1191,12 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
       von $L_0$:
       \begin{align*}
         L_0
-        &=\left\{\{f_1,\dotsc,f_n\}\in\KnFt \mid \deg(f_i)\leq 0\right\}\\
-        &=\left\{\{f_1,\dotsc,f_n\}\in\KnFt \mid \deg(f_i)= 0\right\}\\
-        &=\left\{\{f_1,\dotsc,f_n\}\in\KnFt \mid \deg(f_i)= 0\right\}\\
-        &=\left\{\{f_1,\dotsc,f_n\}\in\KnFt \mid f_i\in\F\right\}\\
+        &=\left\{\{f_1,\dotsc,f_n\}\in\KnFt 
+          \mid f_i\in\F[t], \deg(f_i)\leq 0\right\}\\
+        &=\left\{\{f_1,\dotsc,f_n\}\in\KnFt 
+          \mid f_i\in\F[t], \deg(f_i)= 0\right\}\\
+        &=\left\{\{f_1,\dotsc,f_n\}\in\KnFt 
+          \mid f_i\in\F\right\}\\
         &=\KnF
       \end{align*}
       Demnach ist die Form der Einbettung von $\KnF$ in $\KnFt$
@@ -1196,9 +1206,10 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
       benutzen wir unsere Spezialisierungsabbildung aus 
       \ref{zahmessymbolhom}.
       
-      Für ein Primelement $\pi\KnFt$ mit $\deg(\pi)=1$
+      Für ein Primelement $\pi\in\F[t]$ mit $\deg(\pi)=1$
       (d.h. $\pi=t-\alpha$ mit $\alpha\in\F$)
-      gilt $(\Ftpi)^\times=(\F[t]/(t-\alpha))^\times\cong \Fx$, 
+      gilt $(\Ftpi)^\times=(\F[t]/(t-\alpha))^\times\cong \Fx$ 
+      über $\ov{\beta}\overset{\phi}{\mapsto} \beta\in\Fx$, 
       also $\KnFtpi\cong\KnF$.
       Wähle der Einfachheit halber z.B. $\alpha=0$, also $\pi=t$.
       Für ein Element $\{f_1,\dotsc, f_n\}\in L_0=\im(\iota)$ ist,
@@ -1211,7 +1222,7 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
           \{\ov f_1,\dotsc, \ov f_n\}
       \end{align*}
       Wenden wir die Gruppenisomorphie $(\F[t]/(t))^\times\cong\Fx,
-      \ov f\overset{\phi}{\mapsto} f\in\Fx$ an, erhalten wir
+      \ov\beta\overset{\phi}{\mapsto}\beta\in\Fx$ an, erhalten wir
       $(\phi\circ\psi_t)\circ \iota(\{f_1,\dotsc,f_n\}\in\KnF)
       =\{f_1,\dotsc,f_n\}\in\KnF$,
       also $(\phi\circ\psi_t)\circ \iota=\id_{\KnF}$, was zeigt, dass
@@ -1228,7 +1239,7 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
   und $\deg(g_i)<d$ ist für alle $2\leq i\leq n$.
   
   Nachdem $L_d$ von Elementen $\{f_1,\dotsc,f_n\}\in\KnFt$ mit
-  $f_i\in R$ und $\deg(f_i)\leq d$ erzeugt ist, 
+  $f_i\in\F[t]$ und $\deg(f_i)\leq d$ erzeugt ist, 
   betrachten wir solch ein Element.
   Es seien alle Elemente mit $\deg(f_i)=d$ auf den vorderen Stellen 
   (sonst ordne um mit Vorzeichenwechsel nach \ref{identitaetmal}).
@@ -1269,7 +1280,7 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
   Falls $g_1$ irreduzibel ist mit $g_1=a\pi, a\in\F, \pi\in P_d$, 
   ist $\{g_1,\dotsc,g_n\}=\{\pi,\dotsc,g_n\}\p\{a,\dotsc,g_n\}$,
   wobei ersteres die gesuchte Form hat und in letzterem wieder kein
-  Polynom Grad $d$.
+  Polynom Grad $d$ vorkommt.
 
   $L_d$ besteht also tatsächlich genau aus Erzeugnissen von
   $\{\pi,g_2,\dotsc,g_n\}$ und $\{g_1,\dotsc,g_n\}$
@@ -1284,7 +1295,7 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
   $\{\pi,g_2,\dotsc,g_n\}\in L_d\setminus L_{d-1}$
   im Urbild schickt.
 
-  \begin{Lem}[\ref{2}]
+  \begin{Lem}[\ref{2}]\label{lem2}
     Es sei $\partial_\pi\coloneqq \partial_{v_\pi}\colon
     \KnFt\twoheadrightarrow\K_{n-1}(\Ftpi)$
     das Zahme Symbol bzgl. der $\pi$-adischen Bewertung $v_\pi$ auf
@@ -1312,8 +1323,9 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     \end{align*}
     zum wohldefinierten Isomorphismus.
   \end{Lem}
-  \begin{proof}
-    \paragraph{Wohldefiniertheit}
+  \begin{proof}[Beweis Lemma \ref{lem2}]
+    % \paragraph{Wohldefiniertheit}
+    % ===== 
     % Vorerst machen wir uns die Struktur der Elemente von $L_d/L_0$
     % klar. Ein Element $\{f_1,\dotsc,f_n\}\in L_d$ ist die Summe von
     % Elementen $\{f_1',\dotsc,f_n'\}\in L_d$ mit $\deg(f_i')\leq d$, also
@@ -1348,7 +1360,7 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     %   f_2+af_2=g 
     %   &\Rightarrow f_1/g+af_2/g=1\\
     %   &\Rightarrow 0=\{f_1/g,
-    %     af_2/g\}=(\{f_1\}\m\{g\})(\{a\}\p\{f_2\}\m\{g\})\\
+    %   af_2/g\}=(\{f_1\}\m\{g\})(\{a\}\p\{f_2\}\m\{g\})\\
     %   &\Rightarrow \{f_1,f_2\}=\m\{f_1,a\}\p\{f_1,g\}\m\{f_2,g\}
     % \end{align*}
     % Dies kann induktiv fortgeführt werden und wir erhalten die
@@ -1357,15 +1369,48 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     % als die Untergruppe erzeugt von allen $\{g_1,\dotsc,g_n\}$ mit
     % $g_i\in R$ irreduzibel, $\deg(g_i)< d$ für $i>1$ und $\deg(g_1)=d$
     % identifizieren, womit wir im Folgenden arbeiten werden.
-    Die Wohldefiniertheit folgt aus der oben konstruierten Einbettung
-    von $L_d/L_{d-1}$ in $\KnFt$. Denn eine Restklasse der Form
-    $\ov{\{\pi,g_2,\dotsc,g_n\}}\in L_d/L_{d-1},\pi\in P_d,\deg(g_i)<d$ 
-    kann eindeutig mit $\{\pi,g_2,\dotsc,g_n\}\in L_d\setminus
-    L_{d-1}$ identifiziert
-    werden und $\partial_d(\{\pi,g_2,\dotsc,g_n\}\in\KnFt$ ist
-    eindeutig. Nachdem alle Restklassen eine solche Form haben,
-    ist $\ov{\partial}_d$ wohldefiniert.
+    % ===== 
+    % ===== 
+    % Die Wohldefiniertheit folgt aus der oben konstruierten Einbettung
+    % von $L_d/L_{d-1}$ in $\KnFt$. Denn eine Restklasse der Form
+    % $\ov{\{\pi,g_2,\dotsc,g_n\}}\in L_d/L_{d-1},\pi\in P_d,\deg(g_i)<d$ 
+    % kann eindeutig mit $\{\pi,g_2,\dotsc,g_n\}\in L_d\setminus
+    % L_{d-1}$ identifiziert
+    % werden und $\partial_d(\{\pi,g_2,\dotsc,g_n\}\in\KnFt$ ist
+    % eindeutig. Nachdem alle Restklassen eine solche Form haben,
+    % ist $\ov{\partial}_d$ wohldefiniert.
+    % ===== 
+    Vorerst ist anzumerken, dass $\partial_d$ als Summe von
+    Homomorphismen wieder Homomorphismus ist.
+    Die Wohldefiniertheit folgt dann einfach daraus, $L_{d-1}\subset
+    \ker(\partial_d)$ ist.
+    Denn für einen Erzeuger
+    $\{g_1,\dotsc,g_n\}\in L_{d-1}$ ($g_i\in\F[t],\deg(g_i)\leq (d-1)$)
+    von $L_{d-1}$  gilt $\deg(\pi)=d>\deg(g_i)$, 
+    woraus folgt, dass $\pi$ keines der $g_i$
+    teilt, also liegen sie nicht im Maximalideal $(\pi)$ von
+    $\F[t]_{(\pi)}$ und sind daher Einheiten bzgl. der $\pi$-adischen
+    Bewertung auf $\F[t]_{(\pi)}$. Für jedes $\pi\in P_d$ schickt
+    $\partial_\pi$ per Definition durch die Relation 
+    \ref{relationzahmessymbol} solche Elemente auf $0\in\KnFtpi$.
+    Da die $\partial_\pi$ Homomorphismen sind, schicken sie auch jedes
+    Erzeugnis solcher Elemente, in diesem Fall ganz $L_{d-1}$, auf $0$.
+    Also ist 
+    \begin{gather*}
+      \partial_d(L_{d-1})=\bigoplus_{\pi\in
+        P_d}\partial_{\pi}(L_{d-1})=\bigoplus_{\pi\in P_d} \{0\}=0
+    \end{gather*}
+    Mit dem Homomorphiesatz ist $\ov\partial_d$ der eindeutige,
+    wohldefinierte Homomorphismus, für den mit der Projektion
+    $\pr_{L_d/L_{d-1}}$ von $L_d$ auf $L_{d-1}$ gilt
+    $\ov\partial_d\circ \pr_{L_d/L_{d-1}}=\partial_d$.
+    
+    Nachdem $\partial_d$ surjektiv war (wegen $\partial_\pi$ surjektiv
+    für bel. $\pi\in P_d$), ist auch $\ov\partial_d$
+    surjektiver Homomorphismus.
+    
 
+    % ===== 
     % \paragraph{Surjektivität}
     % Die Surjektivität folgt aus der Definition der $\partial_{\pi}$
     % für $\pi\in P_d$.
@@ -1382,15 +1427,17 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     %   \{\ov u_1,\dotsc,\ov u_n\}
     % \end{gather*}
     % Also sind die $\ov \partial_\pi$ surjektiv und somit $\ov\partial_d$.
-     
-    \paragraph{Injektivität}
-    Wir konstruieren inverse Homomorphismen zu den $\ov\partial_\pi$
-    und zeigen anschließend, dass der zusammengesetzte Homomorphismus
-    surjektiv ist.
+    % ===== 
+    
+    % \paragraph{Bijektivität}
+    Für die Isomorphie konstruieren wir inverse Homomorphismen 
+    zu den $\ov\partial_\pi$ und zeigen anschließend, 
+    dass der zusammengesetzte Homomorphismus surjektiv und
+    rechtsinvers zu $\ov\partial_d$ ist.
     Dazu nutzen wir, dass man für ein Element $\ov g\in\Ftpi$ einen
     eindeutigen Lift $g\in\F[t]$ findet mit $\deg(g)<d$.
     
-    Betrachte zunächst die Zuweisung
+    Betrachte zunächst für ein $\pi\in P_d$ die Zuweisung
     \begin{align*}
       H_\pi\colon\prod_{k=1}^n \K_1(\Ftpi) 
       &\to L_d/L_{d-1}\\
@@ -1427,44 +1474,44 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
       g_2=\pi g + g_2'g_2''
       &\Rightarrow
         1 = \pi g/g_2 + g_2'g_2''/g_2\\
-      &\overset{\mathllap{\text{Def. $\KnFt$}}}{\Rightarrow}
+      &\overset{\mathllap{\text{Steinbergrel.}}}{\Rightarrow}
         0 = \{\pi g/g_2\}\{g_2'g_2''/g_2\} \in\K_2(\Ft)\\
-      &\Rightarrow 
+      &\Leftrightarrow 
         0= \left( \{\pi\}\p \{g\}\m \{g_2\} \right)
         \left( \{g_2'\}\p \{g_2''\}\m \{g_2\}\right)\\
-      &\Rightarrow
-      0=\{\pi,g_2'\}\p\{\pi,g_2''\}\m \{\pi,g_2\}
-      \p\{g,g_2'\}\p\{g,g_2''\}\p\{g,g_2\}\\
-      &\Rightarrow
+      &\Leftrightarrow 
+        0=\{\pi,g_2'\}\p\{\pi,g_2''\}\m \{\pi,g_2\}
+        \p\{g,g_2'\}\p\{g,g_2''\}\p\{g,g_2\}\\
+      &\Leftrightarrow 
         \{\pi,g_2\}=\{\pi,g_2'\}\p\{\pi,g_2''\}
         \p\{g,g_2'\}\p\{g,g_2''\}\p\{g,g_2\}    
     \end{align*}
     Also
-    \begin{multline*}
-      h_\pi\left(
-        \left( l(\ov g_2'),\dotsc,l(\ov g_n)\right)
-        \p \left( l(\ov g_2''),\dotsc,l(\ov g_n) \right)
-      \right)
-      =h_\pi\left( \left( l(\ov g_2),\dotsc,l(\ov g_n) \right)
-      \right)\\
-      \begin{aligned}
+    \begin{align*}
+      H_\pi\big(
+      \left( l(\ov g_2'),\dotsc,l(\ov g_n)\right)
+      &\p \left( l(\ov g_2''),\dotsc,l(\ov g_n) \right)
+        \big)
+        =h_\pi\left( \left( l(\ov g_2),\dotsc,l(\ov g_n) \right)
+        \right)\\
       &=\ov{\{\pi,g_2,\dotsc,g_n\}}\\
       &=\ov{\{\pi,g_2',\dotsc,g_n\}} \p \ov{\{\pi,g_2'',\dotsc,g_n\}}\\
       &\phantom{=~}\p \ov{\{g,g_2',\dotsc,g_n\}}
-      \p \ov{\{g,g_2'',\dotsc,g_n\}} 
-      \p \ov{\{g,g_2,\dotsc,g_n\}}\\
+        \p \ov{\{g,g_2'',\dotsc,g_n\}} 
+        \p \ov{\{g,g_2,\dotsc,g_n\}}\\
       &\overset{\mathllap{\deg(g),\deg(g_i)<d}}{=}
-      \ov{\{\pi,g_2',\dotsc,g_n\}} \p \ov{\{\pi,g_2'',\dotsc,g_n\}}\\
-      &=h_\pi\left(\left(l(\ov g_2'),\dotsc,l(\ov g_n)\right)\right)
-      \p h_\pi\left(\left(l(\ov g_2''),\dotsc,l(\ov g_n)\right)\right)
-      \end{aligned}
-  \end{multline*}
-  was, nachdem $2\leq i\leq n$ beliebig gewählt war, $h_\pi$ zu
+        \ov{\{\pi,g_2',\dotsc,g_n\}} \p \ov{\{\pi,g_2'',\dotsc,g_n\}}\\
+      &=H_\pi\left(\left(l(\ov g_2'),\dotsc,l(\ov g_n)\right)\right)
+        \p H_\pi\left(\left(l(\ov g_2''),\dotsc,l(\ov g_n)\right)\right)     
+    \end{align*}
+    was, nachdem $2\leq i\leq n$ beliebig gewählt war, $H_\pi$ zu
     einem $(n-1)$-$\Z$-linearen Homomorphismus macht.
 
+    % ===== 
     % Wohldefiniertheit auf dem Quotienten $\K_{n-1}(\Ft)$
     % erhält man aus der Eindeutigkeit der Lifts und
     % daraus, dass $h_\pi$ ein Element 
+    % ===== 
     Aus der universellen Eigenschaft des Tensorprodukts erhalten wir
     einen Homomorphismus
     \begin{align*}
@@ -1482,19 +1529,21 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     \begin{gather*}
       H'_\pi\left(\left(l(\ov g_2),\dotsb,l(\ov g_n)\right)\right)
       = \ov{\{\pi,g_2,g_3, \dotsc,g_n\}}
-      \overset{\text{Def. $\KnFt$}}{\underset{g_2+g_3=1}{=}} 0
+      \overset{\text{Steinbergrel.}}{\underset{g_2+g_3=1}{=}} 0
     \end{gather*}
     Somit liegt $\mathcal{A}_n$ im Kern von $H_\pi'$, weshalb laut
     Homomorphiesatz eine eindeutige Abbildung
     \begin{align*}
       h_\pi\colon 
       \left(\bigotimes_{k=1}^{n-1}\K_1(\Ftpi)\right)/\mathcal{A}_n
-      \eqqcolon \K_{n-1}(\Ftpi)&\to L_d/L_{d-1}\\
+      \overset{\text{Def. \ref{defkf}}}{\eqqcolon}
+      \K_{n-1}(\Ftpi)&\to L_d/L_{d-1}\\
       \{\ov g_2,\dotsc,\ov g_n\}&\mapsto \ov{\{\pi,g_2,\dotsc,g_n\}}
     \end{align*}
     existiert, welche in Verknüpfung mit der Projektion mit 
     $H_\pi'$ kommutiert und dessen Eigenschaften erhält.
-    
+
+    % =====     
     % Projiziert man das Bild von $\ov H_\pi$ auf $L_d/L_{d-1}$,
     % erhält man einen Homomorphismus 
     % $\ov h_\pi=\pr_{L_d/L_{d-1}}\circ \ov H_\pi$, für den gilt
@@ -1522,41 +1571,126 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     % und für $\ov{0}\in L_d/L_{d-1}$ ist es trivial.
     % Also ist die Verknüpfung $h_\pi\circ\ov\partial_\pi$ die Identität
     % für alle $\pi\in P_d$. Andersherum ist offensichtlich 
+    % ===== 
 
-    Es gilt nun offensichtlich, dass $\ov\partial_\pi\circ h_{\pi'}$
-    die Identität ist, falls $\pi=\pi'$, und $0$, falls $\pi\neq\pi'$
-    für alle $\pi,\pi'\in P_d$,
-    denn für $\pi=\pi'$
+    Es gilt nun offensichtlich für alle $\pi,\pi'\in P_d$, 
+    dass $\ov\partial_\pi\circ h_{\pi'}$ die Identität ist, 
+    falls $\pi=\pi'$, und $0$, falls $\pi\neq\pi'$,
+    denn für $\pi\neq\pi'$
     \begin{align*}
-      \ov\partial_\pi\circ h_{\pi}(\{\ov g_1,\dotsc,\ov g_n\})
-      &= \ov\partial_\pi(\ov{\{\pi, g_1,\dotsc, g_n\}})\\
-      &= \{\ov g_1,\dotsc,\ov g_n\}\\
-      \intertext{und für $\pi\neq \pi'$}
       \ov\partial_\pi\circ h_{\pi'}(\{\ov g_1,\dotsc,\ov g_n\})
-      &= \ov\partial_\pi(\ov{\{\pi', g_1,\dotsc, g_n\}})\\
-      &\overset{\mathllap{\text{$\pi'$ Einheit in $F[t]_{(\pi)}$}}{=}
-      \{\ov g_1,\dotsc,\ov g_n\}\\
+      &= \ov\partial_\pi(\ov{\{\pi', g_1,\dotsc, g_n\}})
+        \overset{\pi'\in(\F[t]_{(\pi)})^\times}{
+        \underset{\ref{relationzahmessymbol}}{=}}
+        0\\
+      \ov\partial_\pi\circ h_{\pi}(\{\ov g_1,\dotsc,\ov g_n\})
+      &= \ov\partial_\pi(\ov{\{\pi, g_1,\dotsc, g_n\}})
+      = \{\ov g_1,\dotsc,\ov g_n\}
     \end{align*}
-    Die $h_\pi$ induzieren also komponentenweise einen zu
+    Die $h_\pi$ induzieren also einen zu
     $\ov\partial_d$ rechtsinversen Homomorphismus
-    $h_d\colon \bigoplus_{\pi\in P_d}\K_{n-1}(\Ftpi)$.
-    Dieser ist surjektiv, denn wie oben gezeigt haben die Restklassen
-    die Form $\ov{\{\pi,g_2,\dotsc,g_n\}}\in L_d/L_{d-1}, \pi\in
-    P_d,\deg(g_i)<d$ und zu einer solchen ist $\{\ov g_1,\dotsc,\ov
-    g_n\}$ ein Urbild unter $h_\pi$.
+    \begin{align*}
+      h_d\colon \bigoplus_{\pi\in P_d}\K_{n-1}(\Ftpi)
+      &\to L_d/L_{d-1}\\
+      \left(
+      \{\ov g_1^\pi,\dotsc,\ov g_n^\pi\}\in\K_{n-1}(\Ftpi)
+      \right)_{\pi\in P_d}
+      &\mapsto 
+        \sum_{\pi\in P_d} h_\pi(\{\ov g_1^\pi,\dotsc,\ov g_n^\pi\}) 
+        = \sum_{\pi\in P_d} \ov{\{\pi, g_1^\pi,\dotsc,g_n^\pi\}}
+    \end{align*}
+    Beachte, dass $h_d$ wohldefiniert, also die Summe endlich, ist,
+    aufgrund der Eigenschaft der direkten Summe.
+    $h_d$ ist als Summe von Homomorphismen Homomorphismus und
+    surjektiv, denn wie oben gezeigt wird $L_d/L_{d-1}$ erzeugt von
+    den Bildern der Erzeuger von $L_d$, welche Restklassen der Form 
+    $\ov{\{\pi,g_2,\dotsc,g_n\}}\in L_d/L_{d-1}, \pi\in
+    P_d,\deg(g_i)<d$ sind.
+    Zu einer solchen Restklasse ist $\{\ov g_1,\dotsc,\ov
+    g_n\}\in\K_{n-1}(\Ftpi)$ ein Urbild unter $h_\pi$
+    und somit das Element
+    \begin{gather*}
+      \left(
+      \{\ov g_1,\dotsc,\ov g_n\},%\in\K_{n-1}(\Ftpi), 
+      0, 0,\dotsc %\in\K_{n-1}(\F[t]/(\pi'))\}
+      \right)%_{\pi'\in P_d\setminus \{\pi\}}
+      \in \bigoplus_{\pi\in P_d}\K_{n-1}(\Ftpi)
+    \end{gather*}
+    ein Urbild unter $h_d$.
     Als surjektiver Homomorphismus mit surjektivem
     rechtsinversen Homomorphismus ist $\partial_d$ ein Isomorphismus.
   \end{proof}
 
   Wir haben nun die Isomorphie $L_d/L_{d-1}\cong \bigoplus_{\pi\in
     P_d}\K_{n-1}(\Ftpi)$ aus \ref{2} gezeigt.
-  \ref{3} folgt einfach aus den Isomorphiesätzen, denn für alle
-  $d\in\N_1$ gibt es die kurze spaltende exakte Sequenz
-  \begin{center}
-    \begin{tikzcd}
-      L_d/L_{d-1}\arrow{r}
-    \end{tikzcd}
-  \end{center}
+  Zu guter Letzt fehlt noch Aussage \ref{3}, wofür wir die Anmerkungen
+  zur Struktur von $L_d$ ($d\in\N_1$), dass $L_d$ das Erzeugnis von
+  Elementen der Form
+  $\{\pi,g_2,\dotsc,g_n\}\in\KnFt$ und $\{g_1,\dotsc,g_n\}\in\KnFt$
+  ($\pi\in P_d,g_i\in\F[t],\deg(g_i)<d$)
+  erzeugt wird,
+  brauchen werden.
+
+  \begin{Lem}[Aussage \ref{3}]\label{lem3}
+    Es gilt für alle $d\in\N_1$
+    \begin{gather} \label{3}
+      L_d/L_0\cong \bigoplus_{k=1}^d L_k/L_{k-1} \,,
+    \end{gather}
+  \end{Lem}
+  \begin{proof}[Beweis Lemma \ref{lem3}]
+    Wir werden zeigen, dass $L_d/L_{d-2}\cong L_{d-1}/L_{d-2}\oplus
+    L_{d}/L_{d-1}$ gilt.
+    
+    Als Vorarbeit zeigen wir, dass für ein $d\in\N_1$ sich
+    $L_d/L_{d-2}$ als semidirektes Produkt von $L_d/L_{d-1}$ und
+    $L_{d-1}/L_{d-2}$ schreiben lässt.
+    Beachten wir die Struktur von $L_d$, können wir $L_d/L_{d-2}$
+    schreiben als die Untergruppe $\ov U_{d,{d-2}}$ erzeugt von allen
+    $\{\pi_d,g_2,\dotsc,g_n\}\in\KnFt$ mit $\pi_{d}\in P_d $
+    und 
+    $\{\pi_{d-1},g_2,\dotsc,g_n\}\in\KnFt$ mit $\pi_{d-1}\in P_{d-1}$
+    ($g_i\in\F[t],\deg(g_i)<d-1$)
+    ist.
+    Es lässt sich nachrechnen, dass das Erzeugnis $U_d$ der 
+    $\{\pi_d,g_2,\dotsc,g_n\}\in\KnFt$ mit $\pi_{d}\in P_d $
+    wieder eine Untergruppe ist, deren Schnitt mit der von
+    $\{\pi_{d-1},g_2,\dotsc,g_n\}\in\KnFt$ mit $\pi_{d-1}\in P_{d-1}$
+    ($g_i\in\F[t],\deg(g_i)<d-1$)
+    erzeugten Untergruppe $U_{d-1}$ genau $0$ ist.
+    Die Summe $U_d\p U_{d-1}$ dieser beiden Untergruppen ergibt
+    $U_{d,d-2}$,
+    und $U_d\cong L_d/L_{d-1}$, $U_{d-1}\cong L_{d-1}/L_{d-2}$.
+    Wir haben also $L_d/L_{d-2}\cong U_{d,d-2}=U_{d}\p U_{d-1}$ mit
+    $U_d\cap U_{d-1}=0$, woraus nach Algebra folgt, dass
+    $L_d/L_{d-2}$ ein semidirekte Produkt von $U_d\rtimes U_{d-1}$
+    ist.
+
+    Das semidirekte Produkt liefert bereits eine Koretraktion von
+    $U_{d-1}$ nach $L_d/L_{d-1}$, woraus nach \ref{spaltendeexaktesequenz}
+    folgt, dass die exakte Sequenz
+    \begin{center}
+      \begin{tikzcd}
+        0\arrow{r} & L_{d-1}/L_{d-2}\cong U_{d-1} \arrow{r}
+        & L_d/L_{d-2} \arrow{r} 
+        &  U_{d}\cong L_d/L_{d-1} \arrow{r} 
+        & 0
+      \end{tikzcd}
+    \end{center}
+    spaltend ist, also $L_d/L_{d-2}\cong L_{d-1}/L_{d-2}\oplus
+    L_d/L_{d-1}$.
+    
+    Induktiv folgt die Aussage, wenn man bei $d=1$ beginnt.
+  \end{proof}
+
+  % ====
+  % \ref{3} folgt einfach aus den Isomorphiesätzen, denn für alle
+  % $d\in\N_1$ gibt es die kurze spaltende exakte Sequenz
+  % \begin{center}
+  %   \begin{tikzcd}
+  %     L_d/L_{d-1}\arrow{r}
+  %   \end{tikzcd}
+  % \end{center}
+  % ====
   
   Es ist Satz \ref{zahmessymbolhom} gezeigt.
 \end{proof}
