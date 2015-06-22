@@ -10,54 +10,58 @@
 
 % ------------
 
-\section{Milnor K-Theorie}
+\section{Grundlagen der Milnor K-Theorie}
 
 \begin{Bem}[Gruppentensorprodukt]
-  Eine abelsche Gruppe $G$ wird mit der Skalarmultiplikation
+  Eine abelsche Gruppe $(G,+)$ wird mit der Skalarmultiplikation
   \begin{align*}
     \Z \times G &\to G,\\
     (n,g)&\mapsto \underbrace{g+\dotsb+g}_{\scriptsize\text{$n$-mal}}
   \end{align*}
   zu einem $\Z$-Modul.
-  Für zwei Gruppen $G$, $H$ ist das 
+  Für zwei abelsche Gruppen $G$ und $H$ ist das 
   Gruppentensorprodukt $G\otimes H$
   definiert als das Tensorprodukt der als $\Z$-Moduln
   aufgefassten Gruppen $G$ und $H$.
+  
+  % ==== (Gruppentensorprodukt ausführlich)
+  % Zu diesem existiert nach Definition eine 
+  % entsprechende bilineare Abbildung
+  % \begin{align*}
+  %   \tau\colon G\times H&\rightarrow G\otimes H\\
+  %   \intertext{mit der Eigenschaft (für $g,g'\in G$, $h,h'\in H$)}
+  %   \tau(g+g',h) &= \tau(g,h)+\tau(g',h)\\
+  %   \tau(g,h+h') &= \tau(g,h)+\tau(g,h')\\
+  %   \tau(n\cdot g, h) &= n\cdot \tau(g,h)= \tau(g,n\cdot h)\quad
+  %                       \forall n \in\Z
+  % \end{align*}
+  % und es erfüllt die universelle Eigenschaft, dass
+  % \begin{center}
+  %   \begin{tikzcd}
+  %     G\times H 
+  %     \arrow[twoheadrightarrow]{r}{\tau} 
+  %     \arrow[swap]{rd}{\phi}
+  %     & G\otimes H 
+  %     \arrow[dashed]{d}{\exists! \widehat{\phi}}
+  %     \\
+  %     &G'
+  %   \end{tikzcd}
+  % \end{center}
+  % für eine beliebige Gruppe $G'$ und einen 
+  % eindeutigen, bilinearen Gruppenhomomorphismus $\phi$
+  % kommutiert.
 
-  Zu diesem existiert nach Definition eine 
-  entsprechende bilineare Abbildung
-  \begin{align*}
-    \tau\colon G\times H&\rightarrow G\otimes H\\
-    \intertext{mit der Eigenschaft (für $g,g'\in G$, $h,h'\in H$)}
-    \tau(g+g',h) &= \tau(g,h)+\tau(g',h)\\
-    \tau(g,h+h') &= \tau(g,h)+\tau(g,h')\\
-    \tau(n\cdot g, h) &= n\cdot \tau(g,h)= \tau(g,n\cdot h)\quad
-                        \forall n \in\Z
-  \end{align*}
-  und es erfüllt die universelle Eigenschaft, dass
-  \begin{center}
-    \begin{tikzcd}
-      G\times H 
-      \arrow[twoheadrightarrow]{r}{\tau} 
-      \arrow[swap]{rd}{\phi}
-      & G\otimes H 
-      \arrow[dashed]{d}{\exists! \widehat{\phi}}
-      \\
-      &G'
-    \end{tikzcd}
-  \end{center}
-  für eine beliebige Gruppe $G'$ und einen eindeutigen Gruppenhomomorphismus $\phi$
-  kommutiert.
+  % $G\otimes H$ kann explizit angeben werden als der Quotient
+  % $(G\times H) / \mathcal{I}$ mit dem Ideal 
+  % \begin{align*}
+  %   \mathcal{I}\coloneqq \big(
+  %   \big\{&(g+g',h)-(g,h)-(g',h), \\
+  %         &(g,h+h')-(g,h)-(g,h') \colon\\
+  %         &g,g'\in G, h,h'\in H \big\}
+  %           \big)\,.
+  % \end{align*}
+  % ====
 
-  $G\otimes H$ kann explizit angeben werden als der Quotient
-  $(G\times H) / \mathcal{I}$ mit dem Ideal 
-  \begin{align*}
-    \mathcal{I}\coloneqq \big(
-    \big\{&(g+g',h)-(g,h)-(g',h), \\
-          &(g,h+h')-(g,h)-(g,h') \colon\\
-          &g,g'\in G, h,h'\in H \big\}
-            \big)\,.
-  \end{align*}
   Im Folgenden wird für eine Gruppe $G$ das $n$-fache Tensorprodukt
   geschrieben als
   \begin{gather*}
@@ -66,19 +70,19 @@
   \end{gather*}
 \end{Bem}
 
-\subsection{Der Ring $\KF$}
+\subsection{Die Milnor K-Gruppen}
 Im Folgenden sei $\F$ ein Körper und $\Fx=\F\setminus \{0\}$ seine
 multiplikative Gruppe.
 
 \begin{Def}[$\KF$]\label{defkf}
-  Für einen Körper $\F$ definiert man
+  Für einen Körper $\F$ definiert man wie folgt die Milnor K-Gruppen
   \begin{enumerate}[a)]
   \item $\K_0(\F)\coloneqq \Z$
   \item $\K_1(\F)$ ist die multiplikative Gruppe $\Fx$ 
-    additiv geschrieben mit Addition $\p$
+    additiv geschrieben mit Addition $\p\colon \KoF\times\KoF\to\KoF$
     vermöge des Gruppenisomorphismus 
     \begin{align*}
-      l\colon \Fx&\to \K_1(\F)\\
+      l\colon \Fx&\to \K_1(\F)&
       l(ab)&=l(a)\p l(b)
     \end{align*}
   \item $\KnF, n\geq 2,$ ist der Quotient 
@@ -185,7 +189,7 @@ multiplikative Gruppe.
   \end{align*}
 \end{Not}
 
-\subsection{Identitäten auf $\KF$}
+\subsection{Identitäten auf den K-Gruppen}
 Aus der zusätzlichen Forderung an den Ring $\KF$, 
 dass $\{a,1-a\}\equiv 0$ sein soll, ergeben sich neben Nullteilern 
 einige weitere interessante Eigenschaften der Elemente.
@@ -257,7 +261,7 @@ einige weitere interessante Eigenschaften der Elemente.
 \end{Lem}
 
 
-\subsection{$\K_2$ eines endlichen Körpers verschwindet}
+\subsection{K-Gruppen eines endlichen Körpers}
 
 \begin{Lem}
   Für einen endlichen Körper $\F$ verschwindet $\KnF$ für $n\geq 2$.
@@ -372,7 +376,7 @@ einige weitere interessante Eigenschaften der Elemente.
 
 % ------------
 
-\section{Grundlagen aus der Bewertungstheorie}
+\section{Grundlagen der Bewertungstheorie}
 
 Im Folgenden Abschnitt soll eine kurze Einführung in die
 Bewertungstheorie gegeben werden, denn wir wollen danach einige schöne
@@ -677,7 +681,7 @@ Primelement und Einheiten ihres Bewertungsrings darstellen lassen.
 %   von $R$.
 % \end{Wdh}
 
-\section{Das Zahme Symbol in der $K$-Theorie}
+\section{Höhere Zahme Symbole und Spezialisierungsabbildungen}
 Im Folgenden sei $\F$ ein diskret bewerteter Körper mit
 Bewertungsabbildung $v\colon \F\to\Z\cup\{\infty\}$ und
 $\overline{\F}$ der Restklassenkörper $R/\frakm_v$ 
