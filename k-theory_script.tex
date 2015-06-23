@@ -12,7 +12,7 @@
 
 \section{Grundlagen der Milnor K-Theorie}
 
-\begin{Bem}[Gruppentensorprodukt]
+\begin{Bem}[Gruppentensorprodukt]\label{gruppentensorprodukt}
   Eine abelsche Gruppe $(G,+)$ wird mit der Skalarmultiplikation
   \begin{align*}
     \Z \times G &\to G,\\
@@ -135,7 +135,6 @@ multiplikative Gruppe.
   $l(a_1)\otimes\dotsb\otimes l(a_n)\in {\KoF}^{\otimes n}$
   vorerst mit seiner Einbettung
   $\left(
-    % 0,0,\dotsc,0,
     \left(l(a_1)\otimes\dotsb\otimes l(a_n)\right),
     0,\dotsc
   \right)\in\calK$
@@ -146,7 +145,7 @@ multiplikative Gruppe.
   \end{gather*}
   Diese Identität rührt daher, dass das Herausteilen 
   der $(l(a)\otimes l(1-a))$-Elemente sowohl zuerst in den einzelnen
-  Untermoduln stattfinden kann, was die $\KnF$ als Quotienten der
+  Untergruppen stattfinden kann, was die $\KnF$ als Quotienten der
   $\KoF^{\otimes n}$ ergibt, 
   oder nach der Summenbildung, wie hier.
 \end{Bem}
@@ -159,16 +158,11 @@ multiplikative Gruppe.
 \end{Bem}
 
 \begin{Not}
-  Der Einfachheit halber wird im Folgenden
-  ein Element $a\in\Fx$ mit seinem Bild
-  $l(a)\in\K_1(\F)$ identifiziert, wobei wie oben 
-  die Addition \enquote{$\p$} in $\KF$
-  der Multiplikation \enquote{$\cdot$} in $\F$ entspricht.
-  Für Elemente $a_1,a_2,\dotsc,a_n\in\Fx$ wird
-  ein Produkt $l(a_1)\otimes\dotsb \otimes l(a_n)\in{\KoF}^{\otimes n}$ 
-  mit seiner Äquivalenzklasse in $\KnF$ 
-  bzw. dessen Einbettung in $\KF$ identifiziert
-  und wir schreiben
+  Der Einfachheit halber schreiben wir 
+  für Elemente $a_1,a_2,\dotsc,a_n\in\Fx$ ab jetzt
+  die Äquivalenzklasse von 
+  $l(a_1)\otimes\dotsb\otimes l(a_n)\in{\KoF}^{\otimes n}$ 
+  in $\KnF$ bzw. deren Einbettung in $\KF$
   \begin{align*}
     \{ a_1,a_2,\dotsc,a_n\}
     &\coloneqq \overline{l(a_1)\otimes l(a_2)\otimes \dotsb \otimes
@@ -201,7 +195,7 @@ einige weitere interessante Eigenschaften der Elemente.
   \end{gather*}
   \begin{proof}
     Für den Fall $a=1$ ist $a$ das Nullelement von $\KoF$ und damit ist 
-    $\{a,-a\}=l(1)\otimes l(-1) = 0\otimes l(-1) = 0$.
+    $\{a,-a\}=\ov{l(1)\otimes l(-1)} = 0\otimes \ov{l(-1)} = 0$.
     Falls $a\neq 1$ gilt, kann $-a$ geschrieben werden als
     $-a=\frac{1-a}{1-a^{-1}}$ und es gilt
     \begin{align*}
@@ -216,7 +210,7 @@ einige weitere interessante Eigenschaften der Elemente.
 \end{Lem}
 
 \begin{Lem}\label{identitaetmal}
-  Für $\chi\in\K_m(\F)$, $\zeta\in\K_n(\F)$ gilt
+  Für $\chi\in\K_m(\F)$, $\zeta\in\K_n(\F)$, $n,m\in\N_0$, gilt
   \begin{gather*}
     \chi\zeta=(-1)^{mn}\zeta\chi
   \end{gather*}
@@ -229,19 +223,19 @@ einige weitere interessante Eigenschaften der Elemente.
     $\KoF$ hervorgehen, genügt es, die Eigenschaft für
     $\chi,\zeta\in\KoF$ zu überprüfen. Dann folgt es wegen
     Assoziativität induktiv für zwei beliebige Elemente aus $\KF$.
-    Seien also $\chi=\{a\},\zeta=b\in\Fx$, dann gilt mit \ref{identitaetminus}
+    Seien also $\chi=\{a\},\zeta=\{b\}in\Fx$, dann gilt mit \ref{identitaetminus}
     \begin{align*}
       \{a,b\}\p \{b,a\} 
       &= (\overbrace{\{a,-a\}}^{0} \p \{a,b\} )
         \p (\{b,a\} \p \overbrace{\{b,-b\}}^{0} ) \\
-      &= \{ a,-ab \} \p \{b, -ab\}\\
+      &\overset{\mathllap{\text{bilin.}}}{=} \{ a,-ab \} \p \{b, -ab\}\\
       &= \{ ab, -ab\} \overset{\ref{identitaetminus}}{=} 0
     \end{align*}
   \end{proof}
 \end{Lem}
 
 \begin{Lem}\label{identitaetquadrat}
-  Für jedes $a\in \Fx$ gilt die Identität
+  Für jedes $a\in \Fx$ gilt die Identität in $\KF$
   \begin{gather*}
     \{a\}^2 = \{a\}\{-1\} = \{-1\}\{a\}
   \end{gather*}
@@ -270,7 +264,7 @@ einige weitere interessante Eigenschaften der Elemente.
     hervorgehen, behandeln wir nur den Fall $n=2$.
     Betrachte nun die Charakteristik $q=\Char(\F)$ von $\F$.
 
-    Ist $q=2$, muss $\F$ wie aus der Algebra bekannt ein
+    Ist $q=2$, muss $\F$ – wie aus der Algebra bekannt – ein
     Zerfällungskörper $k$-ten Grades von $\F_2$ mit entsprechend
     $q^k=2^k$ Elementen bzw. $2^k-1$ Elementen in $\Fx$ sein und $\Fx$
     ist zyklische Gruppe.
@@ -286,7 +280,7 @@ einige weitere interessante Eigenschaften der Elemente.
       \overset{\ref{identitaetminus}}{=} 0
     \end{gather*}
 
-    Falls $q>2$ kann genutzt werden, dass $\Char(\K_2\F)\leq 2$, 
+    Falls $q>2$, kann genutzt werden, dass $\Char(\K_2\F)\leq 2$, 
     d.h. $2\{a,b\}=0\;\forall a,b\in\Fx$,
     denn für einen Erzeuger $a_0\in\Fx$ und
     Elemente $a=a_0^i,b=a_0^j\in \Fx$ ist
@@ -300,10 +294,10 @@ einige weitere interessante Eigenschaften der Elemente.
     auch $\{a,b\}$ mit Nichtquadraten $a,b\in\Fx$
     (d.h. $\not\exists a',b'\in\Fx\colon (a')^2=a,(b')^2=b$)
     verschwinden.
-    Hierfür reicht es – wie wir gleich sehen werden – aus,
+    Hierfür reicht es aus, wie wir gleich sehen werden,
     $\{a,b\}$ mit fixen Nichtquadraten
-    $a,b\in\Fx$ zu betrachten, die wir mit $b=1-a$ wählen, so dass gilt
-    $\{a,b\}=\{a,1-a\}\overset{\text{Def.}}{=}0$.
+    $a,b\in\Fx$ zu betrachten, die wir mit $b=1-a$ wählen können, 
+    so dass gilt $\{a,b\}=\{a,1-a\}\overset{\text{Def.}}{=}0$.
     
     Betrachte vorerst den Gruppenhomomorphismus
     \begin{gather*}
@@ -319,7 +313,7 @@ einige weitere interessante Eigenschaften der Elemente.
     beträgt, d.h. die Hälfte aller Elemente sind Nichtquadrate
     bzw. Quadrate. Beachte hierbei, dass $-1\neq 1$ wegen $\Char(\F)>2$.
 
-    Jetzt brauchen wir noch, dass das Produkt zweier Nichtquadrate ein
+    Damit können wir zeigen, dass das Produkt zweier Nichtquadrate ein
     Quadrat ist. Das folgt daraus, dass  die Menge 
     $\{x^2\mid x\in\Fx\}$ der Quadrate 
     als Bild eines surjektiven Homomorphismus eine Untergruppe ist und 
@@ -334,7 +328,7 @@ einige weitere interessante Eigenschaften der Elemente.
     $\Fx/\{x^2\mid x\in\Fx\}$ Null, weshalb es ein Quadrat in $\Fx$
     sein muss.
 
-    Damit können wir nun zeigen, dass fixe Nichtquadrate $a,b\in\Fx$
+    Damit kann auch gezeigt werden, dass fixe Nichtquadrate $a,b\in\Fx$
     ausreichen, denn es gilt für weitere Nichtquadrate $c,d\in\Fx$
     \begin{gather*}
       \{c,d\}=\{(ca^{-1})a,(db^{-1})b\}=\{g^2a,h^2b\}
@@ -380,10 +374,11 @@ einige weitere interessante Eigenschaften der Elemente.
 
 Im Folgenden Abschnitt soll eine kurze Einführung in die
 Bewertungstheorie gegeben werden, denn wir wollen danach einige schöne
-Aussagen der $K$-Theorie mithilfe von bzw. speziell für sogenannte
-bewertete Körper betrachten.
+Aussagen der $K$-Theorie speziell für und mithilfe von sogenannten
+bewerteten Körper betrachten.
 
 \subsection{Bewertungsringe und Bewertungen}
+% ==== (Alternative Definitionen evtl. für Vortrag)
 % \begin{Def}[Bewertungsabbildung]
 %   Eine Bewertung auf einem Körper $\F$ ist eine Abbildung
 %   \begin{gather*}
@@ -399,15 +394,7 @@ bewertete Körper betrachten.
 %   Sie heißt diskret, falls $\Gamma=\Z$ und $v$ surjektiv
 %   (d.h. insbesondere $v^{-1}(1)\neq \varnothing$).
 % \end{Def}
-
-% \begin{Bsp}
-%   Ein bekanntes Beispiel, das auch bereits in der Algebra eingeführt
-%   wurde, ist die sog. $p$-adische Bewertung $v_p$ auf $\Q$ zu einem
-%   Primelement $p\in\Z$. Sie ist für $\frac{a}{b}\in\Q, a,b\in\Z$
-%   gegeben als die Differenz der Primpotenzen von $p$ in den
-%   Primfaktorzerlegungen von $a$ und $b$.
-%   Also wäre z.B. $v_3(\frac{15}{9}=v_3(\frac{3^1\cdot 5^1}{3^2})=1-2=-1$.
-% \end{Bsp}
+% ====
 
 \begin{Def}[Bewertungsring]\label{defbewertungsring}
   Ein Integritätsring $R$ mit Quotientenkörper $\Quot(R)=\F$ heißt
@@ -446,8 +433,8 @@ bewertete Körper betrachten.
       da sonst $y\cdot \frac{x}{y}=x\in J$ gelten würde.
       Weil $R$ Bewertungsring ist, muss aber
       $(\frac{x}{y})^{-1}=\frac{y}{x}\in R$ gelten und $y=x\cdot
-      \frac{y}{x}\in I$. Damit muss $J\subsetneq I$ sein und die
-      Ideale total geordnet bzgl. \enquote{$\subset$}.
+      \frac{y}{x}\in I$. Damit muss $J\subsetneq I$ und die
+      Ideale total geordnet bzgl. \enquote{$\subset$} sein.
       Weil es nur ein maximales Element bzgl. einer totalen Ordnung
       gibt, kann $R$ nur ein maximales Ideal haben und ist somit
       lokal.
@@ -563,8 +550,8 @@ wie wir jetzt sehen werden.
 \subsection{Diskrete Bewertungen}
 Mithilfe der $K$-Theorie können einige schöne Aussagen zu einer
 speziellen Form bewerteter Körper getroffen werden, den diskret
-bewerteten Körpern. Allerdings benötigen wir hierzu noch die wichtige
-Eigenschaft, dass Elemente solcher Körper sich als Produkte aus einem speziellen
+bewerteten Körpern. Denn diese haben die wichtige Eigenschaft, 
+dass Elemente solcher Körper sich als Produkte aus einem speziellen
 Primelement und Einheiten ihres Bewertungsrings darstellen lassen.
 
 \begin{Def}
@@ -643,8 +630,8 @@ Primelement und Einheiten ihres Bewertungsrings darstellen lassen.
 
 \begin{Bsp}\label{p-adischebewertung}
   Für einen Integritätsring $R$ ist zu einem fix gewählten 
-  Primelement $\pi\in R$ ist
-  die Lokalisierung $R_{(\pi)}$ ein Bewertungsring, denn jedes Element
+  Primelement $\pi\in R$ die Lokalisierung $R_{(\pi)}$ ein 
+  Bewertungsring, denn jedes Element
   $a\in R$ lässt sich dann darstellen als $a=\pi^i\cdot \frac{p}{q}\in
   R_{(\pi)}$ und die Abbildung
   \begin{gather*}
@@ -652,34 +639,13 @@ Primelement und Einheiten ihres Bewertungsrings darstellen lassen.
   \end{gather*}
   definiert eine Bewertung auf $R_{(\pi)}$.
   Der Restklassenkörper ist 
-  $R_{(\pi)}/\pi R_{(\pi)}\overset{\text{KommAlg}}{=}(R/\pi)_{(\pi)}$.
+  \begin{gather*}
+    R_{(\pi)}/\pi R_{(\pi)}
+    \overset{\text{KommAlg}}{=}(R/(\pi))_{(\ov{\pi})}
+    =(R/(\pi))
+  \end{gather*}
 \end{Bsp}
 
-
-% \begin{Wdh}[Diskret bewertete Körper]
-%   Ein diskret bewerteter Körper ist ein Körper $\F$ mit einer diskreten
-%   Bewertungsabbildung $ v\colon \F\to \Z$.
-%   Die Menge $R\coloneqq\left\{x\in \F\mid  v(x)\geq 1\right\}$ bildet
-%   einen Bewertungsring mit den Eigenschaften
-%   %   einen Integritätsring (tatsächlich sogar Hauptidealring) mit den Eigenschaften
-%   \begin{enumerate}[i)]
-%   %   \item $\forall x\in\F\colon x\in\R$ oder $x^{-1}\in\R$
-%   \item $\Quot(R)=\F$
-%   \item Die Einheitengruppe ist $\Rx\coloneqq\left\{x\in\F\mid v(x)=0\right\}$
-%   \item $R$ ist lokal mit maximalem Ideal
-%     $\frakm_v\coloneqq\left\{x\in\F\mid v(x)>1\right\}$
-%   \item Die Primelemente von $R$ sind genau die Elemente $\pi\in\R$ mit $v(\pi)=1$.
-%   \end{enumerate}
-%   %   
-%   %   lokalen Ring mit maximalem Ideal
-%   %   $\frakm_v\coloneqq\left\{x\in\F\mid v(x)>1\right\}$,
-%   %   Einheitengruppe $\Rx\coloneqq\left\{x\in\F\mid v(x)=1\right\}$
-%   %   und den Eigenschaften $\Quot(R)=\F$ sowie 
-%   %   $x\in R$ oder $x^{-1}\in R$ für alle $x\in\F$.
-%   %   Ein Ring mit diesen Eigenschaften wird Bewertungsring genannt.
-%   Der Körper $R/\frakm_v$ zum lokalen Ring $R$ heißt Restklassenkörper
-%   von $R$.
-% \end{Wdh}
 
 \section{Höhere Zahme Symbole und Spezialisierungsabbildungen}
 Im Folgenden sei $\F$ ein diskret bewerteter Körper mit
@@ -697,7 +663,7 @@ in folgender Weise auf $\KnF$ übertragen:
 \begin{Lem}\label{darstellungknf}
   $\KnF$ ist additiv erzeugt von Elementen der Form 
   $\{\pi, u_{2},\dotsc,v_n\}$
-  und $\{u_{1},\dotsc,u_n\}\in\KnF$ mit $\pi$ prim und
+  und $\{u_{1},\dotsc,u_n\}\in\KnF$ mit $\pi\in\R$ prim und
   $u_i\in \Rx$.
   $\pi$ kann fix gewählt werden.
   \begin{proof}
@@ -705,8 +671,7 @@ in folgender Weise auf $\KnF$ übertragen:
     und sei $\xi\coloneqq\{a_1,\dotsc, a_n\}\in\KnF\subset\KF$ mit
     $a_1,\dotsc,a_n\in\Fx$. Dann gibt es Darstellungen
     $a_n=\pi^{k_n}\cdot u_n$ mit $k_n\in\Z,u_n\in \Rx$ wie
-    oben. $\xi$ lässt sich schrittweise additiv schreiben mithilfe
-    von
+    oben. $\xi$ lässt sich schrittweise additiv schreiben:
     \begin{align*}
       \xi=\{a_1,\dotsc,a_n\}
       &=\{\pi^{k_1}u_1, a_2, \dotsc, a_n\}\\
@@ -720,7 +685,7 @@ in folgender Weise auf $\KnF$ übertragen:
     Wegen \ref{identitaetmal} können in jedem Summenglied durch
     Vorzeichenwechsel die $\{\pi\}$ im Produkt nach vorne geschoben werden
     und $\xi$ wird zu einer Summe aus Elementen der Form
-    $\{\pi\}^k\otimes\{v_{2},\dotsc,v_n\}\in\KnF$ 
+    $\pm\{\pi\}^k\otimes\{v_{2},\dotsc,v_n\}\in\KnF$ 
     ($k\in\Z$, $v_i=u_j$ für ein $1\leq j\leq n$).
     Für $k>1$ wandelt sich der Ausdruck $\{\pi\}^k$ durch
     sukzessives Anwenden von \ref{identitaetquadrat} um in
@@ -730,7 +695,8 @@ in folgender Weise auf $\KnF$ übertragen:
       \overset{\ref{identitaetquadrat}}{=} \{\pi\}^{k-2}\{-1\}^2
       =\dotsb=\{\pi\}\otimes\{-1\}^{k-1} \in\K_{k}(\F)
     \end{gather*}
-    Unsere Summenglieder haben also die Form $\{u_1,\dotsc, u_n\}$ oder
+    Unsere Summenglieder haben also alle entweder die Form 
+    $\{u_1,\dotsc, u_n\}$ oder
     $\{\pi\}\otimes\{-1\}^{k-1}\otimes\{v_{k+1},\dotsc,v_n\}\in\KnF$
     ($k\geq 1$ und wie oben $v_i=u_j$ für ein $1\leq j\leq n$).
     Nachdem die $v_i$ und $(-1)$ Einheiten in $R$ sind,
@@ -740,10 +706,7 @@ in folgender Weise auf $\KnF$ übertragen:
   \end{proof}
 \end{Lem}
 
-% Mit $\pi$ sei ab jetzt stets ein fix gewähltes Primelement aus dem
-% Bewertungsring $R$ des diskret bewerteten Körpers $\F$ bezeichnet.
-
-\begin{Satz}\label{zahmessymbolhom}
+\begin{Satz}\label{homomorphismen}
   Zu einem diskret bewerteten Körper $(\F,v)$ mit Bewertungsring $R$
   gibt es für alle $n\geq 1$ einen eindeutigen Gruppenhomomorphismus 
   $\partial_v\colon \KnF\to \K_{n-1}(\bF)$,
@@ -755,24 +718,30 @@ in folgender Weise auf $\KnF$ übertragen:
   Weiterhin gibt es für jedes fix gewählte Primelement $\pi\in R$
   einen eindeutigen Ringhomomorphismus $\psi_\pi\colon\KF\to\KbF$, 
   der für alle Einheiten $u\in \Rx$, $k\in\Z$ erfüllt
-  \begin{gather}\label{relationdualzahmessymbol}
+  \begin{gather}\label{relationspezialisierung}
     \psi_\pi(\{\pi^ku\})=\{\ov u\}
   \end{gather}
-  $\partial_v$ heißt Zahmes Symbol oder Restklassenabbildung und $\psi_\pi$
+  Die $\partial_v$ heißen (Höhere) Zahme Symbole 
+  oder Restklassenabbildungen und $\psi_\pi$
   wird Spezialisierungsabbildung (zum Primelement $\pi$ bzgl. der
-  Bewertung $v$) genannt.
+  diskreten Bewertung $v$) genannt.
 \end{Satz}
 
 
-\begin{Bem}\label{bemzahmessymbolhom}
+\begin{Bem}\label{bemhomomorphismen}
   Die Forderungen \ref{relationzahmessymbol} und
-  \ref{relationdualzahmessymbol} liefern bereits einige Eigenschaften:
+  \ref{relationspezialisierung} liefern bereits einige Eigenschaften:
   \begin{enumerate}[a)]
-  \item Das Zahme Symbol muss surjektiv sein, da für einen lokalen Ring
-    $R$ – wie der Bewertungsring in unserem Fall – die Gruppenisomorphie 
-    $R/\frakm_v\cong \Rx$ gilt. Damit finden sich für alle 
-    $v_1,\dotsc,v_n\in \bFx = R/\frakm_v\cong \Rx$
-    eindeutige $u_1,\dotsc, u_n\in\Rx\subset\Fx$, 
+  \item Das Zahme Symbol ist surjektiv. 
+    Denn für einen lokalen Ring
+    $R$ – wie der Bewertungsring $(R,\frakm_v)$ in unserem Fall –
+    gilt $R\setminus\frakm_v=\Rx$, d.h. $\Rx=\R\setminus\frakm_v
+    =\pr_{\R/\frakm_v}^{-1}\left((\R/\frakm_v)\setminus \{\ov0\}\right)
+    =\pr_{\R/\frakm_v}^{-1}\left( (\R/\frakm_v)^\times\right)$. 
+    Damit finden sich für alle 
+    $v_1,\dotsc,v_n\in \bFx = (R/\frakm_v)^\times$
+    Lifts $u_1,\dotsc, u_n\in\Rx    
+    =\pr_{\R/\frakm_v}^{-1}\left( (\R/\frakm_v)^\times \right)$,
     so dass $\ov u_i=v_i$, 
     und für beliebiges Primelement $\pi\in R$ gilt
     $\partial_v(\{\pi,u_1,\dotsc, u_n\})=\{v_1,\dotsc, v_n\}$.
@@ -799,7 +768,7 @@ in folgender Weise auf $\KnF$ übertragen:
   \end{enumerate}
 \end{Bem}
 
-\begin{proof}[Eindeutigkeit zu \ref{zahmessymbolhom}]
+\begin{proof}[Eindeutigkeit zu \ref{homomorphismen}]
   Nachdem $\partial_v$ ein Homomorphismus ist, genügt es, $\partial_v$ auf
   den Erzeugern von $\KnF$ zu betrachten, also nach \ref{darstellungknf} den
   Elementen der Form $\{\pi\}\otimes\{u_{2},\dotsc,u_{n}\}$ für
@@ -813,24 +782,17 @@ in folgender Weise auf $\KnF$ übertragen:
   $a=\pi^k u, u\in \Rx$.
 \end{proof}
 
-\begin{proof}[Existenz zu \ref{zahmessymbolhom}]
+\begin{proof}[Existenz zu \ref{homomorphismen}]
   Wir werden $\partial_v$ und $\psi_\pi$ explizit konstruieren.
   Von der Idee her soll 
   – wieder zu unserem fix gewählten Primelement $\pi\in R$ – 
   ein Element $\{\pi^ku\}\in\KoF, u\in \Rx,$
   in seinen \enquote{$\pi$-Anteil} und seinen 
   \enquote{Einheitsanteil} zerlegt werden. 
-  Dann können wir die Gruppenisomorphie
-  $\K_1(\bF)\cong\bFx=(R/\frakm_v)^\times\cong \Rx$
-  ausnutzen und den \enquote{Einheitsanteil} als Element aus 
-  $\K_1(\bF)\cong \bFx$
-  schreiben. Durch Erweiterung auf $\KnF$ und 
+  Dann können wir den \enquote{Einheitsanteil} als Element aus 
+  $\K_1(\bF)\cong \bFx$ schreiben. Durch Erweiterung auf $\KnF$ und 
   geschickte Umformung liefert dies dann die
   gesuchten Homomorphismen, wie wir gleich sehen werden.
-  % Anschaulich zerlegt $\psi$ ein Element $\{\pi^ku\in\}\KoF\cong\Fx$ in 
-  % seinen $\pi$- und seinen Einheitsanteil. Da die Gruppenisomorphie
-  % $\K_1(\bF)\cong\bFx\cong (R/\frakm_v)^\times\cong \Rx$
-  % herrscht, kann ich meinen 
   
   Um unseren \enquote{$\pi$-Anteil} sauber darstellen zu können,
   adjungieren wir an $\KbF$ ein Element $\xi$, das wir über
@@ -887,15 +849,6 @@ in folgender Weise auf $\KnF$ übertragen:
   Die Homomorphismuseigenschaft
   $\Psi(\{x\}\otimes\{y\})=\Psi(\{x\})\otimes\Psi(\{y\})$
   ist aus der Definition bereits gegeben.
-  % Für $x=\{\pi^k u\}$, $y=\{\pi^l v\}$, $u,v\in \Rx$ gilt
-  % \begin{align*}
-      %       \Psi(x\p y)=\Psi(\{\pi^k u\}\p\{\pi^l v\})
-      %       &= \Psi(\{\pi^{k+l} uv\})\\
-      %               &= (k+l)\xi \p \{\ov {uv}\} \\
-      %               &= (k\xi \p \{\ov u\}) \p (l\xi \p \{\ov v\}) \\
-      %               &= \Psi(\{\pi^k u\})\p \Psi(\{\pi^l v\})=\Psi(x) \p \Psi(y)
-                        %     \end{align*}
-                        %                         Mit $\Psi(1)=1$ ist $\Psi$ daher Ringhomomorphismus.
   Betrachte Elemente $x,y\in\Fx, x=\pi^iu, y=\pi^jv$ mit Einheiten
   $u,v\in\\Rx$. 
   Dann gilt $x\cdot y=\pi^iu\cdot\pi^jv=\pi^{i+j}(uv)$  und
@@ -909,12 +862,8 @@ in folgender Weise auf $\KnF$ übertragen:
     =\Psi(\{\pi^iu\})\p \Psi(\{\pi^jv\})\\
     &= \Psi(\{x\})\p\Psi(\{y\})
   \end{align*}
-  Beachte hierbei, dass für eine Einheit $u\in \Rx$ das Urbild
-  der Projektion $\ov u\in\bF=R/\frakm_v$ eindeutig gleich $u$ ist,
-  da die multiplikativen Gruppen $\bF$ und $\Rx$ isomorph sind.
   Mit $\Psi(1)=1$ ist $\Psi$ also Ringhomomorphismus $\KF\to\KbF[\xi]$.
 
-  % Jetzt haben wir einen Ringhomomorphismus von $\KF$ nach $\KbF[\xi]$.
   Diesen wollen wir nun durch Umformung ein wenig umformulieren
   ($a_i=\pi^{k_i}u_i\in\Fx$):
   \begin{gather*}
@@ -927,13 +876,6 @@ in folgender Weise auf $\KnF$ übertragen:
   von $\xi$ und den $\{\ov u_i\}$ ist.
   Mithilfe der Forderungen an $\xi$  lassen sich die Summenglieder 
   wie in \ref{darstellungknf} umformen, so dass sie alle die Form
-      %       $\pm\xi^k\{v_{k+1},\dotsc,v_n\}$ haben mit $v_i=\ov u_j$ für ein
-      %       $1\leq j\leq n$ und $0\leq k\leq n$.
-      %       Mit der Forderung $\xi^2=\xi\otimes\{\ov {-1}\}$ kann ich wieder 
-      %       wie im Eindeutigkeitsbeweis
-      %       alle Ausdrücke mit $k\neq 0$ in die Form
-      %       $\xi\otimes\{\ov{-1}\}^{k-1}\{v_{k+1},\dotsc,v_n\}$ bringen.
-      %       Also haben alle Summenglieder von $\chi$ die Form
   $\xi\otimes\{v_2,\dotsc, v_n\}\in\KbF$ mit $v_i\in\bFx$
   haben,
   und man kann schreiben
@@ -955,7 +897,7 @@ in folgender Weise auf $\KnF$ übertragen:
   dass $\partial_v\colon\KnF\to\K_{n-1}(\bF)$ Gruppenhomomorphismus 
   und $\psi_\pi\colon\KnF\to\KnbF$ sogar Ringhomomorphismus ist.
   Dieses $\partial_v$ erfüllt tatsächlich die Anforderungen aus 
-  \ref{zahmessymbolhom}, denn für $\alpha=\{\pi,u_1,\dotsc, u_n\}$ ist
+  \ref{homomorphismen}, denn für $\alpha=\{\pi,u_1,\dotsc, u_n\}$ ist
   \begin{align*}
     \Psi(\alpha)
     &=\Psi(\pi)\otimes\Psi(u_1)\otimes\dotsb\otimes\Psi(u_n)\\
@@ -967,33 +909,14 @@ in folgender Weise auf $\KnF$ übertragen:
   \end{align*}
   Daraus folgt bereits
   $\partial_v(\{\pi,u_1,\dotsc,u_n\})=\{\ov u_1,\dotsc,\ov u_n\}$.  
-  Und $\psi_\pi$ erfüllt \ref{relationdualzahmessymbol}, denn 
+  Außerdem $\psi_\pi$ erfüllt \ref{relationspezialisierung}, denn 
   die Definition von oben liefert für $n=1$ und fix gewähltes
   Primelement $\pi$ zu $a=\pi^ku\in\Fx, u\in\Rx$ genau
   $\psi_\pi(\{a\})=\psi_\pi(\{\pi^ku\})\coloneqq\{\ov u\}$.
-  Damit ist die Existenz des Zahmen Symbols und die der
+  Damit ist die Existenz der Zahmen Symbole und die der
   Spezialisierungsabbildung gezeigt.
 \end{proof}
 
-% \begin{Kor}
-%   Zu einem bewerteten Körper $(\F,v)$ und einem fixen
-%   Primelement $\pi\in R$ gibt es einen eindeutigen Ringhomomorphismus 
-%   $\psi\colon\KF\to\KbF$ der für alle Einheiten $u\in \Rx$, 
-%   $k\in\Z$ erfüllt
-%   \begin{gather*}
-%     \psi(\{\pi^ku\})=\{\ov u\}
-%   \end{gather*}
-
-%   \begin{proof}
-%     Die Existenz folgt aus dem Existenzbeweis von
-%     \ref{zahmessymbolhom}, da das dort definierte $\psi$ die
-%     Forderung erfüllt.
-%     Demnach ist Wohldefiniertheit und Ringhomomorphismuseigenschaft gegeben.
-%     Die Eindeutigkeit liefert wie in \ref{zahmessymbolhom}
-%     die eindeutige Darstellung von Elementen in $\KoF=\Fx$ 
-%     als Produkt aus dem fixen $\pi$ und Einheit.
-%   \end{proof}
-% \end{Kor}
 
 % ------------
 
@@ -1010,7 +933,7 @@ Bewertungsring zum Funktionenkörper $\Ft $.
 Der Restklassenkörper $\F[t]_{(\pi)}/(\pi)\F[t]_{(\pi)}$ ist wegen
 Verträglichkeit von Lokalisierung und Quotientenbildung isomorph zu
 $\F[t]/(\pi)$.
-Beachte, dass es nach \ref{zahmessymbolhom} eine Surjektion
+Beachte, dass es nach \ref{homomorphismen} eine Surjektion
 \begin{gather*}
   \partial_{v_\pi}\colon \KnFt\twoheadrightarrow \K_{n-1}(\Ftpi)
 \end{gather*}
@@ -1033,21 +956,20 @@ Vorerst noch ein Begriff, den wir später verwenden werden.
     \end{tikzcd}
   \end{center}
   d.h. so dass die exakten Sequenzen isomorph sind.
-  Diese Bedingung ist erfüllt, falls $g$ eine
-  Koretraktion (auch Schnitt) ist, 
+  Nach dem Splitting-Lemma ist diese Bedingung 
+  erfüllt, falls $g$ einen Schnitt (auch Koretraktion) ist, 
   d.h. falls $g$ einen rechtsinversen Homomorphismus
   $g'$ besitzt, so dass $g\circ g'=id_{M''}$.
   Genauso ist sie erfüllt, falls umgekehrt $f$ eine Retraktion ist,
   d.h. falls $f$ einen linksinversen Homomorphismus 
-  $f'$ besitzt, so dass $f\circ f'=id_{M}$.
-  %!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! REFERENZ: In abelschen
-  %Kategorien folgt aus Koretraktion bereits Retraktion und anders herum
+  $f'$ besitzt, so dass $f\circ f'=id_{M}$
+  \cite[siehe auch][Kap. 1.5]{bosch}
 \end{Def}
 
 Mithilfe des Zahmen Symbols und der Spezialisierungsabbildung kann
 eine Zerlegung von $\KnF(t)$ bestimmt werden.
 
-\begin{Satz}[Milnor]\label{milnorfolge}
+\begin{Satz}[Spaltende exakte Milnor-Folge]\label{milnorfolge}
   Sei $P\coloneqq \{\pi\in \F[t]\mid \pi\text{ prim, normiert }\}$.
   Dann gibt es für alle $n\in\N$ eine spaltende exakte Sequenz
   \begin{center}
@@ -1056,14 +978,6 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
       & \displaystyle\bigoplus_{\pi\in P}K_{n-1}(\F[t]/(\pi)) \ar[r] & 0
     \end{tikzcd}
   \end{center}
-  % ===== 
-  % \begin{gather*}
-  %   0 \longrightarrow \KnF 
-  %   \longrightarrow \K_n(\Ft )
-  %   \longrightarrow \bigoplus_{\pi\in P}K_{n-1}(\F[t]/(\pi))
-  %   \longrightarrow 0
-  % \end{gather*}
-  % ===== 
   Das bedeutet
   $\K_n(\Ft )\cong\KnF\oplus\bigoplus_{\pi\in P}K_{n-1}(\F[t]/(\pi))$.
 \end{Satz}
@@ -1120,8 +1034,7 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
   \begin{gather} \label{3}
     L_d/L_0\cong \bigoplus_{k=1}^d L_k/L_{k-1} \,,
   \end{gather}
-  welche aus den Isomorphiesätzen folgt, insgesamt
-  aus \ref{2} und \ref{3}
+  insgesamt aus \ref{2} und \ref{3}
   \begin{align}\label{4}
     L_d/L_0
     \cong \bigoplus_{k=1}^d L_k/L_{k-1}
@@ -1169,9 +1082,9 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
   Mit den Vereinigungen als Kolimeswerte
   \begin{align*}
     \varprojlim_{d\in\N_1}L_d
-    &=\bigcup_{d\in\N_1}L_d=\KnFt
-    &&\text{ und } 
-    &\varprojlim_{d\in\N_1}
+    =\bigcup_{d\in\N_1}L_d
+    &=\KnFt\\
+    \varprojlim_{d\in\N_1}
       (\bigoplus_{\mathrlap{k\leq d, \pi\in P_k}}
       \K_{n-1}(\Ftpi))
     &=\bigoplus_{\pi\in P}
@@ -1208,7 +1121,7 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
       d.h. $\KnF\overset{\iota}{\hookrightarrow}\KnFt$ mit $\im(\iota)=L_0$.
       Um zu zeigen, dass die Einbettung eine Retraktion ist,
       benutzen wir unsere Spezialisierungsabbildung aus 
-      \ref{zahmessymbolhom}.
+      \ref{homomorphismen}.
       
       Für ein Primelement $\pi\in\F[t]$ mit $\deg(\pi)=1$
       (d.h. $\pi=t-\alpha$ mit $\alpha\in\F$)
@@ -1222,7 +1135,7 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
         \psi_t(\{f_1,\dotsc,f_n\})
         &=\{\ov{\psi_t(f_1)},\dotsc, \ov{\psi_t(f_n)}\}\\
         &\overset{\mathllap{\text{$f_i$ Einheiten; 
-          \ref{relationdualzahmessymbol}}}}{=}
+          \ref{relationspezialisierung}}}}{=}
           \{\ov f_1,\dotsc, \ov f_n\}
       \end{align*}
       Wenden wir die Gruppenisomorphie $(\F[t]/(t))^\times\cong\Fx,
@@ -1284,7 +1197,7 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
   Falls $g_1$ irreduzibel ist mit $g_1=a\pi, a\in\F, \pi\in P_d$, 
   ist $\{g_1,\dotsc,g_n\}=\{\pi,\dotsc,g_n\}\p\{a,\dotsc,g_n\}$,
   wobei ersteres die gesuchte Form hat und in letzterem wieder kein
-  Polynom Grad $d$ vorkommt.
+  Polynom vom Grad $d$ vorkommt.
 
   $L_d$ besteht also tatsächlich genau aus Erzeugnissen von
   $\{\pi,g_2,\dotsc,g_n\}$ und $\{g_1,\dotsc,g_n\}$
@@ -1293,14 +1206,9 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
   Bei der Quotientenbildung $L_d/L_{d-1}$ werden alle Elemente aus
   $L_d$ auf $0$ geschickt, also alle Erzeugnisse von
   $\{g_1,\dotsc,g_n\}\in\KnFt$ mit $g_i\in\F[t], \deg(g_i)<d$.
-  Es gibt also eine eindeutige Einbettung von $L_d/L_{d-1}$ in
-  $\KnFt$, die die Restklassen $\ov{\{\pi,g_2,\dotsc,g_n\}}, \pi\in
-  P_d$ auf das eindeutige Element 
-  $\{\pi,g_2,\dotsc,g_n\}\in L_d\setminus L_{d-1}$
-  im Urbild schickt.
 
   \begin{Lem}[\ref{2}]\label{lem2}
-    Es sei $\partial_\pi\coloneqq \partial_{v_\pi}\colon
+    Es sei für $\partial_\pi\coloneqq \partial_{v_\pi}\colon
     \KnFt\twoheadrightarrow\K_{n-1}(\Ftpi)$
     das Zahme Symbol bzgl. der $\pi$-adischen Bewertung $v_\pi$ auf
     $\KnFt$ für $n\in\N_1$.
@@ -1328,65 +1236,9 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     zum wohldefinierten Isomorphismus.
   \end{Lem}
   \begin{proof}[Beweis Lemma \ref{lem2}]
-    % \paragraph{Wohldefiniertheit}
-    % ===== 
-    % Vorerst machen wir uns die Struktur der Elemente von $L_d/L_0$
-    % klar. Ein Element $\{f_1,\dotsc,f_n\}\in L_d$ ist die Summe von
-    % Elementen $\{f_1',\dotsc,f_n'\}\in L_d$ mit $\deg(f_i')\leq d$, also
-    % $f_i=g_{i,1}^{r_{i,1}}\dotsm g_{i,k}^{r_{i,k}}, 
-    % k\in\N, r_{i,j}\in\Z\setminus \{0\},$ ist das Produkt von 
-    % Irreduziblen $g_{i,j}\in\F[t]$ mit $\deg(g_{i,j})\leq d$.
-    % Wegen Linearität des Tensorprodukts kann also jedes Element in
-    % $L_d$ geschrieben werden als Summe von Elementen der Form
-    % $\pm\{g_1,\dotsc, g_n\}$ mit $g_i\in R$ irreduzibel und
-    % $\deg(g_i)\leq d$. Durch Umordnung mit eventuell Vorzeichenwechsel
-    % können wir annehmen, dass $g_1$ höchsten Grad hat.
-    % Genauso in $L_{d-1}$.
-    % Bei der Quotientenbildung werden alle Elemente auf $0$
-    % geschickt, die in $L_{d-1}$ liegen, also bei denen $\deg(g_1)<d$.
-    % Wir können also jedes der erzeugenden Elemente $\ov{\{g_1,\dotsc,g_n\}}$ 
-    % mit irreduziblen $g_i\in R$ in $L_d/L_{d-1}$ mit einem
-    % eindeutigen Element $\{g_1,\dotsc,g_n\}\in L_d\setminus L_{d-1}$
-    % identifizieren, bei dem $\deg(g_1)=d$.
-
-    % Man kann ein Element $\{f_1,\dotsc,f_n\}$ sogar in eine Summe
-    % aus Elementen der Form $\{f_1',dotsc,f_n'\}$ mit $\deg(f_1')=d$,
-    % $\deg(f_i)<d$ für $i>1$.
-    % Wie oben seien alle Elemente $f_i\in R$ mit $\deg(f_i)=d$ auf den
-    % vorderen Stellen (ansonsten invertiere und ordne um mit
-    % Vorzeichenwechsel).
-    % Falls es mehr als ein Element mit $\deg(f_i)=d$ gibt, betrachte
-    % $f_1=a f_2 + g$ für ein $a\in\Fx$ und $g\in\F[t]$.
-    % Falls $g=0$ ist, kann mithilfe von \ref{identitaetquadrat}
-    % umgeformt werden.
-    % Ansonsten gilt
-    % \begin{align*}
-    %   f_2+af_2=g 
-    %   &\Rightarrow f_1/g+af_2/g=1\\
-    %   &\Rightarrow 0=\{f_1/g,
-    %   af_2/g\}=(\{f_1\}\m\{g\})(\{a\}\p\{f_2\}\m\{g\})\\
-    %   &\Rightarrow \{f_1,f_2\}=\m\{f_1,a\}\p\{f_1,g\}\m\{f_2,g\}
-    % \end{align*}
-    % Dies kann induktiv fortgeführt werden und wir erhalten die
-    % gewünschte Summe.
-    % Somit kann $L_d/L_{d-1}$ durch entsprechende Einbettung in $\KnFt$
-    % als die Untergruppe erzeugt von allen $\{g_1,\dotsc,g_n\}$ mit
-    % $g_i\in R$ irreduzibel, $\deg(g_i)< d$ für $i>1$ und $\deg(g_1)=d$
-    % identifizieren, womit wir im Folgenden arbeiten werden.
-    % ===== 
-    % ===== 
-    % Die Wohldefiniertheit folgt aus der oben konstruierten Einbettung
-    % von $L_d/L_{d-1}$ in $\KnFt$. Denn eine Restklasse der Form
-    % $\ov{\{\pi,g_2,\dotsc,g_n\}}\in L_d/L_{d-1},\pi\in P_d,\deg(g_i)<d$ 
-    % kann eindeutig mit $\{\pi,g_2,\dotsc,g_n\}\in L_d\setminus
-    % L_{d-1}$ identifiziert
-    % werden und $\partial_d(\{\pi,g_2,\dotsc,g_n\}\in\KnFt$ ist
-    % eindeutig. Nachdem alle Restklassen eine solche Form haben,
-    % ist $\ov{\partial}_d$ wohldefiniert.
-    % ===== 
     Vorerst ist anzumerken, dass $\partial_d$ als Summe von
     Homomorphismen wieder Homomorphismus ist.
-    Die Wohldefiniertheit folgt dann einfach daraus, $L_{d-1}\subset
+    Die Wohldefiniertheit folgt dann einfach daraus, dass $L_{d-1}\subset
     \ker(\partial_d)$ ist.
     Denn für einen Erzeuger
     $\{g_1,\dotsc,g_n\}\in L_{d-1}$ ($g_i\in\F[t],\deg(g_i)\leq (d-1)$)
@@ -1413,27 +1265,6 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     für bel. $\pi\in P_d$), ist auch $\ov\partial_d$
     surjektiver Homomorphismus.
     
-
-    % ===== 
-    % \paragraph{Surjektivität}
-    % Die Surjektivität folgt aus der Definition der $\partial_{\pi}$
-    % für $\pi\in P_d$.
-    % Denn für ein Element $\{\ov u_1,\dotsc,\ov u_n\}\in\K_{n-1}(\Ftpi)$
-    % findet sich mit $u_i\in F[t]$ Lifts der $\ov u_i\in
-    % \Ftpi$ wegen $\deg(\pi)=d$ ein Element
-    % $\{\pi,u_1,\dotsc,u_n\}\in L_d\setminus L_{d-1}$,
-    % für das nach der Identifikation von oben gilt
-    % $0\neq \{\pi,u_1,\dotsc,u_n\}\in L_d/L_{d-1}\subset\KnFt$.
-    % Es gilt 
-    % \begin{gather*}
-    %   \ov\partial_{\pi}\left( \ov{\{\pi,u_1,\dotsc,u_n\}} \right)=
-    %   \partial_{\pi}(\{\pi,u_1,\dotsc,u_n\})=
-    %   \{\ov u_1,\dotsc,\ov u_n\}
-    % \end{gather*}
-    % Also sind die $\ov \partial_\pi$ surjektiv und somit $\ov\partial_d$.
-    % ===== 
-    
-    % \paragraph{Bijektivität}
     Für die Isomorphie konstruieren wir inverse Homomorphismen 
     zu den $\ov\partial_\pi$ und zeigen anschließend, 
     dass der zusammengesetzte Homomorphismus surjektiv und
@@ -1511,11 +1342,6 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     was, nachdem $2\leq i\leq n$ beliebig gewählt war, $H_\pi$ zu
     einem $(n-1)$-$\Z$-linearen Homomorphismus macht.
 
-    % ===== 
-    % Wohldefiniertheit auf dem Quotienten $\K_{n-1}(\Ft)$
-    % erhält man aus der Eindeutigkeit der Lifts und
-    % daraus, dass $h_\pi$ ein Element 
-    % ===== 
     Aus der universellen Eigenschaft des Tensorprodukts erhalten wir
     einen Homomorphismus
     \begin{align*}
@@ -1547,48 +1373,18 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     existiert, welche in Verknüpfung mit der Projektion mit 
     $H_\pi'$ kommutiert und dessen Eigenschaften erhält.
 
-    % =====     
-    % Projiziert man das Bild von $\ov H_\pi$ auf $L_d/L_{d-1}$,
-    % erhält man einen Homomorphismus 
-    % $\ov h_\pi=\pr_{L_d/L_{d-1}}\circ \ov H_\pi$, für den gilt
-    % mit $\{\pi,g_2,\dotsc,g_n\}\in L_d/L_{d-1}\subset\KnFt$,
-    % $\deg(g_i)<d$:
-    % \begin{align*}
-    %   \ov h_\pi\circ \ov \partial(\{\pi,g_2,\dotsc,g_n\})
-    %   &=\ov h_\pi (\{\ov g_2,\dotsc,\ov g_n\})\\
-    %   &= \{\pi,g_2,\dotsc,g_n\}\\
-    %   &= \id_{L_d/L_{d-1}}\{\pi,g_2,\dotsc,g_n\}
-    % \end{align*}
-    % Da sich alle Elemente in $L_d/L_{d-1}$ wie oben beschrieben als
-    % Summe solcher Elemente wie $\{\pi,g_2,\dotsc,g_n\}$ darstellen lassen
-    
-    % Es bleibt zu zeigen, dass unser konstruiertes $h_\pi$ tatsächlich
-    % ein Inverses zu $\ov\partial_\pi$ darstellt.
-    % Sei $\ov{\{\pi,g_2,\dotsc,g_n\}}\in L_d/L_{d-1}$ eine Restklasse
-    % von $L_d/L_{d-1}$. Dann gilt wie bei Wohldefiniertheit beschrieben
-    % \begin{gather*}
-    %   h_\pi\circ \ov\partial_\pi(\ov{\{\pi,g_2,\dotsc,g_n\}})
-    %   =h (\partial_d(\{\pi,g_2,\dotsc,g_n\}))
-    %   =h (\{\pi,g_2,\dotsc,g_n\})
-    %   =\ov{\{\pi,g_2,\dotsc,g_n\}}
-    % \end{gather*}
-    % und für $\ov{0}\in L_d/L_{d-1}$ ist es trivial.
-    % Also ist die Verknüpfung $h_\pi\circ\ov\partial_\pi$ die Identität
-    % für alle $\pi\in P_d$. Andersherum ist offensichtlich 
-    % ===== 
-
     Es gilt nun offensichtlich für alle $\pi,\pi'\in P_d$, 
     dass $\ov\partial_\pi\circ h_{\pi'}$ die Identität ist, 
     falls $\pi=\pi'$, und $0$, falls $\pi\neq\pi'$,
     denn für $\pi\neq\pi'$
     \begin{align*}
       \ov\partial_\pi\circ h_{\pi'}(\{\ov g_1,\dotsc,\ov g_n\})
-      &= \ov\partial_\pi(\ov{\{\pi', g_1,\dotsc, g_n\}})
+      &= \ov\partial_\pi\left( \ov{\{\pi', g_1,\dotsc, g_n\}} \right)
         \overset{\pi'\in(\F[t]_{(\pi)})^\times}{
         \underset{\ref{relationzahmessymbol}}{=}}
         0\\
-      \ov\partial_\pi\circ h_{\pi}(\{\ov g_1,\dotsc,\ov g_n\})
-      &= \ov\partial_\pi(\ov{\{\pi, g_1,\dotsc, g_n\}})
+      \ov\partial_\pi\circ h_{\pi}\left( \{\ov g_1,\dotsc,\ov g_n\} \right)
+      &= \ov\partial_\pi\left( \ov{\{\pi, g_1,\dotsc, g_n\}} \right)
       = \{\ov g_1,\dotsc,\ov g_n\}
     \end{align*}
     Die $h_\pi$ induzieren also einen zu
@@ -1631,13 +1427,12 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
   zur Struktur von $L_d$ ($d\in\N_1$), dass $L_d$ das Erzeugnis von
   Elementen der Form
   $\{\pi,g_2,\dotsc,g_n\}\in\KnFt$ und $\{g_1,\dotsc,g_n\}\in\KnFt$
-  ($\pi\in P_d,g_i\in\F[t],\deg(g_i)<d$)
-  erzeugt wird,
+  ($\pi\in P_d,g_i\in\F[t],\deg(g_i)<d$) ist,
   brauchen werden.
 
   \begin{Lem}[Aussage \ref{3}]\label{lem3}
     Es gilt für alle $d\in\N_1$
-    \begin{gather} \label{3}
+    \begin{gather}
       L_d/L_0\cong \bigoplus_{k=1}^d L_k/L_{k-1} \,,
     \end{gather}
   \end{Lem}
@@ -1649,64 +1444,54 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     $L_d/L_{d-2}$ als semidirektes Produkt von $L_d/L_{d-1}$ und
     $L_{d-1}/L_{d-2}$ schreiben lässt.
     Beachten wir die Struktur von $L_d$, können wir $L_d/L_{d-2}$
-    schreiben als die Untergruppe $\ov U_{d,{d-2}}$ erzeugt von allen
-    $\{\pi_d,g_2,\dotsc,g_n\}\in\KnFt$ mit $\pi_{d}\in P_d $
-    und 
-    $\{\pi_{d-1},g_2,\dotsc,g_n\}\in\KnFt$ mit $\pi_{d-1}\in P_{d-1}$
-    ($g_i\in\F[t],\deg(g_i)<d-1$)
-    ist.
-    Es lässt sich nachrechnen, dass das Erzeugnis $U_d$ der 
-    $\{\pi_d,g_2,\dotsc,g_n\}\in\KnFt$ mit $\pi_{d}\in P_d $
-    wieder eine Untergruppe ist, deren Schnitt mit der von
-    $\{\pi_{d-1},g_2,\dotsc,g_n\}\in\KnFt$ mit $\pi_{d-1}\in P_{d-1}$
-    ($g_i\in\F[t],\deg(g_i)<d-1$)
-    erzeugten Untergruppe $U_{d-1}$ genau $0$ ist.
-    Die Summe $U_d\p U_{d-1}$ dieser beiden Untergruppen ergibt
-    $U_{d,d-2}$,
-    und $U_d\cong L_d/L_{d-1}$, $U_{d-1}\cong L_{d-1}/L_{d-2}$.
-    Wir haben also $L_d/L_{d-2}\cong U_{d,d-2}=U_{d}\p U_{d-1}$ mit
-    $U_d\cap U_{d-1}=0$, woraus nach Algebra folgt, dass
-    $L_d/L_{d-2}$ ein semidirekte Produkt von $U_d\rtimes U_{d-1}$
+    schreiben als die dazu isomorphe Untergruppe 
+    \begin{align*}
+      U_{d,{d-2}}
+      &\coloneqq \left(
+        \{\pi_d,g_2,\dotsc,g_n\},
+        \{\pi_{d-1},g_2,\dotsc,g_n\}
+        \right)\subset\KnFt
+    \end{align*}
+    wobei $\pi_{d}\in P_d, \pi_{d-1}\in P_{d-1}, 
+    g_i\in\F[t],\deg(g_i)<d-1$.
+    Es lässt sich nachrechnen, dass folgendes Erzeugnis wieder eine
+    Untergruppe ist
+    \begin{align*}
+      U_d&\coloneqq \{\pi_d,g_2,\dotsc,g_n\}\in\KnFt
+      &&\pi_{d}\in P_d, g_i\in\F[t],\deg(g_i)<d-1
+    \end{align*}
+    und $U_d\cap U_{d-1}=0$.
+    Mit $U_d\p U_{d-1}= U_{d,d-2}$,
+    und $U_d\cong L_d/L_{d-1}$, $U_{d-1}\cong L_{d-1}/L_{d-2}$,
+    folgt nach Algebra, dass
+    $U_{d,d-1}\cong L_d/L_{d-2}$ ein semidirekte Produkt von $U_d\rtimes U_{d-1}$
     ist.
 
     Das semidirekte Produkt liefert bereits eine Koretraktion von
-    $U_{d-1}$ nach $L_d/L_{d-1}$, woraus nach \ref{spaltendeexaktesequenz}
-    folgt, dass die exakte Sequenz
+    $L_{d-1}/L_{d-2}\cong U_{d-1}$ nach $L_d/L_{d-1}\cong U_{d,d-2}$.
+    Wie wir in \ref{gruppentensorprodukt} gesehen haben, kann jede
+    abelsche Gruppe als $\Z$-Modul aufgefasst werden und \ref{spaltendeexaktesequenz}
+    trifft zu, so dass die exakte Sequenz
     \begin{center}
       \begin{tikzcd}
         0\arrow{r} & L_{d-1}/L_{d-2}\cong U_{d-1} \arrow{r}
-        & L_d/L_{d-2} \arrow{r} 
+        & U_{d,d-2}\cong L_d/L_{d-2} \arrow{r} 
         &  U_{d}\cong L_d/L_{d-1} \arrow{r} 
         & 0
       \end{tikzcd}
     \end{center}
-    spaltend ist, also $L_d/L_{d-2}\cong L_{d-1}/L_{d-2}\oplus
+    spaltend ist. Somit gilt $L_d/L_{d-2}\cong L_{d-1}/L_{d-2}\oplus
     L_d/L_{d-1}$.
     
-    Induktiv folgt die Aussage, wenn man bei $d=1$ beginnt.
+    Induktiv folgt Behauptung \ref{3}, wenn man bei $d=1$ beginnt.
   \end{proof}
-
-  % ====
-  % \ref{3} folgt einfach aus den Isomorphiesätzen, denn für alle
-  % $d\in\N_1$ gibt es die kurze spaltende exakte Sequenz
-  % \begin{center}
-  %   \begin{tikzcd}
-  %     L_d/L_{d-1}\arrow{r}
-  %   \end{tikzcd}
-  % \end{center}
-  % ====
   
-  Es ist Satz \ref{zahmessymbolhom} gezeigt.
+  Es ist Satz \ref{milnorfolge} gezeigt.
 \end{proof}
-
-
-
 
 % ------------------------------------------------------------------
 
 \printindex
-% \listoffigures		
-% \listoftables
 
 \nocite{*}
 \printbibliography

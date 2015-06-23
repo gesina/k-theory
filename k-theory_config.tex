@@ -38,19 +38,11 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{dsfont}
-\usepackage{mathabx}         % extra plus: \boxplus
-% \usepackage{stmaryrd}		%for math symbols like lightning bold
-% \usepackage{MnSymbol}
-
-%% objects
-% \usepackage{wrapfig,graphicx}	%inclusion of graphics with \includegraphics{name}
-% \usepackage{tikz,pgf}
-% \usetikzlibrary{calc}
 
 %% index/bibliography
-\usepackage{makeidx}		%index with \makeindex in head (creates *.idx file)
+\usepackage{makeidx}
 \makeindex
-\usepackage[date=iso8601,backend=biber,style=alphabetic]{biblatex}	%use \printbibliography
+\usepackage[date=iso8601,backend=biber,style=alphabetic]{biblatex}
 \bibliography{k-theory.bib}
 
 % commutative diagrams
@@ -60,8 +52,6 @@
 \usepackage{booktabs}
 %% hyperlinks
 \usepackage{hyperref}
-
-%\usepackage{tabularx}        %table with extendable X-column
 
 
 % DEFINITIONS
@@ -81,6 +71,7 @@
 \newtheorem{Kor}[Def]{Korollar}
 \newtheorem{Fol}[Def]{Folgerung}
 
+
 % math operators/symbols
 \DeclareMathOperator{\Const}{const}
 \DeclareMathOperator{\Ker}{ker}
@@ -90,6 +81,8 @@
 \DeclareMathOperator{\Quot}{Q}
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\pr}{pr}
+%\DeclareMathOperator{\K}{K}
+\newcommand{\K}{K}
 
 \newcommand{\N}{\mathds{N}}
 \newcommand{\Z}{\mathds{Z}}
@@ -99,9 +92,6 @@
 \newcommand{\F}{\mathds{F}}
 \newcommand{\bF}{\overline{\F}}
 
-\newcommand{\ov}{\overline}
-
-\DeclareMathOperator{\K}{K}
 \newcommand{\KF}{\K_\ast(\F)}
 \newcommand{\KbF}{\K_\ast(\bF)}
 \newcommand{\KnF}{\K_n(\F)}
@@ -115,6 +105,8 @@
 \newcommand{\KnFt}{\K_n(\Ft)}
 \newcommand{\KnFtpi}{\K_n(\Ftpi)}
 
+\newcommand{\ov}{\overline}
+
 \usepackage{MnSymbol}
 \newcommand{\p}{\diamondplus}%{\bigplus}%{\boldsymbol +}}
 \newcommand{\m}{\boldsymbol -}
@@ -123,15 +115,13 @@
 \newcommand{\calK}{\mathcal{K}}
 \newcommand{\frakm}{\mathfrak{m}}
 
-\DeclarePairedDelimiter{\scp}{\langle}{\rangle}         % scalar product
-\newcommand{\nn}[1][\,\bullet\,]{\left\| #1 \right\|}	% norm
-
 \newcommand*{\disoarrow}{\arrow[d,"\rotatebox{90}{$\thicksim$}"]}
+
+\newcommand{\somenote}[1]{\marginpar{#1}}
 
 % STYLE SETTINGS
 % ---------------------------------------------------------------
-% \allowdisplaybreaks              %allow multipage for equations
-%\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
 \ihead{Gesina Schwalbe}
 \pagestyle{scrheadings}
 
@@ -141,8 +131,6 @@
 %\place{Universität Regensburg}
 \author{Gesina Schwalbe}
 \date{01.07.2015}
-
-\usepackage{blindtext}
 
 
 %%% Local Variables:
