@@ -419,7 +419,7 @@ bewerteten Körper betrachten.
   Die Untergruppe $v(\Fx)$ heißt Bewertungsgruppe.
 \end{Def}
 
-\begin{Lem}[Eigenschaften Bewertungsringe]\label{eigbewertungsring}
+\begin{Satz}[Eigenschaften Bewertungsringe]\label{eigbewertungsring}
   Sei $R$ Bewertungsring zum Körper $\F$, dann gilt
   \begin{enumerate}[i)]
   \item Die Ideale von $R$ sind total geordnet bzgl. 
@@ -430,8 +430,6 @@ bewerteten Körper betrachten.
     $R=\{x\in\F\mid v(x)\geq 0\}$.
     $R$ heißt dann auch Bewertungsring zur Bewertung $v$.
   \item 
-    % $v$ ist bis auf Verknüpfung mit ordnungserhaltenden 
-    % Gruppenisomorphismen auf $\Gamma$ eindeutig.
     Ein entsprechendes $v$ ist über $v|_{R}$ bereits eindeutig 
     bestimmt.
   \end{enumerate}
@@ -495,11 +493,9 @@ bewerteten Körper betrachten.
       \end{gather*}
       und $x\in R$ oder $x^{-1}\in R$ für alle $x\in\F$ wegen $R$
       Bewertungsring.
-      % Die Eindeutigkeit von $v$ bis auf Isomorphie folgt aus der
-      % Konstruktion.
     \end{enumerate}
   \end{proof}
-\end{Lem}
+\end{Satz}
 
 
 Tatsächlich ist ein Integritätsring genau dann
@@ -507,7 +503,7 @@ ein Bewertungsring nach Definition \ref{defbewertungsring},
 wenn man eine Bewertungsabbildung $v$ auf $\F$ bzw. $R$ findet,
 wie wir jetzt sehen werden.
 
-\begin{Lem}\label{bewertungsringausbewertung}
+\begin{Satz}\label{bewertungsringausbewertung}
   Sei $\F$ ein Körper mit einer Bewertungsabbildung
   $v\colon\F\to\Gamma\cup\{\infty\}$ in eine total geordnete, abelsche Gruppe
   $\Gamma$. Dann gilt:
@@ -561,7 +557,7 @@ wie wir jetzt sehen werden.
       können. $\frakm_v$ ist also maximal.
     \end{enumerate}
   \end{proof}
-\end{Lem}
+\end{Satz}
 
 \begin{Kor}
   Ein Integritätsring $R$ ist genau dann ein Bewertungsring, 
@@ -625,7 +621,7 @@ Primelement und Einheiten ihres Bewertungsrings darstellen lassen.
   diskrete Bewertung ist.
 \end{Def}
 
-\begin{Lem}\label{bewertungsringhir}
+\begin{Satz}\label{bewertungsringhir}
   Für einen Bewertungsring $R$ sind äquivalent
   \begin{enumerate}[i)]
   \item $R$ ist diskret
@@ -654,11 +650,60 @@ Primelement und Einheiten ihres Bewertungsrings darstellen lassen.
       Maximalideal $\frakm=(\pi)$. Dann kann eine Bewertung
       konstruiert werden, die zu $x\in R$ den maximalen Exponenten $k$ liefert, 
       für den $a\in (\pi^k)$ gilt.
-      Die Wohldefiniertheit folgt daraus, dass
-      $\bigcap_{k=1}^{\infty}\pi^k=0$ ist in einem Hauptidealring.
-    \end{itemize}
+      Für die Wohldefiniertheit benötigen wir, dass $R$ mit der
+      Umgebungsbasis $(\pi^k),k\in\N_1,$ der Null hausdorffsch ist.
+      Betrachte also das Ideal
+      $I\coloneqq\bigcap_{n=1}^\infty(\pi^n)$,
+      welches im Hauptidealring $R$ geschrieben werden kann als $(y)$ für
+      ein $y\in R$.
+      Nachdem $y\in(\pi)$ gilt, gibt es ein $x\in R$ mit $y=\pi x$.
+      Als Erzeuger von $I$ muss $y$ jedoch in $(\pi^n)$ liegen für
+      alle $n\in\N_1$ und demnach $x\in(\pi^{n-1})$ für alle
+      $n\in\N_1$, also $x\in I$ und wegen $y$ Erzeuger von $I$ dann
+      $x=yz$ für ein $z\in R$.
+      Zusammengesetzt $y=\pi x=\pi yz$ und $y-y\pi z=0\Rightarrow
+      y(1-\pi z)=0$.
+      Nachdem $\pi$ keine Einheit ist, kann $\pi z$ nicht 1 werden,
+      also muss im Integritätsring $R$ bereits $y=0$ sein.
+      Es ist demnach $I=\bigcap_{n=1}^\infty(\pi^n)=(y)=(0)=0$, weshalb
+      $R$ mit der Umgebungsbasis $(\pi^k),k\in\N_1$ der $0$ hausdorffsch ist.
+      Das bedeutet, dass sich für jedes Element $a\in R\setminus\{0\}$
+      ein $k\in\N_0$ findet, so dass $a$ noch in $(\pi^k)$ aber nicht
+      mehr in der Umgebung $(\pi^{k+1})$ der Null enthalten ist.
+      Insbesondere wissen wir, dass es für jedes $a\in R$ einen
+      (selben) Exponenten $k\in\N$ gibt mit $a=\pi^ku$ für eine
+      Einheit $u\in R$ (alle Primelemente sind assoziiert zu $\pi$,
+      denn in Hauptidealringen sind alle Primideale maximal, also ist das
+      Maximalideal auch gleichzeitig das einzige Primideal, weshalb
+      alle Primelemente in $R$ genau $(\pi)$ erzeugen und somit
+      assoziiert sind zu $\pi$).
+      Wir erhalten die wohldefinierte Abbildung
+      \begin{gather*}
+        v\colon R\setminus\{0\}\to \Z_{\geq 0}\quad 
+        a=u\pi^k\mapsto \max\left\{n\in\N\mid a\in(\pi^n)\right\}=k
+      \end{gather*}
+      Es ist für beliebige Elemente $a, b\in R\setminus \{0\}$
+      mit der Darstellung $a=u_a\pi^i,b=u_b\pi^j$ von oben:
+      \begin{gather*}
+        v(ab)=v(u_a\pi^iu_b\pi^j)=v(u_au_b\pi^{i+j})
+        = i+j =v(a)+v(b)
+      \end{gather*}
+      und wegen (\OE{} $i\leq j$)
+      $a+b=u_a\pi^i+u_b\pi^j=(u_a+u_b\pi^{j-i})\pi^i$
+      ist $v(ab)\geq \min(v(a),v(b))$.
+      Nachdem $\pi^k\in v^{-1}(k)$ für beliebiges $k\in\Z$, ist
+      $v$ surjektiv auf $\Z_{\geq 0}$.
+      Insgesamt setzt sich $v$ zu einer diskreten Bewertung
+      $\F\to\Z\cup\{\infty\}$ fort mit Bewertungsring
+      \begin{gather*}
+        R\subset \{x\in\F\mid v(x)\geq 0\}=\{x\in\F\mid \exists
+        k\geq 0: x\in(\pi^k)\}\subset R
+      \end{gather*}
+      Also ist $R$ Bewertungsring zu einer diskreten Bewertung $v$
+      und damit diskret.
+  \end{itemize}
   \end{proof}
-\end{Lem}
+\end{Satz}
 
 
 \begin{Bem}\label{darstellungdbk}
@@ -713,27 +758,27 @@ Primelement und Einheiten ihres Bewertungsrings darstellen lassen.
 \section{Höhere Zahme Symbole und Spezialisierungsabbildungen}
 Im Folgenden sei $\F$ ein diskret bewerteter Körper mit
 Bewertungsabbildung $v\colon \F\to\Z\cup\{\infty\}$ und
-$\overline{\F}$ der Restklassenkörper $R/\frakm_v$ 
-des zugehörigen Bewertungsrings $R=\left\{x\in\F\mid v(x)\geq0\right\}$
+$\overline{\F}$ der Restklassenkörper $R_v/\frakm_v$ 
+des zugehörigen Bewertungsrings $R_v=\left\{x\in\F\mid v(x)\geq0\right\}$
 über dessen Maximalideal $\frakm_v=\left\{x\in\F\mid v(x)>0\right\}=(\pi)$.
 
 Wir können die Erkenntnis aus \ref{darstellungdbk},
-dass für ein fix gewähltes Primelement $\pi\in R\subset \F$
+dass für ein fix gewähltes Primelement $\pi\in R_v\subset \F$
 jedes Element $x\in\Fx$ dargestellt werden kann als 
-$x=\pi^k\cdot u$ mit einem $k\in\Z, u\in \Rx$,
+$x=\pi^k\cdot u$ mit einem $k\in\Z, u\in \Rx_v$,
 in folgender Weise auf $\KnF$ übertragen:
 
 \begin{Lem}\label{darstellungknf}
   $\KnF$ ist additiv erzeugt von Elementen der Form 
   $\{\pi, u_{2},\dotsc,v_n\}$
-  und $\{u_{1},\dotsc,u_n\}\in\KnF$ mit $\pi\in R$ prim und
-  $u_i\in \Rx$.
+  und $\{u_{1},\dotsc,u_n\}\in\KnF$ mit $\pi\in R_v$ prim und
+  $u_i\in \Rx_v$.
   $\pi$ kann fix gewählt werden.
   \begin{proof}
-    Wähle ein fixes Primelement $\pi\in R\subset\Fx$
+    Wähle ein fixes Primelement $\pi\in R_v\subset\Fx$
     und sei $\xi\coloneqq\{a_1,\dotsc, a_n\}\in\KnF\subset\KF$ mit
     $a_1,\dotsc,a_n\in\Fx$. Dann gibt es Darstellungen
-    $a_n=\pi^{k_n}\cdot u_n$ mit $k_n\in\Z,u_n\in \Rx$ wie
+    $a_i=\pi^{k_i}\cdot u_i$ mit $k_i\in\Z,u_i\in \Rx_v$ wie
     oben. $\xi$ lässt sich schrittweise additiv schreiben:
     \begin{align*}
       \xi=\{a_1,\dotsc,a_n\}
@@ -762,25 +807,25 @@ in folgender Weise auf $\KnF$ übertragen:
     $\{u_1,\dotsc, u_n\}$ oder
     $\{\pi\}\otimes\{-1\}^{k-1}\otimes\{v_{k+1},\dotsc,v_n\}\in\KnF$
     ($k\geq 1$ und wie oben $v_i=u_j$ für ein $1\leq j\leq n$).
-    Nachdem die $v_i$ und $(-1)$ Einheiten in $R$ sind,
+    Nachdem die $v_i$ und $(-1)$ Einheiten in $R_v$ sind,
     ist die Behauptung gezeigt.
     Dass $\pi$ fix gewählt werden kann, folgt aus der Assoziiertheit
-    aller Primelemente in $R$.
+    aller Primelemente in $R_v$.
   \end{proof}
 \end{Lem}
 
 \begin{Satz}\label{homomorphismen}
-  Zu einem diskret bewerteten Körper $(\F,v)$ mit Bewertungsring $R$
-  gibt es für alle $n\geq 1$ einen eindeutigen Gruppenhomomorphismus 
+  Zu einem diskret bewerteten Körper $(\F,v)$ mit Bewertungsring $R_v$
+  gibt es für alle $n\in\N_1$ einen eindeutigen Gruppenhomomorphismus 
   $\partial_v\colon \KnF\to \K_{n-1}(\bF)$,
-  der für alle Primelemente $\pi\in R$ und 
-  Einheiten $u_1,\dotsc, u_n\in \Rx$ erfüllt
+  der für alle Primelemente $\pi\in R_v$ und 
+  Einheiten $u_2,\dotsc, u_n\in \Rx_v$ erfüllt
   \begin{gather}\label{relationzahmessymbol}
-    \partial_v(\{\pi,u_1,\dotsc,u_n\})=\{\ov u_1, \dotsc, \ov u_n\}
+    \partial_v(\{\pi,u_2,\dotsc,u_n\})=\{\ov u_2, \dotsc, \ov u_n\}
   \end{gather}
-  Weiterhin gibt es für jedes fix gewählte Primelement $\pi\in R$
+  Weiterhin gibt es für jedes fix gewählte Primelement $\pi\in R_v$
   einen eindeutigen Ringhomomorphismus $\psi_\pi\colon\KF\to\KbF$, 
-  der für alle Einheiten $u\in \Rx$, $k\in\Z$ erfüllt
+  der für alle Einheiten $u\in \Rx_v$, $k\in\Z$ erfüllt
   \begin{gather}\label{relationspezialisierung}
     \psi_\pi(\{\pi^ku\})=\{\ov u\}
   \end{gather}
@@ -797,21 +842,21 @@ in folgender Weise auf $\KnF$ übertragen:
   \begin{enumerate}[a)]
   \item Das Zahme Symbol ist surjektiv. 
     Denn für einen lokalen Ring
-    $R$ – wie der Bewertungsring $(R,\frakm_v)$ in unserem Fall –
-    gilt $R\setminus\frakm_v=\Rx$, d.h. $\Rx=R\setminus\frakm_v
-    =\pr_{R/\frakm_v}^{-1}\left((R/\frakm_v)\setminus \{\ov0\}\right)
-    =\pr_{R/\frakm_v}^{-1}\left( (R/\frakm_v)^\times\right)$. 
+    $R_v$ – wie der Bewertungsring $(R_v,\frakm_v)$ in unserem Fall –
+    gilt $R_v\setminus\frakm_v=\Rx_v$, d.h. $\Rx_v=R_v\setminus\frakm_v
+    =\pr_{R_v/\frakm_v}^{-1}\left((R_v/\frakm_v)\setminus \{\ov0\}\right)
+    =\pr_{R_v/\frakm_v}^{-1}\left( (R_v/\frakm_v)^\times\right)$. 
     Damit finden sich für alle 
-    $v_1,\dotsc,v_n\in \bFx = (R/\frakm_v)^\times$
-    Lifts $u_1,\dotsc, u_n\in\Rx    
-    =\pr_{R/\frakm_v}^{-1}\left( (R/\frakm_v)^\times \right)$,
+    $v_1,\dotsc,v_n\in \bFx = (R_v/\frakm_v)^\times$
+    Lifts $u_1,\dotsc, u_n\in\Rx_v    
+    =\pr_{R_v/\frakm_v}^{-1}\left( (R_v/\frakm_v)^\times \right)$,
     so dass $\ov u_i=v_i$, 
-    und für beliebiges Primelement $\pi\in R$ gilt
+    und für beliebiges Primelement $\pi\in R_v$ gilt
     $\partial_v(\{\pi,u_1,\dotsc, u_n\})=\{v_1,\dotsc, v_n\}$.
     Gleiches gilt entsprechend für die Spezialisierungsabbildung.
   \item   Mit der Relation $u_1=\frac{\pi u_1}{\pi}$
-    für eine Einheit $u_1\in \Rx$
-    gilt für bel. $u_1,\dotsc, u_n\in \Rx, n\in\N$
+    für eine Einheit $u_1\in \Rx_v$
+    gilt für bel. $u_1,\dotsc, u_n\in \Rx_v, n\in\N$
     \begin{align*}
       \partial_v(\{u_1,\dotsc,u_n\})
       &= \partial_v(\{\pi u_1\cdot \pi^{-1},u_2,\dotsc,u_n\})\\
@@ -825,8 +870,8 @@ in folgender Weise auf $\KnF$ übertragen:
   \item Für $n=1$ erfüllt $\partial_v=v|_{\Fx}\colon \Fx\to \Z$ 
     die Bedingung \ref{relationzahmessymbol}.
     Denn hier ist sie äquivalent dazu, dass ein Primelement 
-    $\pi\in R\subset \Fx$ auf die (einzige) Einheit $1\in\Z=\K_0(\bF)$ 
-    geschickt wird und eine Einheit $u\in R\subset \Fx$ auf $0\in\Z$,
+    $\pi\in R_v\subset \Fx$ auf die (einzige) Einheit $1\in\Z=\K_0(\bF)$ 
+    geschickt wird und eine Einheit $u\in R_v\subset \Fx$ auf $0\in\Z$,
     was für eine diskrete Bewertung der Fall ist, wie wir gesehen haben.
   \end{enumerate}
 \end{Bem}
@@ -835,21 +880,21 @@ in folgender Weise auf $\KnF$ übertragen:
   Nachdem $\partial_v$ ein Homomorphismus ist, genügt es, $\partial_v$ auf
   den Erzeugern von $\KnF$ zu betrachten, also nach \ref{darstellungknf} den
   Elementen der Form $\{\pi\}\otimes\{u_{2},\dotsc,u_{n}\}$ für
-  Einheiten $u\in \Rx$ und $\pi$ prim.
+  Einheiten $u\in \Rx_v$ und $\pi$ prim.
   Deren Bilder sind durch die erzeugende Relation 
   \ref{relationzahmessymbol} bereits eindeutig
   bestimmt, was die Eindeutigkeit auf ganz $\KnF$ liefert.
   
   Genauso ist $\psi$ eindeutig, nachdem jedes Element $a\in\Fx$ für
-  fixes Primelement $\pi\in R$ eindeutig geschrieben werden kann als
-  $a=\pi^k u, u\in \Rx$.
+  fixes Primelement $\pi\in R_v$ eindeutig geschrieben werden kann als
+  $a=\pi^k u, u\in \Rx_v$.
 \end{proof}
 
 \begin{proof}[Existenz zu \ref{homomorphismen}]
   Wir werden $\partial_v$ und $\psi_\pi$ explizit konstruieren.
   Von der Idee her soll 
-  – wieder zu unserem fix gewählten Primelement $\pi\in R$ – 
-  ein Element $\{\pi^ku\}\in\KoF, u\in \Rx,$
+  – wieder zu unserem fix gewählten Primelement $\pi\in R_v$ – 
+  ein Element $\{\pi^ku\}\in\KoF, u\in \Rx_v,$
   in seinen \enquote{$\pi$-Anteil} und seinen 
   \enquote{Einheitsanteil} zerlegt werden. 
   Dann können wir den \enquote{Einheitsanteil} als Element aus 
@@ -883,7 +928,7 @@ in folgender Weise auf $\KnF$ übertragen:
   $\xi$ entspricht anschaulich einer Erweiterung um das bei
   der Quotientenbildung verloren gegangene $\pi$.
 
-  Als nächstes zeigen wir, dass die Zuweisung ($u\in \Rx$)
+  Als nächstes zeigen wir, dass die Zuweisung ($u\in \Rx_v$)
   \begin{gather*}
     \Psi\colon\{\pi^ku\}\mapsto i\xi \p \{\ov u\}
     =\begin{pmatrix} i\\\{\ov u\} \end{pmatrix}\in\K_1(\bF)
@@ -893,7 +938,7 @@ in folgender Weise auf $\KnF$ übertragen:
   $\Psi\colon\KF\to\KbF[\xi]$ fortsetzen lässt.
   $\Psi$ ist die gewünschte Zerlegung mit $\Psi(\{\pi\})=\xi$ 
   und $\Psi(\{u\})=\{\ov u\}\in\K_1\bF$ für
-  eine Einheit $u\in \Rx$.
+  eine Einheit $u\in \Rx_v$.
 
   Setze als ersten Schritt die Fortsetzung von $\Psi$ auf ganz $\KF$
   ($\{a_1,\dotsc,a_n\}\in\KF$)
@@ -913,7 +958,7 @@ in folgender Weise auf $\KnF$ übertragen:
   $\Psi(\{x\}\otimes\{y\})=\Psi(\{x\})\otimes\Psi(\{y\})$
   ist aus der Definition bereits gegeben.
   Betrachte Elemente $x,y\in\Fx, x=\pi^iu, y=\pi^jv$ mit Einheiten
-  $u,v\in\\Rx$. 
+  $u,v\in\Rx_v$. 
   Dann gilt $x\cdot y=\pi^iu\cdot\pi^jv=\pi^{i+j}(uv)$  und
   \begin{align*}
     \Psi(\{x\}\p\{y\})
@@ -974,7 +1019,7 @@ in folgender Weise auf $\KnF$ übertragen:
   $\partial_v(\{\pi,u_1,\dotsc,u_n\})=\{\ov u_1,\dotsc,\ov u_n\}$.  
   Außerdem $\psi_\pi$ erfüllt \ref{relationspezialisierung}, denn 
   die Definition von oben liefert für $n=1$ und fix gewähltes
-  Primelement $\pi$ zu $a=\pi^ku\in\Fx, u\in\Rx$ genau
+  Primelement $\pi$ zu $a=\pi^ku\in\Fx, u\in\Rx_v$ genau
   $\psi_\pi(\{a\})=\psi_\pi(\{\pi^ku\})\coloneqq\{\ov u\}$.
   Damit ist die Existenz der Zahmen Symbole und die der
   Spezialisierungsabbildung gezeigt.
