@@ -135,6 +135,7 @@ multiplikative Gruppe.
   $l(a_1)\otimes\dotsb\otimes l(a_n)\in {\KoF}^{\otimes n}$
   vorerst mit seiner Einbettung
   $\left(
+    0,\dotsc,0,
     \left(l(a_1)\otimes\dotsb\otimes l(a_n)\right),
     0,\dotsc
   \right)\in\calK$
@@ -153,7 +154,7 @@ multiplikative Gruppe.
 \begin{Bem}
   Die Definitionen in \ref{defkf} und die Äquivalenz in 
   \ref{identitaetkf} können analog auch auf 
-  einem kommutativen, unitalen Ring $A$ angewendet werden,
+  einem kommutativen, unitalen Ring $A$ angewandt werden,
   wobei $\Fx$ der Einheitengruppe entspricht. Siehe \cite{kerzdipl,kerz}.
 \end{Bem}
 
@@ -223,7 +224,7 @@ einige weitere interessante Eigenschaften der Elemente.
     $\KoF$ hervorgehen, genügt es, die Eigenschaft für
     $\chi,\zeta\in\KoF$ zu überprüfen. Dann folgt es wegen
     Assoziativität induktiv für zwei beliebige Elemente aus $\KF$.
-    Seien also $\chi=\{a\},\zeta=\{b\}in\Fx$, dann gilt mit \ref{identitaetminus}
+    Seien also $\chi=\{a\},\zeta=\{b\}\in\Fx$, dann gilt mit \ref{identitaetminus}
     \begin{align*}
       \{a,b\}\p \{b,a\} 
       &= (\overbrace{\{a,-a\}}^{0} \p \{a,b\} )
@@ -239,6 +240,8 @@ einige weitere interessante Eigenschaften der Elemente.
   \begin{gather*}
     \{a\}^2 = \{a\}\{-1\} = \{-1\}\{a\}
   \end{gather*}
+  und insbesondere durch Induktion $\{a\}^k=\{a\}\otimes\{-1\}^{k-1}$
+  für $k\in\N_1$.
   \begin{proof}
     Der Beweis erfolgt wieder durch einfache Rechnung mit
     \ref{identitaetminus}:
@@ -275,13 +278,12 @@ einige weitere interessante Eigenschaften der Elemente.
     b=a_0^i$ ist dann
     \begin{gather*}
       \{a,b\}=\{a_0^i, a_0^j\} = ij\{a_0,a_0\}
-      = -ij\{a_0,a_0^{2^k}\} = ij\{a_0, (-a_0)^{2^k}\} =
-      ij\{a_0,-a_0\} 
+      = ij\{a_0,a_0^{2^k}\} = ij\{a_0, (-a_0)^{2^k}\} =
+      2kij\{a_0,-a_0\} 
       \overset{\ref{identitaetminus}}{=} 0
     \end{gather*}
 
-    Falls $q>2$, kann genutzt werden, dass $\Char(\K_2\F)\leq 2$, 
-    d.h. $2\{a,b\}=0\;\forall a,b\in\Fx$,
+    Falls $q>2$, kann genutzt werden, dass $2\{a,b\}=0\;\forall a,b\in\Fx$,
     denn für einen Erzeuger $a_0\in\Fx$ und
     Elemente $a=a_0^i,b=a_0^j\in \Fx$ ist
     \begin{gather*}
@@ -305,7 +307,7 @@ einige weitere interessante Eigenschaften der Elemente.
       \qquad x\mapsto x^2
     \end{gather*}
     Es ist offensichtlich $\Ker(\phi)=\{1,-1\}$ (einzige Lösungen von
-    $x^2=1$), also ist nach dem Homomorphiesatz wegen $\phi$ surjektiv
+    $x^2=1$), also ist nach dem Homomorphiesatz
     $\im(\phi)\cong \Fx/\{1,-1\}$. Damit ist die Anzahl der Quadrate
     in $\Fx$ gleich der Ordnung von $\Fx/\{1,-1\}$, die nach dem Satz
     von Lagrange
@@ -398,8 +400,8 @@ bewerteten Körper betrachten.
 
 \begin{Def}[Bewertungsring]\label{defbewertungsring}
   Ein Integritätsring $R$ mit Quotientenkörper $\Quot(R)=\F$ heißt
-  Bewertungsring, falls $\forall x\in\F\colon x\in\R$ oder
-  $x^{-1}\in\R$.
+  Bewertungsring, falls $\forall x\in\F\colon x\in R$ oder
+  $x^{-1}\in R$.
   Wir sagen auch $R$ ist Bewertungsring zum Körper $\F$.
 \end{Def}
 
@@ -409,18 +411,19 @@ bewerteten Körper betrachten.
   \item Die Ideale von $R$ sind total geordnet bzgl. 
     \enquote{$\subset$} und $R$ ist lokal.
   \item Es gibt eine zu $R$ bzw. $\F$ zugehörige Abbildung
-    $v\colon\F\to\Gamma\cup\{\infty\}$ in die total geordnete, abelsche Gruppe
-    $\Gamma\coloneqq \Fx/\Rx$ vereinigt mit ihrem Supremum $\infty$, wobei $v$ erfüllt
+    $v\colon\F\to\Gamma\cup\{\infty\}$ in eine total geordnete, abelsche Gruppe
+    $\Gamma$ vereinigt mit ihrem Supremum $\infty$, wobei $v$ erfüllt
     \begin{enumerate}[(1)]
     \item $v(a)=\infty \Longleftrightarrow a=0$
     \item $v(ab)=v(a)+v(b)$~~(d.h. $v|_{\Fx}$ ist Gruppenhomomorphismus)
     \item $v(a+b)\geq \min\{v(a),v(b)\}$
     \end{enumerate}
-    Eine solche Abbildung, die i)-iii) erfüllt,
-    wird Bewertungsabbildung genannt.
+    Eine solche Abbildung, die (1)-(3) erfüllt,
+    wird Bewertungsabbildung oder kurz Bewertung genannt.
     $R$ heißt auch Bewertungsring zur Bewertung $v$.
-  \item $v$ ist bis auf Verknüpfung mit ordnungserhaltenden 
-    Gruppenisomorphismen auf $\Gamma$ eindeutig.
+  \item 
+    % $v$ ist bis auf Verknüpfung mit ordnungserhaltenden 
+    % Gruppenisomorphismen auf $\Gamma$ eindeutig.
     Ein entsprechendes $v$ ist über $v|_{R}$ bereits eindeutig 
     bestimmt.
   \end{enumerate}
@@ -429,7 +432,7 @@ bewerteten Körper betrachten.
     \begin{enumerate}[i)]
     \item Wir zeigen, dass für zwei Ideale $I\neq J\subset R$ bereits
       eines das andere enthalten muss. Es gebe also \OE{} ein $x\in I$
-      mit $x\not\in J$. Für ein $y\in J$ ist $\frac{x}{y}\not\in\R$,
+      mit $x\not\in J$. Für ein $y\in J$ ist $\frac{x}{y}\not\in R$,
       da sonst $y\cdot \frac{x}{y}=x\in J$ gelten würde.
       Weil $R$ Bewertungsring ist, muss aber
       $(\frac{x}{y})^{-1}=\frac{y}{x}\in R$ gelten und $y=x\cdot
@@ -439,18 +442,29 @@ bewerteten Körper betrachten.
       gibt, kann $R$ nur ein maximales Ideal haben und ist somit
       lokal.
     \item Für die Konstruktion einer solchen Bewertungsabbildung
-      benötigen wir die totale Ordnung auf der entsprechenden Gruppe $\Gamma$.
+      benötigen wir eine entsprechende total geordnete Gruppe $\Gamma$.
       Es ist
       \begin{gather*}
-        \Gamma \coloneqq \left\{ xR \mid x\in \Fx \right\}\cong\Fx/R^{\times}
+        \Gamma \coloneqq \left\{ xR \mid x\in \Fx \right\}
+        \cong\left\{ x(R\setminus \{0\})\mid x\in\Fx \right\}
+        \cong \Fx/(R\setminus \{0\})
       \end{gather*}
-      mit der Verknüpfung $xR\cdot yR=(xy)R$ (später additiv
-      geschrieben) eine Gruppe. Die umgekehrte Ordnungsrelation
+      mit der additiven Verknüpfung $(xR)+(yR)\coloneqq(xy)R$
+      eine Gruppe. Die umgekehrte Ordnungsrelation
       auf $\Gamma$
       \begin{gather*}
         xR\leq yR \Longleftrightarrow xR \supset yR
       \end{gather*}
-      ist wegen i) total, denn die Ordnung der Ideale ist bereits total.
+      ist wie in i) total.
+      Denn betrachte beliebige $x,y\in\Fx$ mit $xR\neq yR$.
+      \OE{} $xR\setminus yR\neq \varnothing$ und $xa\in xR\setminus yR,
+      a \in R$. Dann ist für beliebiges $b\in R$ wie oben 
+      $\frac{xa}{yb}\not\in R$, denn sonst wäre 
+      $y(b\cdot\frac{xa}{yb})=xa \in yR$.
+      Nachdem $R$ Bewertungsring ist, muss also $\frac{yb}{xa}\in R$
+      gelten, weshalb $yb=xa\cdot \frac{yb}{xa}\in xR$. $b$ war beliebig
+      gewählt, also ist $yR\subsetneq xR$.
+      Somit ist diese Ordnung total.
       Definieren wir nun $v$ über
       \begin{align*}
         \forall x\in \Fx\colon\;v(x)&\coloneqq xR\in\Gamma
@@ -464,10 +478,10 @@ bewerteten Körper betrachten.
         \text{Nullelement in }\Gamma.
         \Longrightarrow v(x^{-1})=-v(x)
       \end{gather*}
-      und $x\in R$ oder $x^{-1}\in R$ für alle $x\in K$ wegen $R$
+      und $x\in R$ oder $x^{-1}\in R$ für alle $x\in\F$ wegen $R$
       Bewertungsring.
-      Die Eindeutigkeit von $v$ bis auf Isomorphie folgt aus der
-      Konstruktion.
+      % Die Eindeutigkeit von $v$ bis auf Isomorphie folgt aus der
+      % Konstruktion.
     \end{enumerate}
   \end{proof}
 \end{Lem}
@@ -475,11 +489,11 @@ bewerteten Körper betrachten.
 
 Tatsächlich ist ein Integritätsring genau dann
 ein Bewertungsring nach Definition \ref{defbewertungsring},
-wenn man eine Bewertungsabbildung $v$ zu $R$ findet,
+wenn man eine Bewertungsabbildung $v$ auf $\F$ bzw. $R$ findet,
 wie wir jetzt sehen werden.
 
 \begin{Lem}\label{bewertungsringausbewertung}
-  Sei $\Fx$ ein Körper mit einer Bewertungsabbildung
+  Sei $\F$ ein Körper mit einer Bewertungsabbildung
   $v\colon\F\to\Gamma\cup\{\infty\}$ in eine total geordnete, abelsche Gruppe
   $\Gamma$. Dann gilt:
   \begin{enumerate}[i)]
@@ -663,11 +677,11 @@ in folgender Weise auf $\KnF$ übertragen:
 \begin{Lem}\label{darstellungknf}
   $\KnF$ ist additiv erzeugt von Elementen der Form 
   $\{\pi, u_{2},\dotsc,v_n\}$
-  und $\{u_{1},\dotsc,u_n\}\in\KnF$ mit $\pi\in\R$ prim und
+  und $\{u_{1},\dotsc,u_n\}\in\KnF$ mit $\pi\in R$ prim und
   $u_i\in \Rx$.
   $\pi$ kann fix gewählt werden.
   \begin{proof}
-    Wähle ein fixes Primelement $\pi\in\R\subset\Fx$
+    Wähle ein fixes Primelement $\pi\in R\subset\Fx$
     und sei $\xi\coloneqq\{a_1,\dotsc, a_n\}\in\KnF\subset\KF$ mit
     $a_1,\dotsc,a_n\in\Fx$. Dann gibt es Darstellungen
     $a_n=\pi^{k_n}\cdot u_n$ mit $k_n\in\Z,u_n\in \Rx$ wie
@@ -735,13 +749,13 @@ in folgender Weise auf $\KnF$ übertragen:
   \item Das Zahme Symbol ist surjektiv. 
     Denn für einen lokalen Ring
     $R$ – wie der Bewertungsring $(R,\frakm_v)$ in unserem Fall –
-    gilt $R\setminus\frakm_v=\Rx$, d.h. $\Rx=\R\setminus\frakm_v
-    =\pr_{\R/\frakm_v}^{-1}\left((\R/\frakm_v)\setminus \{\ov0\}\right)
-    =\pr_{\R/\frakm_v}^{-1}\left( (\R/\frakm_v)^\times\right)$. 
+    gilt $R\setminus\frakm_v=\Rx$, d.h. $\Rx=R\setminus\frakm_v
+    =\pr_{R/\frakm_v}^{-1}\left((R/\frakm_v)\setminus \{\ov0\}\right)
+    =\pr_{R/\frakm_v}^{-1}\left( (R/\frakm_v)^\times\right)$. 
     Damit finden sich für alle 
     $v_1,\dotsc,v_n\in \bFx = (R/\frakm_v)^\times$
     Lifts $u_1,\dotsc, u_n\in\Rx    
-    =\pr_{\R/\frakm_v}^{-1}\left( (\R/\frakm_v)^\times \right)$,
+    =\pr_{R/\frakm_v}^{-1}\left( (R/\frakm_v)^\times \right)$,
     so dass $\ov u_i=v_i$, 
     und für beliebiges Primelement $\pi\in R$ gilt
     $\partial_v(\{\pi,u_1,\dotsc, u_n\})=\{v_1,\dotsc, v_n\}$.
@@ -1065,14 +1079,14 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
   \begin{center}
     \begin{tikzcd}
       0\ar[r] 
-      &\displaystyle \varprojlim_{d\in\N_1} L_0=L_0\ar[r] \disoarrow
-      &\displaystyle \varprojlim_{d\in\N_1} L_d\ar[r] \ar[equal]{d}
-      &\displaystyle \varprojlim_{d\in\N_1} (L_d/L_0) \ar[r]\disoarrow
+      &\displaystyle \varinjlim_{d\in\N_1} L_0=L_0\ar[r] \disoarrow
+      &\displaystyle \varinjlim_{d\in\N_1} L_d\ar[r] \ar[equal]{d}
+      &\displaystyle \varinjlim_{d\in\N_1} (L_d/L_0) \ar[r]\disoarrow
       &0\\
       0\ar[r] 
-      &\displaystyle \varprojlim_{d\in\N_1} \KnF=\KnF  \ar[r] 
-      &\displaystyle \varprojlim_{d\in\N_1} L_d\ar[r]
-      &\displaystyle \varprojlim_{d\in\N_1}
+      &\displaystyle \varinjlim_{d\in\N_1} \KnF=\KnF  \ar[r] 
+      &\displaystyle \varinjlim_{d\in\N_1} L_d\ar[r]
+      &\displaystyle \varinjlim_{d\in\N_1}
       ( \bigoplus_{\mathrlap{k\leq d, \pi\in P_k}}
       \K_{n-1}(\Ftpi) 
       ) \ar[r]
@@ -1081,10 +1095,10 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
   \end{center}
   Mit den Vereinigungen als Kolimeswerte
   \begin{align*}
-    \varprojlim_{d\in\N_1}L_d
+    \varinjlim_{d\in\N_1}L_d
     =\bigcup_{d\in\N_1}L_d
     &=\KnFt\\
-    \varprojlim_{d\in\N_1}
+    \varinjlim_{d\in\N_1}
       (\bigoplus_{\mathrlap{k\leq d, \pi\in P_k}}
       \K_{n-1}(\Ftpi))
     &=\bigoplus_{\pi\in P}
