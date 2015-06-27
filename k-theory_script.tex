@@ -405,22 +405,30 @@ bewerteten Körper betrachten.
   Wir sagen auch $R$ ist Bewertungsring zum Körper $\F$.
 \end{Def}
 
+\begin{Def}[Bewertung]
+  Sei $\F$ Körper, $(\Gamma,+,\leq)$ eine total geordnete, abelsche
+  Gruppe und $\infty$ ihr Supremum.
+  Eine Abbildung $v\colon\F\to\Gamma\cup\{\infty\}$
+  heißt Bewertungsabbildung oder kurz Bewertung,
+  falls sie folgendes erfüllt
+  \begin{enumerate}[(1)]
+  \item $v(a)=\infty \Longleftrightarrow a=0$
+  \item $v(ab)=v(a)+v(b)$~~(d.h. $v|_{\Fx}$ ist Gruppenhomomorphismus)
+  \item $v(a+b)\geq \min\{v(a),v(b)\}$
+  \end{enumerate}
+  Die Untergruppe $v(\Fx)$ heißt Bewertungsgruppe.
+\end{Def}
+
 \begin{Lem}[Eigenschaften Bewertungsringe]\label{eigbewertungsring}
   Sei $R$ Bewertungsring zum Körper $\F$, dann gilt
   \begin{enumerate}[i)]
   \item Die Ideale von $R$ sind total geordnet bzgl. 
     \enquote{$\subset$} und $R$ ist lokal.
-  \item Es gibt eine zu $R$ bzw. $\F$ zugehörige Abbildung
-    $v\colon\F\to\Gamma\cup\{\infty\}$ in eine total geordnete, abelsche Gruppe
-    $\Gamma$ vereinigt mit ihrem Supremum $\infty$, wobei $v$ erfüllt
-    \begin{enumerate}[(1)]
-    \item $v(a)=\infty \Longleftrightarrow a=0$
-    \item $v(ab)=v(a)+v(b)$~~(d.h. $v|_{\Fx}$ ist Gruppenhomomorphismus)
-    \item $v(a+b)\geq \min\{v(a),v(b)\}$
-    \end{enumerate}
-    Eine solche Abbildung, die (1)-(3) erfüllt,
-    wird Bewertungsabbildung oder kurz Bewertung genannt.
-    $R$ heißt auch Bewertungsring zur Bewertung $v$.
+  \item Es gibt eine Bewertung $v\colon\F\to\Gamma\cup\{\infty\}$
+    auf $\F$ in eine total geordnete, abelsche Gruppe
+    $(\Gamma,+,\leq)$ vereint mit ihrem Supremum $\infty$ und es gilt
+    $R=\{x\in\F\mid v(x)\geq 0\}$.
+    $R$ heißt dann auch Bewertungsring zur Bewertung $v$.
   \item 
     % $v$ ist bis auf Verknüpfung mit ordnungserhaltenden 
     % Gruppenisomorphismen auf $\Gamma$ eindeutig.
@@ -471,6 +479,13 @@ bewerteten Körper betrachten.
         &v(0)&\coloneqq \infty
       \end{align*}
       ist $v$ eine Bewertungsabbildung. 
+      Außerdem gilt für beliebiges $x\in\F$ 
+      \begin{gather*}
+        v(x)\geq 0=v(1)
+        \Leftrightarrow xR \subset R 
+        \Leftrightarrow x\in R
+      \end{gather*}
+      weshalb $R=\{x\in\F\mid v(x)\geq 0\}$.
     \item Dass ein entsprechendes $v$ aus ii) bereits eindeutig
       durch $v|_{R}$ definiert ist, folgt leicht aus
       \begin{gather*}
@@ -497,36 +512,50 @@ wie wir jetzt sehen werden.
   $v\colon\F\to\Gamma\cup\{\infty\}$ in eine total geordnete, abelsche Gruppe
   $\Gamma$. Dann gilt:
   \begin{enumerate}[i)]
-  \item   Die Menge $R\coloneqq\left\{x\in \F\mid  v(x)\geq 0\right\}$ bildet
-    einen Bewertungsring zu $\F$ (d.h. $\Quot(R)=\F$).
-  \item Die Einheitengruppe von $R$ ist 
-    $\Rx\coloneqq\left\{x\in\F\mid v(x)=0\right\}$
-  \item Das maximale Ideal von $R$ ist
+  \item   Die Menge $R_v\coloneqq\left\{x\in \F\mid  v(x)\geq 0\right\}$ bildet
+    einen Bewertungsring zu $\F$ (d.h. $\Quot(R_v)=\F$).
+    $R_v$ wird Bewertungsring zu $v$ genannt.
+  \item Die Einheitengruppe von $R_v$ ist 
+    $\Rx_v\coloneqq\left\{x\in\F\mid v(x)=0\right\}$
+  \item Das maximale Ideal von $R_v$ ist
     $\frakm_v\coloneqq\left\{x\in\F\mid v(x)>1\right\}$
   \end{enumerate}
 
   \begin{proof}
     \begin{enumerate}[i)]
-    \item $R$ ist mit unter Multiplikation und Addition abgeschlossen, da für
-      $x,y\in R$, d.h. $v(x),v(y)\geq 0$, 
+    \item $R_v$ ist mit unter Multiplikation und Addition abgeschlossen, da für
+      $x,y\in R_v$, d.h. $v(x),v(y)\geq 0$, 
       gilt $v(xy)=v(x)+v(y)\geq 0$ und 
-      $v(x+y)\geq \min\{v(x),v(y)\}\geq 0$, also $xy, x+y\in R$.
-      Es ist auch $1\in R$ wegen $v(1)=0\geq 0$.
-      $R$ wird somit  zum Unterring von $\F$ und ist als solcher integer.
+      $v(x+y)\geq \min\{v(x),v(y)\}\geq 0$, also $xy, x+y\in R_v$.
+      Es ist auch $1\in R_v$ wegen $v(1)=0\geq 0$.
+      $R_v$ wird somit  zum Unterring von $\F$ und ist als solcher integer.
       Außerdem ist für ein $x\in \F$ entweder $v(x)<0$
-      und damit $v(x^{-1})=-v(x)>0$ also $x^{-1}\in R$ oder es ist
-      bereits $v(x)\geq 0$, d.h. $x\in R$.
-      Wir erhalten, dass $R$ nach Definition \ref{defbewertungsring}
+      und damit $v(x^{-1})=-v(x)>0$ also $x^{-1}\in R_v$ oder es ist
+      bereits $v(x)\geq 0$, d.h. $x\in R_v$.
+      Wir erhalten, dass $R_v$ nach Definition \ref{defbewertungsring}
       ein Bewertungsring ist.
-    \item Für eine Einheit $x\in R$ muss gelten, dass $x\in R$,
-      d.h. $v(x)\geq 0$, und $x^{-1}\in R$, d.h. $v(x^{-1})=-v(x)\geq 0$. 
+      Es gilt zum einen $\Quot(R)\subset\F$ und zum anderen ist
+      \begin{gather*}
+        \F=\{x\in\F\mid v(x)\geq 0\}\cup\{x\in\F\mid v(x)<0\}
+        =R\cup\{x\in\F\mid -v(x)>0\}
+      \end{gather*}
+      was mit
+      $v(xx^{-1})=v(1)=0=v(x)+v(x^{-1})$, also $-v(x)=v(x^{-1})$,
+      wird zu 
+      \begin{gather*}
+        \F\mid v(x^{-1})>0\}=R\cup\{x^{-1}\mid x\in R\}\subset \Quot(R)
+      \end{gather*}
+      Also $\F=\Quot(R)$ und $R$ ist
+      Bewertungsring zu $\F$.
+    \item Für eine Einheit $x\in \Rx_v$ muss gelten, dass $v(x)\geq 0$
+      wegen $x\in R_v$, und  $v(x^{-1})=-v(x)\geq 0$ wegen $x^{-1}\in R_v$. 
       $x$ erfüllt also $v(x)\leq 0 \geq v(x)$, woraus bereits $v(x)=0$
       folgt.
-      Umgekehrt genauso, denn für $x\in R$ mit $v(x)=0$ ist auch
-      $x^{-1}\in R$, da $v(x^{-1})=-v(x)=0\geq 0$.
+      Umgekehrt genauso, denn für $x\in R_v$ mit $v(x)=0$ ist auch
+      $x^{-1}\in R_v$, da $v(x^{-1})=-v(x)=0\geq 0$.
     \item $\frakm_v$ ist nach denselben Argumenten wie in i)
-      multiplikativ (bzgl. ganz $R$) und additiv (bzgl. sich selbst)
-      abgeschlossen und liegt in $R$, ist demnach ein Ideal.
+      multiplikativ (bzgl. ganz $R_v$) und additiv (bzgl. sich selbst)
+      abgeschlossen und liegt in $R_v$, ist demnach ein Ideal.
       Jedes echte Ideal darf keine Einheit enthalten, was nach ii) bedeutet,
       das alle Ideale nur Elemente in $\frakm_v$ enthalten
       können. $\frakm_v$ ist also maximal.
@@ -535,21 +564,23 @@ wie wir jetzt sehen werden.
 \end{Lem}
 
 \begin{Kor}
-  Ein Integritätsring $R$ ist genau dann ein Bewertungsring, wenn es
-  eine auf $R$ definierte Bewertungsabbildung $v$ mit $v(x)\geq
-  0\;\forall x\in R$ gibt.
+  Ein Integritätsring $R$ ist genau dann ein Bewertungsring, 
+  wenn er Bewertungsring zu einer Bewertung $v$ auf seinem
+  Quotientenkörper ist.
   \begin{proof}
-    \begin{itemize}
-    \item[\enquote{$\Rightarrow$}] Eine entsprechende Abbildung
-      existiert nach \ref{eigbewertungsring}.
-    \item[\enquote{$\Leftarrow$}] Wie in \ref{eigbewertungsring}ii)
-      kann ich $v$ eindeutig auf den gesamten Quotientenkörper von
-      $R$ fortsetzen, wobei dann offensichtlich $R=\{x\in\F\mid
-      v(x)\geq 0\}$ gilt. Wende ich \ref{bewertungsringausbewertung}
-      auf $\F$ mit $v$ an, erhalte ich, dass $R$ Bewertungsring ist.
-    \end{itemize}
+    \enquote{$\Rightarrow$} Eine entsprechende Abbildung
+    existiert nach \ref{eigbewertungsring}.
+    \enquote{$\Leftarrow$} \ref{bewertungsringausbewertung}.
   \end{proof}
 \end{Kor}
+
+Leider gibt es für allgemeine Bewertungsringe keine Isomorphie zwischen
+den Bewertungen auf einem Körper $\F$ und den Bewertungsringen, die in ihm
+enthalten sind. Denn verknüpft man eine Bewertung
+$v\colon\F\to\Gamma\cup\{\infty\}$ mit einem ordnungsverträglichen
+Isomorphismus $\Gamma\to\Gamma'$, ist das Ergebnis wieder eine
+Bewertungsabbildung mit demselben Bewertungsring, wie wir im Beispiel
+sehen werden.
 
 \begin{Bsp}
   Ein Beispiel eines Bewertungsringes ist $\Z_{(p)}$ mit der $p$-adischen
@@ -557,23 +588,41 @@ wie wir jetzt sehen werden.
   wie sie in der Algebra eingeführt wurde.
   $v_p$ liefert zu einem 
   $a=u\cdot p^{n}\cdot p_1^{n_1}\cdot p_2^{n_2}\dotsm\in\Z $ 
-  den Exponenten $n$ von $p$ in der zu $a$ gehörigen Primfaktorzerlegung,
-  was $\Z_{(p)}$ zu einem Bewertungsring macht.
+  den Exponenten $n$ von $p$ in der zu $a$ gehörigen
+  Primfaktorzerlegung.
+  Diese Vorschrift lässt sich via
+  \begin{align*}
+    \frac{a}{b}&=p^n\frac{u_1}{u_2}\in\Z_{(p)}, u_1,u_2\in\Z_{(p)}^\times
+                 &v\left(\frac{a}{b}\right)&\coloneqq n
+    \end{align*}
+    auf $\Z_{(p)}$ definieren, was $\Z_{(p)}$ zu einem Bewertungsring
+    macht.
+    Es ist aber genauso $v'\coloneqq 3\cdot v$ mit 
+    $v'(\frac{a}{b})=p^n\frac{u_1}{u_2}\in\Z_{(p)}=3n$
+    eine Bewertungsabbildung, denn $x\mapsto 3x$ ist ein mit der
+    Ordnung verträglicher Gruppenisomorphismus zwischen $\Z$ und $3\Z$.
 \end{Bsp}
+
+Um eine Eindeutigkeit der Bewertungsabbildung, die einen
+Bewertungsring erzeugt, zu erhalten, kann man entweder die
+Isomorphieklassen der Bewertungen betrachten, oder eine Form von
+Normierung vornehmen, die dann nur die Identität als Isomorphismus
+zulässt. Letzteres liefert die sog. diskreten Bewertungen, von denen
+der nächste Abschnitt handelt.
 
 \subsection{Diskrete Bewertungen}
 Mithilfe der $K$-Theorie können einige schöne Aussagen zu einer
 speziellen Form bewerteter Körper getroffen werden, den diskret
 bewerteten Körpern. Denn diese haben die wichtige Eigenschaft, 
-dass Elemente solcher Körper sich als Produkte aus einem speziellen
+dass Elemente solcher Körper sich als Produkte aus einem fix gewählten
 Primelement und Einheiten ihres Bewertungsrings darstellen lassen.
 
 \begin{Def}
   Eine Bewertungsabbildung $v\colon\F\to\Gamma\cup\{\infty\}$
   auf einem Körper $\F$ heißt diskret, falls $\Gamma=\Z$ gewählt
   werden kann und $v$ surjektiv ist (insbes. $v^{-1}(1)\neq \varnothing$).
-  Ein Bewertungsring heißt diskret, falls die zugehörige Bewertung
-  diskret ist.
+  Ein Bewertungsring heißt diskret, falls er Bewertungsring zu einer
+  diskrete Bewertung ist.
 \end{Def}
 
 \begin{Lem}\label{bewertungsringhir}
@@ -583,9 +632,9 @@ Primelement und Einheiten ihres Bewertungsrings darstellen lassen.
   \item $R$ ist Hauptidealring
   \end{enumerate}
   \begin{proof}
-    Sei $R$ ein Bewertungsring zum Körper $\F$ mit Bewertung $v$.
+    Sei $R$ ein Bewertungsring zum Körper $\F=\Quot(R)$.
     \begin{itemize}
-    \item[i)$\Rightarrow$ii)] Sei $R$ diskret.
+    \item[i)$\Rightarrow$ii)] Sei $R$ diskret mit diskreter Bewertung $v$.
       Jetzt nutzen wir die Surjektivität (auch 
       Normiertheit genannt) von $v$ und wählen ein Element $\pi\in R$
       mit $v(\pi)=1$. Da $\Gamma=\Z$ ist und $\Z$ von 1 erzeugt wird,
