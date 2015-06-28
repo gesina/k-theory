@@ -48,9 +48,15 @@
 % commutative diagrams
 \usepackage{tikz-cd}
 
-%% (nicer)tables
+% equation counter reset at sections
+\usepackage{chngcntr}
+% \counterwithin*{equation}{section}
+% \renewcommand{\theequation}{\thesection.\arabic{equation}}
+\numberwithin{equation}{section}
+
+% (nicer)tables
 \usepackage{booktabs}
-%% hyperlinks
+% hyperlinks
 \usepackage{hyperref}
 
 
@@ -121,7 +127,7 @@
 
 % STYLE SETTINGS
 % ---------------------------------------------------------------
-\renewcommand{\theequation}{\thesection.\arabic{equation}}
+
 \ihead{Gesina Schwalbe}
 \pagestyle{scrheadings}
 
