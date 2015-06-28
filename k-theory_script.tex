@@ -127,7 +127,7 @@ multiplikative Gruppe.
     \forall i,j\in \N\colon 
     \left( {\K_1(\F)}^{\otimes i} \right) \otimes
     \left( {\K_1(\F)}^{\otimes j} \right)
-    \subset \left( {\K_1(\F)}^{\otimes ij} \right)
+    \subset \left( {\K_1(\F)}^{\otimes (i+j)} \right)
   \end{gather*}
   Die ${\KoF}^{\otimes n}$ können durch Einbettung als additive 
   Untergruppen von $\calK$ aufgefasst
@@ -263,7 +263,7 @@ einige weitere interessante Eigenschaften der Elemente.
 \begin{Lem}
   Für einen endlichen Körper $\F$ verschwindet $\KnF$ für $n\geq 2$.
   \begin{proof}
-    Nachdem alle $\KnF$ für $n>2$ aus $\K_2\F$ durch Multiplikation
+    Nachdem alle $\KnF$ für $n>2$ aus $\K_2(\F)$ durch Multiplikation
     hervorgehen, behandeln wir nur den Fall $n=2$.
     Betrachte nun die Charakteristik $q=\Char(\F)$ von $\F$.
 
@@ -362,7 +362,7 @@ einige weitere interessante Eigenschaften der Elemente.
     \end{gather*}
     Damit sind alle Elemente $\{a,b\}\in\Fx$, sowohl mit $a,b$
     Nichtquadrate als auch mit einem oder beiden ein Quadrat, 
-    in $\K_2\F$ bereits Null und $\K_2\F$
+    in $\K_2(\F)$ bereits Null und $\K_2\F$
     bzw. damit alle $\K_n\F,n\geq 2,$ verschwinden für einen endlichen
     Körper $\F$.
   \end{proof}
@@ -673,10 +673,10 @@ Primelement und Einheiten ihres Bewertungsrings darstellen lassen.
       Insbesondere wissen wir, dass es für jedes $a\in R$ einen
       (selben) Exponenten $k\in\N$ gibt mit $a=\pi^ku$ für eine
       Einheit $u\in R$ (alle Primelemente sind assoziiert zu $\pi$,
-      denn in Hauptidealringen sind alle Primideale maximal, also ist das
-      Maximalideal auch gleichzeitig das einzige Primideal, weshalb
-      alle Primelemente in $R$ genau $(\pi)$ erzeugen und somit
-      assoziiert sind zu $\pi$).
+      denn in Hauptidealringen sind alle Primideale ungleich 0
+      maximal, also ist das  Maxialideal auch gleichzeitig das
+      einzige Primideal, weshalb alle Primelemente in $R$ genau
+      $(\pi)$ erzeugen und somit assoziiert sind zu $\pi$).
       Wir erhalten die wohldefinierte Abbildung
       \begin{gather*}
         v\colon R\setminus\{0\}\to \Z_{\geq 0}\quad 
@@ -710,7 +710,7 @@ Primelement und Einheiten ihres Bewertungsrings darstellen lassen.
   \begin{enumerate}[a)]
   \item Ein diskreter Bewertungsring ist nach \ref{bewertungsringhir}
     lokaler Hauptidealring mit seinem Maximalideal als einzigem 
-    Primideal (in Hauptidealringen sind alle Primideale maximal),
+    Primideal (in Hauptidealringen sind alle Primideale ungleich 0 maximal),
     welches von der Form $\frakm_v=(\pi)$ für ein Primelement $\pi$ ist.
     Die Primelemente in $R$ sind folglich genau die $p\in R$ mit $v(p)=1$, 
     welche genau die mit $\pi$ assoziierten Elemente sind.
@@ -741,7 +741,7 @@ Primelement und Einheiten ihres Bewertungsrings darstellen lassen.
   Primelement $\pi\in R$ die Lokalisierung $R_{(\pi)}$ ein 
   Bewertungsring, denn jedes Element
   $a\in R$ lässt sich dann darstellen als $a=\pi^i\cdot \frac{p}{q}\in
-  R_{(\pi)}$ und die Abbildung
+  R_{(\pi)},p,q\not\in(\pi),$ und die Abbildung
   \begin{gather*}
     v\left(\pi^i\cdot \frac{p}{q}\right)\coloneqq i
   \end{gather*}
@@ -931,8 +931,8 @@ in folgender Weise auf $\KnF$ übertragen:
   Als nächstes zeigen wir, dass die Zuweisung ($u\in \Rx_v$)
   \begin{gather*}
     \Psi\colon\{\pi^ku\}\mapsto i\xi \p \{\ov u\}
-    =\begin{pmatrix} i\\\{\ov u\} \end{pmatrix}\in\K_1(\bF)
-    \qquad \Psi(1\in\Z)=1\in\Z=\begin{pmatrix}0\\1\in\Z\end{pmatrix}
+    =\begin{pmatrix} \{\ov u\}\\i \end{pmatrix}\in L_1\cong\K_1(\bF)[\xi]
+    \qquad \Psi(1\in\Z)=1\in\Z=\begin{pmatrix}1\in\Z\\0\end{pmatrix}
   \end{gather*}
   sich eindeutig zu einem Ringhomomorphismus
   $\Psi\colon\KF\to\KbF[\xi]$ fortsetzen lässt.
@@ -944,8 +944,7 @@ in folgender Weise auf $\KnF$ übertragen:
   ($\{a_1,\dotsc,a_n\}\in\KF$)
   \begin{gather*}
     \Psi(\{a_1,\dotsc,a_n\})
-    \coloneqq \left\{\Psi(\{a_1\})\right\}\otimes\dotsb
-    \otimes \left\{\Psi(\{a_n\})\right\}
+    \coloneqq \Psi(\{a_1\})\otimes\dotsb\otimes\Psi(\{a_n\})
   \end{gather*}
 
   Die Wohldefiniertheit ist klar, da sich wie in \ref{darstellungdbk}
@@ -963,10 +962,10 @@ in folgender Weise auf $\KnF$ übertragen:
   \begin{align*}
     \Psi(\{x\}\p\{y\})
     &=\Psi(\{x\cdot y\})=\Psi(\{\pi^{i+j}(uv)\})
-      =\begin{pmatrix}(i+j)\\\{\ov{uv}\}\end{pmatrix}\\
-    &=\begin{pmatrix}(i+j)\\\{\ov u \}\p \{\ov v\}\end{pmatrix}
-    = \begin{pmatrix}i\\\{\ov u\}\end{pmatrix}
-    \p\begin{pmatrix}j\\\{\ov v\}\end{pmatrix}
+      =\begin{pmatrix}\{\ov{uv}\}\\(i+j)\end{pmatrix}\\
+    &=\begin{pmatrix}\{\ov u \}\p \{\ov v\}\\(i+j)\end{pmatrix}
+    = \begin{pmatrix}\{\ov u\}\\i\end{pmatrix}
+    \p\begin{pmatrix}\{\ov v\}\\j\end{pmatrix}
     =\Psi(\{\pi^iu\})\p \Psi(\{\pi^jv\})\\
     &= \Psi(\{x\})\p\Psi(\{y\})
   \end{align*}
@@ -1003,7 +1002,7 @@ in folgender Weise auf $\KnF$ übertragen:
   \end{gather*}
   woraus schon folgt, 
   dass $\partial_v\colon\KnF\to\K_{n-1}(\bF)$ Gruppenhomomorphismus 
-  und $\psi_\pi\colon\KnF\to\KnbF$ sogar Ringhomomorphismus ist.
+  und $\psi_\pi\colon\KF\to\KbF$ sogar Ringhomomorphismus ist.
   Dieses $\partial_v$ erfüllt tatsächlich die Anforderungen aus 
   \ref{homomorphismen}, denn für $\alpha=\{\pi,u_1,\dotsc, u_n\}$ ist
   \begin{align*}
@@ -1065,10 +1064,10 @@ Vorerst noch ein Begriff, den wir später verwenden werden.
   \end{center}
   d.h. so dass die exakten Sequenzen isomorph sind.
   Nach dem Splitting-Lemma ist diese Bedingung 
-  erfüllt, falls $g$ einen Schnitt (auch Koretraktion) ist, 
+  erfüllt, falls $g$ einen Schnitt (auch Koretraktion) hat, 
   d.h. falls $g$ einen rechtsinversen Homomorphismus
   $g'$ besitzt, so dass $g\circ g'=id_{M''}$.
-  Genauso ist sie erfüllt, falls umgekehrt $f$ eine Retraktion ist,
+  Genauso ist sie erfüllt, falls umgekehrt $f$ eine Retraktion hat,
   d.h. falls $f$ einen linksinversen Homomorphismus 
   $f'$ besitzt, so dass $f\circ f'=id_{M}$
   \cite[siehe auch][Kap. 1.5]{bosch}
@@ -1079,7 +1078,7 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
 
 \begin{Satz}[Spaltende exakte Milnor-Folge]\label{milnorfolge}
   Sei $P\coloneqq \{\pi\in \F[t]\mid \pi\text{ prim, normiert }\}$.
-  Dann gibt es für alle $n\in\N$ eine spaltende exakte Sequenz
+  Dann gibt es für alle $n\in\N_1$ eine spaltende exakte Sequenz
   \begin{center}
     \begin{tikzcd}
       0 \ar[r] & \KnF \ar[r] & \K_n(\Ft ) \ar[r] 
@@ -1122,7 +1121,7 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
   \end{gather*}
   Mit der kanonischen Einbettung von $L_0$ in $L_d$ und der Projektion
   von $L_d$ auf $L_d/L_0$ erhalten wir für
-  beliebige $d\in\N$ die spaltende exakte Sequenz
+  beliebige $d\in\N$ die exakte Sequenz
   \begin{center}
     \begin{tikzcd}
       0\ar[r] &L_0\ar[r] &L_d\ar[r] &L_d/L_0 \ar[r] &0
@@ -1142,7 +1141,7 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
   \begin{gather} \label{3}
     L_d/L_0\cong \bigoplus_{k=1}^d L_k/L_{k-1} \,,
   \end{gather}
-  insgesamt aus \ref{2} und \ref{3}
+  insgesamt aus \eqref{2} und \eqref{3}
   \begin{align}\label{4}
     L_d/L_0
     \cong \bigoplus_{k=1}^d L_k/L_{k-1}
@@ -1165,9 +1164,9 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
   Mit den kanonischen Inklusionen $\iota_{ik}\colon L_i\to L_k$ 
   bzw. $\ov{\iota}_{ik}\colon L_i/L_0\to L_k/L_0$ ($k\geq i$) werden
   sowohl $(L_d)_{d\in\N_1}$ als auch $(L_d/L_0)_{d\in\N_1}$
-  zu direkten Systemen.
-  Der direkte Limes erhält auf Moduln und insbesondere Ringen exakte
-  Sequenzen 
+  zu direkten Systemen von abelschen Gruppen bzw. nach
+  \ref{gruppentensorprodukt} von $\Z$-Moduln.
+  Der direkte Limes erhält auf Moduln exakte Sequenzen 
   \cite[siehe][III. §6.2, Prop. 3]{bourbaki},
   weshalb folgende Sequenzen wieder exakt und isomorph sind
   \begin{center}
@@ -1202,15 +1201,15 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
   Dass diese spaltend ist, werden wir nach
   \ref{spaltendeexaktesequenz} damit zeigen, dass
   die kanonische injektive Einbettung $L_0\cong\KnF\to\KnFt$ 
-  eine Retraktion ist.
+  eine Retraktion hat.
 
-  Es bleibt also zum einen zu zeigen, dass \ref{1} gilt und die Einbettung eine
-  Retraktion ist, und zum anderen, dass \ref{2} gilt, woraus mit \ref{3} dann wie
-  oben \ref{4} folgt.
+  Es bleibt also zum einen zu zeigen, dass \eqref{1} gilt und die Einbettung eine
+  Retraktion hat, und zum anderen, dass \eqref{2} gilt, woraus mit \eqref{3} dann wie
+  oben \eqref{4} folgt.
   
-  \begin{Lem}[Aussage \ref{1}]
+  \begin{Lem}[Aussage \eqref{1}]
     Es gilt $L_0\cong \KnF\overset{\iota}{\hookrightarrow} \KnFt$
-    und $\iota$ ist Retraktion.
+    und $\iota$ hat eine Retraktion.
     \begin{proof}
       Die Isomorphie $L_0\cong\KnF$ folgt bereits aus der Definition
       von $L_0$:
@@ -1224,38 +1223,47 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
           \mid f_i\in\F\right\}\\
         &=\KnF
       \end{align*}
-      Demnach ist die Form der Einbettung von $\KnF$ in $\KnFt$
-      kanonisch gegeben durch die Einbettung von $L_0$ in $\KnFt$, 
-      d.h. $\KnF\overset{\iota}{\hookrightarrow}\KnFt$ mit $\im(\iota)=L_0$.
-      Um zu zeigen, dass die Einbettung eine Retraktion ist,
+      Demnach ist die Form der Einbettung von $L_0$ in $\KnFt$
+      kanonisch gegeben durch die Einbettung von $\KnF$ in $\KnFt$, 
+      d.h. $L_0=\KnF\overset{\iota}{\hookrightarrow}\KnFt$ 
+      mit $\im(\iota)=\KnF\subset\KnFt$.
+      Um zu zeigen, dass die Einbettung eine Retraktion hat,
       benutzen wir unsere Spezialisierungsabbildung aus 
       \ref{homomorphismen}.
       
-      Für ein Primelement $\pi\in\F[t]$ mit $\deg(\pi)=1$
-      (d.h. $\pi=t-\alpha$ mit $\alpha\in\F$)
-      gilt $(\Ftpi)^\times=(\F[t]/(t-\alpha))^\times\cong \Fx$ 
-      über $\ov{\beta}\overset{\phi}{\mapsto} \beta\in\Fx$, 
-      also $\KnFtpi\cong\KnF$.
-      Wähle der Einfachheit halber z.B. $\alpha=0$, also $\pi=t$.
-      Für ein Element $\{f_1,\dotsc, f_n\}\in L_0=\im(\iota)$ ist,
-      nachdem alle $f_i$ Einheiten bzgl. der $t$-adischen Bewertung sind,
+      % Für ein Primelement $\pi\in\F[t]$ mit $\deg(\pi)=1$
+      % (d.h. $\pi=t-\alpha$ mit $\alpha\in\F$)
+      % gilt $(\Ftpi)^\times=(\F[t]/(t-\alpha))^\times\cong \Fx$ 
+      % über $\ov{\beta}\overset{\phi}{\mapsto} \beta\in\Fx$, 
+      % also $\KnFtpi\cong\KnF$.
+      % Wähle der Einfachheit halber z.B. $\alpha=0$, also $\pi=t$.
+      Für das Primelement $\pi=t\in\F[t]$ gilt $\F[t]/(\pi)\cong\F$
+      über $\ov\beta\overset{\phi}{\mapsto}\beta\in\F$.
+      Für ein Element $\{f_1,\dotsc, f_n\}\in L_0=\KnF\subset\KnFt$ ist,
+      nachdem alle $f_i\in\Fx\subset\F[t]_{(t)}^\times$ Einheiten 
+      bzgl. der $t$-adischen Bewertung sind,
       \begin{align*}
         \psi_t(\{f_1,\dotsc,f_n\})
-        &=\{\ov{\psi_t(f_1)},\dotsc, \ov{\psi_t(f_n)}\}\\
+        &={\psi_t(f_1)} \otimes\dotsb\otimes {\psi_t(f_n)}\\
         &\overset{\mathllap{\text{$f_i$ Einheiten; 
           \ref{relationspezialisierung}}}}{=}
           \{\ov f_1,\dotsc, \ov f_n\}
       \end{align*}
-      Wenden wir die Gruppenisomorphie $(\F[t]/(t))^\times\cong\Fx,
-      \ov\beta\overset{\phi}{\mapsto}\beta\in\Fx$ an, erhalten wir
-      $(\phi\circ\psi_t)\circ \iota(\{f_1,\dotsc,f_n\}\in\KnF)
-      =\{f_1,\dotsc,f_n\}\in\KnF$,
-      also $(\phi\circ\psi_t)\circ \iota=\id_{\KnF}$, was zeigt, dass
-      $\iota$ Retraktion ist.
+      Wenden wir komponentenweise die Gruppenisomorphie 
+      $\phi\colon(\F[t]/(t))^\times\cong\Fx$ an, 
+      erhalten wir verknüpft mit der Einbettung $\iota$
+      \begin{align*}
+        \phi\circ\psi_t\circ\iota(\{f_1,\dotsc,f_n\})
+        =\phi\circ\psi_t(\{f_1,\dotsc,f_n\})
+        {=}\{\phi(\ov f_1),\dotsc, \phi(\ov f_n)\}
+        =\{f_1,\dotsc,f_n\}\in L_0
+      \end{align*}
+      also $\psi_t\circ \iota=\id_{\KnF}$, was zeigt, dass
+      $\iota$ die Retraktion $\psi_t$ hat.
     \end{proof}
   \end{Lem}
   
-  Für den Beweis von Aussage \ref{2} benötigen wir noch eine genauere
+  Für den Beweis von Aussage \eqref{2} benötigen wir noch eine genauere
   Kenntnis der Struktur von $L_d/L_{d-1}$.
   Tatsächlich kann man jedes Element 
   $\ov{\{f_1,\dotsc,f_n\}}\in L_d/L_{d-1}$ als Summe
@@ -1269,12 +1277,12 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
   Es seien alle Elemente mit $\deg(f_i)=d$ auf den vorderen Stellen 
   (sonst ordne um mit Vorzeichenwechsel nach \ref{identitaetmal}).
   Falls es mehr als ein Element mit $\deg(f_i)=d$ gibt, betrachte
-  die Beziehung $f_1=a f_2 + g$ für ein $a\in\Fx$ und $g\in\F[t]$.
+  die Beziehung $f_1=-af_2+g$ für ein $a\in\Fx$ und $g\in\F[t]$ mit $\deg(g)<d$.
   Falls $g=0$ ist, kann mithilfe von \ref{identitaetquadrat}
-  umgeformt werden zu $\{f_1,-1,\dotsc,f_n\}$.
+  umgeformt werden zu $\{f_1,a,\dotsc,f_n\}\p\{f_1,-1,\dotsc,f_n\}$.
   Ansonsten gilt
   \begin{align*}
-    f_2+af_2=g 
+    f_1+af_2=g 
     &\Rightarrow f_1/g+af_2/g=1\\
     &\Rightarrow 0=\{f_1/g,af_2/g\}=(\{f_1\}\m\{g\})(\{a\}\p\{f_2\}\m\{g\})\\
     &\Rightarrow \{f_1,f_2\}=\m\{f_1,a\}\p\{f_1,g\}\m\{f_2,g\}\p\{g,g\}
@@ -1288,7 +1296,7 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
       \p \{g,g,\dotsc,f_n\}\\
     \intertext{oder}
     \{f_1,f_2,\dotsc,f_n\} 
-    &=\{f_1,-1,\dotsc,f_n\}
+    &=\{f_1,a,\dotsc,f_n\}\p\{f_1,-1,\dotsc,f_n\}
   \end{align*}
   Jeder Summand enthält ein Polynom weniger vom Grad $d$.
   Dies kann induktiv fortgeführt werden und wir erhalten,
@@ -1315,7 +1323,7 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
   $L_d$ auf $0$ geschickt, also alle Erzeugnisse von
   $\{g_1,\dotsc,g_n\}\in\KnFt$ mit $g_i\in\F[t], \deg(g_i)<d$.
 
-  \begin{Lem}[\ref{2}]\label{lem2}
+  \begin{Lem}[\eqref{2}]\label{lem2}
     Es sei für $\partial_\pi\coloneqq \partial_{v_\pi}\colon
     \KnFt\twoheadrightarrow\K_{n-1}(\Ftpi)$
     das Zahme Symbol bzgl. der $\pi$-adischen Bewertung $v_\pi$ auf
@@ -1331,15 +1339,16 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
         \right)_{\pi\in P_d}
     \end{align*}
     wird die Einschränkung und Restriktion $\ov{\partial}_d$ 
-    von $\partial_d$ auf $L_d/L_{d-1}$
+    von $\partial_d$ auf $L_d/L_{d-1}$ 
+    ($\pi,g_i$ wie oben mit $\pi\in P_d, g_i\in\F[t],\deg(g_i)<d$)
     \begin{align*}
       \ov{\partial}_d\colon L_d/L_{d-1}
       &\overset{\thicksim}{\rightarrow} \bigoplus_{\pi\in
         P_d}\K_{n-1}(\Ftpi)\\
-      \ov{\{f_1,\dotsc,f_n\}}
+      \ov{\{\pi,g_2,\dotsc,g_n\}}
       &\mapsto\left(
-        \partial_\pi(\{f_1,\dotsc,f_n\})
-        \right)_{\pi\in P_d}
+        \partial_{\pi'}(\{\pi,g_2,\dotsc,g_n\})
+        \right)_{\pi'\in P_d}
     \end{align*}
     zum wohldefinierten Isomorphismus.
   \end{Lem}
@@ -1530,15 +1539,15 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
   \end{proof}
 
   Wir haben nun die Isomorphie $L_d/L_{d-1}\cong \bigoplus_{\pi\in
-    P_d}\K_{n-1}(\Ftpi)$ aus \ref{2} gezeigt.
-  Zu guter Letzt fehlt noch Aussage \ref{3}, wofür wir die Anmerkungen
+    P_d}\K_{n-1}(\Ftpi)$ aus \eqref{2} gezeigt.
+  Zu guter Letzt fehlt noch Aussage \eqref{3}, wofür wir die Anmerkungen
   zur Struktur von $L_d$ ($d\in\N_1$), dass $L_d$ das Erzeugnis von
   Elementen der Form
   $\{\pi,g_2,\dotsc,g_n\}\in\KnFt$ und $\{g_1,\dotsc,g_n\}\in\KnFt$
   ($\pi\in P_d,g_i\in\F[t],\deg(g_i)<d$) ist,
   brauchen werden.
 
-  \begin{Lem}[Aussage \ref{3}]\label{lem3}
+  \begin{Lem}[Aussage \eqref{3}]\label{lem3}
     Es gilt für alle $d\in\N_1$
     \begin{gather}
       L_d/L_0\cong \bigoplus_{k=1}^d L_k/L_{k-1} \,,
@@ -1565,18 +1574,19 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     Es lässt sich nachrechnen, dass folgendes Erzeugnis wieder eine
     Untergruppe ist
     \begin{align*}
-      U_d&\coloneqq \{\pi_d,g_2,\dotsc,g_n\}\in\KnFt
+      U_d&\coloneqq \left(\{\pi_d,g_2,\dotsc,g_n\}\right)\in\KnFt
       &&\pi_{d}\in P_d, g_i\in\F[t],\deg(g_i)<d-1
     \end{align*}
     und $U_d\cap U_{d-1}=0$.
     Mit $U_d\p U_{d-1}= U_{d,d-2}$,
     und $U_d\cong L_d/L_{d-1}$, $U_{d-1}\cong L_{d-1}/L_{d-2}$,
     folgt nach Algebra, dass
-    $U_{d,d-1}\cong L_d/L_{d-2}$ ein semidirekte Produkt von $U_d\rtimes U_{d-1}$
+    $U_{d,d-1}\cong L_d/L_{d-2}$ ein semidirektes Produkt $U_d\rtimes U_{d-1}$
     ist.
 
-    Das semidirekte Produkt liefert bereits eine Koretraktion von
-    $L_{d-1}/L_{d-2}\cong U_{d-1}$ nach $L_d/L_{d-1}\cong U_{d,d-2}$.
+    Das semidirekte Produkt liefert bereits einen Schnitt von
+    $L_{d-1}/L_{d-2}\cong U_{d-1}$ nach $L_d/L_{d-1}\cong U_{d,d-2}$
+    der kanonischen Projektion.
     Wie wir in \ref{gruppentensorprodukt} gesehen haben, kann jede
     abelsche Gruppe als $\Z$-Modul aufgefasst werden und \ref{spaltendeexaktesequenz}
     trifft zu, so dass die exakte Sequenz
@@ -1591,7 +1601,7 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     spaltend ist. Somit gilt $L_d/L_{d-2}\cong L_{d-1}/L_{d-2}\oplus
     L_d/L_{d-1}$.
     
-    Induktiv folgt Behauptung \ref{3}, wenn man bei $d=1$ beginnt.
+    Induktiv folgt Behauptung \eqref{3}, wenn man bei $d=1$ beginnt.
   \end{proof}
   
   Es ist Satz \ref{milnorfolge} gezeigt.
