@@ -770,13 +770,13 @@ in folgender Weise auf $\KnF$ übertragen:
 
 \begin{Lem}\label{darstellungknf}
   $\KnF$ ist additiv erzeugt von Elementen der Form 
-  $\{\pi, u_{2},\dotsc,v_n\}$
+  $\{\pi, u_{2},\dotsc,u_n\}$
   und $\{u_{1},\dotsc,u_n\}\in\KnF$ mit $\pi\in R_v$ prim und
   $u_i\in \Rx_v$.
   $\pi$ kann fix gewählt werden.
   \begin{proof}
-    Wähle ein fixes Primelement $\pi\in R_v\subset\Fx$
-    und sei $\xi\coloneqq\{a_1,\dotsc, a_n\}\in\KnF\subset\KF$ mit
+    Wähle ein Primelement $\pi\in R_v\setminus\{0\}$
+    und sei $\xi\coloneqq\{a_1,\dotsc, a_n\}\in\KnF$ mit
     $a_1,\dotsc,a_n\in\Fx$. Dann gibt es Darstellungen
     $a_i=\pi^{k_i}\cdot u_i$ mit $k_i\in\Z,u_i\in \Rx_v$ wie
     oben. $\xi$ lässt sich schrittweise additiv schreiben:
@@ -784,9 +784,9 @@ in folgender Weise auf $\KnF$ übertragen:
       \xi=\{a_1,\dotsc,a_n\}
       &=\{\pi^{k_1}u_1, a_2, \dotsc, a_n\}\\
       &=\{\pi^{k_1}, a_2, \dotsc, a_n\}
-        \p\{u_1, a_2 \dotsc, a_n\}\\
+        \p\{u_1, a_2, \dotsc, a_n\}\\
       &=k_1\cdot \{\pi,a_2, \dotsc, a_n\}
-        \p\{u_1, a_2 \dotsc, a_n\}
+        \p\{u_1, a_2, \dotsc, a_n\}
     \end{align*}
     Induktiv wird $\xi$ zu einer Summe aus Produkten der Länge $n$ von
     $\{\pi\}$ und $\{u_i\}$.
@@ -1215,12 +1215,12 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
       von $L_0$:
       \begin{align*}
         L_0
-        &=\left\{\{f_1,\dotsc,f_n\}\in\KnFt 
-          \mid f_i\in\F[t], \deg(f_i)\leq 0\right\}\\
-        &=\left\{\{f_1,\dotsc,f_n\}\in\KnFt 
-          \mid f_i\in\F[t], \deg(f_i)= 0\right\}\\
-        &=\left\{\{f_1,\dotsc,f_n\}\in\KnFt 
-          \mid f_i\in\F\right\}\\
+        &=\left( \{f_1,\dotsc,f_n\}\in\KnFt 
+          \mid f_i\in\F[t], \deg(f_i)\leq 0\right) \\
+        &=\left( \{f_1,\dotsc,f_n\}\in\KnFt 
+          \mid f_i\in\F[t], \deg(f_i)= 0\right) \\
+        &=\left( \{f_1,\dotsc,f_n\}\in\KnFt 
+          \mid f_i\in\F\right) \\
         &=\KnF
       \end{align*}
       Demnach ist die Form der Einbettung von $L_0$ in $\KnFt$
@@ -1391,7 +1391,7 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     
     Betrachte zunächst für ein $\pi\in P_d$ die Zuweisung
     \begin{align*}
-      H_\pi\colon\prod_{k=1}^n \K_1(\Ftpi) 
+      H_\pi\colon\prod_{k=1}^{n-1} \K_1(\Ftpi) 
       &\to L_d/L_{d-1}\\
       \left( l(\ov g_2),\dotsc, l(\ov g_n) \right)
       &\mapsto \ov{\{\pi,g_2,\dotsc,g_n\}}
@@ -1433,10 +1433,14 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
         \left( \{g_2'\}\p \{g_2''\}\m \{g_2\}\right)\\
       &\Leftrightarrow 
         0=\{\pi,g_2'\}\p\{\pi,g_2''\}\m \{\pi,g_2\}
-        \p\{g,g_2'\}\p\{g,g_2''\}\p\{g,g_2\}\\
+        \p\{g,g_2'\}\p\{g,g_2''\}\m\{g,g_2\}\\
+      &\phantom{\Leftrightarrow 0=\{}
+        \m\{g_2,g_2'\}\m\{g_2,g_2''\}\p\{g_2,g_2\}\\
       &\Leftrightarrow 
         \{\pi,g_2\}=\{\pi,g_2'\}\p\{\pi,g_2''\}
-        \p\{g,g_2'\}\p\{g,g_2''\}\p\{g,g_2\}    
+        \p\{g,g_2'\}\p\{g,g_2''\}\m\{g,g_2\}\\
+      &\phantom{\Leftrightarrow\{\pi,g_2\}=\{}
+        \m\{g_2,g_2'\}\m\{g_2,g_2''\}\p\{g_2,g_2\}
     \end{align*}
     Also
     \begin{align*}
@@ -1444,13 +1448,14 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
       \left( l(\ov g_2'),\dotsc,l(\ov g_n)\right)
       &\p \left( l(\ov g_2''),\dotsc,l(\ov g_n) \right)
         \big)
-        =h_\pi\left( \left( l(\ov g_2),\dotsc,l(\ov g_n) \right)
+        =H_\pi\left( \left( l(\ov g_2),\dotsc,l(\ov g_n) \right)
         \right)\\
       &=\ov{\{\pi,g_2,\dotsc,g_n\}}\\
-      &=\ov{\{\pi,g_2',\dotsc,g_n\}} \p \ov{\{\pi,g_2'',\dotsc,g_n\}}\\
-      &\phantom{=~}\p \ov{\{g,g_2',\dotsc,g_n\}}
-        \p \ov{\{g,g_2'',\dotsc,g_n\}} 
-        \p \ov{\{g,g_2,\dotsc,g_n\}}\\
+      &=\ov{\{\pi,g_2',\dotsc\}} \p \ov{\{\pi,g_2'',\dotsc\}}\\
+      &\phantom{=~}\p \ov{\{g,g_2',\dotsc\}}\p\ov{\{g,g_2'',\dotsc\}}
+        \p \ov{\{g,g_2,\dotsc\}}\\
+      &\phantom{=~}\m\ov{\{g_2,g_2',\dotsc\}}\m\ov{\{g_2,g_2'',\dotsc\}}
+        \p\ov{\{g_2,g_2,\dotsc\}}\\
       &\overset{\mathllap{\deg(g),\deg(g_i)<d}}{=}
         \ov{\{\pi,g_2',\dotsc,g_n\}} \p \ov{\{\pi,g_2'',\dotsc,g_n\}}\\
       &=H_\pi\left(\left(l(\ov g_2'),\dotsc,l(\ov g_n)\right)\right)
@@ -1469,7 +1474,7 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     \end{align*}
     
     Sei $l(\ov g_2)\otimes\dotsb\otimes l(\ov g_n)\in\mathcal{A}_n$,
-    d.h. $g_i+g_{i+1}=1$ für ein $2\leq i\leq n$.
+    d.h. $\ov g_i+\ov g_{i+1}=1$ für ein $2\leq i\leq n$.
     \OE{} sei $\ov g_2 + \ov g_3=1$, 
     also $g_2 + g_3 +\pi g=1$ bzw. mit der Wahl
     $\deg(g_2+g_3)<d$ dann $g_2+g_3=1$. Dann gilt
@@ -1563,29 +1568,30 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     Beachten wir die Struktur von $L_d$, können wir $L_d/L_{d-2}$
     schreiben als die dazu isomorphe Untergruppe 
     \begin{align*}
-      U_{d,{d-2}}
+      U_{d-1,d}
       &\coloneqq \left(
         \{\pi_d,g_2,\dotsc,g_n\},
-        \{\pi_{d-1},g_2,\dotsc,g_n\}
+        \{\pi_{d-1},h_2,\dotsc,h_n\}
         \right)\subset\KnFt
     \end{align*}
     wobei $\pi_{d}\in P_d, \pi_{d-1}\in P_{d-1}, 
-    g_i\in\F[t],\deg(g_i)<d-1$.
+    g_i,h_i\in\F[t],\deg(g_i),\deg(h_i)<d-1$.
     Es lässt sich nachrechnen, dass folgendes Erzeugnis wieder eine
     Untergruppe ist
     \begin{align*}
-      U_d&\coloneqq \left(\{\pi_d,g_2,\dotsc,g_n\}\right)\in\KnFt
-      &&\pi_{d}\in P_d, g_i\in\F[t],\deg(g_i)<d-1
+      U_k&\coloneqq \left(\{\pi_k,g_2,\dotsc,g_n\}
+           \mid \pi_{k}\in P_k, g_i\in\F[t],\deg(g_i)<k
+           \right)\in\KnFt
     \end{align*}
     und $U_d\cap U_{d-1}=0$.
-    Mit $U_d\p U_{d-1}= U_{d,d-2}$,
+    Mit $U_d\p U_{d-1}= U_{d-1,d}$,
     und $U_d\cong L_d/L_{d-1}$, $U_{d-1}\cong L_{d-1}/L_{d-2}$,
     folgt nach Algebra, dass
-    $U_{d,d-1}\cong L_d/L_{d-2}$ ein semidirektes Produkt $U_d\rtimes U_{d-1}$
+    $U_{d-1,d}\cong L_d/L_{d-2}$ ein semidirektes Produkt $U_{d-1}\rtimes U_{d}$
     ist.
 
     Das semidirekte Produkt liefert bereits einen Schnitt von
-    $L_{d-1}/L_{d-2}\cong U_{d-1}$ nach $L_d/L_{d-1}\cong U_{d,d-2}$
+    $L_{d}/L_{d-1}\cong U_{d}$ nach $L_d/L_{d-1}\cong U_{d-1,d}$
     der kanonischen Projektion.
     Wie wir in \ref{gruppentensorprodukt} gesehen haben, kann jede
     abelsche Gruppe als $\Z$-Modul aufgefasst werden und \ref{spaltendeexaktesequenz}
@@ -1593,7 +1599,7 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     \begin{center}
       \begin{tikzcd}
         0\arrow{r} & L_{d-1}/L_{d-2}\cong U_{d-1} \arrow{r}
-        & U_{d,d-2}\cong L_d/L_{d-2} \arrow{r} 
+        & U_{d-1,d}\cong L_d/L_{d-2} \arrow{r} 
         &  U_{d}\cong L_d/L_{d-1} \arrow{r} 
         & 0
       \end{tikzcd}
