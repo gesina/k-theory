@@ -12,11 +12,11 @@
 
 \section{Grundlagen der Milnor K-Theorie}
 
-\begin{Bem}[Gruppentensorprodukt]\label{gruppentensorprodukt}
+\begin{Bem}\label{gruppentensorprodukt}
   Eine abelsche Gruppe $(G,+)$ wird mit der Skalarmultiplikation
   \begin{align*}
-    \Z \times G &\to G,\\
-    (n,g)&\mapsto \underbrace{g+\dotsb+g}_{\scriptsize\text{$n$-mal}}
+    \Z \times G &\longrightarrow G,\\
+    (n,g)&\longmapsto \underbrace{g+\dotsb+g}_{\scriptsize\text{$n$-mal}}
   \end{align*}
   zu einem $\Z$-Modul.
   Für zwei abelsche Gruppen $G$ und $H$ ist das 
@@ -62,7 +62,7 @@
   % \end{align*}
   % ====
 
-  Im Folgenden wird für eine Gruppe $G$ das $n$-fache Tensorprodukt
+  Im Folgenden wird für eine Gruppe $G$ das $n$-fache (Gruppen-)Tensorprodukt
   geschrieben als
   \begin{gather*}
     G^{\otimes n}
@@ -72,14 +72,16 @@
 
 \subsection{Die Milnor K-Gruppen}
 Im Folgenden sei $\F$ ein Körper und $\Fx=\F\setminus \{0\}$ seine
-multiplikative Gruppe.
+Einheitengruppe.
 
-\begin{Def}[$\KF$]\label{defkf}
-  Für einen Körper $\F$ definiert man wie folgt die Milnor K-Gruppen
+\begin{Def}\label{defkf}
+  Für einen Körper $\F$ definiert man wie folgt die 
+  \emph{Milnor K-Gruppen}
   \begin{enumerate}[a)]
   \item $\K_0(\F)\coloneqq \Z$
   \item $\K_1(\F)$ ist die multiplikative Gruppe $\Fx$ 
-    additiv geschrieben mit Addition $\p\colon \KoF\times\KoF\to\KoF$
+    additiv geschrieben 
+    %mit Addition $\p\colon \KoF\times\KoF\to\KoF$
     vermöge des Gruppenisomorphismus 
     \begin{align*}
       l\colon \Fx&\to \K_1(\F)&
@@ -98,7 +100,7 @@ multiplikative Gruppe.
       \right)
     \end{gather*}
     Die Relation $a_i+a_{i+1}=1$, die $\mathcal{A}_n$ definiert,
-    wird auch Steinbergrelation genannt.
+    wird auch \emph{Steinbergrelation} genannt.
   \item $\KF\coloneqq \bigoplus_{n\in\N_0}\KnF$
   \end{enumerate}
 \end{Def}
@@ -169,7 +171,7 @@ multiplikative Gruppe.
     &\coloneqq \overline{l(a_1)\otimes l(a_2)\otimes \dotsb \otimes
       l(a_n)} 
     &\in\KF\\ 
-    \intertext{wobei aus den obigen Definitionen folgt}
+    \intertext{wobei aus den obigen Definitionen folgt:}
     \{1\}&=0 &\in\KF\\
     \{ a_1 \cdot a_2 \}
     &=  \{a_1\}\p \{a_2\} = \overline{l(a_1)} \p \overline{l(a_2)}  &\in\KF \\
@@ -191,21 +193,21 @@ einige weitere interessante Eigenschaften der Elemente.
 
 \begin{Lem}\label{identitaetminus}
   Für ein $a \in\Fx$ gilt in $\KF$
-  \begin{gather*}
-    \{a,-a\}=0
-  \end{gather*}
+  $ \{a,-a\}=0 $
   \begin{proof}
     Für den Fall $a=1$ ist $a$ das Nullelement von $\KoF$ und damit ist 
     $\{a,-a\}=\ov{l(1)\otimes l(-1)} = 0\otimes \ov{l(-1)} = 0$.
     Falls $a\neq 1$ gilt, kann $-a$ geschrieben werden als
     $-a=\frac{1-a}{1-a^{-1}}$ und es gilt
     \begin{align*}
+      \SwapAboveDisplaySkip
       \{a,-a\} &= \{a,(1-a)\cdot (1-a^{-1})^{-1}\}\\
                &= \{a,(1-a)\}\p\{a,(1-a^{-1})^{-1}\} \\
                &= \{a,(1-a)\}\m\{a,(1-a^{-1})\} \\
                &= \underbrace{\{a,(1-a)\}}_{=0}
                  \p\underbrace{\{a^{-1},(1-a^{-1})\}}_{=0} 
                  =0
+                 \,.
     \end{align*}
   \end{proof}
 \end{Lem}
@@ -215,10 +217,8 @@ einige weitere interessante Eigenschaften der Elemente.
   \begin{gather*}
     \chi\zeta=(-1)^{mn}\zeta\chi
   \end{gather*}
-  Insbesondere ergibt sich für $a,b\in \Fx$
-  \begin{gather*}
-    \{a,b\}= \m\{b,a\}
-  \end{gather*}
+  und insbesondere ergibt sich für $a,b\in \Fx$, dass
+  $\{a,b\}= \m\{b,a\}$.
   \begin{proof}
     Da alle Elemente in $\KnF$ mit $n>1$ durch Multiplikation aus
     $\KoF$ hervorgehen, genügt es, die Eigenschaft für
@@ -240,7 +240,7 @@ einige weitere interessante Eigenschaften der Elemente.
   \begin{gather*}
     \{a\}^2 = \{a\}\{-1\} = \{-1\}\{a\}
   \end{gather*}
-  und insbesondere durch Induktion $\{a\}^k=\{a\}\otimes\{-1\}^{k-1}$
+  und insbesondere $\{a\}^k=\{a\}\otimes\{-1\}^{k-1}$
   für $k\in\N_1$.
   \begin{proof}
     Der Beweis erfolgt wieder durch einfache Rechnung mit
@@ -252,8 +252,9 @@ einige weitere interessante Eigenschaften der Elemente.
     Mit $(-1)=(-1)^{-1}$ und \ref{identitaetmal} folgt die Kommutativität
     \begin{gather*}
       \{a\}^2 = \{a,-1\}= \m\{a,(-1)^{-1}\} 
-      \overset{\ref{identitaetmal}}{=} \{(-1)^{-1},a\} = \{-1,a\}
+      \overset{\ref{identitaetmal}}{=} \{(-1)^{-1},a\} = \{-1,a\}\,.
     \end{gather*}
+    Die zweite Aussage folgt durch Induktion.
   \end{proof}
 \end{Lem}
 
@@ -281,6 +282,7 @@ einige weitere interessante Eigenschaften der Elemente.
       = ij\{a_0,a_0^{2^k}\} = ij\{a_0, (-a_0)^{2^k}\} =
       2^kij\{a_0,-a_0\} 
       \overset{\ref{identitaetminus}}{=} 0
+      \,.
     \end{gather*}
 
     Falls $q>2$, kann genutzt werden, dass $2\{a,b\}=0\;\forall a,b\in\Fx$,
@@ -290,6 +292,7 @@ einige weitere interessante Eigenschaften der Elemente.
       \{a,b\} = \{a_0^i,a_0^j\} = ij\{a_0,a_0\} 
       \overset{\ref{identitaetmal}}{=} \m ij\{a_0,a_0\}
       = \m \{a_0^i,a_0^j\} = \m\{a,b\} 
+      \,.
     \end{gather*}
     Damit verschwinden bereits alle Elemente der Form 
     $\{a^2,b\}=2\{a,b\}=\{a,b^2\}$. Es bleibt demnach zu zeigen, dass
@@ -347,9 +350,9 @@ einige weitere interessante Eigenschaften der Elemente.
       \Fx\setminus\{1\}&\to \Fx\setminus\{1\}
       &x\mapsto 1-x
     \end{align*}
-    Wegen der Überzahl der Nichtquadrate um 1 muss gemäß simpler
-    Kombinatorik wenigstens ein Nichtquadrat $a$  auf ein Nichtquadrat
-    $1-a=b$ abgebildet werden, was die Existenz
+    Die Überzahl der Nichtquadrate um 1 liefert mit einfacher
+    Kombinatorik, dass wenigstens ein Nichtquadrat $a$ auf ein Nichtquadrat
+    $1-a=b$ abgebildet wird, was die Existenz
     von $a,b\in\Fx$ wie oben zeigt.
 
     Nachdem wir uns jetzt erarbeitet haben, dass es Nichtquadrate
@@ -398,32 +401,34 @@ bewerteten Körper betrachten.
 % \end{Def}
 % ====
 
-\begin{Def}[Bewertungsring]\label{defbewertungsring}
+\begin{Def}\label{defbewertungsring}
   Ein Integritätsring $R$ mit Quotientenkörper $\Quot(R)=\F$ heißt
-  Bewertungsring, falls $\forall x\in\F\colon x\in R$ oder
+  Bewertungsring (kurz BWR), falls für alle $x\in\F\colon x\in R$ oder
   $x^{-1}\in R$.
-  Wir sagen auch $R$ ist Bewertungsring zum Körper $\F$.
+  Wir sagen auch $R$ ist \emph{Bewertungsring} zum Körper $\F$.
 \end{Def}
 
-\begin{Def}[Bewertung]
+\begin{Def}
   Sei $\F$ Körper, $(\Gamma,+,\leq)$ eine total geordnete, abelsche
   Gruppe und $\infty$ ihr Supremum.
   Eine Abbildung $v\colon\F\to\Gamma\cup\{\infty\}$
-  heißt Bewertungsabbildung oder kurz Bewertung,
-  falls sie folgendes erfüllt
+  heißt Bewertungsabbildung oder kurz \emph{Bewertung},
+  falls sie für alle $a,b\in\F$ Folgendes erfüllt:
   \begin{enumerate}[(1)]
   \item $v(a)=\infty \Longleftrightarrow a=0$
   \item $v(ab)=v(a)+v(b)$~~(d.h. $v|_{\Fx}$ ist Gruppenhomomorphismus)
   \item $v(a+b)\geq \min\{v(a),v(b)\}$
   \end{enumerate}
-  Die Untergruppe $v(\Fx)$ heißt Bewertungsgruppe.
+  Die Untergruppe $v(\Fx)$ heißt \emph{Bewertungsgruppe}.
 \end{Def}
 
-\begin{Satz}[Eigenschaften Bewertungsringe]\label{eigbewertungsring}
+\begin{Satz}\label{eigbewertungsring}
   Sei $R$ Bewertungsring zum Körper $\F$, dann gilt
   \begin{enumerate}[i)]
   \item Die Ideale von $R$ sind total geordnet bzgl. 
-    \enquote{$\subset$} und $R$ ist lokal.
+    \enquote{$\subset$} und $R$ ist lokal. 
+    Für das Maximale Ideal $\frakm$ wird der Körper $R/\frakm$
+    \emph{Restklassenkörper} von $R$ genannt.
   \item Es gibt eine Bewertung $v\colon\F\to\Gamma\cup\{\infty\}$
     auf $\F$ in eine total geordnete, abelsche Gruppe
     $(\Gamma,+,\leq)$ vereint mit ihrem Supremum $\infty$ und es gilt
@@ -437,7 +442,7 @@ bewerteten Körper betrachten.
   \begin{proof}
     \begin{enumerate}[i)]
     \item Wir zeigen, dass für zwei Ideale $I\neq J\subset R$ bereits
-      eines das andere enthalten muss. Es gebe also \OE{} ein $x\in I$
+      eines das andere enthalten muss. Es gebe also ohne Einschränkung ein $x\in I$
       mit $x\not\in J$. Für ein $y\in J$ ist $\frac{x}{y}\not\in R$,
       da sonst $y\cdot \frac{x}{y}=x\in J$ gelten würde.
       Weil $R$ Bewertungsring ist, muss aber
@@ -447,7 +452,7 @@ bewerteten Körper betrachten.
       Weil es nur ein maximales Element bzgl. einer totalen Ordnung
       gibt, kann $R$ nur ein maximales Ideal haben und ist somit
       lokal.
-    \item Für die Konstruktion einer solchen Bewertungsabbildung
+    \item Für die Konstruktion einer solchen Bewertung
       benötigen wir eine entsprechende total geordnete Gruppe $\Gamma$.
       Es ist
       \begin{gather*}
@@ -463,8 +468,9 @@ bewerteten Körper betrachten.
       \end{gather*}
       ist wie in i) total.
       Denn betrachte beliebige $x,y\in\Fx$ mit $xR\neq yR$.
-      \OE{} $xR\setminus yR\neq \varnothing$ und $xa\in xR\setminus yR,
-      a \in R$. Dann ist für beliebiges $b\in R$ wie oben 
+      Ohne Einschränkung $xR\setminus yR\neq \varnothing$ 
+      und $xa\in xR\setminus yR, a \in R$. 
+      Dann ist für beliebiges $b\in R$ wie oben 
       $\frac{xa}{yb}\not\in R$, denn sonst wäre 
       $y(b\cdot\frac{xa}{yb})=xa \in yR$.
       Nachdem $R$ Bewertungsring ist, muss also $\frac{yb}{xa}\in R$
@@ -476,7 +482,7 @@ bewerteten Körper betrachten.
         \forall x\in \Fx\colon\;v(x)&\coloneqq xR\in\Gamma
         &v(0)&\coloneqq \infty
       \end{align*}
-      ist $v$ eine Bewertungsabbildung. 
+      ist $v$ eine Bewertung. 
       Außerdem gilt für beliebiges $x\in\F$ 
       \begin{gather*}
         v(x)\geq 0=v(1)
@@ -485,14 +491,15 @@ bewerteten Körper betrachten.
       \end{gather*}
       weshalb $R=\{x\in\F\mid v(x)\geq 0\}$.
     \item Dass ein entsprechendes $v$ aus ii) bereits eindeutig
-      durch $v|_{R}$ definiert ist, folgt leicht aus
+      durch $v|_{R}$ definiert ist, folgt daraus, dass für alle
+      $x\in\F$ wegen $R$ Bewertungsring entweder
+      $x\in R$ oder $x^{-1}\in R$ und damit
       \begin{gather*}
         v(x)+v(x^{-1}) = v(x\cdot x^{-1}) = v(1) = R  =
-        \text{Nullelement in }\Gamma.
-        \Longrightarrow v(x^{-1})=-v(x)
+        \text{Nullelement in }\Gamma
       \end{gather*}
-      und $x\in R$ oder $x^{-1}\in R$ für alle $x\in\F$ wegen $R$
-      Bewertungsring.
+      weshalb für beliebiges $x\in\Fx$ bereits $v(x)$ oder
+      $v(x^{-1})=-v(x)$ definiert ist.
     \end{enumerate}
   \end{proof}
 \end{Satz}
@@ -500,11 +507,11 @@ bewerteten Körper betrachten.
 
 Tatsächlich ist ein Integritätsring genau dann
 ein Bewertungsring nach Definition \ref{defbewertungsring},
-wenn man eine Bewertungsabbildung $v$ auf $\F$ bzw. $R$ findet,
+wenn man eine Bewertung $v$ auf $\F$ bzw. $R$ findet,
 wie wir jetzt sehen werden.
 
 \begin{Satz}\label{bewertungsringausbewertung}
-  Sei $\F$ ein Körper mit einer Bewertungsabbildung
+  Sei $\F$ ein Körper mit einer Bewertung
   $v\colon\F\to\Gamma\cup\{\infty\}$ in eine total geordnete, abelsche Gruppe
   $\Gamma$. Dann gilt:
   \begin{enumerate}[i)]
@@ -575,7 +582,7 @@ den Bewertungen auf einem Körper $\F$ und den Bewertungsringen, die in ihm
 enthalten sind. Denn verknüpft man eine Bewertung
 $v\colon\F\to\Gamma\cup\{\infty\}$ mit einem ordnungsverträglichen
 Isomorphismus $\Gamma\to\Gamma'$, ist das Ergebnis wieder eine
-Bewertungsabbildung mit demselben Bewertungsring, wie wir im Beispiel
+Bewertung mit demselben Bewertungsring, wie wir im Beispiel
 sehen werden.
 
 \begin{Bsp}
@@ -595,11 +602,11 @@ sehen werden.
     macht.
     Es ist aber genauso $v'\coloneqq 3\cdot v$ mit 
     $v'(\frac{a}{b})=p^n\frac{u_1}{u_2}\in\Z_{(p)}=3n$
-    eine Bewertungsabbildung, denn $x\mapsto 3x$ ist ein mit der
+    eine Bewertung, denn $x\mapsto 3x$ ist ein mit der
     Ordnung verträglicher Gruppenisomorphismus zwischen $\Z$ und $3\Z$.
 \end{Bsp}
 
-Um eine Eindeutigkeit der Bewertungsabbildung, die einen
+Um eine Eindeutigkeit der Bewertung, die einen
 Bewertungsring erzeugt, zu erhalten, kann man entweder die
 Isomorphieklassen der Bewertungen betrachten, oder eine Form von
 Normierung vornehmen, die dann nur die Identität als Isomorphismus
@@ -614,7 +621,7 @@ dass Elemente solcher Körper sich als Produkte aus einem fix gewählten
 Primelement und Einheiten ihres Bewertungsrings darstellen lassen.
 
 \begin{Def}
-  Eine Bewertungsabbildung $v\colon\F\to\Gamma\cup\{\infty\}$
+  Eine Bewertung $v\colon\F\to\Gamma\cup\{\infty\}$
   auf einem Körper $\F$ heißt diskret, falls $\Gamma=\Z$ gewählt
   werden kann und $v$ surjektiv ist (insbes. $v^{-1}(1)\neq \varnothing$).
   Ein Bewertungsring heißt diskret, falls er Bewertungsring zu einer
@@ -688,7 +695,7 @@ Primelement und Einheiten ihres Bewertungsrings darstellen lassen.
         v(ab)=v(u_a\pi^iu_b\pi^j)=v(u_au_b\pi^{i+j})
         = i+j =v(a)+v(b)
       \end{gather*}
-      und wegen (\OE{} $i\leq j$)
+      und wegen (ohne Einschränkung $i\leq j$)
       $a+b=u_a\pi^i+u_b\pi^j=(u_a+u_b\pi^{j-i})\pi^i$
       ist $v(ab)\geq \min(v(a),v(b))$.
       Nachdem $\pi^k\in v^{-1}(k)$ für beliebiges $k\in\Z$, ist
@@ -731,7 +738,7 @@ Primelement und Einheiten ihres Bewertungsrings darstellen lassen.
       \{v\colon \F\to\Z\cup\{\infty\} 
       \mid \text{$v$ diskrete Bewertung}\}
       \cong 
-      \{R\subset \F\mid \text{$R$ diskreter Bewertungsring auf $\F$}\}
+      \{R\subset \F\mid \text{$R$ diskreter BWR auf $\F$}\}
     \end{gather*}
   \end{enumerate}
 \end{Bem}
@@ -757,7 +764,7 @@ Primelement und Einheiten ihres Bewertungsrings darstellen lassen.
 
 \section{Höhere Zahme Symbole und Spezialisierungsabbildungen}
 Im Folgenden sei $\F$ ein diskret bewerteter Körper mit
-Bewertungsabbildung $v\colon \F\to\Z\cup\{\infty\}$ und
+Bewertung $v\colon\F\to\Z\cup\{\infty\}$ und
 $\overline{\F}$ der Restklassenkörper $R_v/\frakm_v$ 
 des zugehörigen Bewertungsrings $R_v=\left\{x\in\F\mid v(x)\geq0\right\}$
 über dessen Maximalideal $\frakm_v=\left\{x\in\F\mid v(x)>0\right\}=(\pi)$.
@@ -843,9 +850,13 @@ in folgender Weise auf $\KnF$ übertragen:
   \item Das Zahme Symbol ist surjektiv. 
     Denn für einen lokalen Ring
     $R_v$ – wie der Bewertungsring $(R_v,\frakm_v)$ in unserem Fall –
-    gilt $R_v\setminus\frakm_v=\Rx_v$, d.h. $\Rx_v=R_v\setminus\frakm_v
-    =\pr_{R_v/\frakm_v}^{-1}\left((R_v/\frakm_v)\setminus \{\ov0\}\right)
-    =\pr_{R_v/\frakm_v}^{-1}\left( (R_v/\frakm_v)^\times\right)$. 
+    gilt $R_v\setminus\frakm_v=\Rx_v$, d.h. 
+    \begin{gather*}
+      \Rx_v=R_v\setminus\frakm_v
+      =\pr_{R_v/\frakm_v}^{-1}\left((R_v/\frakm_v)\setminus \{\ov0\}\right)
+      =\pr_{R_v/\frakm_v}^{-1}\left( (R_v/\frakm_v)^\times\right)
+      \,.
+    \end{gather*}
     Damit finden sich für alle 
     $v_1,\dotsc,v_n\in \bFx = (R_v/\frakm_v)^\times$
     Lifts $u_1,\dotsc, u_n\in\Rx_v    
@@ -1046,8 +1057,7 @@ Beachte, dass es nach \ref{homomorphismen} eine Surjektion
 \end{gather*}
 gibt.
 
-Vorerst noch ein Begriff, den wir später verwenden werden.
-\begin{Def}[spaltende exakte Sequenz]\label{spaltendeexaktesequenz}
+\begin{Def}\label{spaltendeexaktesequenz}
   Eine exakte Sequenz von Moduln oder abelschen Gruppen
   \begin{center}
     \begin{tikzcd}
@@ -1096,7 +1106,7 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     \cong \Fx
     \oplus\bigoplus_{\pi\in P}\Z
   \end{gather*}
-  Dies ist anschaulich die Zerlegung eines
+  Dies entspricht der Zerlegung eines
   Polynoms in seine irreduziblen Faktoren.
 \end{Bem}
 \begin{proof}[Beweis zu \ref{milnorfolge}]
@@ -1127,7 +1137,8 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
       0\ar[r] &L_0\ar[r] &L_d\ar[r] &L_d/L_0 \ar[r] &0
     \end{tikzcd}
   \end{center}
-  Wir werden nacheinander zeigen, dass gilt
+  Wir werden nacheinander in den folgenden Lemmata
+  \ref{lem1}, \ref{lem2} und \ref{lem3} zeigen, dass gilt
   \begin{align}
     L_0&\cong \KnF\hookrightarrow \KnFt  \label{1}\\
     \intertext{
@@ -1137,19 +1148,19 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     }
     L_d/L_{d-1}&\cong \bigoplus_{\pi\in P_d} \K_{n-1}(\Ftpi)\label{2}
   \end{align}
-  Danach haben wir, mithilfe der Isomorphie
+  sowie zuletzt die Gruppenisomorphie
   \begin{gather} \label{3}
     L_d/L_0\cong \bigoplus_{k=1}^d L_k/L_{k-1} \,,
   \end{gather}
-  insgesamt aus \eqref{2} und \eqref{3}
-  \begin{align}\label{4}
+  Diese drei Aussagen liefern dann insgesamt die Isomorphie
+  \begin{align*}
     L_d/L_0
     \cong \bigoplus_{k=1}^d L_k/L_{k-1}
     \cong \bigoplus_{k=1}^d\bigoplus_{\pi\in P_k} \K_{n-1}(\Ftpi)
     = \bigoplus_{\substack{k\leq d\\\pi\in P_k}}
     \K_{n-1}(\Ftpi)
-  \end{align}
-  Zusammengesetzt ergibt das für jedes $d\in\N_1$ die Sequenz
+  \end{align*}
+  und zusammengesetzt für jedes $d\in\N_1$ die exakte Sequenz
   \begin{center}
     \begin{tikzcd}
       0\ar[r] &L_0\ar[r]\disoarrow &L_d\ar[r] &L_d/L_0 \ar[r]\disoarrow &0\\
@@ -1199,15 +1210,16 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
   \end{align*}
   folgt dann die exakte Sequenz aus \ref{milnorfolge}.
   Dass diese spaltend ist, werden wir nach
-  \ref{spaltendeexaktesequenz} damit zeigen, dass
+  \ref{spaltendeexaktesequenz} in \ref{lem1} damit zeigen, dass
   die kanonische injektive Einbettung $L_0\cong\KnF\to\KnFt$ 
   eine Retraktion hat.
+\end{proof}
 
   Es bleibt also zum einen zu zeigen, dass \eqref{1} gilt und die Einbettung eine
-  Retraktion hat, und zum anderen, dass \eqref{2} gilt, woraus mit \eqref{3} dann wie
-  oben \eqref{4} folgt.
+  Retraktion hat, und zum anderen, dass \eqref{2} und \eqref{3}
+  gelten.
   
-  \begin{Lem}[Aussage \eqref{1}]
+  \begin{Lem}[Aussage \eqref{1}]\label{lem1}
     Es gilt $L_0\cong \KnF\overset{\iota}{\hookrightarrow} \KnFt$
     und $\iota$ hat eine Retraktion.
     \begin{proof}
@@ -1408,7 +1420,7 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
 
     Wähle also ein beliebiges Element 
     $\left(l(\ov g_2),\dotsc,l(\ov g_n)\right)\in\prod_{k=1}^n\K_1(\Ftpi)$.
-    Sei \OE{} $i=2$ und $\ov g_i=\ov g_2=\ov g_2'\ov g_2''\in(\Ftpi)^\times$.
+    Sei ohne Einschränkung $i=2$ und $\ov g_i=\ov g_2=\ov g_2'\ov g_2''\in(\Ftpi)^\times$.
     d.h. 
     \begin{gather*}
       (l(\ov g_2),\dotsc, l(\ov g_n))
@@ -1416,10 +1428,8 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     \end{gather*}
     Es gilt für die eindeutigen Lifts
     $g_2,g_2',g_2''\in\F[t]\setminus\{0\}$ mit Grad kleiner $d$, dass 
-    \begin{gather*}
-      g_2=\pi g + g_2'g_2''
-      \qquad\text{für ein }g\in\F[t]\text{ mit }\deg(g)<d
-    \end{gather*}
+    für ein $g\in\F[t]$ mit $\deg(g)<d$ die Gleichung
+    $g_2=\pi g + g_2'g_2''$ erfüllt ist.
     Wir betrachten den Fall $g\neq 0$ ($g=0$ analog)
     und erhalten
     \begin{align*}
@@ -1475,7 +1485,7 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     
     Sei $l(\ov g_2)\otimes\dotsb\otimes l(\ov g_n)\in\mathcal{A}_n$,
     d.h. $\ov g_i+\ov g_{i+1}=1$ für ein $2\leq i\leq n$.
-    \OE{} sei $\ov g_2 + \ov g_3=1$, 
+    Ohne Einschränkung sei $\ov g_2 + \ov g_3=1$, 
     also $g_2 + g_3 +\pi g=1$ bzw. mit der Wahl
     $\deg(g_2+g_3)<d$ dann $g_2+g_3=1$. Dann gilt
     \begin{gather*}
@@ -1610,13 +1620,11 @@ eine Zerlegung von $\KnF(t)$ bestimmt werden.
     Induktiv folgt Behauptung \eqref{3}, wenn man bei $d=1$ beginnt.
   \end{proof}
   
-  Es ist Satz \ref{milnorfolge} gezeigt.
-\end{proof}
+  Damit ist Satz \ref{milnorfolge} vollständig gezeigt.
 
 % ------------------------------------------------------------------
 
-\printindex
-
+\newpage
 \nocite{*}
 \printbibliography
 
