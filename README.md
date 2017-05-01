@@ -17,7 +17,7 @@ Die Hauptquelle ist *Algebraic K-theory and quadratic forms* von J. Milnor.
 ## Kompilieren
 (Getestete) Systemvoraussetzungen: **TeXLive2016**-Distribution
 
-Zum Kompilieren den folgenden Befehle in dieser Reihenfolge ausführen
+Zum Kompilieren folgende Befehle in dieser Reihenfolge ausführen
 
 ```bash
 pdflatex k-theory_script.tex
